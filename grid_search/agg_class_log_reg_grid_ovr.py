@@ -15,7 +15,7 @@ import os
 import pandas as pd
 import numpy as np
 
-DATA_PATH = "/home/armando/ml/tf/py_code/agg/"
+DATA_PATH = "../data/"
 
 def load_aggression_data (housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, "agr_en_train.csv")
