@@ -1,2 +1,2 @@
 # aggression_identification
-Identify aggresive language using Logistic Regression classifier.
+Identification of aggresive language using Logistic Regression classifier.
