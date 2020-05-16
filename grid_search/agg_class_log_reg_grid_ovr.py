@@ -98,19 +98,25 @@ parameters = [
         'clf__multi_class': ('ovr',),
         'clf__solver': ('liblinear',),
         'clf__C': (0.001, 0.01, 0.1, 1.0, 5.0, 10.0, 50.0, 100.0, 200.0, 300.0, 500.0),
+        #'clf__C': (6.0, 8.0, 10.0, 20.0, 30.0, 40.0),
+        'clf__max_iter': (200,),
         },
     {#'clf__max_iter': (90,),
         'clf__penalty': ('l2',),
         'clf__multi_class': ('ovr',),
         'clf__solver': ('lbfgs','newton-cg','sag',),
         'clf__C': (0.001, 0.01, 0.1, 1.0, 5.0, 10.0, 50.0, 100.0, 200.0, 300.0, 500.0),
+        #'clf__C': (6.0, 8.0, 10.0, 20.0, 30.0, 40.0),
+        'clf__max_iter': (200,),
         },
     {#'clf__max_iter': (90,),
         'clf__penalty': ('elasticnet',),
-        'clf__l1_ratio':(0.5, 1,),
+        'clf__l1_ratio':(0, 0.5, 1,),
         'clf__multi_class': ('ovr',),
         'clf__solver': ('saga',),
         'clf__C': (0.001, 0.01, 0.1, 1.0, 5.0, 10.0, 50.0, 100.0, 200.0, 300.0, 500.0),
+        #'clf__C': (6.0, 8.0, 10.0, 20.0, 30.0, 40.0),
+        'clf__max_iter': (200,),
         }
     ]
 #%%
@@ -123,7 +129,7 @@ if __name__ == "__main__":
     print("Performing grid search...")
     
     for text_clf, param in zip(pipelines, parameters):
-        gs_clf = GridSearchCV(text_clf, param, n_jobs=-1, scoring='f1_macro')
+        gs_clf = GridSearchCV(text_clf, param, n_jobs=-1, scoring='f1_macro', verbose=2)
         print("Performing grid search...")
         print("pipeline:", [name for name, _ in text_clf.steps])
         print("parameters:")
