@@ -138,13 +138,6 @@ if __name__ == "__main__":
         for param_name in sorted(param.keys()):
             print("\t%s: %r" % (param_name, best_parameters[param_name]))
     
-    
-    # print("Best score: %0.3f" % gs_clf.best_score_)
-    # print("Best parameters set:")
-    # best_parameters = gs_clf.best_estimator_.get_params()
-
-    # for param in parameters:
-    #     for param_name in sorted(param.keys()):
-    #         print("\t%s: %r" % (param_name, best_parameters[param_name]))    
+      
     
 
