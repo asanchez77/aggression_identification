@@ -88,6 +88,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import f1_score
 
 #%%
 
@@ -134,9 +135,16 @@ if __name__ == "__main__":
         pprint(param)
         t0 = time()
         gs_clf = gs_clf.fit(agg_comments_train,agg_labels_train_encoded.ravel())
+        print("Fit completed.")
         predicted = gs_clf.predict(agg_comments_dev)
-        print(predicted)
+
+    predicted = predicted.reshape(agg_labels_dev_encoded.shape)
+    print(predicted)
     
+    print("F1 score: ", f1_score(agg_labels_dev_encoded, predicted, average='macro'))
+    #print("comparing")
+    #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
+        #print(real_label, predicted_label)
       
     
 
