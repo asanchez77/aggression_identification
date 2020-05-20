@@ -127,7 +127,7 @@ if __name__ == "__main__":
     predicted = clf.predict(agg_comments_dev)
 
     predicted = predicted.reshape(agg_labels_dev_encoded.shape)
-    print(predicted)
+    print(predicted) 
     
     print("F1 score: ", f1_score(agg_labels_dev_encoded, predicted, average='macro'))
     
