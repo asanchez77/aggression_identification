@@ -92,11 +92,15 @@ from sklearn.metrics import f1_score
 
 #%%
 
-pipelines = [
-    Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+clf = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression() )
-                ])]
+              ('clf', LogisticRegression(penalty = 'l2',
+                                         multi_class = 'ovr' ,
+                                         solver='liblinear',
+                                         C= 10.0,
+                                         #max_iter = 300))
+                                         ))
+                ])
 
 #%%
 
@@ -127,16 +131,12 @@ if __name__ == "__main__":
 
     print("Training model...")
     
-    for text_clf, param in zip(pipelines, parameters):
-        gs_clf = GridSearchCV(text_clf, param, n_jobs=-1, scoring='f1_macro', verbose=0)
-        #print("Performing grid search...")
-        print("pipeline:", [name for name, _ in text_clf.steps])
-        print("parameters:")
-        pprint(param)
-        t0 = time()
-        gs_clf = gs_clf.fit(agg_comments_train,agg_labels_train_encoded.ravel())
-        print("Fit completed.")
-        predicted = gs_clf.predict(agg_comments_dev)
+    print("pipeline:", [name for name, _ in clf.steps])
+    
+    t0 = time()
+    clf = clf.fit(agg_comments_train,agg_labels_train_encoded.ravel())
+    print("Fit completed.")
+    predicted = clf.predict(agg_comments_dev)
 
     predicted = predicted.reshape(agg_labels_dev_encoded.shape)
     print(predicted)
