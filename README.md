@@ -27,7 +27,6 @@ Code used to find the best parameters for the classifier using multinomial schem
 Code used to find the best parameters for the classifier using one-versus-rest scheme. 
 
 ### Outputs during training
-
- 	* output_multinominal_2020_05_12.txt
+  * output_multinominal_2020_05_12.txt
   * output_multinominal_max_iter_300_2020_05_20.txt
   * output_ovr_2020_05_16_0031.txt
