@@ -80,9 +80,29 @@ from sklearn.metrics import f1_score
 
 #%%
 
-clf = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
               ('clf', LogisticRegression(penalty = 'l2',
+                                         multi_class = 'ovr' ,
+                                         solver='liblinear',
+                                         C= 5.0,
+                                         #max_iter = 300))
+                                         ))
+                ])
+
+clf_CAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+                                        ngram_range=(1, 5), lowercase=True) ),
+              ('clf', LogisticRegression(penalty = 'l2',
+                                         multi_class = 'ovr' ,
+                                         solver='liblinear',
+                                         C= 100.0,
+                                         #max_iter = 300))
+                                         ))
+                ])
+
+clf_OAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+                                        ngram_range=(1, 5), lowercase=True) ),
+              ('clf', LogisticRegression(penalty = 'l1',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
                                          C= 10.0,
@@ -90,41 +110,26 @@ clf = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
                                          ))
                 ])
 
-#%%
-
-parameters = [
-    {
-        'clf__penalty': ('l2',),
-        'clf__multi_class': ('ovr',),
-        'clf__solver': ('liblinear',),
-        'clf__C': (10.0,),
-
-        # 'clf__penalty': ('l2',),
-        # 'clf__multi_class': ('ovr',),
-        # 'clf__solver': ('lbfgs',),
-        # 'clf__C': (10.0,),
-
-        # 'clf__penalty': ('elasticnet',),
-        # 'clf__l1_ratio':(0,),
-        # 'clf__multi_class': ('ovr',),
-        # 'clf__solver': ('saga',),
-        # 'clf__C': (10,),
-        }
-    ]
-#%%
 
 if __name__ == "__main__":
     # multiprocessing requires the fork to happen in a __main__ protected
     # block
 
     print("Training model...")
-    
-    print("pipeline:", [name for name, _ in clf.steps])
-    
+
+    if focus_label=='NAG':
+        clf_current = clf_NAG
+    if focus_label=='CAG':
+        clf_current = clf_CAG
+    if focus_label=='OAG':
+        clf_current = clf_OAG
+
+    print("pipeline:", [name for name, _ in clf_current.steps])
+    print(clf_current['clf'])
     t0 = time()
-    clf = clf.fit(agg_comments_train,agg_labels_train_encoded.ravel())
+    clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
     print("Fit completed.")
-    predicted = clf.predict(agg_comments_dev)
+    predicted = clf_current.predict(agg_comments_dev)
 
     predicted = predicted.reshape(agg_labels_dev_encoded.shape)
     print(predicted)
