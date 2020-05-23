@@ -61,3 +61,20 @@ OAG
         clf__multi_class: 'ovr'
         clf__penalty: 'l1'
         clf__solver: 'liblinear'
+
+    Best score: 0.651
+    Best parameters set:
+        clf__C: 100.0
+        clf__max_iter: 200
+        clf__multi_class: 'ovr'
+        clf__penalty: 'l2'
+        clf__solver: 'sag'
+
+    Best score: 0.657
+    Best parameters set:
+        clf__C: 300.0
+        clf__l1_ratio: 1
+        clf__max_iter: 200
+        clf__multi_class: 'ovr'
+        clf__penalty: 'elasticnet'
+        clf__solver: 'saga'
