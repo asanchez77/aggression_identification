@@ -17,40 +17,35 @@ import numpy as np
 
 DATA_PATH = "../data/"
 
-def load_aggression_data (housing_path = DATA_PATH):
-    csv_path = os.path.join(housing_path, "agr_en_train.csv")
+
+def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
+    csv_path = os.path.join(housing_path, csvfile)
     return pd.read_csv(csv_path,header=None)
 
-agg_data = load_aggression_data()
+def load_aggresion_data(csvfile):
+    agg_data = load_aggression_data_file(csvfile)
+    """Drop the information not used: facebook identifier"""
+    agg_data = agg_data.drop(0, axis=1)    
+    #Rename the columns
+    agg_data = agg_data.rename(columns={1:"comment",2:"agg_label"})
+    print(agg_data["comment"])
+    print(agg_data["agg_label"])
+    # Obtain the labels and the comments
+    agg_labels  = np.array(agg_data["agg_label"]).reshape(-1,1)
+    agg_comments = agg_data["comment"]
+    return [agg_labels, agg_comments]
 
-#%%
-"""Drop the information not used: facebook identifier"""
-agg_data = agg_data.drop(0, axis=1)
+[agg_labels, agg_comments] = load_aggresion_data("agr_en_train.csv")
 
-#%%
+def redifine_labels(agg_labels, focus_label):
+    for i in range(len(agg_labels)):
+        if agg_labels[i] != focus_label:
+            agg_labels[i] = "OTHER"
+    print (agg_labels)
+    return agg_labels
 
-#Rename the columns
-agg_data = agg_data.rename(columns={1:"comment",2:"agg_label"})
-
-
-#%%
-#print(agg_data.head())
-print(agg_data["comment"])
-print(agg_data["agg_label"])
-
-#%%
-agg_data.info()
-
-#%%
-print(agg_data.describe())
-
-#%%
-# Obtain the labels and the comments
-
-agg_labels  = np.array(agg_data["agg_label"]).reshape(-1,1)
-agg_comments = agg_data["comment"]
-
-#%%
+focus_label = 'OAG'
+agg_labels = redifine_labels(agg_labels, focus_label)
 
 from sklearn.preprocessing import OrdinalEncoder
 
