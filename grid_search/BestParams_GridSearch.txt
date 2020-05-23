@@ -2,8 +2,8 @@
 
 NAG
 	
-	Best score: 0.715
-	Best parameters set:
+    Best score: 0.715
+    Best parameters set:
         clf__C: 5.0
         clf__max_iter: 200
         clf__multi_class: 'ovr'
@@ -11,7 +11,7 @@ NAG
         clf__solver: 'liblinear'
 
     Best score: 0.715
-	Best parameters set:
+    Best parameters set:
         clf__C: 5.0
         clf__max_iter: 200
         clf__multi_class: 'ovr'
@@ -19,7 +19,7 @@ NAG
         clf__solver: 'newton-cg'
 
     Best score: 0.715
-	Best parameters set:
+    Best parameters set:
         clf__C: 5.0
         clf__l1_ratio: 0
         clf__max_iter: 200
@@ -28,8 +28,8 @@ NAG
         clf__solver: 'saga'
 
 CAG
-	Best score: 0.590
-	Best parameters set:
+    Best score: 0.590
+    Best parameters set:
         clf__C: 100.0
         clf__max_iter: 200
         clf__multi_class: 'ovr'
