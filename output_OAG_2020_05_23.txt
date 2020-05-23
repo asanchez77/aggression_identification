@@ -1,0 +1,100 @@
+0        Well said sonu..you have courage to stand agai...
+1        Most of Private Banks ATM's Like HDFC, ICICI e...
+2           Now question is, Pakistan will adhere to this?
+3        Pakistan is comprised of fake muslims who does...
+4        ??we r against cow slaughter,so of course it w...
+                               ...                        
+11995    They belong to you flight dirty terrorist coun...
+11996    Really motivating programme, congratulations t...
+11997                                      fabricated news
+11998                 What's wrong with you secular idiots
+11999    Looks like inevitable after all political hard...
+Name: comment, Length: 12000, dtype: object
+0        OAG
+1        NAG
+2        OAG
+3        OAG
+4        NAG
+        ... 
+11995    OAG
+11996    NAG
+11997    OAG
+11998    OAG
+11999    NAG
+Name: agg_label, Length: 12000, dtype: object
+0       The quality of re made now makes me think it i...
+1       @siva \nHow is ur mother???\nHow is ur wife???...
+2       Also see ....hw ur RSS activist caught in Burk...
+3       On the death of 2 jawans in LOC CROSS FIRING\n...
+4       Modi ho ya Manmohan singh saala yeh log kuch n...
+                              ...                        
+2996                       Gaddaron se to yahi sahi hain.
+2997    Just saw this news\n* read 1dt comment. \n*smi...
+2998    U guys can crack jokes but can't take the crid...
+2999    These media fellows have time to dissect one's...
+3000    Middle class is suffering, but most affected a...
+Name: comment, Length: 3001, dtype: object
+0       CAG
+1       NAG
+2       NAG
+3       NAG
+4       OAG
+       ... 
+2996    NAG
+2997    CAG
+2998    CAG
+2999    CAG
+3000    NAG
+Name: agg_label, Length: 3001, dtype: object
+[['OAG']
+ ['OTHER']
+ ['OAG']
+ ...
+ ['OAG']
+ ['OAG']
+ ['OTHER']]
+[['OTHER']
+ ['OTHER']
+ ['OTHER']
+ ...
+ ['OTHER']
+ ['OTHER']
+ ['OTHER']]
+[[0.]
+ [1.]
+ [0.]
+ [0.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]]
+[array(['OAG', 'OTHER'], dtype=object)]
+[[1.]
+ [1.]
+ [1.]
+ [1.]
+ [0.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]]
+[array(['OAG', 'OTHER'], dtype=object)]
+Training model...
+pipeline: ['tfidf', 'clf']
+LogisticRegression(C=10.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=100,
+                   multi_class='ovr', n_jobs=None, penalty='l1',
+                   random_state=None, solver='liblinear', tol=0.0001, verbose=0,
+                   warm_start=False)
+Fit completed.
+[[1.]
+ [1.]
+ [1.]
+ ...
+ [0.]
+ [0.]
+ [1.]]
+F1 score:  0.6553959751667928
