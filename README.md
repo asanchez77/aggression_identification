@@ -16,3 +16,6 @@ Code used to find the best parameters for the classifier using one-versus-rest s
   * output_CAG_2020_05_23.txt
   * output_NAG_2020_05_23.txt
   * output_OAG_2020_05_23.txt
+
+### File with a summary of best parameters
+  * BestParams_GridSearch.txt
