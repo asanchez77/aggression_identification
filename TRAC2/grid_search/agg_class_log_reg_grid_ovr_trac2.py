@@ -18,19 +18,21 @@ import os
 import pandas as pd
 import numpy as np
 
-DATA_PATH = "../data/"
+DATA_PATH = "../data/eng/"
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
-    return pd.read_csv(csv_path,header=None)
+    return pd.read_csv(csv_path,header=0)
+
+#%%
 
 def load_aggresion_data(csvfile):
     agg_data = load_aggression_data_file(csvfile)
     """Drop the information not used: facebook identifier"""
-    agg_data = agg_data.drop(0, axis=1)    
+    agg_data = agg_data.drop('ID', axis=1)    
     #Rename the columns
-    agg_data = agg_data.rename(columns={1:"comment",2:"agg_label"})
+    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task A':"agg_label"})
     print(agg_data["comment"])
     print(agg_data["agg_label"])
     # Obtain the labels and the comments
@@ -38,7 +40,9 @@ def load_aggresion_data(csvfile):
     agg_comments = agg_data["comment"]
     return [agg_labels, agg_comments]
 
-[agg_labels, agg_comments] = load_aggresion_data("agr_en_train.csv")
+[agg_labels, agg_comments] = load_aggresion_data("trac2_eng_train.csv")
+
+#%%
 
 def redifine_labels(agg_labels, focus_label):
     for i in range(len(agg_labels)):
