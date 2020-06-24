@@ -4,6 +4,9 @@
 Created on Thu May  7 17:23:19 2020
 
 @author: 
+
+Code used to find the best parameters for the logistic regression
+classifier used for the TRAC1 dataset
 """
 
 
