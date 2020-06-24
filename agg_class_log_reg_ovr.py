@@ -46,7 +46,7 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
-focus_label = 'OAG'
+focus_label = 'NAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
@@ -69,13 +69,10 @@ print(agg_labels_dev_encoded[:10])
 print(ordinal_encoder_dev.categories_)
 
 #%%
-
-from pprint import pprint
 from time import time
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import f1_score
 
 #%%
@@ -139,5 +136,31 @@ if __name__ == "__main__":
     #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
         #print(real_label, predicted_label)
       
-    
+#%%
 
+from scipy.sparse import csr_matrix
+coefs = clf_current.named_steps["clf"].coef_
+
+#%%
+if type(coefs) == csr_matrix:
+    coefs.toarray().tolist()[0]
+else:
+    coefs.tolist()
+    
+#%%    
+feature_names = clf_current.named_steps["tfidf"].get_feature_names()
+
+#%%
+coefs_and_features = list(zip(coefs[0], feature_names))# Most positive features
+#%%
+neg_features = sorted(coefs_and_features, key=lambda x: x[0], 
+                      reverse=True)# Most negative features
+
+#%%
+predictive_features = sorted(coefs_and_features, 
+                             key=lambda x: x[0])# Most predictive overall
+
+#%%
+#sorted(coefs_and_features, key=lambda x: abs(x[0]), reverse=True)
+
+#%%
