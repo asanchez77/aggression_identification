@@ -32,6 +32,8 @@ def load_aggresion_data(csvfile):
     """Drop the information not used: facebook identifier"""
     agg_data = agg_data.drop('ID', axis=1)    
     #Rename the columns
+    """For *AG use Sub-task A and for *GEN use Sub-task B to obtain the 
+    labels used for training"""
     agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task A':"agg_label"})
     print(agg_data["comment"])
     print(agg_data["agg_label"])
@@ -50,7 +52,9 @@ def redifine_labels(agg_labels, focus_label):
             agg_labels[i] = "OTHER"
     print (agg_labels)
     return agg_labels
-
+"""For *AG: only NAG, CAG and OAG focus labels are valid
+For *GEN: only NGEN and GEN focus labels are valid, but the redefining of 
+labels might not be necessary"""
 focus_label = 'OAG'
 agg_labels = redifine_labels(agg_labels, focus_label)
 
