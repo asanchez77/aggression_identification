@@ -53,49 +53,52 @@ from sklearn.model_selection import GridSearchCV
 #%%
 
 pipelines = [
-    Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
-                                        ngram_range=(1, 5), lowercase=True) ),
+    Pipeline([('tfidf', TfidfVectorizer()),
               ('clf', LogisticRegression() )
-                ]),
-    Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
-                                        ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression() )
-                ]),
-    Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
-                                        ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression() )
-                ]),
+                ])#,
+    # Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+    #                                     ngram_range=(1, 5), lowercase=True) ),
+    #           ('clf', LogisticRegression() )
+    #             ]),
+    # Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+    #                                     ngram_range=(1, 5), lowercase=True) ),
+    #           ('clf', LogisticRegression() )
+    #             ]),
             ]
 
 #%%
 
 parameters = [
     {
-        #'clf__max_iter': (90,),
+        'tfidf__ngram_range': [(1, 1), (1, 2), (1,5), (1,4), (2, 4), (2, 5)],
+        'tfidf__sublinear_tf': (True, False),
+        'tfidf__stop_words': (None, 'english'),
+        'tfidf__lowercase': (True, False),
+        'tfidf__analyzer': ('word', 'char'),
+        'tfidf__binary': (True, False),
         'clf__penalty': ('l1','l2',),
         'clf__multi_class': ('ovr',),
         'clf__solver': ('liblinear',),
         'clf__C': (0.001, 0.01, 0.1, 1.0, 5.0, 10.0, 50.0, 100.0, 200.0, 300.0, 500.0),
-        #'clf__C': (6.0, 8.0, 10.0, 20.0, 30.0, 40.0),
         'clf__max_iter': (200,),
-        },
-    {#'clf__max_iter': (90,),
-        'clf__penalty': ('l2',),
-        'clf__multi_class': ('ovr',),
-        'clf__solver': ('lbfgs','newton-cg','sag',),
-        'clf__C': (0.001, 0.01, 0.1, 1.0, 5.0, 10.0, 50.0, 100.0, 200.0, 300.0, 500.0),
-        #'clf__C': (6.0, 8.0, 10.0, 20.0, 30.0, 40.0),
-        'clf__max_iter': (200,),
-        },
-    {#'clf__max_iter': (90,),
-        'clf__penalty': ('elasticnet',),
-        'clf__l1_ratio':(0, 0.5, 1,),
-        'clf__multi_class': ('ovr',),
-        'clf__solver': ('saga',),
-        'clf__C': (0.001, 0.01, 0.1, 1.0, 5.0, 10.0, 50.0, 100.0, 200.0, 300.0, 500.0),
-        #'clf__C': (6.0, 8.0, 10.0, 20.0, 30.0, 40.0),
-        'clf__max_iter': (200,),
-        }
+        }#,
+    # {#'clf__max_iter': (90,),
+    #     'clf__penalty': ('l2',),
+    #     'clf__multi_class': ('ovr',),
+    #     'clf__solver': ('lbfgs','newton-cg','sag',),
+    #     'clf__C': (0.001, 0.01, 0.1, 1.0, 5.0, 10.0, 50.0, 100.0, 200.0, 300.0, 500.0),
+    #     #'clf__C': (6.0, 8.0, 10.0, 20.0, 30.0, 40.0),
+    #     'clf__max_iter': (200,),
+    #     },
+    # {#'clf__max_iter': (90,),
+    #     'clf__penalty': ('elasticnet',),
+    #     'clf__l1_ratio':(0, 0.5, 1,),
+    #     'clf__multi_class': ('ovr',),
+    #     'clf__solver': ('saga',),
+    #     'clf__C': (0.001, 0.01, 0.1, 1.0, 5.0, 10.0, 50.0, 100.0, 200.0, 300.0, 500.0),
+    #     #'clf__C': (6.0, 8.0, 10.0, 20.0, 30.0, 40.0),
+    #     'clf__max_iter': (200,),
+    #     }
     ]
 #%%
 
