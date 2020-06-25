@@ -15,20 +15,22 @@ import os
 import pandas as pd
 import numpy as np
 
-DATA_PATH = "data/"
+DATA_PATH = "data/eng/"
 
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
-    return pd.read_csv(csv_path,header=None)
+    return pd.read_csv(csv_path,header=0)
 
 def load_aggresion_data(csvfile):
     agg_data = load_aggression_data_file(csvfile)
     """Drop the information not used: facebook identifier"""
-    agg_data = agg_data.drop(0, axis=1)    
+    agg_data = agg_data.drop('ID', axis=1)    
     #Rename the columns
-    agg_data = agg_data.rename(columns={1:"comment",2:"agg_label"})
+    """For *AG use Sub-task A and for *GEN use Sub-task B to obtain the 
+    labels used for training"""
+    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task B':"agg_label"})
     print(agg_data["comment"])
     print(agg_data["agg_label"])
     # Obtain the labels and the comments
@@ -36,19 +38,19 @@ def load_aggresion_data(csvfile):
     agg_comments = agg_data["comment"]
     return [agg_labels, agg_comments]
 
-[agg_labels_train, agg_comments_train] = load_aggresion_data("agr_en_train.csv")
-[agg_labels_dev, agg_comments_dev] = load_aggresion_data("agr_en_dev.csv")
+[agg_labels_train, agg_comments_train] = load_aggresion_data("trac2_eng_train.csv")
+[agg_labels_dev, agg_comments_dev] = load_aggresion_data("trac2_eng_dev.csv")
 
 def redifine_labels(agg_labels, focus_label):
     for i in range(len(agg_labels)):
         if agg_labels[i] != focus_label:
-            agg_labels[i] = "OTHER"
+            agg_labels[i] = "ANOTHER"
     print (agg_labels)
     return agg_labels
 
-focus_label = 'NAG'
-agg_labels_train = redifine_labels(agg_labels_train, focus_label)
-agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
+focus_label = 'GEN'
+#agg_labels_train = redifine_labels(agg_labels_train, focus_label)
+#agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
 from sklearn.preprocessing import OrdinalEncoder
 
@@ -79,22 +81,22 @@ from sklearn.metrics import f1_score
 
 clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression(penalty = 'l2',
+              ('clf', LogisticRegression(penalty = 'l1',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
-                                         C= 5.0,
-                                         #max_iter = 300))
-                                         ))
+                                         C= 10.0,
+                                         max_iter = 200))
+                                         #))
                 ])
 
 clf_CAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression(penalty = 'l2',
+              ('clf', LogisticRegression(penalty = 'l1',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
-                                         C= 100.0,
-                                         #max_iter = 300))
-                                         ))
+                                         C= 200.0,
+                                         max_iter = 200))
+                                         #))
                 ])
 
 clf_OAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
@@ -102,11 +104,20 @@ clf_OAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
               ('clf', LogisticRegression(penalty = 'l1',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
-                                         C= 10.0,
-                                         #max_iter = 300))
-                                         ))
+                                         C= 50.0,
+                                         max_iter = 200))
+                                         #))
                 ])
 
+clf_GEN = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+                                        ngram_range=(1, 5), lowercase=True) ),
+              ('clf', LogisticRegression(penalty = 'l1',
+                                         multi_class = 'ovr' ,
+                                         solver='liblinear',
+                                         C= 50.0,
+                                         max_iter = 200))
+                                         #))
+                ])
 
 if __name__ == "__main__":
     # multiprocessing requires the fork to happen in a __main__ protected
@@ -120,6 +131,8 @@ if __name__ == "__main__":
         clf_current = clf_CAG
     if focus_label=='OAG':
         clf_current = clf_OAG
+    if focus_label=='GEN' or focus_label=='NGEN':
+        clf_current = clf_GEN
 
     print("pipeline:", [name for name, _ in clf_current.steps])
     print(clf_current['clf'])
@@ -161,6 +174,24 @@ predictive_features = sorted(coefs_and_features,
                              key=lambda x: x[0])# Most predictive overall
 
 #%%
+
+
+n_display_values = 30
+
+most_neg = neg_features[:n_display_values]
+most_pred = predictive_features[:n_display_values]
+
+
+print("most negative features")
+print(most_neg)
+
+print("-------------")
+print("most predictive features")
+
+print(most_pred)
+
+#%%
 #sorted(coefs_and_features, key=lambda x: abs(x[0]), reverse=True)
 
 #%%
+
