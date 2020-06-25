@@ -42,7 +42,7 @@ def load_aggresion_data(csvfile):
 def redifine_labels(agg_labels, focus_label):
     for i in range(len(agg_labels)):
         if agg_labels[i] != focus_label:
-            agg_labels[i] = "OTHER"
+            agg_labels[i] = "ANOTHER"
     print (agg_labels)
     return agg_labels
 
