@@ -1,0 +1,1291 @@
+
+(base) C:\Users\Adroyl>conda activate tfen
+Could not find conda environment: tfen
+You can list all discoverable environments with `conda info --envs`.
+
+
+(base) C:\Users\Adroyl>conda activate tfenv
+
+(tfenv) C:\Users\Adroyl>D:
+
+(tfenv) D:\>cd Maestria\AprendizajeAutomatico\git\aggression_identification\TRAC2
+
+(tfenv) D:\Maestria\AprendizajeAutomatico\git\aggression_identification\TRAC2>cd grid_search
+
+(tfenv) D:\Maestria\AprendizajeAutomatico\git\aggression_identification\TRAC2\grid_search>dir
+ El volumen de la unidad D es Data
+ El número de serie del volumen es: 3656-D2EA
+
+ Directorio de D:\Maestria\AprendizajeAutomatico\git\aggression_identification\TRAC2\grid_search
+
+24/06/2020  10:41 p. m.    <DIR>          .
+24/06/2020  10:41 p. m.    <DIR>          ..
+24/06/2020  10:41 p. m.             5,005 agg_class_log_reg_grid_ovr_trac2.py
+               1 archivos          5,005 bytes
+               2 dirs  74,745,204,736 bytes libres
+
+(tfenv) D:\Maestria\AprendizajeAutomatico\git\aggression_identification\TRAC2\grid_search>python agg_class_log_reg_grid_ovr_trac2.py
+0                                               Next part
+1                      Iii8mllllllm\nMdxfvb8o90lplppi0005
+2       🤣🤣😂😂🤣🤣🤣😂osm vedio ....keep it up...make more v...
+3       What the fuck was this? I respect shwetabh and...
+4       Concerned authorities should bring arundathi R...
+                              ...
+4258    Abey loudey Arnab... Did u ever see the vedios...
+4259    Arundati is very rich where she get money who ...
+4260    People may criticize Pratik Borade by saying t...
+4261                                       @Naaz Sk hello
+4262    We want to read your book sir, please make it ...
+Name: comment, Length: 4263, dtype: object
+0       NAG
+1       NAG
+2       NAG
+3       NAG
+4       NAG
+       ...
+4258    OAG
+4259    NAG
+4260    CAG
+4261    NAG
+4262    NAG
+Name: agg_label, Length: 4263, dtype: object
+[['OTHER']
+ ['OTHER']
+ ['OTHER']
+ ...
+ ['OTHER']
+ ['OTHER']
+ ['OTHER']]
+[[1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]]
+[array(['OAG', 'OTHER'], dtype=object)]
+Performing grid search...
+Performing grid search...
+pipeline: ['tfidf', 'clf']
+parameters:
+{'clf__C': (0.001, 0.01, 0.1, 1.0, 5.0, 10.0, 50.0, 100.0, 200.0, 300.0, 500.0),
+ 'clf__max_iter': (200,),
+ 'clf__multi_class': ('ovr',),
+ 'clf__penalty': ('l1', 'l2'),
+ 'clf__solver': ('liblinear',)}
+Fitting 5 folds for each of 22 candidates, totalling 110 fits
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 12 concurrent workers.
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.4s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.5s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.5s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.5s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.5s
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.5s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.5s
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.5s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.5s
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.5s
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.6s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.6s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.4s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.4s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.5s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.5s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.6s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.6s
+[Parallel(n_jobs=-1)]: Done  17 tasks      | elapsed:    6.0s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.5s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.6s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.6s
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.6s
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.6s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.7s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.4s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.5s
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.6s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.6s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.7s
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.7s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.9s
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.8s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.9s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   2.9s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.1s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.1s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.5s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.5s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.7s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.7s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.1s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.2s
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.8s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.8s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.8s
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.2s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.3s
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.2s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.7s
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.6s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.3s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.5s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.0s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.8s
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.9s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.3s
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.9s
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.9s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.4s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.5s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.3s
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.3s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.9s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.0s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.0s
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.5s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.1s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.1s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.7s
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.5s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.6s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.5s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.7s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.8s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.9s
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.1s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.1s
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.2s
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.1s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.7s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.9s
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.9s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.8s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.9s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.1s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.1s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.2s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.1s
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.8s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.2s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.7s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.8s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.9s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.5s
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.5s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.5s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.8s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.8s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.0s
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   3.0s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.5s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.6s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.5s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.9s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.9s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.9s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.6s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, total=   3.3s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.5s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, total=   2.4s
+[Parallel(n_jobs=-1)]: Done 110 out of 110 | elapsed:   30.0s finished
+done in 31.920s
+
+Best score: 0.682
+Best parameters set:
+        clf__C: 50.0
+        clf__max_iter: 200
+        clf__multi_class: 'ovr'
+        clf__penalty: 'l1'
+        clf__solver: 'liblinear'
+Performing grid search...
+pipeline: ['tfidf', 'clf']
+parameters:
+{'clf__C': (0.001, 0.01, 0.1, 1.0, 5.0, 10.0, 50.0, 100.0, 200.0, 300.0, 500.0),
+ 'clf__max_iter': (200,),
+ 'clf__multi_class': ('ovr',),
+ 'clf__penalty': ('l2',),
+ 'clf__solver': ('lbfgs', 'newton-cg', 'sag')}
+Fitting 5 folds for each of 33 candidates, totalling 165 fits
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 12 concurrent workers.
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   2.8s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   2.8s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   2.9s
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   2.9s
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   3.0s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.0s
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.1s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.1s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.1s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.2s
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   4.2s
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   4.3s
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   2.7s
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   2.9s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   3.0s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   2.8s
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   2.9s
+[Parallel(n_jobs=-1)]: Done  17 tasks      | elapsed:    6.0s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   2.9s
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.3s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   4.5s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   4.5s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.2s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.1s
+[CV]  clf__C=0.001, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   4.6s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   2.9s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.0s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.1s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.1s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.1s
+[CV]  clf__C=0.01, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.1s
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   2.8s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   2.9s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   3.0s
+[CV] clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   3.2s
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   3.1s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.3s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.3s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.2s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.0s
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.0s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.3s
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.1s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.3s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   2.9s
+[CV]  clf__C=0.1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   2.8s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   3.2s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   3.4s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   3.4s
+[CV] clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   3.3s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   3.7s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.0s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.9s
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.0s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.2s
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.0s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.3s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.4s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.1s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.1s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=1.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.1s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   4.5s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   5.1s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   4.7s
+[CV] clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.7s
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.8s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   4.9s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.8s
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   5.1s
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.7s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   4.7s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   4.5s
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   5.0s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.4s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   3.5s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=5.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   4.1s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.7s
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   4.9s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   4.8s
+[CV] clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   5.2s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.7s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.7s
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.7s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   5.6s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   5.5s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.3s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   4.7s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   5.0s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   5.6s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   5.8s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   5.3s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   5.6s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=10.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   6.3s
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   6.2s
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   6.2s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   6.4s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   6.7s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   5.6s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.9s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.5s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.2s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   6.9s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   7.5s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   7.0s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   7.6s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   6.4s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   7.5s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   5.9s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.5s
+[CV] clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.5s
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.9s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.6s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=50.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.9s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.0s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.3s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.4s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   8.1s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   8.2s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   6.8s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   8.5s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   6.8s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  11.3s
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  11.5s
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   8.4s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   9.2s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  11.2s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  11.1s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  11.6s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.1s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.6s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.4s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   6.0s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   6.8s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   7.5s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   5.4s
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   7.3s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   5.5s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   6.5s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.3s
+[Parallel(n_jobs=-1)]: Done 138 tasks      | elapsed:  1.0min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   9.9s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.0s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.6s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.5s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.9s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.2s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.0s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   6.6s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   6.0s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   7.7s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   7.7s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   5.8s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   7.7s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=lbfgs, total=   7.7s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.1s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.3s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.6s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.2s
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=  10.2s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   4.1s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.8s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=newton-cg, total=   3.8s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   5.7s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   5.5s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   5.4s
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   5.3s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=sag, total=   5.2s
+[Parallel(n_jobs=-1)]: Done 165 out of 165 | elapsed:  1.3min finished
+done in 80.776s
+
+Best score: 0.660
+Best parameters set:
+        clf__C: 500.0
+        clf__max_iter: 200
+        clf__multi_class: 'ovr'
+        clf__penalty: 'l2'
+        clf__solver: 'lbfgs'
+Performing grid search...
+pipeline: ['tfidf', 'clf']
+parameters:
+{'clf__C': (0.001, 0.01, 0.1, 1.0, 5.0, 10.0, 50.0, 100.0, 200.0, 300.0, 500.0),
+ 'clf__l1_ratio': (0, 0.5, 1),
+ 'clf__max_iter': (200,),
+ 'clf__multi_class': ('ovr',),
+ 'clf__penalty': ('elasticnet',),
+ 'clf__solver': ('saga',)}
+Fitting 5 folds for each of 33 candidates, totalling 165 fits
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 12 concurrent workers.
+[CV] clf__C=0.001, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.001, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV]  clf__C=0.001, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV]  clf__C=0.001, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV] clf__C=0.001, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.001, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV]  clf__C=0.001, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV] clf__C=0.001, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.001, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.001, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV] clf__C=0.01, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.01, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.001, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV] clf__C=0.01, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.01, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.001, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV]  clf__C=0.001, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV] clf__C=0.01, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.001, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.4s
+[CV] clf__C=0.01, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.01, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.01, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.4s
+[CV] clf__C=0.01, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.01, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.5s
+[CV] clf__C=0.01, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.01, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   5.1s
+[CV]  clf__C=0.01, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   5.2s
+[CV] clf__C=0.01, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.01, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.01, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   5.5s
+[CV] clf__C=0.01, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.01, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.0s
+[CV] clf__C=0.01, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.01, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[Parallel(n_jobs=-1)]: Done  17 tasks      | elapsed:    9.6s
+[CV]  clf__C=0.01, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   4.9s
+[CV]  clf__C=0.01, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.4s
+[CV] clf__C=0.01, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.01, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.1, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.01, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV]  clf__C=0.01, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.4s
+[CV] clf__C=0.1, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.1, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.01, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV] clf__C=0.1, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.01, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV] clf__C=0.1, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.001, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  10.8s
+[CV] clf__C=0.1, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.001, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  11.1s
+[CV]  clf__C=0.001, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  11.1s
+[CV] clf__C=0.1, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.1, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.001, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  11.5s
+[CV] clf__C=0.1, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.001, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  11.7s
+[CV] clf__C=0.1, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.01, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.2s
+[CV]  clf__C=0.01, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.3s
+[CV] clf__C=0.1, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=0.1, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.4s
+[CV] clf__C=0.1, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.4s
+[CV] clf__C=0.1, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.5s
+[CV] clf__C=0.1, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.5s
+[CV] clf__C=1.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.5s
+[CV] clf__C=1.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.5s
+[CV]  clf__C=0.1, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.5s
+[CV] clf__C=1.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=1.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   4.7s
+[CV] clf__C=1.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   5.1s
+[CV] clf__C=1.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   5.1s
+[CV] clf__C=1.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   5.0s
+[CV] clf__C=1.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.5s
+[CV] clf__C=1.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   5.2s
+[CV] clf__C=1.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.5s
+[CV] clf__C=1.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=0.1, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   2.5s
+[CV] clf__C=1.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.5s
+[CV] clf__C=1.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.1s
+[CV] clf__C=1.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.5s
+[CV] clf__C=1.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.4s
+[CV] clf__C=5.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.7s
+[CV] clf__C=5.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   9.0s
+[CV] clf__C=5.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=1.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   9.9s
+[CV] clf__C=5.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  10.3s
+[CV] clf__C=5.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   9.2s
+[CV] clf__C=5.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  10.0s
+[CV] clf__C=5.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   9.6s
+[CV] clf__C=5.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=1.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   9.8s
+[CV] clf__C=5.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=5.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.3s
+[CV] clf__C=5.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=5.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   8.1s
+[CV] clf__C=5.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   9.3s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV] clf__C=5.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=1.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   9.4s
+[CV] clf__C=5.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=1.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   9.6s
+[CV] clf__C=5.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=5.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.8s
+[CV] clf__C=5.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=5.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.9s
+[CV] clf__C=10.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=5.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   8.0s
+[CV] clf__C=10.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=10.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.5s
+[CV] clf__C=10.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=5.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  10.4s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV] clf__C=10.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=10.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.9s
+[CV] clf__C=10.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=5.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  10.2s
+[CV]  clf__C=5.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  10.7s
+[CV] clf__C=10.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=10.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=5.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  10.3s
+[CV] clf__C=10.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=5.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  10.5s
+[CV] clf__C=10.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=5.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  19.4s
+[CV] clf__C=10.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=5.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  19.3s
+[CV] clf__C=10.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=5.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  19.6s
+[CV] clf__C=10.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=5.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  19.9s
+[CV] clf__C=10.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=10.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.3s
+[CV]  clf__C=10.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.9s
+[CV] clf__C=10.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV] clf__C=10.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=10.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.6s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV] clf__C=50.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=5.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  19.8s
+[CV] clf__C=50.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.3s
+[CV] clf__C=50.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.1s
+[CV] clf__C=50.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=10.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  11.8s
+[CV] clf__C=50.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=10.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  12.1s
+[CV] clf__C=50.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=10.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  12.1s
+[CV] clf__C=50.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=10.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  11.9s
+[CV] clf__C=50.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=10.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  12.1s
+[CV] clf__C=50.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.9s
+[CV] clf__C=50.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.1s
+[CV] clf__C=50.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   7.2s
+[CV] clf__C=50.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=10.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  28.0s
+[CV] clf__C=50.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=10.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  28.1s
+[CV] clf__C=50.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=10.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  28.5s
+[CV] clf__C=50.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=10.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  28.4s
+[CV] clf__C=100.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=10.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  28.2s
+[CV] clf__C=100.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.2s
+[CV] clf__C=100.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.5s
+[CV] clf__C=100.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.8s
+[CV] clf__C=100.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  22.0s
+[CV] clf__C=100.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=50.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  21.6s
+[CV] clf__C=100.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.9s
+[CV] clf__C=100.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.6s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV] clf__C=100.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=50.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  22.1s
+[CV] clf__C=100.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=50.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  22.1s
+[CV] clf__C=100.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  22.7s
+[CV] clf__C=100.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  51.8s
+[CV] clf__C=100.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  51.6s
+[CV] clf__C=100.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  52.2s
+[CV] clf__C=100.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  53.1s
+[CV] clf__C=200.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=50.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  52.8s
+[CV] clf__C=200.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.5s
+[CV] clf__C=200.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  30.7s
+[CV] clf__C=200.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=200.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.8s
+[CV] clf__C=200.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  30.6s
+[CV] clf__C=200.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.5s
+[CV] clf__C=200.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.7s
+[CV] clf__C=200.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.8s
+[CV] clf__C=200.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  31.4s
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV] clf__C=200.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=100.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  30.9s
+[CV] clf__C=200.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  31.5s
+[CV] clf__C=200.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.1min
+[CV] clf__C=200.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.1min
+[CV] clf__C=200.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.1min
+[CV] clf__C=200.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.1min
+[CV] clf__C=300.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=100.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.1min
+[CV] clf__C=300.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.2s
+[CV] clf__C=300.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.6s
+[CV] clf__C=300.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.4s
+[CV] clf__C=300.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.3s
+[CV] clf__C=300.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.6s
+[CV] clf__C=300.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  45.7s
+[CV] clf__C=300.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  44.8s
+[CV] clf__C=300.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  46.7s
+[CV] clf__C=300.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  46.6s
+[CV] clf__C=300.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  46.5s
+[CV] clf__C=300.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.4min
+[CV] clf__C=300.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.4min
+[CV] clf__C=300.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+[CV]  clf__C=200.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.5min
+[Parallel(n_jobs=-1)]: Done 138 tasks      | elapsed:  3.6min
+[CV] clf__C=300.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.4min
+[CV] clf__C=500.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.4s
+[CV] clf__C=500.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=200.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.4min
+[CV] clf__C=500.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.4s
+[CV] clf__C=500.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.8s
+[CV] clf__C=500.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.7s
+[CV] clf__C=500.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=   6.9s
+[CV] clf__C=500.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  57.1s
+[CV] clf__C=500.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  58.0s
+[CV] clf__C=500.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  58.5s
+[CV] clf__C=500.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.6min
+[CV] clf__C=500.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  59.0s
+[CV] clf__C=500.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total=  60.0s
+[CV] clf__C=500.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.6min
+[CV] clf__C=500.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.7min
+[CV] clf__C=500.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.6min
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=300.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.7min
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.2min
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.2min
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.2min
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.9min
+[CV]  clf__C=500.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.3min
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.9min
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=1, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.2min
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.9min
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.9min
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+[CV]  clf__C=500.0, clf__l1_ratio=0.5, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=elasticnet, clf__solver=saga, total= 1.9min
+[Parallel(n_jobs=-1)]: Done 165 out of 165 | elapsed:  6.3min finished
+C:\Users\Adroyl\.conda\envs\tfenv\lib\site-packages\sklearn\linear_model\_sag.py:330: ConvergenceWarning: The max_iter was reached which means the coef_ did not converge
+  "the coef_ did not converge", ConvergenceWarning)
+done in 409.229s
+
+Best score: 0.679
+Best parameters set:
+        clf__C: 100.0
+        clf__l1_ratio: 1
+        clf__max_iter: 200
+        clf__multi_class: 'ovr'
+        clf__penalty: 'elasticnet'
+        clf__solver: 'saga'
+
+(tfenv) D:\Maestria\AprendizajeAutomatico\git\aggression_identification\TRAC2\grid_search>
