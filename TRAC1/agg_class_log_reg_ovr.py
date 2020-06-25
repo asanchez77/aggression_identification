@@ -153,13 +153,26 @@ feature_names = clf_current.named_steps["tfidf"].get_feature_names()
 #%%
 coefs_and_features = list(zip(coefs[0], feature_names))# Most positive features
 #%%
-neg_features = sorted(coefs_and_features, key=lambda x: x[0], 
-                      reverse=True)# Most negative features
+neg_features = sorted(coefs_and_features, key=lambda x: x[0])# Most negative features
 
 #%%
 predictive_features = sorted(coefs_and_features, 
-                             key=lambda x: x[0])# Most predictive overall
+                             key=lambda x: x[0], 
+                             reverse=True)# Most predictive overall
 
+n_display_values = 30
+
+most_neg = neg_features[:n_display_values]
+most_pred = predictive_features[:n_display_values]
+
+
+print("most negative features")
+print(most_neg)
+
+print("-------------")
+print("most predictive features")
+
+print(most_pred)
 #%%
 #sorted(coefs_and_features, key=lambda x: abs(x[0]), reverse=True)
 
