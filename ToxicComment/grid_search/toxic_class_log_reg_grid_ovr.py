@@ -31,7 +31,7 @@ def load_aggresion_data(csvfile):
     agg_data = agg_data.drop('id', axis=1)    
     #Rename the columns
     agg_data = agg_data.rename(columns={'comment_text':"comment",
-                                        'toxic':"toxic_label"})
+                                        'identity_hate':"toxic_label"})
     print(agg_data["comment"])
     print(agg_data["toxic_label"])
     # Obtain the labels and the comments
@@ -53,7 +53,8 @@ from sklearn.model_selection import GridSearchCV
 #%%
 
 pipelines = [
-    Pipeline([('tfidf', TfidfVectorizer()),
+    Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+                                        lowercase=True)),
               ('clf', LogisticRegression() )
                 ])#,
     # Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
@@ -71,11 +72,11 @@ pipelines = [
 parameters = [
     {
         'tfidf__ngram_range': [(1, 1), (1, 2), (1,5), (1,4), (2, 4), (2, 5)],
-        'tfidf__sublinear_tf': (True, False),
-        'tfidf__stop_words': (None, 'english'),
-        'tfidf__lowercase': (True, False),
-        'tfidf__analyzer': ('word', 'char'),
-        'tfidf__binary': (True, False),
+        #'tfidf__sublinear_tf': (True, False),
+        #'tfidf__stop_words': (None, 'english'),
+        #'tfidf__lowercase': (True, False),
+        #'tfidf__analyzer': ('word', 'char'),
+        #'tfidf__binary': (True, False),
         'clf__penalty': ('l1','l2',),
         'clf__multi_class': ('ovr',),
         'clf__solver': ('liblinear',),
@@ -110,13 +111,13 @@ if __name__ == "__main__":
     print("Performing grid search...")
     
     for text_clf, param in zip(pipelines, parameters):
-        gs_clf = GridSearchCV(text_clf, param, n_jobs=-1, scoring='f1_macro', verbose=2)
+        gs_clf = GridSearchCV(text_clf, param, n_jobs=1, scoring='f1_macro', verbose=2)
         print("Performing grid search...")
         print("pipeline:", [name for name, _ in text_clf.steps])
         print("parameters:")
         pprint(param)
         t0 = time()
-        gs_clf = gs_clf.fit(agg_comments,agg_labels)
+        gs_clf = gs_clf.fit(agg_comments,agg_labels.ravel())
         print("done in %0.3fs" % (time() - t0))
         print()
         print("Best score: %0.3f" % gs_clf.best_score_)
