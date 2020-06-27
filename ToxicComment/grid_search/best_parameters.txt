@@ -1,0 +1,83 @@
+BEST PARAMETERS:
+
+
+
+
+
+identity_hate: 
+
+[Parallel(n_jobs=16)]: Done 660 out of 660 | elapsed: 225.2min finished
+done in 13730.538s
+
+Best score: 0.723
+Best parameters set:
+	clf__C: 10.0
+	clf__max_iter: 200
+	clf__multi_class: 'ovr'
+	clf__penalty: 'l1'
+	clf__solver: 'liblinear'
+	tfidf__ngram_range: (1, 4)
+
+insult:
+
+
+[Parallel(n_jobs=16)]: Done 660 out of 660 | elapsed: 227.6min finished
+done in 13932.489s
+
+Best score: 0.843
+Best parameters set:
+	clf__C: 5.0
+	clf__max_iter: 200
+	clf__multi_class: 'ovr'
+	clf__penalty: 'l1'
+	clf__solver: 'liblinear'
+	tfidf__ngram_range: (1, 5)
+
+threat:
+
+[Parallel(n_jobs=16)]: Done 660 out of 660 | elapsed: 240.6min finished
+done in 14681.647s
+
+Best score: 0.719
+Best parameters set:
+	clf__C: 10.0
+	clf__max_iter: 200
+	clf__multi_class: 'ovr'
+	clf__penalty: 'l1'
+	clf__solver: 'liblinear'
+	tfidf__ngram_range: (2, 5)
+
+obscene:
+
+[Parallel(n_jobs=16)]: Done 660 out of 660 | elapsed: 221.3min finished
+done in 13540.222s
+
+Best score: 0.899
+Best parameters set:
+	clf__C: 5.0
+	clf__max_iter: 200
+	clf__multi_class: 'ovr'
+	clf__penalty: 'l1'
+	clf__solver: 'liblinear'
+	tfidf__ngram_range: (2, 5)
+
+severe_toxic:
+
+[Parallel(n_jobs=16)]: Done 660 out of 660 | elapsed: 225.9min finished
+done in 13765.203s
+
+Best score: 0.694
+Best parameters set:
+	clf__C: 50.0
+	clf__max_iter: 200
+	clf__multi_class: 'ovr'
+	clf__penalty: 'l1'
+	clf__solver: 'liblinear'
+	tfidf__ngram_range: (1, 4)
+
+toxic:
+
+
+
+
+
