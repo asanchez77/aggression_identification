@@ -77,7 +77,14 @@ Best parameters set:
 
 toxic:
 
-
+Best score: 0.887
+Best parameters set:
+	clf__C: 5.0
+	clf__max_iter: 200
+	clf__multi_class: 'ovr'
+	clf__penalty: 'l1'
+	clf__solver: 'liblinear'
+	tfidf__ngram_range: (1, 5)
 
 
 
