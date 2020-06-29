@@ -1,0 +1,413 @@
+
+(tfenv) D:\Maestria\AprendizajeAutomatico\git\aggression_identification\ToxicComment\grid_search>python toxic_class_log_reg_grid_ovr.py
+0         Explanation\r\nWhy the edits made under my use...
+1         D'aww! He matches this background colour I'm s...
+2         Hey man, I'm really not trying to edit war. It...
+3         "\r\nMore\r\nI can't make any real suggestions...
+4         You, sir, are my hero. Any chance you remember...
+                                ...
+159566    ":::::And for the second time of asking, when ...
+159567    You should be ashamed of yourself \r\n\r\nThat...
+159568    Spitzer \r\n\r\nUmm, theres no actual article ...
+159569    And it looks like it was actually you who put ...
+159570    "\r\nAnd ... I really don't think you understa...
+Name: comment, Length: 159571, dtype: object
+0         0
+1         0
+2         0
+3         0
+4         0
+         ..
+159566    0
+159567    0
+159568    0
+159569    0
+159570    0
+Name: toxic_label, Length: 159571, dtype: int64
+Performing grid search...
+Performing grid search...
+pipeline: ['tfidf', 'clf']
+parameters:
+{'clf__C': (200.0, 300.0, 500.0),
+ 'clf__max_iter': (200,),
+ 'clf__multi_class': ('ovr',),
+ 'clf__penalty': ('l1', 'l2'),
+ 'clf__solver': ('liblinear',),
+ 'tfidf__ngram_range': [(1, 1), (1, 2), (1, 5), (1, 4), (2, 4), (2, 5)]}
+Fitting 5 folds for each of 36 candidates, totalling 180 fits
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  48.4s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  48.6s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  48.7s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  48.8s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  48.1s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.3min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.1min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.3min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.3min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.5min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.5min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.5min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.5min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.5min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.3min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.3min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  18.6s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  17.1s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  17.9s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  17.7s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.3min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  16.6s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total=  56.0s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total=  55.8s
+[Parallel(n_jobs=2)]: Done  37 tasks      | elapsed: 37.4min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total=  59.9s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 1.0min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total=  59.9s
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.7min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.5min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.2min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.4min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.8min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.3min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.8min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.9min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.7min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.9min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.9min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.5min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.4min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.4min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.4min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.9min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.0min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.9min
+[CV] clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.0min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  49.9s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  51.3s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=200.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.2min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  48.3s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  47.4s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  48.3s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.2min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.2min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.2min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.2min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.2min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.2min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.2min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  17.6s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  18.1s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  19.1s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  19.4s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  17.9s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 1.0min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 1.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total=  55.3s
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 1.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 1.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.4min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.6min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.6min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.5min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 3.0min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.2min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.7min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.9min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.7min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.6min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.5min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.7min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.4min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.8min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.5min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.3min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.1min
+[CV] clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.2min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  49.6s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  48.6s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  48.4s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=300.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.3min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  48.6s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  47.8s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.3min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.3min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.3min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.3min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 2.3min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.2min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.0min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.0min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 3.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.2min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 2.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.0min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.0min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.0min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.0min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  19.2s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  20.6s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  20.8s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  20.5s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 1), total=  19.2s
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l1, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 3.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 1.0min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 1.2min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 1.2min
+[Parallel(n_jobs=2)]: Done 158 tasks      | elapsed: 183.2min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 1.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 2), total= 1.5min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.9min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.5min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.8min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.4min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 3.0min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 5), total= 4.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 3.0min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 3.2min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 3.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(1, 4), total= 3.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.8min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.8min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.8min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.8min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 4), total= 2.9min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.3min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.1min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.2min
+[CV] clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5)
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.4min
+[CV]  clf__C=500.0, clf__max_iter=200, clf__multi_class=ovr, clf__penalty=l2, clf__solver=liblinear, tfidf__ngram_range=(2, 5), total= 4.0min
+[Parallel(n_jobs=2)]: Done 180 out of 180 | elapsed: 221.9min finished
+done in 13542.111s
+
+Best score: 0.883
+Best parameters set:
+        clf__C: 200.0
+        clf__max_iter: 200
+        clf__multi_class: 'ovr'
+        clf__penalty: 'l2'
+        clf__solver: 'liblinear'
+        tfidf__ngram_range: (2, 5)
+
+(tfenv) D:\Maestria\AprendizajeAutomatico\git\aggression_identification\ToxicComment\grid_search>
