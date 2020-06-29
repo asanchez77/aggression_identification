@@ -30,7 +30,7 @@ def load_training_data(csvfile):
     agg_data = agg_data.drop('id', axis=1)    
     #Rename the columns
     agg_data = agg_data.rename(columns={'comment_text':"comment",
-                                        'identity_hate':"toxic_label"})
+                                        focus_label:"toxic_label"})
     print(agg_data["comment"])
     print(agg_data["toxic_label"])
     # Obtain the labels and the comments
