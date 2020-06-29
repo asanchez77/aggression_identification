@@ -79,18 +79,8 @@ clf_toxic = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
                                          #))
                 ])
 
-clf_CAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
-                                        ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression(penalty = 'l1',
-                                         multi_class = 'ovr' ,
-                                         solver='liblinear',
-                                         C= 200.0,
-                                         max_iter = 200))
-                                         #))
-                ])
-
-clf_OAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
-                                        ngram_range=(1, 5), lowercase=True) ),
+clf_severe_toxic = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+                                        ngram_range=(1, 4), lowercase=True) ),
               ('clf', LogisticRegression(penalty = 'l1',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
@@ -99,12 +89,42 @@ clf_OAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
                                          #))
                 ])
 
-clf_GEN = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+clf_obscene = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+                                        ngram_range=(2, 5), lowercase=True) ),
+              ('clf', LogisticRegression(penalty = 'l1',
+                                         multi_class = 'ovr' ,
+                                         solver='liblinear',
+                                         C= 5.0,
+                                         max_iter = 200))
+                                         #))
+                ])
+
+clf_threat = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+                                        ngram_range=(2, 5), lowercase=True) ),
+              ('clf', LogisticRegression(penalty = 'l1',
+                                         multi_class = 'ovr' ,
+                                         solver='liblinear',
+                                         C= 10.0,
+                                         max_iter = 200))
+                                         #))
+                ])
+
+clf_insult = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
               ('clf', LogisticRegression(penalty = 'l1',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
-                                         C= 50.0,
+                                         C= 5.0,
+                                         max_iter = 200))
+                                         #))
+                ])
+
+clf_identity_hate = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
+                                        ngram_range=(1, 4), lowercase=True) ),
+              ('clf', LogisticRegression(penalty = 'l1',
+                                         multi_class = 'ovr' ,
+                                         solver='liblinear',
+                                         C= 10.0,
                                          max_iter = 200))
                                          #))
                 ])
@@ -117,13 +137,17 @@ if __name__ == "__main__":
 
     if focus_label=='toxic':
         clf_current = clf_toxic
-    if focus_label=='CAG':
-        clf_current = clf_CAG
-    if focus_label=='OAG':
-        clf_current = clf_OAG
-    if focus_label=='GEN' or focus_label=='NGEN':
-        clf_current = clf_GEN
-
+    if focus_label=='severe_toxic':
+        clf_current = clf_severe_toxic
+    if focus_label=='obscene':
+        clf_current = clf_obscene
+    if focus_label=='threat':
+        clf_current = clf_threat
+    if focus_label=='insult':
+        clf_current = clf_insult
+    if focus_label=='identity_hate':
+        clf_current = clf_identity_hate
+        
     print("pipeline:", [name for name, _ in clf_current.steps])
     print(clf_current['clf'])
     t0 = time()
