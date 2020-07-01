@@ -46,7 +46,7 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
-focus_label = 'NAG'
+focus_label = 'OAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
