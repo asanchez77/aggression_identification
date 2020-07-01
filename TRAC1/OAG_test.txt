@@ -1,0 +1,105 @@
+0        Well said sonu..you have courage to stand agai...
+1        Most of Private Banks ATM's Like HDFC, ICICI e...
+2           Now question is, Pakistan will adhere to this?
+3        Pakistan is comprised of fake muslims who does...
+4        ??we r against cow slaughter,so of course it w...
+                       
+11995    They belong to you flight dirty terrorist coun...
+11996    Really motivating programme, congratulations t...
+11997                                      fabricated news
+11998                 What's wrong with you secular idiots
+11999    Looks like inevitable after all political hard...
+Name: comment, Length: 12000, dtype: object
+0        OAG
+1        NAG
+2        OAG
+3        OAG
+4        NAG
+
+11995    OAG
+11996    NAG
+11997    OAG
+11998    OAG
+11999    NAG
+Name: agg_label, Length: 12000, dtype: object
+0       The quality of re made now makes me think it i...
+1       @siva \nHow is ur mother???\nHow is ur wife???...
+2       Also see ....hw ur RSS activist caught in Burk...
+3       On the death of 2 jawans in LOC CROSS FIRING\n...
+4       Modi ho ya Manmohan singh saala yeh log kuch n...
+                       
+2996                       Gaddaron se to yahi sahi hain.
+2997    Just saw this news\n* read 1dt comment. \n*smi...
+2998    U guys can crack jokes but can't take the crid...
+2999    These media fellows have time to dissect one's...
+3000    Middle class is suffering, but most affected a...
+Name: comment, Length: 3001, dtype: object
+0       CAG
+1       NAG
+2       NAG
+3       NAG
+4       OAG
+
+2996    NAG
+2997    CAG
+2998    CAG
+2999    CAG
+3000    NAG
+Name: agg_label, Length: 3001, dtype: object
+[['OAG']
+ ['ANOTHER']
+ ['OAG']
+ ...
+ ['OAG']
+ ['OAG']
+ ['ANOTHER']]
+[['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']
+ ...
+ ['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']]
+[[1.]
+ [0.]
+ [1.]
+ [1.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]]
+[array(['ANOTHER', 'OAG'], dtype=object)]
+[[0.]
+ [0.]
+ [0.]
+ [0.]
+ [1.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]]
+[array(['ANOTHER', 'OAG'], dtype=object)]
+Training model...
+pipeline: ['tfidf', 'clf']
+LogisticRegression(C=10.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=100,
+                   multi_class='ovr', n_jobs=None, penalty='l1',
+                   random_state=None, solver='liblinear', tol=0.0001, verbose=0,
+                   warm_start=False)
+Fit completed.
+[[0.]
+ [0.]
+ [0.]
+ ...
+ [1.]
+ [1.]
+ [0.]]
+F1 score:  0.6573517997456866
+most negative features
+[(-27.489109655746454, 'or pa'), (-21.17357835837278, 'clo'), (-18.404631119104234, 'n sa'), (-18.352884301240213, 'ovi'), (-18.131986908282034, 'rge '), (-18.007081866042334, 'spa'), (-17.81807526400977, 'w no'), (-17.78646345551898, ' dh'), (-17.666314675732952, 'grea'), (-17.63138498971278, 'n min'), (-17.40901389824513, 'ose w'), (-17.095802189826365, 'n dr'), (-17.07875246517173, 'hanc'), (-16.765374446918564, 'good'), (-16.718105135540565, 'aith '), (-16.557092689188455, ' stoc'), (-16.412095746944836, 'be u'), (-16.19809658613188, 'urr'), (-16.151921184836162, ' or b'), (-15.862462598556371, 'a h'), (-15.479288118768347, 'test '), (-15.470074580895089, 'hard'), (-15.396580318886388, 'str'), (-15.336067083294951, 'lso n'), (-15.225969602904664, 'istr'), (-15.076148269309604, 'ag '), (-15.027922588123303, 'id t'), (-14.978546903005208, 'ns n'), (-14.872455262951524, 'ian f'), (-14.8692652152208, 'hul')]
+-------------
+most predictive features
+[(40.54232770155881, 'upid'), (33.17867972354234, 'moro'), (32.3336489835617, 'diot'), (31.97961437021101, ' fuc'), (31.897133524095715, ' hell'), (30.647015862956334, 'ocess'), (29.534735655781475, " bjp'"), (28.202191493922196, 'wors'), (27.895313090702647, 'ot ab'), (27.444758142809892, 'fool'), (25.557593942792113, 'ada '), (25.40361648565606, 'porki'), (25.265825128022893, 'sham'), (25.12853694679075, ' brai'), (24.79425348224521, 'n, r'), (24.496011017230103, 'ds!'), (24.13628021818873, 'shit'), (23.632804648827744, 'an 5'), (23.086384424672268, 'jh'), (22.982126822721604, 't nev'), (22.352318858397766, 'y. ha'), (22.320459896163797, 'tute'), (22.207462610858375, 'wif'), (22.145027067394498, 'irty '), (21.838273070054765, 'dumb'), (21.507441001357165, 'e a p'), (21.161836634949225, ' bc '), (21.154735631210954, ' bark'), (21.153461570323543, 'reedy'), (20.99357560598336, 'stur')]

@@ -1,0 +1,105 @@
+0        Well said sonu..you have courage to stand agai...
+1        Most of Private Banks ATM's Like HDFC, ICICI e...
+2           Now question is, Pakistan will adhere to this?
+3        Pakistan is comprised of fake muslims who does...
+4        ??we r against cow slaughter,so of course it w...
+                               ...                        
+11995    They belong to you flight dirty terrorist coun...
+11996    Really motivating programme, congratulations t...
+11997                                      fabricated news
+11998                 What's wrong with you secular idiots
+11999    Looks like inevitable after all political hard...
+Name: comment, Length: 12000, dtype: object
+0        OAG
+1        NAG
+2        OAG
+3        OAG
+4        NAG
+        ... 
+11995    OAG
+11996    NAG
+11997    OAG
+11998    OAG
+11999    NAG
+Name: agg_label, Length: 12000, dtype: object
+0       The quality of re made now makes me think it i...
+1       @siva \nHow is ur mother???\nHow is ur wife???...
+2       Also see ....hw ur RSS activist caught in Burk...
+3       On the death of 2 jawans in LOC CROSS FIRING\n...
+4       Modi ho ya Manmohan singh saala yeh log kuch n...
+                              ...                        
+2996                       Gaddaron se to yahi sahi hain.
+2997    Just saw this news\n* read 1dt comment. \n*smi...
+2998    U guys can crack jokes but can't take the crid...
+2999    These media fellows have time to dissect one's...
+3000    Middle class is suffering, but most affected a...
+Name: comment, Length: 3001, dtype: object
+0       CAG
+1       NAG
+2       NAG
+3       NAG
+4       OAG
+       ... 
+2996    NAG
+2997    CAG
+2998    CAG
+2999    CAG
+3000    NAG
+Name: agg_label, Length: 3001, dtype: object
+[['ANOTHER']
+ ['NAG']
+ ['ANOTHER']
+ ...
+ ['ANOTHER']
+ ['ANOTHER']
+ ['NAG']]
+[['ANOTHER']
+ ['NAG']
+ ['NAG']
+ ...
+ ['ANOTHER']
+ ['ANOTHER']
+ ['NAG']]
+[[0.]
+ [1.]
+ [0.]
+ [0.]
+ [1.]
+ [0.]
+ [1.]
+ [0.]
+ [1.]
+ [1.]]
+[array(['ANOTHER', 'NAG'], dtype=object)]
+[[0.]
+ [1.]
+ [1.]
+ [1.]
+ [0.]
+ [0.]
+ [1.]
+ [0.]
+ [0.]
+ [0.]]
+[array(['ANOTHER', 'NAG'], dtype=object)]
+Training model...
+pipeline: ['tfidf', 'clf']
+LogisticRegression(C=5.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=100,
+                   multi_class='ovr', n_jobs=None, penalty='l2',
+                   random_state=None, solver='liblinear', tol=0.0001, verbose=0,
+                   warm_start=False)
+Fit completed.
+[[1.]
+ [0.]
+ [0.]
+ ...
+ [0.]
+ [0.]
+ [0.]]
+F1 score:  0.7220716030381984
+most negative features
+[(-5.230547441601625, 'sonu'), (-5.115976860851607, 'stupid'), (-4.928321042390103, 'muslims'), (-4.781420263386114, 'religion'), (-3.9979865400306385, 'idiot'), (-3.8341591972828115, 'bjp'), (-3.6533635270964613, 'indian express'), (-3.6165817164513387, 'bloody'), (-3.5302495361483115, 'nonsense'), (-3.4887140051721537, 'he'), (-3.4343168020957004, 'hate'), (-3.332446753763415, 'their'), (-3.3317190457905492, 'shame'), (-3.3190759593689347, 'agent'), (-3.28169778115491, 'terrorist'), (-3.249698643435237, 'worst'), (-3.2239892210776806, 'ur'), (-3.214460516622557, 'loudspeakers'), (-3.20418088530405, 'mla'), (-3.1921853117969152, 'idiots'), (-3.1149122866931713, 'muslim'), (-3.0906694689686294, 'such'), (-3.0881442395163266, 'cow'), (-3.070602477578808, 'call'), (-2.9626583331795797, 'fool'), (-2.94185012274495, 'they'), (-2.908023450273623, 'express'), (-2.89887175774345, 'terrorists'), (-2.8825153124033998, 'politics'), (-2.868438544806091, 'people')]
+-------------
+most predictive features
+[(5.378316223945205, 'anuj'), (4.816539493804291, 'market'), (4.698050690966624, 'tata'), (4.319799366448247, 'nifty'), (3.98113766953441, 'hi'), (3.962252411729133, 'cnbc'), (3.9246065953387825, 'buy'), (3.7664380659372747, 'nice'), (3.6253916720615105, 'sell'), (3.5486824364668306, 'great'), (3.541596106573705, 'proud'), (3.5217117836264236, 'stocks'), (3.339982176133558, 'invest'), (3.246313333771128, 'movie'), (3.05229625500726, 'good'), (3.0499252950871583, 'rs'), (3.036690966422047, 'who is'), (2.93563836339689, 'business'), (2.8823615866131487, 'sir'), (2.7915917781204924, 'love'), (2.7594153769738092, 'stock'), (2.7383381728970164, 'congratulations'), (2.729463488747247, 'am'), (2.6907313372694057, 'wish'), (2.657441909180653, 'view on'), (2.6298858551559317, 'amazing'), (2.625839915097106, 'for'), (2.5966922190582675, 'post'), (2.560888820592558, 'did you'), (2.539920907450003, 'awesome')]
