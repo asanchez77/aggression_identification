@@ -46,7 +46,7 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
-focus_label = 'OAG'
+focus_label = 'NAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
@@ -77,7 +77,7 @@ from sklearn.metrics import f1_score
 
 #%%
 
-clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='word', 
+clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 2), lowercase=True) ),
               ('clf', LogisticRegression(penalty = 'l2',
                                          multi_class = 'ovr' ,
