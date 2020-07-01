@@ -30,7 +30,7 @@ def load_aggresion_data(csvfile):
     #Rename the columns
     """For *AG use Sub-task A and for *GEN use Sub-task B to obtain the 
     labels used for training"""
-    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task B':"agg_label"})
+    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task A':"agg_label"})
     print(agg_data["comment"])
     print(agg_data["agg_label"])
     # Obtain the labels and the comments
@@ -48,7 +48,7 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
-focus_label = 'GEN'
+focus_label = 'OAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
