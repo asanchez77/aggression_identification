@@ -1,0 +1,105 @@
+0                                               Next part
+1                      Iii8mllllllm\nMdxfvb8o90lplppi0005
+2       🤣🤣😂😂🤣🤣🤣😂osm vedio ....keep it up...make more v...
+3       What the fuck was this? I respect shwetabh and...
+4       Concerned authorities should bring arundathi R...
+                       
+4258    Abey loudey Arnab... Did u ever see the vedios...
+4259    Arundati is very rich where she get money who ...
+4260    People may criticize Pratik Borade by saying t...
+4261                                       @Naaz Sk hello
+4262    We want to read your book sir, please make it ...
+Name: comment, Length: 4263, dtype: object
+0       NAG
+1       NAG
+2       NAG
+3       NAG
+4       NAG
+
+4258    OAG
+4259    NAG
+4260    CAG
+4261    NAG
+4262    NAG
+Name: agg_label, Length: 4263, dtype: object
+0             U deserve more subscribers. U really great.
+1                                          Nice video....
+2       sorry if i bother somebody.. iam a defence asp...
+3       Joker was amazing....it was not glamorised !.....
+4                                               Nice baro
+                       
+1061    Ranu Mandal is third class [woman.No](http://w...
+1062    [15:23](https://www.youtube.com/watch?v=N_ZMfQ...
+1063                                Love u bro keep it up
+1064                                      May I help you?
+1065    You are great sir !!! When a i saw a movie fir...
+Name: comment, Length: 1066, dtype: object
+0       NAG
+1       NAG
+2       NAG
+3       NAG
+4       NAG
+
+1061    OAG
+1062    NAG
+1063    NAG
+1064    NAG
+1065    NAG
+Name: agg_label, Length: 1066, dtype: object
+[['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']
+ ...
+ ['CAG']
+ ['ANOTHER']
+ ['ANOTHER']]
+[['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']
+ ...
+ ['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']]
+[[0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [1.]
+ [0.]
+ [0.]]
+[array(['ANOTHER', 'CAG'], dtype=object)]
+[[0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]]
+[array(['ANOTHER', 'CAG'], dtype=object)]
+Training model...
+pipeline: ['tfidf', 'clf']
+LogisticRegression(C=200.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=200,
+                   multi_class='ovr', n_jobs=None, penalty='l1',
+                   random_state=None, solver='liblinear', tol=0.0001, verbose=0,
+                   warm_start=False)
+Fit completed.
+[[0.]
+ [0.]
+ [0.]
+ ...
+ [0.]
+ [0.]
+ [0.]]
+F1 score:  0.594568568584769
+most negative features
+[(-96.3441641318478, ' '), (-60.266689701743886, 'he o'), (-55.662404887665, 'sur'), (-48.42498633999273, 'f d'), (-48.177885895082454, 'e rea'), (-45.64425146862965, 'st th'), (-44.673632781289506, 'ive a'), (-44.498415858036644, '\ncon'), (-42.54505240244993, 'h h'), (-40.14491231892094, 'nd\n'), (-39.367459569254144, 'al b'), (-38.01050534762896, 'd the'), (-37.93498652580383, 'oth '), (-37.51185287059388, 'sa'), (-36.68976147888888, 'ie s'), (-35.027102131856154, 'ad a'), (-34.73704345208574, 'aks'), (-33.780187478168244, 'lise'), (-33.60625739887085, 't in'), (-33.17868745369911, 'n pa'), (-33.08861641276025, 'ple t'), (-32.72682330190192, '. i d'), (-32.137617181733845, 'ly\n'), (-31.458792369235113, 'can '), (-31.385579731750628, 'o u'), (-30.750813071146766, 'eed'), (-30.469065340775543, 't to '), (-29.768830967958877, '. d'), (-27.280119638004262, 'ual'), (-26.72439238597532, 'sy')]
+-------------
+most predictive features
+[(87.93056981712395, 'ne ma'), (72.94699722864061, 'gence'), (72.4539595076676, ' try'), (69.11049761550399, ', ci'), (68.97265612895414, 'nk it'), (68.8603542797242, 'eal c'), (68.65608976264744, 'm suc'), (65.2145624436027, 'ted a'), (62.917223962783275, '='), (59.17029600654978, 'badly'), (57.18106185333497, 'of r'), (56.3917684442667, 'sag'), (56.18373046240768, ', bu'), (55.55460500367489, 'ed. o'), (55.35903070166248, 'h la'), (54.90850823850048, "'s d"), (54.541724992399544, 'als p'), (54.263212507229, 'x i'), (54.106754646686376, 'od is'), (53.83213731841675, 'elea'), (53.00328732284241, 'te t'), (51.952608777378074, 'gi th'), (51.56006230762909, 'em w'), (50.91314288495273, '.7'), (48.68693026472183, 'tht'), (48.2646875525878, 'inals'), (48.226284757821745, 's ne'), (47.95286198505086, '. i c'), (47.491991614573166, 'pid s'), (46.9651858078523, '.\nb')]

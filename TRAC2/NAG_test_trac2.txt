@@ -1,0 +1,105 @@
+0                                               Next part
+1                      Iii8mllllllm\nMdxfvb8o90lplppi0005
+2       🤣🤣😂😂🤣🤣🤣😂osm vedio ....keep it up...make more v...
+3       What the fuck was this? I respect shwetabh and...
+4       Concerned authorities should bring arundathi R...
+                       
+4258    Abey loudey Arnab... Did u ever see the vedios...
+4259    Arundati is very rich where she get money who ...
+4260    People may criticize Pratik Borade by saying t...
+4261                                       @Naaz Sk hello
+4262    We want to read your book sir, please make it ...
+Name: comment, Length: 4263, dtype: object
+0       NAG
+1       NAG
+2       NAG
+3       NAG
+4       NAG
+
+4258    OAG
+4259    NAG
+4260    CAG
+4261    NAG
+4262    NAG
+Name: agg_label, Length: 4263, dtype: object
+0             U deserve more subscribers. U really great.
+1                                          Nice video....
+2       sorry if i bother somebody.. iam a defence asp...
+3       Joker was amazing....it was not glamorised !.....
+4                                               Nice baro
+                       
+1061    Ranu Mandal is third class [woman.No](http://w...
+1062    [15:23](https://www.youtube.com/watch?v=N_ZMfQ...
+1063                                Love u bro keep it up
+1064                                      May I help you?
+1065    You are great sir !!! When a i saw a movie fir...
+Name: comment, Length: 1066, dtype: object
+0       NAG
+1       NAG
+2       NAG
+3       NAG
+4       NAG
+
+1061    OAG
+1062    NAG
+1063    NAG
+1064    NAG
+1065    NAG
+Name: agg_label, Length: 1066, dtype: object
+[['NAG']
+ ['NAG']
+ ['NAG']
+ ...
+ ['ANOTHER']
+ ['NAG']
+ ['NAG']]
+[['NAG']
+ ['NAG']
+ ['NAG']
+ ...
+ ['NAG']
+ ['NAG']
+ ['NAG']]
+[[1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [0.]
+ [1.]
+ [1.]]
+[array(['ANOTHER', 'NAG'], dtype=object)]
+[[1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [1.]
+ [0.]]
+[array(['ANOTHER', 'NAG'], dtype=object)]
+Training model...
+pipeline: ['tfidf', 'clf']
+LogisticRegression(C=10.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=200,
+                   multi_class='ovr', n_jobs=None, penalty='l1',
+                   random_state=None, solver='liblinear', tol=0.0001, verbose=0,
+                   warm_start=False)
+Fit completed.
+[[1.]
+ [1.]
+ [1.]
+ ...
+ [1.]
+ [1.]
+ [1.]]
+F1 score:  0.7038025587643908
+most negative features
+[(-35.64535028599011, 'itch'), (-31.027275925103712, 'ne ma'), (-27.816497610559882, 'hut'), (-25.1415268506454, 'od is'), (-23.62171957503554, 'ped'), (-22.487014171567424, 'r par'), (-21.106298531898474, 'ister'), (-20.805955593817266, 'badly'), (-20.65339827453625, 'sts '), (-20.097552195917405, ' k '), (-19.077384942831852, 'kut'), (-18.89221563039135, 'd har'), (-18.702931866754746, ' ter'), (-18.30180550905682, 'als p'), (-18.25413773159093, 'sham'), (-17.89310599032634, 'ted a'), (-17.85080631724379, 'ott'), (-17.510653213083152, 'ues o'), (-17.184954304227748, ' mc'), (-16.854834883250064, ' chu'), (-16.7669955198656, 'gan'), (-16.759830700010834, 'hate'), (-16.584904449138, 'ave'), (-16.340967152246932, 'a pi'), (-16.248510635820292, 'ge bo'), (-15.517504305086378, 'fuck'), (-15.468255974556913, '. w'), (-14.879488240268858, ' anyt'), (-14.845140349595313, 'ult '), (-14.780173132656664, 'row h')]
+-------------
+most predictive features
+[(21.686418716419656, 'stur'), (19.75434695893642, 'nd\n'), (19.686792800077654, 'e bes'), (19.168789980635168, 'f d'), (18.494720333638952, 'as th'), (17.354765250355758, 'tched'), (17.267441141713867, 'bat'), (17.047610950927787, 'ctive'), (16.406756958886046, '👍'), (15.108280456719541, 'shw'), (14.677072191437444, 'le o'), (14.586887558173077, 'ala '), (14.510941837041663, ' is i'), (14.479497328154636, ' pl'), (13.845506339390317, 's'), (13.819023469371453, 'give '), (13.720612684177045, 'e giv'), (13.191841517837151, 'lf fe'), (13.116625200623218, 'as c'), (12.960339108537669, 're th'), (12.42383063669993, 'ase '), (11.945010452387889, 'ank'), (11.827066600420682, 'bh'), (11.550882400061024, 's say'), (11.538364530468879, 'ent t'), (11.438876283639008, 'rti'), (11.435263304489494, '. no'), (11.425983474506399, "'s a "), (11.36440491494384, '\no'), (11.316135478352003, 'i l')]

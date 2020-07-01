@@ -1,0 +1,105 @@
+0                                               Next part
+1                      Iii8mllllllm\nMdxfvb8o90lplppi0005
+2       🤣🤣😂😂🤣🤣🤣😂osm vedio ....keep it up...make more v...
+3       What the fuck was this? I respect shwetabh and...
+4       Concerned authorities should bring arundathi R...
+                       
+4258    Abey loudey Arnab... Did u ever see the vedios...
+4259    Arundati is very rich where she get money who ...
+4260    People may criticize Pratik Borade by saying t...
+4261                                       @Naaz Sk hello
+4262    We want to read your book sir, please make it ...
+Name: comment, Length: 4263, dtype: object
+0       NGEN
+1       NGEN
+2       NGEN
+3       NGEN
+4       NGEN
+
+4258     GEN
+4259    NGEN
+4260    NGEN
+4261    NGEN
+4262    NGEN
+Name: agg_label, Length: 4263, dtype: object
+0             U deserve more subscribers. U really great.
+1                                          Nice video....
+2       sorry if i bother somebody.. iam a defence asp...
+3       Joker was amazing....it was not glamorised !.....
+4                                               Nice baro
+                       
+1061    Ranu Mandal is third class [woman.No](http://w...
+1062    [15:23](https://www.youtube.com/watch?v=N_ZMfQ...
+1063                                Love u bro keep it up
+1064                                      May I help you?
+1065    You are great sir !!! When a i saw a movie fir...
+Name: comment, Length: 1066, dtype: object
+0       NGEN
+1       NGEN
+2        GEN
+3       NGEN
+4       NGEN
+
+1061    NGEN
+1062    NGEN
+1063    NGEN
+1064    NGEN
+1065    NGEN
+Name: agg_label, Length: 1066, dtype: object
+[['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']
+ ...
+ ['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']]
+[['ANOTHER']
+ ['ANOTHER']
+ ['GEN']
+ ...
+ ['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']]
+[[0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]]
+[array(['ANOTHER', 'GEN'], dtype=object)]
+[[0.]
+ [0.]
+ [1.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [1.]
+ [0.]]
+[array(['ANOTHER', 'GEN'], dtype=object)]
+Training model...
+pipeline: ['tfidf', 'clf']
+LogisticRegression(C=50.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=200,
+                   multi_class='ovr', n_jobs=None, penalty='l1',
+                   random_state=None, solver='liblinear', tol=0.0001, verbose=0,
+                   warm_start=False)
+Fit completed.
+[[0.]
+ [0.]
+ [0.]
+ ...
+ [0.]
+ [0.]
+ [0.]]
+F1 score:  0.7092727272727272
+most negative features
+[(-33.82717714229889, 'i'), (-31.120615967191874, 'ov'), (-30.77731492000551, 'kind '), (-29.58163009677571, 'ree '), (-28.944167800530415, 'ion'), (-27.936978195526613, 't li'), (-26.954960854618346, 'i lik'), (-26.461487653126845, 'i f'), (-24.213650188787707, 'm gay'), (-22.82503980413271, 'e lo'), (-22.611623179094448, 's'), (-22.38726026312674, 'tim'), (-21.92578970200885, '\ni'), (-21.436086330859627, 'o'), (-20.940253051407417, ' sto'), (-20.070253728040036, ' bol'), (-20.027945985340654, 'or s'), (-19.504804817091074, 'iss'), (-18.792081595080198, 'and f'), (-18.13434589518328, 'im'), (-18.124333075967638, 'son'), (-17.081538849163646, 'eo '), (-16.537950613415244, 'ah'), (-16.384718179019977, 're f'), (-16.108226938482414, 't'), (-15.483820708994735, 'ol'), (-15.453322269831412, 'd of'), (-15.397096147190274, 'itt'), (-14.605791323516216, 'utta '), (-14.385457779867766, ' two')]
+-------------
+most predictive features
+[(62.06071932104722, 'randi'), (58.532140274349494, 'bitch'), (53.81974578892551, 'ee wh'), (49.35475680199221, ' kut'), (47.44843085390373, 'bc'), (45.69037338808587, 'sex'), (45.518477959862835, 'orn '), (45.338042860796435, 'so is'), (43.48608829359683, 'stitu'), (40.10952720868314, 'ly ex'), (40.071557277151015, 'mc'), (39.89162570186396, 'itch'), (39.003146213334, 'rae'), (38.120092771803, 'pros'), (38.031362442114215, 'ndy '), (37.04058424355033, 'e rap'), (36.95551808145531, ' k '), (36.68769200371009, 'ple g'), (36.53193241870935, ' gay'), (36.21365911799431, 'e na'), (36.030484464126964, 's gay'), (35.8822102165655, 'mum'), (35.59828542028378, 'ong g'), (33.7354188892514, 'a. s'), (33.42464386736996, 'jais'), (33.12775499911994, 'otiya'), (32.29748955526192, 'andu'), (32.29143992657981, 'used'), (32.17290526258294, ' eun'), (31.476232285438204, '\n')]

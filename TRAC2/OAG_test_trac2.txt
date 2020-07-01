@@ -1,0 +1,105 @@
+0                                               Next part
+1                      Iii8mllllllm\nMdxfvb8o90lplppi0005
+2       🤣🤣😂😂🤣🤣🤣😂osm vedio ....keep it up...make more v...
+3       What the fuck was this? I respect shwetabh and...
+4       Concerned authorities should bring arundathi R...
+                       
+4258    Abey loudey Arnab... Did u ever see the vedios...
+4259    Arundati is very rich where she get money who ...
+4260    People may criticize Pratik Borade by saying t...
+4261                                       @Naaz Sk hello
+4262    We want to read your book sir, please make it ...
+Name: comment, Length: 4263, dtype: object
+0       NAG
+1       NAG
+2       NAG
+3       NAG
+4       NAG
+
+4258    OAG
+4259    NAG
+4260    CAG
+4261    NAG
+4262    NAG
+Name: agg_label, Length: 4263, dtype: object
+0             U deserve more subscribers. U really great.
+1                                          Nice video....
+2       sorry if i bother somebody.. iam a defence asp...
+3       Joker was amazing....it was not glamorised !.....
+4                                               Nice baro
+                       
+1061    Ranu Mandal is third class [woman.No](http://w...
+1062    [15:23](https://www.youtube.com/watch?v=N_ZMfQ...
+1063                                Love u bro keep it up
+1064                                      May I help you?
+1065    You are great sir !!! When a i saw a movie fir...
+Name: comment, Length: 1066, dtype: object
+0       NAG
+1       NAG
+2       NAG
+3       NAG
+4       NAG
+
+1061    OAG
+1062    NAG
+1063    NAG
+1064    NAG
+1065    NAG
+Name: agg_label, Length: 1066, dtype: object
+[['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']
+ ...
+ ['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']]
+[['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']
+ ...
+ ['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']]
+[[0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]]
+[array(['ANOTHER', 'OAG'], dtype=object)]
+[[0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [1.]]
+[array(['ANOTHER', 'OAG'], dtype=object)]
+Training model...
+pipeline: ['tfidf', 'clf']
+LogisticRegression(C=50.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=200,
+                   multi_class='ovr', n_jobs=None, penalty='l1',
+                   random_state=None, solver='liblinear', tol=0.0001, verbose=0,
+                   warm_start=False)
+Fit completed.
+[[0.]
+ [0.]
+ [0.]
+ ...
+ [0.]
+ [0.]
+ [0.]]
+F1 score:  0.7259474336872032
+most negative features
+[(-40.006135833724905, 'll s'), (-33.445410774689215, 'give '), (-31.435718116769266, 'er th'), (-30.899666243935354, 'lf fe'), (-29.638795535407702, 's'), (-28.047908944415973, 'ree '), (-28.009589522694583, ' at '), (-27.96426395066216, 's in '), (-26.439243146036077, 'uni'), (-24.644328227106058, 'ho i'), (-24.560738756450146, 'ome '), (-24.199266608611573, 'l'), (-22.896354108547378, 'u w'), (-22.285938199773597, '. su'), (-22.01763814619897, ' mod'), (-21.93013127904301, 's aru'), (-21.782625832809693, 'iled'), (-21.293899832344295, ' play'), (-20.84146112470889, 'hat a'), (-20.51574981300389, 'take '), (-20.02060407026776, 'f o'), (-19.88601361800675, 'far'), (-19.763107790157527, ' y'), (-19.584796225033507, 'nd f'), (-19.566507593467747, 'give'), (-19.38339599010851, 'e. i'), (-19.320349770704308, 'r h'), (-19.07736479909806, '😂'), (-19.055985435719936, 'lly'), (-19.01614615719967, 'time')]
+-------------
+most predictive features
+[(60.26259456457505, 'd har'), (58.37992146812224, 'a dam'), (58.354367825740326, 'orist'), (51.10823361220468, 'g sex'), (49.96484230242641, 'i ma'), (48.197814094622466, ' mc'), (48.14502168330426, 'st na'), (47.55567440820914, 'at ho'), (47.53577296640597, 'ct wo'), (47.4477992689241, 'itch'), (43.25099629530132, 'andu'), (41.577021967040594, 'ace o'), (39.9148187713901, 'sla'), (39.81286882196764, 'fuc'), (39.272413379301234, '\na r'), (38.842652551723496, '\nk'), (38.7294767380813, 'ord f'), (38.724523684731125, 'ge bo'), (38.48195284249496, '। '), (37.10715763526858, 'ify'), (34.38188236720846, 'r cl'), (34.348597475211655, ' self'), (33.98884223732632, 'hod'), (33.90257819033187, 'ej'), (33.68144161549196, ' spot'), (33.54900021744016, 'hen t'), (33.24676768524369, 'iot'), (33.02105732838376, 'stop '), (31.87187149205458, 'kut'), (31.801590411361662, 'u lik')]
