@@ -148,6 +148,8 @@ if __name__ == "__main__":
     if focus_label=='identity_hate':
         clf_current = clf_identity_hate
         
+    print(focus_label)    
+
     print("pipeline:", [name for name, _ in clf_current.steps])
     print(clf_current['clf'])
     t0 = time()
@@ -195,14 +197,21 @@ n_display_values = 30
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
 
+def print_format_coef(features_coef):
+    for feature in features_coef:
+        repr_string = repr(feature[1])
+        repr_string = repr_string[1:]
+        repr_string = repr_string[:-1]
+        print('(%.2f, "%s")' % (feature[0],repr_string))
+    return
 
-print("most negative features")
-print(most_neg)
 
 print("-------------")
+print("most negative features")
+print_format_coef(most_neg)
+print("-------------")
 print("most predictive features")
-
-print(most_pred)
+print_format_coef(most_pred)
 
 #%%
 #sorted(coefs_and_features, key=lambda x: abs(x[0]), reverse=True)
