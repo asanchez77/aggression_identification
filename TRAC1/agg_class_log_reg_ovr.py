@@ -165,14 +165,19 @@ n_display_values = 30
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
 
+def print_format_coef(features_coef):
+    for feature in features_coef:
+        print('(%.2f, "%s")' % feature)
+    return
 
-print("most negative features")
-print(most_neg)
 
 print("-------------")
+print("most negative features")
+print_format_coef(most_neg)
+print("-------------")
 print("most predictive features")
+print_format_coef(most_pred)
 
-print(most_pred)
 #%%
 #sorted(coefs_and_features, key=lambda x: abs(x[0]), reverse=True)
 
