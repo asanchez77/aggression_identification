@@ -77,7 +77,7 @@ from sklearn.metrics import f1_score
 
 #%%
 
-clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='word', 
+clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 2), lowercase=True) ),
               ('clf', LogisticRegression(penalty = 'l2',
                                          multi_class = 'ovr' ,
