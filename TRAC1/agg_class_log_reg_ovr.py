@@ -167,7 +167,10 @@ most_pred = predictive_features[:n_display_values]
 
 def print_format_coef(features_coef):
     for feature in features_coef:
-        print('(%.2f, "%s")' % feature)
+        repr_string = repr(feature[1])
+        repr_string = repr_string[1:]
+        repr_string = repr_string[:-1]
+        print('(%.2f, "%s")' % (feature[0],repr_string))
     return
 
 
