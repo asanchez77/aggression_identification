@@ -3,7 +3,7 @@
 2           Now question is, Pakistan will adhere to this?
 3        Pakistan is comprised of fake muslims who does...
 4        ??we r against cow slaughter,so of course it w...
-                       
+                               ...
 11995    They belong to you flight dirty terrorist coun...
 11996    Really motivating programme, congratulations t...
 11997                                      fabricated news
@@ -15,7 +15,7 @@ Name: comment, Length: 12000, dtype: object
 2        OAG
 3        OAG
 4        NAG
-
+        ...
 11995    OAG
 11996    NAG
 11997    OAG
@@ -23,13 +23,13 @@ Name: comment, Length: 12000, dtype: object
 11999    NAG
 Name: agg_label, Length: 12000, dtype: object
 0       The quality of re made now makes me think it i...
-1       @siva \nHow is ur mother???\nHow is ur wife???...
+1       @siva \r\nHow is ur mother???\r\nHow is ur wif...
 2       Also see ....hw ur RSS activist caught in Burk...
-3       On the death of 2 jawans in LOC CROSS FIRING\n...
+3       On the death of 2 jawans in LOC CROSS FIRING\r...
 4       Modi ho ya Manmohan singh saala yeh log kuch n...
-                       
+                              ...
 2996                       Gaddaron se to yahi sahi hain.
-2997    Just saw this news\n* read 1dt comment. \n*smi...
+2997    Just saw this news\r\n* read 1dt comment. \r\n...
 2998    U guys can crack jokes but can't take the crid...
 2999    These media fellows have time to dissect one's...
 3000    Middle class is suffering, but most affected a...
@@ -39,7 +39,7 @@ Name: comment, Length: 3001, dtype: object
 2       NAG
 3       NAG
 4       OAG
-
+       ...
 2996    NAG
 2997    CAG
 2998    CAG
@@ -94,71 +94,71 @@ Fit completed.
  [0.]
  [0.]
  ...
- [1.]
+ [0.]
  [0.]
  [0.]]
-F1 score:  0.6718331858083981
+F1 score:  0.7248406234157729
 -------------
 most negative features
-(-4.31, "t")
-(-4.15, "9t")
-(-4.11, "sl")
-(-3.88, "ml")
-(-3.66, "dy")
-(-3.58, "aq")
-(-3.39, "82")
-(-3.27, "bv")
-(-3.16, "65")
-(-3.09, "gi")
-(-3.04, "-a")
-(-3.04, "jr")
-(-3.02, "vt")
-(-3.00, "rx")
-(-2.97, "kp")
-(-2.97, "a)")
-(-2.90, "gu")
-(-2.86, "bj")
-(-2.82, "vl")
-(-2.80, "xa")
-(-2.77, "za")
-(-2.74, "-h")
-(-2.63, "o-")
-(-2.59, "-c")
-(-2.57, "ki")
-(-2.51, "1s")
-(-2.51, "a/")
-(-2.48, "ei")
-(-2.48, " ")
-(-2.48, "kt")
+(-2.51, "ker")
+(-2.47, "sonu")
+(-2.31, " lol")
+(-2.31, "sl")
+(-2.29, "cow")
+(-2.26, "onu")
+(-2.22, "stu")
+(-2.21, "idi")
+(-2.17, "sham")
+(-2.13, "i n")
+(-2.04, "id")
+(-2.04, "ut")
+(-2.03, "rs")
+(-2.02, "ham")
+(-1.99, "gi")
+(-1.98, "sic")
+(-1.95, " cow")
+(-1.95, "nu ")
+(-1.92, "dio")
+(-1.92, "s.")
+(-1.91, "is in")
+(-1.91, "era")
+(-1.91, "ot")
+(-1.90, "ak")
+(-1.89, "an ex")
+(-1.87, " men")
+(-1.86, "ey")
+(-1.85, "og")
+(-1.83, "e wan")
+(-1.82, "bur")
 -------------
 most predictive features
-(4.47, "uj")
-(4.23, "pv")
-(4.05, ": ")
-(3.98, "gt")
-(3.35, "0.")
-(3.29, "cb")
-(3.19, "90")
-(3.16, "#r")
-(3.13, "dw")
-(3.13, "np")
-(2.94, " @")
-(2.91, "-u")
-(2.89, "uy")
-(2.86, "lp")
-(2.84, "52")
-(2.81, "25")
-(2.77, "l/")
-(2.69, "i")
-(2.55, "zo")
-(2.53, ",u")
-(2.51, "uz")
-(2.48, "dc")
-(2.44, "nb")
-(2.42, "pg")
-(2.39, "17")
-(2.33, "\np")
-(2.31, "/-")
-(2.30, "zi")
-(2.30, "hw")
-(2.27, "iv")
+(2.96, ": ")
+(2.64, "-")
+(2.54, "nice")
+(2.47, "y o")
+(2.43, "i")
+(2.41, " ?")
+(2.30, "anuj")
+(2.30, "nuj")
+(2.25, " am")
+(2.22, "8")
+(2.22, "te to")
+(2.15, " pos")
+(2.10, "3")
+(2.00, "tata")
+(1.97, "th m")
+(1.95, "ata")
+(1.95, "vie")
+(1.95, "n and")
+(1.93, " tata")
+(1.91, "i ")
+(1.90, " tat")
+(1.89, "uj ")
+(1.88, "anuj ")
+(1.88, "nuj ")
+(1.86, "c ")
+(1.84, "great")
+(1.83, "@")
+(1.81, "ries")
+(1.77, "coo")
+(1.77, "grea")
