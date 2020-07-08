@@ -1,0 +1,114 @@
+0        Beats by Dr. Dre urBeats Wired In-Ear Headphon...
+1        RT @Papapishu: Man it would fucking rule if we...
+2        It is time to draw close to Him &#128591;&#127...
+3        if you notice me start to act different or dis...
+4        Forget unfollowers, I believe in growing. 7 ne...
+                       
+99991    RT @shangros: my fucking queen https://t.co/wa...
+99992    #Osteporosis treated with #PEMF - rebuild bone...
+99993    @LGUSAMobile why does my phone screen keeps fl...
+99994    #bigdata vs. #reality ... but equally applies ...
+99995    you can do whatever you choose, if you first g...
+Name: comment, Length: 99996, dtype: object
+0           spam
+1        abusive
+2         normal
+3         normal
+4         normal
+  
+99991    abusive
+99992     normal
+99993     normal
+99994     normal
+99995     normal
+Name: agg_label, Length: 99996, dtype: object
+[['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']
+ ...
+ ['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']]
+[[0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]]
+[array(['ANOTHER', 'hateful'], dtype=object)]
+Training model...
+pipeline: ['tfidf', 'clf']
+LogisticRegression(C=5.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=200,
+                   multi_class='ovr', n_jobs=None, penalty='l1',
+                   random_state=None, solver='liblinear', tol=0.0001, verbose=0,
+                   warm_start=False)
+Fit completed.
+-------------
+most negative features
+(-23.63, "fuck")
+(-16.92, " new ")
+(-15.99, "vel")
+(-15.79, " top")
+(-15.14, "lp ")
+(-14.60, "2w")
+(-14.54, "@ph")
+(-13.98, "line")
+(-13.49, "thank")
+(-13.42, "pace")
+(-13.03, "9i")
+(-12.35, "yte")
+(-12.10, "ta s")
+(-11.83, "dass")
+(-11.59, "ter w")
+(-11.26, "y gi")
+(-11.17, "ch s")
+(-11.16, "r it")
+(-10.90, "f d")
+(-10.86, "job")
+(-10.76, "dz")
+(-10.67, " bag ")
+(-10.61, "nd ni")
+(-10.43, "ed &#")
+(-10.24, "yaa")
+(-9.77, "actu")
+(-9.73, "@fu")
+(-9.70, "ussy")
+(-9.52, "came")
+(-9.41, "l my ")
+-------------
+most predictive features
+(44.01, "nigg")
+(33.23, " nazi")
+(25.50, "raito")
+(23.76, "islam")
+(23.31, "e gov")
+(22.38, "fji")
+(20.84, "gga")
+(20.15, "ys wi")
+(20.10, ": mus")
+(19.36, " hat")
+(18.91, "soha")
+(18.36, "ol yo")
+(18.14, "em_")
+(17.59, "yet h")
+(17.37, "men ")
+(17.05, " mur")
+(17.01, "musli")
+(16.85, "lt s")
+(16.80, "abusi")
+(16.64, "acis")
+(16.53, "e sim")
+(16.32, "ut im")
+(16.16, "ck pe")
+(16.11, "@lor")
+(16.03, "hatr")
+(15.94, " eun")
+(15.90, "jsf")
+(15.84, "ow. s")
+(15.82, "sick")
+(15.75, "gusti")

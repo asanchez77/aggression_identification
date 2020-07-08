@@ -1,0 +1,114 @@
+0        Beats by Dr. Dre urBeats Wired In-Ear Headphon...
+1        RT @Papapishu: Man it would fucking rule if we...
+2        It is time to draw close to Him &#128591;&#127...
+3        if you notice me start to act different or dis...
+4        Forget unfollowers, I believe in growing. 7 ne...
+                       
+99991    RT @shangros: my fucking queen https://t.co/wa...
+99992    #Osteporosis treated with #PEMF - rebuild bone...
+99993    @LGUSAMobile why does my phone screen keeps fl...
+99994    #bigdata vs. #reality ... but equally applies ...
+99995    you can do whatever you choose, if you first g...
+Name: comment, Length: 99996, dtype: object
+0           spam
+1        abusive
+2         normal
+3         normal
+4         normal
+  
+99991    abusive
+99992     normal
+99993     normal
+99994     normal
+99995     normal
+Name: agg_label, Length: 99996, dtype: object
+[['ANOTHER']
+ ['abusive']
+ ['ANOTHER']
+ ...
+ ['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']]
+[[0.]
+ [1.]
+ [0.]
+ [0.]
+ [0.]
+ [1.]
+ [0.]
+ [0.]
+ [0.]
+ [1.]]
+[array(['ANOTHER', 'abusive'], dtype=object)]
+Training model...
+pipeline: ['tfidf', 'clf']
+LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=200,
+                   multi_class='ovr', n_jobs=None, penalty='l1',
+                   random_state=None, solver='liblinear', tol=0.0001, verbose=0,
+                   warm_start=False)
+Fit completed.
+-------------
+most negative features
+(-26.37, "nigg")
+(-23.71, "ss bi")
+(-13.37, "g hat")
+(-11.91, "a ai")
+(-8.09, "ss n")
+(-7.86, " - ")
+(-7.82, " new ")
+(-7.74, "d af&")
+(-7.55, "more ")
+(-6.63, "day")
+(-6.32, "/5")
+(-6.02, ": i h")
+(-5.94, " new")
+(-5.88, "'t fu")
+(-5.77, " vide")
+(-5.74, "nig")
+(-5.66, "great")
+(-5.63, " 1")
+(-5.47, "re")
+(-5.45, "thank")
+(-5.36, " love")
+(-5.19, "hate ")
+(-5.17, " #")
+(-5.12, "eek")
+(-5.10, "erro")
+(-5.02, "tio")
+(-4.90, "isl")
+(-4.77, "g idi")
+(-4.76, "yingg")
+(-4.67, " for")
+-------------
+most predictive features
+(82.18, "fuck")
+(64.49, "fuc")
+(61.11, "shit")
+(51.72, "bitch")
+(44.47, "damn")
+(37.95, "idiot")
+(34.17, "tard")
+(34.01, " ass")
+(32.13, " dick")
+(30.95, "rt @")
+(29.20, "puss")
+(25.18, " peni")
+(23.70, "idio")
+(22.79, "uck")
+(22.62, " ass ")
+(21.41, "cunt")
+(17.79, "ugly")
+(15.89, " suck")
+(14.95, "piss")
+(14.52, "dumb")
+(14.14, " shit")
+(13.33, "dirty")
+(12.78, "sex")
+(12.69, "hell ")
+(12.29, "bitc")
+(12.27, "asty")
+(12.14, "ck")
+(11.95, "boob")
+(11.84, "cock")
+(11.64, " cra")

@@ -1,0 +1,114 @@
+0        Beats by Dr. Dre urBeats Wired In-Ear Headphon...
+1        RT @Papapishu: Man it would fucking rule if we...
+2        It is time to draw close to Him &#128591;&#127...
+3        if you notice me start to act different or dis...
+4        Forget unfollowers, I believe in growing. 7 ne...
+                       
+99991    RT @shangros: my fucking queen https://t.co/wa...
+99992    #Osteporosis treated with #PEMF - rebuild bone...
+99993    @LGUSAMobile why does my phone screen keeps fl...
+99994    #bigdata vs. #reality ... but equally applies ...
+99995    you can do whatever you choose, if you first g...
+Name: comment, Length: 99996, dtype: object
+0           spam
+1        abusive
+2         normal
+3         normal
+4         normal
+  
+99991    abusive
+99992     normal
+99993     normal
+99994     normal
+99995     normal
+Name: agg_label, Length: 99996, dtype: object
+[['ANOTHER']
+ ['ANOTHER']
+ ['normal']
+ ...
+ ['normal']
+ ['normal']
+ ['normal']]
+[[0.]
+ [0.]
+ [1.]
+ [1.]
+ [1.]
+ [0.]
+ [1.]
+ [1.]
+ [1.]
+ [0.]]
+[array(['ANOTHER', 'normal'], dtype=object)]
+Training model...
+pipeline: ['tfidf', 'clf']
+LogisticRegression(C=5.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=200,
+                   multi_class='ovr', n_jobs=None, penalty='l2',
+                   random_state=None, solver='liblinear', tol=0.0001, verbose=0,
+                   warm_start=False)
+Fit completed.
+-------------
+most negative features
+(-17.17, "fuck")
+(-17.09, "fuc")
+(-14.64, " fuc")
+(-14.61, " fuck")
+(-14.36, "uck")
+(-13.43, "shit")
+(-12.90, " shit")
+(-12.49, " ass")
+(-11.63, " ass ")
+(-11.19, "fu")
+(-10.23, " fu")
+(-9.80, "bitch")
+(-9.50, "bitc")
+(-9.47, "uc")
+(-9.42, " bitc")
+(-9.23, "idiot")
+(-9.21, "diot")
+(-8.99, "ck")
+(-8.95, "idio")
+(-8.81, "hit")
+(-8.74, "shit ")
+(-8.72, " idio")
+(-8.72, " idi")
+(-8.66, "fucki")
+(-8.38, "uckin")
+(-8.15, "ucki")
+(-8.11, " shi")
+(-7.74, "fucke")
+(-7.61, "ass ")
+(-7.48, "rt @")
+-------------
+most predictive features
+(3.92, " as ")
+(3.45, " i ")
+(3.26, " i")
+(3.14, "ins ")
+(3.06, "h7")
+(3.04, " fun")
+(3.03, " t")
+(2.89, "@")
+(2.88, "re")
+(2.76, ". #")
+(2.70, "ac")
+(2.69, "fun")
+(2.68, " bil")
+(2.66, " bill")
+(2.62, "'")
+(2.61, "ood ")
+(2.60, "thank")
+(2.51, "bit ")
+(2.51, "p")
+(2.49, " bac")
+(2.48, "hello")
+(2.46, "ack")
+(2.45, "bill ")
+(2.43, "ues")
+(2.41, "ul")
+(2.41, " lo")
+(2.37, "than")
+(2.37, "back")
+(2.33, "ful")
+(2.32, "od ")

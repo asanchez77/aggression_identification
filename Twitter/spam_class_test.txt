@@ -1,0 +1,114 @@
+0        Beats by Dr. Dre urBeats Wired In-Ear Headphon...
+1        RT @Papapishu: Man it would fucking rule if we...
+2        It is time to draw close to Him &#128591;&#127...
+3        if you notice me start to act different or dis...
+4        Forget unfollowers, I believe in growing. 7 ne...
+                       
+99991    RT @shangros: my fucking queen https://t.co/wa...
+99992    #Osteporosis treated with #PEMF - rebuild bone...
+99993    @LGUSAMobile why does my phone screen keeps fl...
+99994    #bigdata vs. #reality ... but equally applies ...
+99995    you can do whatever you choose, if you first g...
+Name: comment, Length: 99996, dtype: object
+0           spam
+1        abusive
+2         normal
+3         normal
+4         normal
+  
+99991    abusive
+99992     normal
+99993     normal
+99994     normal
+99995     normal
+Name: agg_label, Length: 99996, dtype: object
+[['spam']
+ ['ANOTHER']
+ ['ANOTHER']
+ ...
+ ['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']]
+[[1.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]]
+[array(['ANOTHER', 'spam'], dtype=object)]
+Training model...
+pipeline: ['tfidf', 'clf']
+LogisticRegression(C=10.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=200,
+                   multi_class='ovr', n_jobs=None, penalty='l2',
+                   random_state=None, solver='liblinear', tol=0.0001, verbose=0,
+                   warm_start=False)
+Fit completed.
+-------------
+most negative features
+(-7.32, " i ")
+(-6.54, " @")
+(-6.38, "fuck")
+(-6.23, "fuc")
+(-5.47, "uck")
+(-5.03, " fuck")
+(-5.01, " fuc")
+(-4.86, " i")
+(-4.80, "rt @")
+(-4.35, "uc")
+(-3.97, " m")
+(-3.86, " a")
+(-3.85, " fu")
+(-3.79, "fuck ")
+(-3.76, "idi")
+(-3.72, "fucki")
+(-3.70, "iot")
+(-3.61, "fu")
+(-3.59, "shit")
+(-3.58, "a ")
+(-3.57, " as")
+(-3.51, " so ")
+(-3.45, " bil")
+(-3.42, "i ")
+(-3.39, " ha")
+(-3.39, "but ")
+(-3.39, "uckin")
+(-3.32, " bill")
+(-3.29, ". #")
+(-3.26, " shit")
+-------------
+most predictive features
+(5.64, "! ")
+(5.25, " $")
+(4.68, " 1")
+(4.24, "free ")
+(4.18, "2 ")
+(3.94, "0 ")
+(3.89, ": ht")
+(3.79, ": htt")
+(3.76, " lin")
+(3.75, "free")
+(3.74, " 12")
+(3.71, " link")
+(3.59, "click")
+(3.52, "35")
+(3.45, "isit ")
+(3.44, " shop")
+(3.43, " here")
+(3.37, "00")
+(3.34, "pc")
+(3.31, "offer")
+(3.30, "23")
+(3.27, "95")
+(3.25, "43")
+(3.25, ".. ht")
+(3.24, "lick ")
+(3.23, "ite")
+(3.23, "clic")
+(3.21, "kq")
+(3.15, "site")
+(3.12, "50")
