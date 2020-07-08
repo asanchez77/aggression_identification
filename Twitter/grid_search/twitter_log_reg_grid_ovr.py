@@ -20,12 +20,12 @@ import os
 import pandas as pd
 import numpy as np
 
-DATA_PATH = "../../../tweet_data/"
+DATA_PATH = "../../../twitter_data/"
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
-    return pd.read_csv(csv_path,sep = '\t', header=None)
+    return pd.read_csv(csv_path, index_col = 0)
 
 #%%
 
@@ -35,7 +35,7 @@ def load_aggresion_data(csvfile):
     #agg_data = agg_data.drop(0, axis=1)    
     #Rename the columns
     
-    agg_data = agg_data.rename(columns={0:"comment",1:"agg_label"})
+    #agg_data = agg_data.rename(columns={0:"comment",1:"agg_label"})
     print(agg_data["comment"])
     print(agg_data["agg_label"])
     # Obtain the labels and the comments
@@ -43,7 +43,7 @@ def load_aggresion_data(csvfile):
     agg_comments = agg_data["comment"]
     return [agg_labels, agg_comments]
 
-[agg_labels, agg_comments] = load_aggresion_data("hatespeech_text_label_vote.csv")
+[agg_labels, agg_comments] = load_aggresion_data("hatespeech_text_train.csv")
 
 #%%
 
@@ -54,7 +54,7 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
-focus_label = 'normal'
+focus_label = 'abusive'
 agg_labels = redifine_labels(agg_labels, focus_label)
 
 #%%
@@ -131,11 +131,6 @@ parameters = [
     #     }
     ]
 
-#%%
-#from joblib import dump, load
-#file_names = ['twitter_best_clf.joblib']
-#best_clf = gs_clf.best_estimator_
-#dump(best_clf, file_name);
 
 #%%
 
