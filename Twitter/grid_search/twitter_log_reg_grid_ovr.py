@@ -132,8 +132,10 @@ parameters = [
     ]
 
 #%%
-from joblib import dump, load
-file_names = ['twitter_best_clf.joblib']
+#from joblib import dump, load
+#file_names = ['twitter_best_clf.joblib']
+#best_clf = gs_clf.best_estimator_
+#dump(best_clf, file_name);
 
 #%%
 
@@ -144,7 +146,7 @@ if __name__ == "__main__":
     # find the best parameters for classifier
     print("Performing grid search...")
     
-    for text_clf, param, file_name in zip(pipelines, parameters,file_names):
+    for text_clf, param in zip(pipelines, parameters):
         gs_clf = GridSearchCV(text_clf, param, n_jobs=1, scoring='f1_macro', verbose=2)
         print("Performing grid search...")
         print("pipeline:", [name for name, _ in text_clf.steps])
@@ -157,8 +159,6 @@ if __name__ == "__main__":
         print("Best score: %0.3f" % gs_clf.best_score_)
         print("Best parameters set:")
         best_parameters = gs_clf.best_estimator_.get_params()
-        best_clf = gs_clf.best_estimator_
-        dump(best_clf, file_name);
         for param_name in sorted(param.keys()):
             print("\t%s: %r" % (param_name, best_parameters[param_name]))
         
