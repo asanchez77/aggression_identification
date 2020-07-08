@@ -1,0 +1,59 @@
+Best parameters for Twitter comment classifier:
+
+
+abusive: 
+
+[Parallel(n_jobs=20)]: Done 660 out of 660 | elapsed: 114.7min finished
+done in 6955.216s
+
+Best score: 0.917
+Best parameters set:
+	clf__C: 1.0
+	clf__max_iter: 200
+	clf__multi_class: 'ovr'
+	clf__penalty: 'l1'
+	clf__solver: 'liblinear'
+	tfidf__ngram_range: (2, 5)
+
+
+hateful:
+
+[Parallel(n_jobs=24)]: Done 660 out of 660 | elapsed: 113.4min finished
+done in 6894.755s
+
+Best score: 0.677
+Best parameters set:
+	clf__C: 5.0
+	clf__max_iter: 200
+	clf__multi_class: 'ovr'
+	clf__penalty: 'l1'
+	clf__solver: 'liblinear'
+	tfidf__ngram_range: (2, 5)
+
+normal:
+
+[Parallel(n_jobs=24)]: Done 660 out of 660 | elapsed: 181.2min finished
+done in 11003.786s
+
+Best score: 0.838
+Best parameters set:
+	clf__C: 5.0
+	clf__max_iter: 200
+	clf__multi_class: 'ovr'
+	clf__penalty: 'l2'
+	clf__solver: 'liblinear'
+	tfidf__ngram_range: (1, 5)
+
+spam:
+
+[Parallel(n_jobs=24)]: Done 660 out of 660 | elapsed: 80.3min finished
+done in 4955.076s
+
+Best score: 0.726
+Best parameters set:
+	clf__C: 10.0
+	clf__max_iter: 200
+	clf__multi_class: 'ovr'
+	clf__penalty: 'l2'
+	clf__solver: 'liblinear'
+	tfidf__ngram_range: (2, 5)
