@@ -1,43 +1,85 @@
-0        Beats by Dr. Dre urBeats Wired In-Ear Headphon...
-1        RT @Papapishu: Man it would fucking rule if we...
-2        It is time to draw close to Him &#128591;&#127...
-3        if you notice me start to act different or dis...
-4        Forget unfollowers, I believe in growing. 7 ne...
+86460    @Oluwafemii_ @adebayoadekunzy OK... See as you...
+81830    #PSEi update: PSEi ends week on sluggish note ...
+11253    German cabinet backs €50M hate speech fines fo...
+68527    @slaughterfiend Oh that would be so fucking ba...
+73597    bloody hell Colin O'Donoghue can fooking sing....
                        
-99991    RT @shangros: my fucking queen https://t.co/wa...
-99992    #Osteporosis treated with #PEMF - rebuild bone...
-99993    @LGUSAMobile why does my phone screen keeps fl...
-99994    #bigdata vs. #reality ... but equally applies ...
-99995    you can do whatever you choose, if you first g...
-Name: comment, Length: 99996, dtype: object
-0           spam
-1        abusive
-2         normal
-3         normal
-4         normal
+6265     RT @InternetHippo: Can you imagine a conversat...
+54886    @maryannemercog Factcheck, Politifact, Snopes ...
+76820    RT @doug_saville: @foxandfriends @NBSaphierMD ...
+860      NEW van Classic OLD SKOOL Low / High Top Suede...
+15795    Thanks to @BBD_Aircraft @PWCanada @CAE_Inc , #...
+Name: comment, Length: 69997, dtype: object
+86460     normal
+81830     normal
+11253     normal
+68527    abusive
+73597    abusive
   
-99991    abusive
-99992     normal
-99993     normal
-99994     normal
-99995     normal
-Name: agg_label, Length: 99996, dtype: object
+6265     hateful
+54886     normal
+76820    abusive
+860         spam
+15795     normal
+Name: agg_label, Length: 69997, dtype: object
+33968    Oi @Louis_Tomlinson my birthday it's in May, I...
+24612    @theml No. I mean switching to some imported f...
+42677    Don't have cash⁉️&#129300; I also accept cash ...
+9732     Mayhaps next time you'll think twice before vo...
+7129     Check out INCOGNOLIO on Kindle Scout https://t...
+                       
+14297    @Activision you guys are fucking scum. Shoot y...
+15664    Somebody, Push me on a dick, please ! Click,do...
+92210    ur answer towrds my question is clear. nvm . i...
+40125    100% #FREE Live Sex at ➡ https://t.co/XwHvKoMc...
+13809    Artist's resale rights must be paid by sellers...
+Name: comment, Length: 29999, dtype: object
+33968     normal
+24612     normal
+42677       spam
+9732      normal
+7129        spam
+  
+14297    hateful
+15664    abusive
+92210     normal
+40125       spam
+13809     normal
+Name: agg_label, Length: 29999, dtype: object
 [['ANOTHER']
+ ['ANOTHER']
+ ['ANOTHER']
+ ...
  ['abusive']
+ ['ANOTHER']
+ ['ANOTHER']]
+[['ANOTHER']
+ ['ANOTHER']
  ['ANOTHER']
  ...
  ['ANOTHER']
  ['ANOTHER']
  ['ANOTHER']]
 [[0.]
- [1.]
- [0.]
  [0.]
  [0.]
  [1.]
+ [1.]
+ [0.]
+ [1.]
+ [0.]
+ [1.]
+ [1.]]
+[array(['ANOTHER', 'abusive'], dtype=object)]
+[[0.]
  [0.]
  [0.]
  [0.]
+ [0.]
+ [1.]
+ [0.]
+ [0.]
+ [1.]
  [1.]]
 [array(['ANOTHER', 'abusive'], dtype=object)]
 Training model...
@@ -48,67 +90,76 @@ LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
                    random_state=None, solver='liblinear', tol=0.0001, verbose=0,
                    warm_start=False)
 Fit completed.
+[[0.]
+ [0.]
+ [0.]
+ ...
+ [0.]
+ [0.]
+ [0.]]
+Test F1 score:  0.9170784031659016
+comparing
 -------------
 most negative features
-(-26.37, "nigg")
-(-23.71, "ss bi")
-(-13.37, "g hat")
-(-11.91, "a ai")
-(-8.09, "ss n")
-(-7.86, " - ")
-(-7.82, " new ")
-(-7.74, "d af&")
-(-7.55, "more ")
-(-6.63, "day")
-(-6.32, "/5")
-(-6.02, ": i h")
-(-5.94, " new")
-(-5.88, "'t fu")
-(-5.77, " vide")
-(-5.74, "nig")
-(-5.66, "great")
-(-5.63, " 1")
-(-5.47, "re")
-(-5.45, "thank")
-(-5.36, " love")
-(-5.19, "hate ")
-(-5.17, " #")
-(-5.12, "eek")
-(-5.10, "erro")
-(-5.02, "tio")
-(-4.90, "isl")
-(-4.77, "g idi")
-(-4.76, "yingg")
-(-4.67, " for")
+(-23.34, "nigg")
+(-20.53, "ss bi")
+(-12.32, "g hat")
+(-9.66, "ga st")
+(-7.92, "nigga")
+(-7.90, "day")
+(-7.42, "great")
+(-7.00, " new")
+(-6.64, "/5")
+(-6.02, "'t fu")
+(-5.95, "thank")
+(-5.90, " more")
+(-5.59, " - ")
+(-5.11, " #")
+(-5.03, " 1")
+(-4.93, "tio")
+(-4.87, " for")
+(-4.63, "hate ")
+(-4.24, "eo ")
+(-4.00, "lp")
+(-3.90, " ga")
+(-3.80, "isl")
+(-3.62, "re")
+(-3.62, "help")
+(-3.60, " nigg")
+(-3.44, "i h")
+(-3.17, " bac")
+(-3.10, "more ")
+(-3.02, "ia ")
+(-2.91, "er")
 -------------
 most predictive features
-(82.18, "fuck")
-(64.49, "fuc")
-(61.11, "shit")
-(51.72, "bitch")
-(44.47, "damn")
-(37.95, "idiot")
-(34.17, "tard")
-(34.01, " ass")
-(32.13, " dick")
-(30.95, "rt @")
-(29.20, "puss")
-(25.18, " peni")
-(23.70, "idio")
-(22.79, "uck")
-(22.62, " ass ")
-(21.41, "cunt")
-(17.79, "ugly")
-(15.89, " suck")
-(14.95, "piss")
-(14.52, "dumb")
-(14.14, " shit")
-(13.33, "dirty")
-(12.78, "sex")
-(12.69, "hell ")
-(12.29, "bitc")
-(12.27, "asty")
-(12.14, "ck")
-(11.95, "boob")
-(11.84, "cock")
-(11.64, " cra")
+(70.27, "fuck")
+(68.60, "fuc")
+(64.83, "shit")
+(52.24, "bitch")
+(43.80, "damn")
+(35.94, "tard")
+(35.66, " ass")
+(32.57, " dick")
+(30.18, "uck")
+(30.07, "rt @")
+(28.93, "idiot")
+(22.71, " ass ")
+(22.62, " peni")
+(21.58, "diot")
+(19.20, " puss")
+(14.56, "bitc")
+(14.50, "dumb")
+(13.99, "idio")
+(13.36, "ugly")
+(13.27, "sex")
+(11.93, "nast")
+(11.80, "cock")
+(11.56, "dirty")
+(10.98, "ck")
+(10.85, " cun")
+(10.49, "bad")
+(10.48, " cra")
+(10.18, " suck")
+(10.14, " shit")
+(10.12, "pussy")

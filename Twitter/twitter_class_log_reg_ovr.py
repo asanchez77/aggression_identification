@@ -4,6 +4,9 @@
 Created on Thu May  7 17:23:19 2020
 
 @author: 
+    
+    
+categories: 'abusive', 'hateful', 'normal', 'spam'
 """
 
 
@@ -21,7 +24,7 @@ DATA_PATH = "../../twitter_data/"
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
-    return pd.read_csv(csv_path,sep = '\t',header=None)
+    return pd.read_csv(csv_path,index_col = 0)
 
 def load_aggresion_data(csvfile):
     agg_data = load_aggression_data_file(csvfile)
@@ -30,7 +33,7 @@ def load_aggresion_data(csvfile):
     #Rename the columns
     """For *AG use Sub-task A and for *GEN use Sub-task B to obtain the 
     labels used for training"""
-    agg_data = agg_data.rename(columns={0:"comment",1:"agg_label"})
+    #agg_data = agg_data.rename(columns={0:"comment",1:"agg_label"})
     print(agg_data["comment"])
     print(agg_data["agg_label"])
     # Obtain the labels and the comments
@@ -38,8 +41,10 @@ def load_aggresion_data(csvfile):
     agg_comments = agg_data["comment"]
     return [agg_labels, agg_comments]
 
-[agg_labels_train, agg_comments_train] = load_aggresion_data("hatespeech_text_label_vote.csv")
-#[agg_labels_dev, agg_comments_dev] = load_aggresion_data("trac2_eng_dev.csv")
+[agg_labels_train, agg_comments_train] = load_aggresion_data("hatespeech_text_train.csv")
+[agg_labels_dev, agg_comments_dev] = load_aggresion_data("hatespeech_text_test.csv")
+
+#%%
 
 def redifine_labels(agg_labels, focus_label):
     for i in range(len(agg_labels)):
@@ -48,9 +53,9 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
-focus_label = 'spam'
+focus_label = 'hateful'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
-#agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
+agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
 from sklearn.preprocessing import OrdinalEncoder
 
@@ -62,13 +67,13 @@ agg_labels_train_encoded = ordinal_encoder_train.fit_transform(agg_labels_train)
 print(agg_labels_train_encoded[:10])
 print(ordinal_encoder_train.categories_)
 
-#ordinal_encoder_dev = OrdinalEncoder()
+ordinal_encoder_dev = OrdinalEncoder()
 
-#agg_labels_dev_encoded = ordinal_encoder_dev.fit_transform(agg_labels_dev)
+agg_labels_dev_encoded = ordinal_encoder_dev.fit_transform(agg_labels_dev)
 
 #%%
-#print(agg_labels_dev_encoded[:10])
-#print(ordinal_encoder_dev.categories_)
+print(agg_labels_dev_encoded[:10])
+print(ordinal_encoder_dev.categories_)
 
 #%%
 from time import time
@@ -111,10 +116,10 @@ clf_normal = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
 
 clf_spam = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(2, 5), lowercase=True) ),
-              ('clf', LogisticRegression(penalty = 'l2',
+              ('clf', LogisticRegression(penalty = 'l1',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
-                                         C= 10.0,
+                                         C= 5.0,
                                          max_iter = 200))
                                          #))
                 ])
@@ -139,15 +144,15 @@ if __name__ == "__main__":
     t0 = time()
     clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
     print("Fit completed.")
- #   predicted = clf_current.predict(agg_comments_dev)
+    predicted = clf_current.predict(agg_comments_dev)
 
- #   predicted = predicted.reshape(agg_labels_dev_encoded.shape)
- #   print(predicted)
+    predicted = predicted.reshape(agg_labels_dev_encoded.shape)
+    print(predicted)
     
- #   print("F1 score: ", f1_score(agg_labels_dev_encoded, predicted, average='macro'))
-    #print("comparing")
-    #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
-        #print(real_label, predicted_label)
+    print("Test F1 score: ", f1_score(agg_labels_dev_encoded, predicted, average='macro'))
+    print("comparing")
+    # for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
+    #     print(real_label, predicted_label)
       
 #%%
 
@@ -187,7 +192,8 @@ def print_format_coef(features_coef):
         repr_string = repr(feature[1])
         repr_string = repr_string[1:]
         repr_string = repr_string[:-1]
-        print('(%.2f, "%s")' % (feature[0],repr_string))
+        print('\hline')
+        print('%.2f & "%s" \\\\ ' % (feature[0],repr_string))
     return
 
 
