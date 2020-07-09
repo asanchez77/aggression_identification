@@ -207,6 +207,19 @@ print_format_coef(most_neg,most_pred)
 #print("most predictive features")
 #print_format_coef(most_pred)
 
+from matplotlib import pyplot
+
+# get importance
+importance = most_neg + most_pred[::-1]
+#print(importance)
+
+fig, ax = pyplot.subplots()
+pyplot.title(focus_label)
+ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
+pyplot.xticks(rotation=90, ha='right')
+pyplot.show()
+
+
 #%%
 #sorted(coefs_and_features, key=lambda x: abs(x[0]), reverse=True)
 
