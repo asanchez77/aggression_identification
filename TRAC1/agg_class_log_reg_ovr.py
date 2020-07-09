@@ -46,7 +46,7 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
-focus_label = 'OAG'
+focus_label = 'NAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
@@ -162,6 +162,7 @@ predictive_features = sorted(coefs_and_features,
 
 n_display_values = 15
 
+
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
 
@@ -197,16 +198,16 @@ ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 
 pyplot.xticks(rotation=90, ha='right')
 pyplot.show()
 
-#%%
-#sorted(coefs_and_features, key=lambda x: abs(x[0]), reverse=True)
 
 #%%
 
-#%%
+n_list_values =  30
+most_neg_list = neg_features[:n_list_values]
+most_pred_list = predictive_features[:n_list_values]
 
-most_neg_df =  pd.DataFrame(list(most_neg))
+most_neg_df =  pd.DataFrame(list(most_neg_list))
 most_neg_df = most_neg_df.rename(columns={0:focus_label+"_neg_coef",1:focus_label+"_neg_ngram"})
-most_pred_df =  pd.DataFrame(list(most_pred))
+most_pred_df =  pd.DataFrame(list(most_pred_list))
 most_pred_df = most_pred_df.rename(columns={0:focus_label+"_pred_coef",1:focus_label+"_pred_ngram"})
 #%%
 
