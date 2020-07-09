@@ -187,22 +187,25 @@ most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
 
 
-def print_format_coef(features_coef):
-    for feature in features_coef:
-        repr_string = repr(feature[1])
-        repr_string = repr_string[1:]
-        repr_string = repr_string[:-1]
+def print_format_coef(features_coef1, features_coef2):
+    for feature1, feature2 in zip(features_coef1, features_coef2):
+        repr_string1 = repr(feature1[1])
+        repr_string1 = repr_string1[1:]
+        repr_string1 = repr_string1[:-1]
+        repr_string2 = repr(feature2[1])
+        repr_string2 = repr_string2[1:]
+        repr_string2 = repr_string2[:-1]
         print('\hline')
-        print('%.2f & "%s" \\\\ ' % (feature[0],repr_string))
+        print('\say{%s} &  %.2f &   \say{%s} &  %.2f \\\\ ' % (repr_string1,feature1[0], repr_string2, feature2[0]))
     return
 
 
-print("-------------")
-print("most negative features")
-print_format_coef(most_neg)
-print("-------------")
-print("most predictive features")
-print_format_coef(most_pred)
+#print("-------------")
+print("features")
+print_format_coef(most_neg,most_pred)
+#print("-------------")
+#print("most predictive features")
+#print_format_coef(most_pred)
 
 #%%
 #sorted(coefs_and_features, key=lambda x: abs(x[0]), reverse=True)
