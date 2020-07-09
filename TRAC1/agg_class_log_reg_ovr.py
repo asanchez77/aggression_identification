@@ -160,7 +160,7 @@ predictive_features = sorted(coefs_and_features,
                              key=lambda x: x[0], 
                              reverse=True)# Most predictive overall
 
-n_display_values = 30
+n_display_values = 15
 
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
@@ -180,6 +180,19 @@ print_format_coef(most_neg)
 print("-------------")
 print("most predictive features")
 print_format_coef(most_pred)
+
+
+from matplotlib import pyplot
+
+# get importance
+importance = most_neg + most_pred[::-1]
+#print(importance)
+
+fig, ax = pyplot.subplots()
+pyplot.title(focus_label)
+ax.bar([x[1] for x in importance], [x[0] for x in importance], .9)
+pyplot.xticks(rotation=90, ha='right')
+pyplot.show()
 
 #%%
 #sorted(coefs_and_features, key=lambda x: abs(x[0]), reverse=True)
