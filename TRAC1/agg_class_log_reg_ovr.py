@@ -190,7 +190,7 @@ importance = most_neg + most_pred[::-1]
 
 fig, ax = pyplot.subplots()
 pyplot.title(focus_label)
-ax.bar([x[1] for x in importance], [x[0] for x in importance], .9)
+ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
 pyplot.xticks(rotation=90, ha='right')
 pyplot.show()
 
