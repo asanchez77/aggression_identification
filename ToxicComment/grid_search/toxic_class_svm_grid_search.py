@@ -81,7 +81,7 @@ if __name__ == "__main__":
     print("Performing grid search...")
     
     for text_clf, param in zip(pipelines, parameters):
-        gs_clf = GridSearchCV(text_clf, param, n_jobs=1, scoring='f1_macro', verbose=2)
+        gs_clf = GridSearchCV(text_clf, param, n_jobs=-1, scoring='f1_macro', verbose=2)
         print("Performing grid search...")
         print("pipeline:", [name for name, _ in text_clf.steps])
         print("parameters:")
