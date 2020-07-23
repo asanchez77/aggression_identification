@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu May  7 17:23:19 2020
+Created on Wed Jun 24 17:23:19 2020
 
 @author: 
-
-Code used to find the best parameters for the SVM
-classifier used for the TRAC1 dataset
+    
+Code used to find the best parameters for the svm
+classifier used for the TRAC2 dataset
 """
 
 
@@ -18,19 +18,23 @@ import os
 import pandas as pd
 import numpy as np
 
-DATA_PATH = "../data/"
+DATA_PATH = "../data/eng/"
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
-    return pd.read_csv(csv_path,header=None)
+    return pd.read_csv(csv_path,header=0)
+
+#%%
 
 def load_aggresion_data(csvfile):
     agg_data = load_aggression_data_file(csvfile)
     """Drop the information not used: facebook identifier"""
-    agg_data = agg_data.drop(0, axis=1)    
+    agg_data = agg_data.drop('ID', axis=1)    
     #Rename the columns
-    agg_data = agg_data.rename(columns={1:"comment",2:"agg_label"})
+    """For *AG use Sub-task A and for *GEN use Sub-task B to obtain the 
+    labels used for training"""
+    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task A':"agg_label"})
     print(agg_data["comment"])
     print(agg_data["agg_label"])
     # Obtain the labels and the comments
@@ -38,7 +42,9 @@ def load_aggresion_data(csvfile):
     agg_comments = agg_data["comment"]
     return [agg_labels, agg_comments]
 
-[agg_labels, agg_comments] = load_aggresion_data("agr_en_train.csv")
+[agg_labels, agg_comments] = load_aggresion_data("trac2_eng_train.csv")
+
+#%%
 
 def redifine_labels(agg_labels, focus_label):
     for i in range(len(agg_labels)):
@@ -46,7 +52,9 @@ def redifine_labels(agg_labels, focus_label):
             agg_labels[i] = "OTHER"
     print (agg_labels)
     return agg_labels
-
+"""For *AG: only NAG, CAG and OAG focus labels are valid
+For *GEN: only NGEN and GEN focus labels are valid, but the redefining of 
+labels might not be necessary"""
 focus_label = 'CAG'
 agg_labels = redifine_labels(agg_labels, focus_label)
 
@@ -69,6 +77,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 from sklearn.svm import NuSVC
+
 from sklearn.model_selection import GridSearchCV
 
 #%%
