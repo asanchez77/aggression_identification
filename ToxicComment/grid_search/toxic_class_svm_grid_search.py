@@ -30,6 +30,7 @@ def load_aggresion_data(csvfile):
     """Drop the information not used: facebook identifier"""
     agg_data = agg_data.drop('id', axis=1)    
     #Rename the columns
+    """for the SVM we use the THREAT class """
     agg_data = agg_data.rename(columns={'comment_text':"comment",
                                         'threat':"toxic_label"})
     print(agg_data["comment"])
@@ -57,7 +58,7 @@ from sklearn.model_selection import GridSearchCV
 
 pipelines = [
     Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
-                                        ngram_range=(1, 5), lowercase=True) ),
+                                        ngram_range=(2, 5), lowercase=True) ),
               ('clf', NuSVC() )
                 ]),
             ]
