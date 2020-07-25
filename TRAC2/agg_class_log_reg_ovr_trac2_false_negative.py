@@ -10,7 +10,7 @@ Created on Thu May  7 17:23:19 2020
 """The classes that will be included in the histogram"""
 eval_classes = ['CAG']
 """The total number of iterations"""
-iter_val = 3
+iter_val = 10
 
 #%%
 
@@ -53,7 +53,7 @@ def redifine_labels(agg_labels, focus_label):
     return agg_labels
 
 """OVR scheme """
-focus_label = 'CAG'
+focus_label = 'NAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
@@ -75,6 +75,20 @@ print(agg_labels_dev_encoded[:10])
 print(ordinal_encoder_dev.categories_)
 
 #%%
+    
+def obtain_false_negatives(predicted,labels_encoded):
+    false_negatives = []
+    false_negatives_index = []
+    for i in range(len(predicted)):
+        if predicted[i]!=labels_encoded[i] and predicted[i]==0:
+            #print("-------")
+            #print(false_negative_dataset[i])
+            false_negatives_index.append(i)
+            false_negatives.append(false_negative_dataset[i])
+    return [false_negatives, false_negatives_index]
+
+
+#%%
 
 
 from time import time
@@ -82,6 +96,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
+import random
 
 """Create the pipelines with the best parameters for each class"""
 
@@ -101,7 +116,8 @@ clf_CAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
                                          C= 200.0,
-                                         max_iter = 200))
+                                         max_iter = 200,
+                                         random_state = None))
                                          #))
                 ])
 
@@ -132,52 +148,60 @@ if __name__ == "__main__":
     # block
 
     print("Training model...")
-    
     if focus_label=='NAG':
-        clf_current = clf_NAG
+            clf_current = clf_NAG
     if focus_label=='CAG':
         clf_current = clf_CAG
     if focus_label=='OAG':
         clf_current = clf_OAG
     if focus_label=='GEN' or focus_label=='NGEN':
         clf_current = clf_GEN
-
-
-    #false_negative_dataset = agg_comments_train
-    false_negative_dataset = agg_comments_dev
-    #false_negative_labels_encoded = agg_labels_train_encoded
-    false_negative_labels_encoded = agg_labels_dev_encoded
-
-    print("pipeline:", [name for name, _ in clf_current.steps])
-    print(clf_current['clf'])
-    t0 = time()
-    clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
-    print("Fit completed.")
-    predicted = clf_current.predict(false_negative_dataset)
-
-    predicted = predicted.reshape(false_negative_labels_encoded.shape)
-    print(predicted)
+    total_false_negatives = pd.DataFrame()
+    for i in range(0,iter_val):
+        print("Iteration number ",i)
+        false_negative_dataset = agg_comments_train
+        #false_negative_dataset = agg_comments_dev
+        false_negative_labels_encoded = agg_labels_train_encoded
+        #false_negative_labels_encoded = agg_labels_dev_encoded
     
-    print("F1 score: ", f1_score(false_negative_labels_encoded, predicted, average='macro'))
-    #print("comparing")
-    #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
-        #print(real_label, predicted_label)
+        print("pipeline:", [name for name, _ in clf_current.steps])
+        print(clf_current['clf'])
+        t0 = time()
+        clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
+        print("Fit completed.")
+        
+        
+        predicted = clf_current.predict(false_negative_dataset)
+    
+        predicted = predicted.reshape(false_negative_labels_encoded.shape)
+        print(predicted)
+        
+        print("F1 score: ", f1_score(false_negative_labels_encoded, predicted, average='macro'))
+        [false_negatives, false_negatives_index] = obtain_false_negatives(predicted,false_negative_labels_encoded)
+        total_false_negatives = pd.concat([total_false_negatives,
+                                          pd.DataFrame(false_negatives_index)],
+                                         ignore_index = True, 
+                                         axis =1)
+        clf_current['clf'].random_state = random.randint(1,1000)
+        #print("comparing")
+        #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
+            #print(real_label, predicted_label)
 
-    false_negatives = []
 
-    for i in range(len(predicted)):
-        if predicted[i]!=false_negative_labels_encoded[i] and predicted[i]==0:
-            #print("-------")
-            #print(false_negative_dataset[i])
-            false_negatives.append(false_negative_dataset[i])
+    
+#%%
 
-    print("*********************")
-    #print(false_negatives)
+print(total_false_negatives)
 
-    false_negatives_df =  pd.DataFrame(list(false_negatives))
-    false_negatives_df = false_negatives_df.rename(columns={0:focus_label+"_false_negative"})
+#%%
+"""Write to CSV file"""
+print("*********************")
+#print(false_negatives)
 
-    print("Creating false negatives file")
-    joined_df = pd.concat([false_negatives_df], axis=1, sort=False)
-    joined_df.to_csv('trac2_false_negatives.csv')
+false_negatives_df =  pd.DataFrame(list(false_negatives))
+false_negatives_df = false_negatives_df.rename(columns={0:focus_label+"_false_negative"})
+
+print("Creating false negatives file")
+joined_df = pd.concat([false_negatives_df], axis=1, sort=False)
+joined_df.to_csv('trac2_false_negatives.csv')
 
