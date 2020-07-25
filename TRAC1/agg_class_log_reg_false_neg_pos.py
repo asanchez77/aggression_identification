@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu May  7 17:23:19 2020
+Created on Sat Jul 25 16:42:17 2020
 
-@author: 
+@author:
 """
 #%%
 
 """The classes that will be included in the histogram"""
 eval_classes = ['CAG']
 """The total number of iterations"""
-iter_val = 20
-
+iter_val = 10
 #%%
 
 """Load the data """
@@ -20,21 +19,20 @@ import os
 import pandas as pd
 import numpy as np
 
-DATA_PATH = "data/eng/"
+DATA_PATH = "data/"
+
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
-    return pd.read_csv(csv_path,header=0)
+    return pd.read_csv(csv_path,header=None)
 
 def load_aggresion_data(csvfile):
     agg_data = load_aggression_data_file(csvfile)
     """Drop the information not used: facebook identifier"""
-    agg_data = agg_data.drop('ID', axis=1)    
+    agg_data = agg_data.drop(0, axis=1)    
     #Rename the columns
-    """For *AG use Sub-task A and for *GEN use Sub-task B to obtain the 
-    labels used for training"""
-    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task A':"agg_label"})
+    agg_data = agg_data.rename(columns={1:"comment",2:"agg_label"})
     print(agg_data["comment"])
     print(agg_data["agg_label"])
     # Obtain the labels and the comments
@@ -42,8 +40,8 @@ def load_aggresion_data(csvfile):
     agg_comments = agg_data["comment"]
     return [agg_labels, agg_comments]
 
-[agg_labels_train, agg_comments_train] = load_aggresion_data("trac2_eng_train.csv")
-[agg_labels_dev, agg_comments_dev] = load_aggresion_data("trac2_eng_dev.csv")
+[agg_labels_train, agg_comments_train] = load_aggresion_data("agr_en_train.csv")
+[agg_labels_dev, agg_comments_dev] = load_aggresion_data("agr_en_dev.csv")
 
 def redifine_labels(agg_labels, focus_label):
     for i in range(len(agg_labels)):
@@ -52,27 +50,28 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
-"""OVR scheme """
-focus_label = 'CAG'
+focus_label = 'NAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
-#%%
-"""Enconde the training labels """
 from sklearn.preprocessing import OrdinalEncoder
 
 ordinal_encoder_train = OrdinalEncoder()
+
 agg_labels_train_encoded = ordinal_encoder_train.fit_transform(agg_labels_train)
 
+#%%
 print(agg_labels_train_encoded[:10])
 print(ordinal_encoder_train.categories_)
-#%%
-"""Encode the dev labels"""
+
 ordinal_encoder_dev = OrdinalEncoder()
+
 agg_labels_dev_encoded = ordinal_encoder_dev.fit_transform(agg_labels_dev)
 
+#%%
 print(agg_labels_dev_encoded[:10])
 print(ordinal_encoder_dev.categories_)
+
 
 #%%
     
@@ -87,10 +86,7 @@ def obtain_false_negatives(predicted,labels_encoded):
             false_negatives.append(false_negative_dataset[i])
     return [false_negatives, false_negatives_index]
 
-
 #%%
-
-
 from time import time
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -98,27 +94,26 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
 import random
 
-"""Create the pipelines with the best parameters for each class"""
+#%%
 
 clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression(penalty = 'l1',
+              ('clf', LogisticRegression(penalty = 'l2',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
-                                         C= 10.0,
-                                         max_iter = 200))
-                                         #))
+                                         C= 5.0,
+                                         #max_iter = 300))
+                                         ))
                 ])
 
 clf_CAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression(penalty = 'l1',
+              ('clf', LogisticRegression(penalty = 'l2',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
-                                         C= 200.0,
-                                         max_iter = 200,
-                                         random_state = None))
-                                         #))
+                                         C= 100.0,
+                                         #max_iter = 300))
+                                         ))
                 ])
 
 clf_OAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
@@ -126,20 +121,11 @@ clf_OAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
               ('clf', LogisticRegression(penalty = 'l1',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
-                                         C= 50.0,
-                                         max_iter = 200))
-                                         #))
+                                         C= 10.0,
+                                         #max_iter = 300))
+                                         ))
                 ])
 
-clf_GEN = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
-                                        ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression(penalty = 'l1',
-                                         multi_class = 'ovr' ,
-                                         solver='liblinear',
-                                         C= 50.0,
-                                         max_iter = 200))
-                                         #))
-                ])
 
 #%%
 """Train the models and obtain false positives and false negatives"""
@@ -154,8 +140,7 @@ if __name__ == "__main__":
         clf_current = clf_CAG
     if focus_label=='OAG':
         clf_current = clf_OAG
-    if focus_label=='GEN' or focus_label=='NGEN':
-        clf_current = clf_GEN
+
     total_false_negatives = pd.DataFrame()
     for i in range(0,iter_val):
         print("Iteration number ",i)
@@ -187,8 +172,7 @@ if __name__ == "__main__":
         #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
             #print(real_label, predicted_label)
 
-
-    
+      
 #%%
 
 print(total_false_negatives)
@@ -204,4 +188,3 @@ false_negatives_df = false_negatives_df.rename(columns={0:focus_label+"_false_ne
 print("Creating false negatives file")
 joined_df = pd.concat([false_negatives_df], axis=1, sort=False)
 joined_df.to_csv('trac2_false_negatives.csv')
-
