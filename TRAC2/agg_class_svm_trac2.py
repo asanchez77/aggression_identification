@@ -70,6 +70,17 @@ agg_labels_dev_encoded = ordinal_encoder_dev.fit_transform(agg_labels_dev)
 print(agg_labels_dev_encoded[:10])
 print(ordinal_encoder_dev.categories_)
 
+
+#%%
+
+from sklearn.utils import shuffle
+def shuffle_data(comments,labels):
+    [comments_shuffled, labels_shuffled] = shuffle(
+    comments,labels)
+    print(comments_shuffled[1:10])
+    print(labels_shuffled[1:10])
+    return [comments_shuffled,labels_shuffled]
+
 #%%
 from time import time
 from sklearn.pipeline import Pipeline
@@ -93,7 +104,7 @@ clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
 
 clf_CAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
-              ('clf', NuSVC(nu= 0.2,kernel = 'poly'))
+              ('clf', NuSVC(nu= 0.3,kernel = 'linear'))
                               
                 ])
 
@@ -122,118 +133,38 @@ if __name__ == "__main__":
     # block
 
     print("Training model...")
+    for i in range(1,3):
+        print("Shuffle number ",i)
+        [comments_shuffled , labels_shuffled] = shuffle_data(agg_comments_train, agg_labels_train_encoded)
+        if focus_label=='NAG':
+            clf_current = clf_NAG
+        if focus_label=='CAG':
+            clf_current = clf_CAG
+        if focus_label=='OAG':
+            clf_current = clf_OAG
+        if focus_label=='GEN' or focus_label=='NGEN':
+            clf_current = clf_GEN
 
-    if focus_label=='NAG':
-        clf_current = clf_NAG
-    if focus_label=='CAG':
-        clf_current = clf_CAG
-    if focus_label=='OAG':
-        clf_current = clf_OAG
-    if focus_label=='GEN' or focus_label=='NGEN':
-        clf_current = clf_GEN
-
-    print("pipeline:", [name for name, _ in clf_current.steps])
-    print(clf_current['clf'])
-    t0 = time()
-    clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
-    print("Fit completed.")
-    predicted = clf_current.predict(agg_comments_dev)
-
-    predicted = predicted.reshape(agg_labels_dev_encoded.shape)
-    print(predicted)
+        print("pipeline:", [name for name, _ in clf_current.steps])
+        print(clf_current['clf'])
+        t0 = time()
+        clf_current = clf_current.fit(comments_shuffled,labels_shuffled.ravel())
+        print("Fit completed.")
+        predicted = clf_current.predict(agg_comments_dev)
     
-    print("F1 score: ", f1_score(agg_labels_dev_encoded, predicted, average='macro'))
-    #print("comparing")
-    #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
-        #print(real_label, predicted_label)
-      
-#%%
-
-from scipy.sparse import csr_matrix
-coefs = clf_current.named_steps["clf"].coef_
-
-#%%
-if type(coefs) == csr_matrix:
-    coefs.toarray().tolist()[0]
-else:
-    coefs.tolist()
-    
-#%%    
-feature_names = clf_current.named_steps["tfidf"].get_feature_names()
-
-#%%
-coefs_and_features = list(zip(coefs[0], feature_names))# Most positive features
-#%%
-neg_features = sorted(coefs_and_features, key=lambda x: x[0])# Most negative features
-
-#%%
-predictive_features = sorted(coefs_and_features, 
-                             key=lambda x: x[0],
-                             reverse=True)# Most predictive overall
-
-#%%
-
-
-n_display_values = 15
-
-most_neg = neg_features[:n_display_values]
-most_pred = predictive_features[:n_display_values]
-
-
-def print_format_coef(features_coef):
-    for feature in features_coef:
-        repr_string = repr(feature[1])
-        repr_string = repr_string[1:]
-        repr_string = repr_string[:-1]
-        print('(%.2f, "%s")' % (feature[0],repr_string))
-    return
-
-
-print("-------------")
-print("most negative features")
-print_format_coef(most_neg)
-print("-------------")
-print("most predictive features")
-print_format_coef(most_pred)
-
-from matplotlib import pyplot
-
-# get importance
-importance = most_neg + most_pred[::-1]
-#print(importance)
-
-fig, ax = pyplot.subplots()
-pyplot.title(focus_label)
-
-ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
-pyplot.xticks(rotation=90, ha='right')
-pyplot.show()
-
-#%%
-
-n_list_values =  30
-most_neg_list = neg_features[:n_list_values]
-most_pred_list = predictive_features[:n_list_values]
-
-most_neg_df =  pd.DataFrame(list(most_neg_list))
-most_neg_df = most_neg_df.rename(columns={0:focus_label+"_neg_coef",1:focus_label+"_neg_ngram"})
-most_pred_df =  pd.DataFrame(list(most_pred_list))
-most_pred_df = most_pred_df.rename(columns={0:focus_label+"_pred_coef",1:focus_label+"_pred_ngram"})
-#%%
-
-"""If NAG focus label is used, it will create or overwrite the csv file, else 
-it will open the existing file (it asumes it was previously created) and it
-will add the next model's n-grams and coefficients
-"""
-if(focus_label == 'NAG'):
-    print("Creating coefficients file, please go through all the other focus labels")
-    joined_df = pd.concat([most_neg_df, most_pred_df], axis=1, sort=False)
-    joined_df.to_csv('trac2_coefficients.csv')
-    
-else:
-    print("Adding current model's coefficients and ngram to csv file")
-    coef_csv = pd.read_csv('trac2_coefficients.csv',index_col = 0)
-    joined_df = pd.concat([coef_csv, most_neg_df, most_pred_df], axis=1, sort=False)
-    joined_df.to_csv('trac2_coefficients.csv')
+        predicted = predicted.reshape(agg_labels_dev_encoded.shape)
+        print(predicted)
         
+        print("F1 score: ", f1_score(agg_labels_dev_encoded, predicted, average='macro'))
+        #print("comparing")
+        #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
+            #print(real_label, predicted_label)
+        support_comments = agg_comments_train[clf_current[1].support_]
+        
+      
 
+
+#%%
+
+support_comments = agg_comments_train[clf_current[1].support_]
+        

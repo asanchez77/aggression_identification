@@ -5,7 +5,12 @@ Created on Thu May  7 17:23:19 2020
 
 @author: 
 """
+#%%
 
+"""The classes that will be included in the histogram"""
+eval_classes = ['CAG']
+"""The total number of iterations"""
+iter_val = 3
 
 #%%
 
@@ -16,7 +21,6 @@ import pandas as pd
 import numpy as np
 
 DATA_PATH = "data/eng/"
-
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -48,36 +52,38 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
+"""OVR scheme """
 focus_label = 'CAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
+#%%
+"""Enconde the training labels """
 from sklearn.preprocessing import OrdinalEncoder
 
 ordinal_encoder_train = OrdinalEncoder()
-
 agg_labels_train_encoded = ordinal_encoder_train.fit_transform(agg_labels_train)
 
-#%%
 print(agg_labels_train_encoded[:10])
 print(ordinal_encoder_train.categories_)
-
+#%%
+"""Encode the dev labels"""
 ordinal_encoder_dev = OrdinalEncoder()
-
 agg_labels_dev_encoded = ordinal_encoder_dev.fit_transform(agg_labels_dev)
 
-#%%
 print(agg_labels_dev_encoded[:10])
 print(ordinal_encoder_dev.categories_)
 
 #%%
+
+
 from time import time
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
 
-#%%
+"""Create the pipelines with the best parameters for each class"""
 
 clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
@@ -119,12 +125,14 @@ clf_GEN = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
                                          #))
                 ])
 
+#%%
+"""Train the models and obtain false positives and false negatives"""
 if __name__ == "__main__":
     # multiprocessing requires the fork to happen in a __main__ protected
     # block
 
     print("Training model...")
-
+    
     if focus_label=='NAG':
         clf_current = clf_NAG
     if focus_label=='CAG':
