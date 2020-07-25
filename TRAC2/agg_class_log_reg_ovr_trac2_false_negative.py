@@ -53,7 +53,7 @@ def redifine_labels(agg_labels, focus_label):
     return agg_labels
 
 """OVR scheme """
-focus_label = 'CAG'
+focus_label = 'NAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
@@ -76,7 +76,7 @@ print(ordinal_encoder_dev.categories_)
 
 #%%
     
-def obtain_false_negatives(predicted,labels_encoded):
+def obtain_false_negatives(predicted,labels_encoded,comments):
     false_negatives = []
     false_negatives_index = []
     for i in range(len(predicted)):
@@ -84,9 +84,21 @@ def obtain_false_negatives(predicted,labels_encoded):
             #print("-------")
             #print(false_negative_dataset[i])
             false_negatives_index.append(i)
-            false_negatives.append(false_negative_dataset[i])
+            false_negatives.append(comments[i])
     return [false_negatives, false_negatives_index]
 
+#%%
+    
+def obtain_false_positives(predicted,labels_encoded,comments):
+    false_positives = []
+    false_positives_index = []
+    for i in range(len(predicted)):
+        if predicted[i]!=labels_encoded[i] and predicted[i]==1:
+            #print("-------")
+            #print(false_negative_dataset[i])
+            false_positives_index.append(i)
+            false_positives.append(comments[i])
+    return [false_positives, false_positives_index]
 
 #%%
 
@@ -177,7 +189,10 @@ if __name__ == "__main__":
         print(predicted)
         
         print("F1 score: ", f1_score(false_negative_labels_encoded, predicted, average='macro'))
-        [false_negatives, false_negatives_index] = obtain_false_negatives(predicted,false_negative_labels_encoded)
+        [false_negatives, false_negatives_index] = obtain_false_negatives(
+            predicted,
+            false_negative_labels_encoded,
+            false_negative_dataset)
         total_false_negatives = pd.concat([total_false_negatives,
                                           pd.DataFrame(false_negatives_index)],
                                          ignore_index = True, 
