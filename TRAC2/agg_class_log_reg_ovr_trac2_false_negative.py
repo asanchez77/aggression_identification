@@ -118,7 +118,8 @@ clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
                                          C= 10.0,
-                                         max_iter = 200))
+                                         max_iter = 200,
+                                         random_state = 42))
                                          #))
                 ])
 
@@ -193,7 +194,7 @@ for i in range(0,iter_val):
     predicted = [];
     print("Iteration number ",i)
     for j in range(len(predicted_prob)):
-        predicted.append(np.random.choice([0,1],1,p=predicted_prob[0].tolist()))
+        predicted.append(np.random.choice([0,1],1,p=predicted_prob[j].tolist()))
     
     [false_negatives, false_negatives_index] = obtain_false_negatives(
         predicted,
@@ -234,7 +235,7 @@ fig, ax = pyplot.subplots()
 pyplot.title(focus_label)
 #ax = fig.add_axes([0,0,1,1])
 #ax.bar(unique_values, freq)
-ax.bar(pd_sorted[0][1:20].apply(str),pd_sorted[1][1:20])
+ax.bar(pd_con[0],pd_con[1])
 pyplot.xticks(rotation=90, ha='center')
 pyplot.show()
 
