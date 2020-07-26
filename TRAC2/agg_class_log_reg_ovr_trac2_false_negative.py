@@ -10,7 +10,7 @@ Created on Thu May  7 17:23:19 2020
 """The classes that will be included in the histogram"""
 eval_classes = ['CAG']
 """The total number of iterations"""
-iter_val = 10
+iter_val = 100
 
 #%%
 
@@ -209,8 +209,38 @@ for i in range(0,iter_val):
 
 print(total_false_negatives)
 
+np_total_false_neg = total_false_negatives.to_numpy()
+unique_values = np.unique(np_total_false_neg)
+freq =[]
+for k  in range(len(unique_values)):
+    freq.append(np.count_nonzero(np_total_false_neg ==unique_values[k]))
+
+np_freq = np.asarray(freq)
+np_freq = np_freq.reshape(-1,1)
+unique_values = unique_values.reshape(-1,1)
+
+con = np.concatenate((unique_values,np_freq),axis=1)
+pd_con = pd.DataFrame(con)
+print(pd_con)
+pd_sorted = pd_con.sort_values(by= 1,ascending=False)
+print(pd_sorted)
+np_total_false_neg = np_total_false_neg.reshape(-1)
+
 #%%
-"""Write to CSV file"""
+
+from matplotlib import pyplot
+
+fig, ax = pyplot.subplots()
+pyplot.title(focus_label)
+#ax = fig.add_axes([0,0,1,1])
+#ax.bar(unique_values, freq)
+ax.bar(pd_sorted[0][1:20].apply(str),pd_sorted[1][1:20])
+pyplot.xticks(rotation=90, ha='center')
+pyplot.show()
+
+
+#%%
+"""Write to CSV file
 print("*********************")
 #print(false_negatives)
 
@@ -220,4 +250,4 @@ false_negatives_df = false_negatives_df.rename(columns={0:focus_label+"_false_ne
 print("Creating false negatives file")
 joined_df = pd.concat([false_negatives_df], axis=1, sort=False)
 joined_df.to_csv('trac2_false_negatives.csv')
-
+"""
