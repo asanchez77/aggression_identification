@@ -242,8 +242,8 @@ fig, ax = pyplot.subplots()
 pyplot.title(focus_label)
 #ax = fig.add_axes([0,0,1,1])
 #ax.bar(unique_values, freq)
-ax.bar(range(len(pd_sorted[0])),pd_sorted[1])
-threshold = 0.9*pd_sorted[1][0]
+ax.bar(range(len(pd_sorted[0])),pd_sorted[1].to_numpy())
+threshold = 0.9*pd_sorted[1].to_numpy()[0]
 ax.plot([0., len(pd_sorted[0])], [threshold, threshold], "k--")
 pyplot.xticks(rotation=90, ha='center')
 pyplot.show()
