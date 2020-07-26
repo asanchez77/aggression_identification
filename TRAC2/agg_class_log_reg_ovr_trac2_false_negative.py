@@ -10,7 +10,7 @@ Created on Thu May  7 17:23:19 2020
 """The classes that will be included in the histogram"""
 eval_classes = ['CAG']
 """The total number of iterations"""
-iter_val = 20
+iter_val = 10
 
 #%%
 
@@ -169,39 +169,40 @@ if __name__ == "__main__":
     if focus_label=='GEN' or focus_label=='NGEN':
         clf_current = clf_GEN
     total_false_negatives = pd.DataFrame()
-    for i in range(0,iter_val):
-        print("Iteration number ",i)
-        false_negative_dataset = agg_comments_train
-        #false_negative_dataset = agg_comments_dev
-        false_negative_labels_encoded = agg_labels_train_encoded
-        #false_negative_labels_encoded = agg_labels_dev_encoded
     
-        print("pipeline:", [name for name, _ in clf_current.steps])
-        print(clf_current['clf'])
-        t0 = time()
-        clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
-        print("Fit completed.")
-        
-        
-        predicted = clf_current.predict(false_negative_dataset)
-    
-        predicted = predicted.reshape(false_negative_labels_encoded.shape)
-        print(predicted)
-        
-        print("F1 score: ", f1_score(false_negative_labels_encoded, predicted, average='macro'))
-        [false_negatives, false_negatives_index] = obtain_false_negatives(
-            predicted,
-            false_negative_labels_encoded,
-            false_negative_dataset)
-        total_false_negatives = pd.concat([total_false_negatives,
-                                          pd.DataFrame(false_negatives_index)],
-                                         ignore_index = True, 
-                                         axis =1)
-        clf_current['clf'].random_state = random.randint(1,1000)
-        #print("comparing")
-        #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
-            #print(real_label, predicted_label)
+    false_negative_dataset = agg_comments_train
+    #false_negative_dataset = agg_comments_dev
+    false_negative_labels_encoded = agg_labels_train_encoded
+    #false_negative_labels_encoded = agg_labels_dev_encoded
 
+    print("pipeline:", [name for name, _ in clf_current.steps])
+    print(clf_current['clf'])
+    t0 = time()
+    clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
+    print("Fit completed.")
+    
+    
+    predicted_prob = clf_current.predict_proba(false_negative_dataset)
+#%%
+    #predicted = predicted.reshape(false_negative_labels_encoded.shape)
+    #print(predicted)
+#%%
+
+#print("F1 score: ", f1_score(false_negative_labels_encoded, predicted, average='macro'))
+for i in range(0,iter_val):
+    predicted = [];
+    print("Iteration number ",i)
+    for j in range(len(predicted_prob)):
+        predicted.append(np.random.choice([0,1],1,p=predicted_prob[0].tolist()))
+    
+    [false_negatives, false_negatives_index] = obtain_false_negatives(
+        predicted,
+        false_negative_labels_encoded,
+        false_negative_dataset)
+    total_false_negatives = pd.concat([total_false_negatives,
+                                      pd.DataFrame(false_negatives_index)],
+                                     ignore_index = True, 
+                                     axis =1)
 
     
 #%%

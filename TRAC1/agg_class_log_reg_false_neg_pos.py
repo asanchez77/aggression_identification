@@ -155,6 +155,9 @@ if __name__ == "__main__":
         clf_current = clf_OAG
 
     total_false_negatives = pd.DataFrame()
+    
+    total_false_positives = pd.DataFrame()
+    
     for i in range(0,iter_val):
         print("Iteration number ",i)
         false_negative_dataset = agg_comments_train
@@ -175,6 +178,8 @@ if __name__ == "__main__":
         print(predicted)
         
         print("F1 score: ", f1_score(false_negative_labels_encoded, predicted, average='macro'))
+        
+        """Obtain false negatives"""
         [false_negatives, false_negatives_index] = obtain_false_negatives(
             predicted,
             false_negative_labels_encoded,
@@ -183,6 +188,18 @@ if __name__ == "__main__":
                                           pd.DataFrame(false_negatives_index)],
                                          ignore_index = True, 
                                          axis =1)
+        """Obtain false positives"""
+        [false_positives, false_positives_index] = obtain_false_positives(
+            predicted,
+            false_negative_labels_encoded,
+            false_negative_dataset)
+        total_false_positives = pd.concat([total_false_positives,
+                                          pd.DataFrame(false_positives_index)],
+                                         ignore_index = True, 
+                                         axis =1)
+        
+        
+        
         clf_current['clf'].random_state = random.randint(1,1000)
         #print("comparing")
         #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
@@ -192,6 +209,7 @@ if __name__ == "__main__":
 #%%
 
 print(total_false_negatives)
+print(total_false_positives)
 
 #%%
 """Write to CSV file"""
