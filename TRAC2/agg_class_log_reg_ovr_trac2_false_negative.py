@@ -118,8 +118,7 @@ clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
                                          C= 10.0,
-                                         max_iter = 200,
-                                         random_state = 42))
+                                         max_iter = 200))
                                          #))
                 ])
 
@@ -129,8 +128,7 @@ clf_CAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char',
                                          multi_class = 'ovr' ,
                                          solver='liblinear',
                                          C= 200.0,
-                                         max_iter = 200,
-                                         random_state = None))
+                                         max_iter = 200))
                                          #))
                 ])
 
@@ -213,14 +211,23 @@ print(total_false_negatives)
 np_total_false_neg = total_false_negatives.to_numpy()
 unique_values = np.unique(np_total_false_neg)
 freq =[]
+total_freq = 0
 for k  in range(len(unique_values)):
     freq.append(np.count_nonzero(np_total_false_neg ==unique_values[k]))
+    total_freq = total_freq + freq[k]
+
+relative_freq = []
+for k  in range(len(unique_values)):
+    relative_freq.append(freq[k] / total_freq)
 
 np_freq = np.asarray(freq)
 np_freq = np_freq.reshape(-1,1)
+np_relative_freq = np.asarray(relative_freq)
+np_relative_freq = np_relative_freq.reshape(-1,1)
+
 unique_values = unique_values.reshape(-1,1)
 
-con = np.concatenate((unique_values,np_freq),axis=1)
+con = np.concatenate((unique_values,np_relative_freq),axis=1)
 pd_con = pd.DataFrame(con)
 print(pd_con)
 pd_sorted = pd_con.sort_values(by= 1,ascending=False)
@@ -235,20 +242,19 @@ fig, ax = pyplot.subplots()
 pyplot.title(focus_label)
 #ax = fig.add_axes([0,0,1,1])
 #ax.bar(unique_values, freq)
-ax.bar(pd_con[0],pd_con[1])
+ax.bar(range(len(pd_sorted[0])),pd_sorted[1])
 pyplot.xticks(rotation=90, ha='center')
 pyplot.show()
 
 
 #%%
-"""Write to CSV file
+#Write to CSV file
 print("*********************")
 #print(false_negatives)
 
-false_negatives_df =  pd.DataFrame(list(false_negatives))
-false_negatives_df = false_negatives_df.rename(columns={0:focus_label+"_false_negative"})
+pd_sorted = pd_sorted.rename(columns={0:focus_label+"_false_negative_idx", 1:"relative frequency"})
 
 print("Creating false negatives file")
-joined_df = pd.concat([false_negatives_df], axis=1, sort=False)
+joined_df = pd.concat([pd_sorted], axis=1, sort=False)
 joined_df.to_csv('trac2_false_negatives.csv')
-"""
+
