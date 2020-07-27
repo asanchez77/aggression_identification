@@ -101,6 +101,19 @@ def obtain_false_positives(predicted,labels_encoded,comments):
     return [false_positives, false_positives_index]
 
 #%%
+    
+def obtain_true_positives(predicted,labels_encoded,comments):
+    true_positives = []
+    true_positives_index = []
+    for i in range(len(predicted)):
+        if predicted[i]==labels_encoded[i] and predicted[i]==1:
+            #print("-------")
+            #print(false_negative_dataset[i])
+            true_positives_index.append(i)
+            true_positives.append(comments[i])
+    return [true_positives, true_positives_index]
+
+#%%
 
 
 from time import time
@@ -168,6 +181,7 @@ if __name__ == "__main__":
     if focus_label=='GEN' or focus_label=='NGEN':
         clf_current = clf_GEN
     total_false_negatives = pd.DataFrame()
+    total_true_positives = pd.DataFrame()
     
     false_negative_dataset = agg_comments_train
     #false_negative_dataset = agg_comments_dev
@@ -213,7 +227,7 @@ most_pred = predictive_features[:n_display_values]
 #%%
 """
 Sample using probabilities obtained using predict_prob and obtain false 
-negatives for each iteration  
+negatives and true positives for each iteration  
 """
 #print("F1 score: ", f1_score(false_negative_labels_encoded, predicted, average='macro'))
 for i in range(0,iter_val):
@@ -230,69 +244,95 @@ for i in range(0,iter_val):
                                       pd.DataFrame(false_negatives_index)],
                                      ignore_index = True, 
                                      axis =1)
-
+    [true_positives, true_positives_index] = obtain_true_positives(
+            predicted,
+            false_negative_labels_encoded,
+            false_negative_dataset)
+    
+    total_true_positives= pd.concat([total_true_positives,
+                                      pd.DataFrame(true_positives_index)],
+                                     ignore_index = True, 
+                                     axis =1)
     
 print(total_false_negatives)
+print(total_true_positives)
 
 #%%
-
 """Obtain the frequency of the false negative comments"""
+def get_comment_freq(total_comments):
 
-np_total_false_neg = total_false_negatives.to_numpy()
-unique_values = np.unique(np_total_false_neg)
-unique_values = unique_values[~np.isnan(unique_values)]
-freq =[]
-total_freq = 0
-for k  in range(len(unique_values)):
-    freq.append(np.count_nonzero(np_total_false_neg == unique_values[k]))
-    total_freq = total_freq + freq[k]
+    np_total_false_neg = total_comments.to_numpy()
+    unique_values = np.unique(np_total_false_neg)
+    unique_values = unique_values[~np.isnan(unique_values)]
+    freq =[]
+    total_freq = 0
+    for k  in range(len(unique_values)):
+        freq.append(np.count_nonzero(np_total_false_neg == unique_values[k]))
+        total_freq = total_freq + freq[k]
+    
+    relative_freq = []
+    for k  in range(len(unique_values)):
+        relative_freq.append(freq[k] / total_freq)
+    
+    np_freq = np.asarray(freq)
+    np_freq = np_freq.reshape(-1,1)
+    np_relative_freq = np.asarray(relative_freq)
+    np_relative_freq = np_relative_freq.reshape(-1,1)
+    
+    unique_values = unique_values.reshape(-1,1)
+    
+    con = np.concatenate((unique_values,np_relative_freq),axis=1)
+    pd_con = pd.DataFrame(con)
+    
+    pd_sorted = pd_con.sort_values(by= 1,ascending=False)
+    np_total_false_neg = np_total_false_neg.reshape(-1)
+    return pd_sorted
 
-relative_freq = []
-for k  in range(len(unique_values)):
-    relative_freq.append(freq[k] / total_freq)
-
-np_freq = np.asarray(freq)
-np_freq = np_freq.reshape(-1,1)
-np_relative_freq = np.asarray(relative_freq)
-np_relative_freq = np_relative_freq.reshape(-1,1)
-
-unique_values = unique_values.reshape(-1,1)
-
-con = np.concatenate((unique_values,np_relative_freq),axis=1)
-pd_con = pd.DataFrame(con)
-
-pd_sorted = pd_con.sort_values(by= 1,ascending=False)
-np_total_false_neg = np_total_false_neg.reshape(-1)
-
-print(pd_con)
-print(pd_sorted)
 #%%
-"""Find the common ngrams in the false negatives"""
-n_grams = clf_current[0].vocabulary_
-unique_val_list =  pd_sorted[0].to_numpy().reshape(1,-1).tolist()
-false_negative_comments = agg_comments_train[unique_val_list[0]]
-false_negative_ngrams = []
-ngram_freq = []
+
+pd_sorted = get_comment_freq(total_false_negatives)
+pd_sorted_TP = get_comment_freq(total_true_positives)
+
 #%%
-for most_pred_ngram in most_pred:
-    n_gram = most_pred_ngram[1]
-    counter = 0
-    for false_neg_comment in false_negative_comments:
-        if n_gram in false_neg_comment:
-            counter = counter +1
-    if counter > 0:
-        false_negative_ngrams.append(n_gram)
-        ngram_freq.append(counter)
-        
-np_false_negative_ngrams = np.asarray(false_negative_ngrams)
-np_false_negative_ngrams = np_false_negative_ngrams.reshape(-1,1)
+"""Find the common ngrams in comments"""
 
-np_ngram_freq = np.asarray(ngram_freq)
-np_ngram_freq = np_ngram_freq.reshape(-1,1)
+def find_common_ngrams(pd_sorted,train_comments,most_pred):
+    unique_val_list =  pd_sorted[0].to_numpy().reshape(1,-1).tolist()
+    false_negative_comments = train_comments[unique_val_list[0]]
+    false_negative_ngrams = []
+    ngram_freq = []
+    ngram_coefs = []
 
-false_neg_ngram_freq = np.concatenate((np_false_negative_ngrams,np_ngram_freq),axis=1)
-pd_false_neg_ngram_freq = pd.DataFrame(false_neg_ngram_freq) 
-false_neg_ngram_freq_sorted = pd_false_neg_ngram_freq.sort_values(by=1, ascending=False)
+    for most_pred_ngram in most_pred:
+        n_gram = most_pred_ngram[1]
+        n_gram_coef = most_pred_ngram[0]
+        counter = 0
+        for false_neg_comment in false_negative_comments:
+            if n_gram in false_neg_comment:
+                counter = counter +1
+        if counter > 0:
+            false_negative_ngrams.append(n_gram)
+            ngram_freq.append(counter)
+            ngram_coefs.append(n_gram_coef)
+            
+    np_false_negative_ngrams = np.asarray(false_negative_ngrams)
+    np_false_negative_ngrams = np_false_negative_ngrams.reshape(-1,1)
+    
+    np_ngram_freq = np.asarray(ngram_freq)
+    np_ngram_freq = np_ngram_freq.reshape(-1,1)
+    
+    np_ngram_coefs = np.asarray(ngram_coefs)
+    np_ngram_coefs = np_ngram_coefs.reshape(-1,1)
+    
+    false_neg_ngram_freq = np.concatenate((np_false_negative_ngrams,np_ngram_freq,np_ngram_coefs),axis=1)
+
+    pd_false_neg_ngram_freq = pd.DataFrame(false_neg_ngram_freq) 
+    pd_false_neg_ngram_freq[1] = pd_false_neg_ngram_freq[1].astype(str).astype(int)
+    false_neg_ngram_freq_sorted = pd_false_neg_ngram_freq.sort_values(by=1, ascending=False)
+    return false_neg_ngram_freq_sorted
+#%%
+false_neg_ngram_freq_sorted = find_common_ngrams(pd_sorted,agg_comments_train,most_pred)
+TP_ngram_freq_sorted = find_common_ngrams(pd_sorted_TP,agg_comments_train,most_pred)
 #%%
 from matplotlib import pyplot
 
