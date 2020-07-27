@@ -53,7 +53,7 @@ def redifine_labels(agg_labels, focus_label):
     return agg_labels
 
 """OVR scheme """
-focus_label = 'NAG'
+focus_label = 'OAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
@@ -185,8 +185,36 @@ if __name__ == "__main__":
 #%%
     #predicted = predicted.reshape(false_negative_labels_encoded.shape)
     #print(predicted)
+    
 #%%
+"""Obtain the most postivie and most negative coefficients"""
+from scipy.sparse import csr_matrix
+coefs = clf_current.named_steps["clf"].coef_
 
+if type(coefs) == csr_matrix:
+    coefs.toarray().tolist()[0]
+else:
+    coefs.tolist()
+        
+feature_names = clf_current.named_steps["tfidf"].get_feature_names()
+
+coefs_and_features = list(zip(coefs[0], feature_names))# Most positive features
+
+neg_features = sorted(coefs_and_features, key=lambda x: x[0])# Most negative features
+
+predictive_features = sorted(coefs_and_features, 
+                             key=lambda x: x[0],
+                             reverse=True)# Most predictive overall
+
+n_display_values = 100
+
+most_neg = neg_features[:n_display_values]
+most_pred = predictive_features[:n_display_values]
+#%%
+"""
+Sample using probabilities obtained using predict_prob and obtain false 
+negatives for each iteration  
+"""
 #print("F1 score: ", f1_score(false_negative_labels_encoded, predicted, average='macro'))
 for i in range(0,iter_val):
     predicted = [];
@@ -204,16 +232,19 @@ for i in range(0,iter_val):
                                      axis =1)
 
     
+print(total_false_negatives)
+
 #%%
 
-print(total_false_negatives)
+"""Obtain the frequency of the false negative comments"""
 
 np_total_false_neg = total_false_negatives.to_numpy()
 unique_values = np.unique(np_total_false_neg)
+unique_values = unique_values[~np.isnan(unique_values)]
 freq =[]
 total_freq = 0
 for k  in range(len(unique_values)):
-    freq.append(np.count_nonzero(np_total_false_neg ==unique_values[k]))
+    freq.append(np.count_nonzero(np_total_false_neg == unique_values[k]))
     total_freq = total_freq + freq[k]
 
 relative_freq = []
@@ -229,13 +260,40 @@ unique_values = unique_values.reshape(-1,1)
 
 con = np.concatenate((unique_values,np_relative_freq),axis=1)
 pd_con = pd.DataFrame(con)
-print(pd_con)
+
 pd_sorted = pd_con.sort_values(by= 1,ascending=False)
-print(pd_sorted)
 np_total_false_neg = np_total_false_neg.reshape(-1)
 
+print(pd_con)
+print(pd_sorted)
 #%%
+"""Find the common ngrams in the false negatives"""
+n_grams = clf_current[0].vocabulary_
+unique_val_list =  pd_sorted[0].to_numpy().reshape(1,-1).tolist()
+false_negative_comments = agg_comments_train[unique_val_list[0]]
+false_negative_ngrams = []
+ngram_freq = []
+#%%
+for most_pred_ngram in most_pred:
+    n_gram = most_pred_ngram[1]
+    counter = 0
+    for false_neg_comment in false_negative_comments:
+        if n_gram in false_neg_comment:
+            counter = counter +1
+    if counter > 0:
+        false_negative_ngrams.append(n_gram)
+        ngram_freq.append(counter)
+        
+np_false_negative_ngrams = np.asarray(false_negative_ngrams)
+np_false_negative_ngrams = np_false_negative_ngrams.reshape(-1,1)
 
+np_ngram_freq = np.asarray(ngram_freq)
+np_ngram_freq = np_ngram_freq.reshape(-1,1)
+
+false_neg_ngram_freq = np.concatenate((np_false_negative_ngrams,np_ngram_freq),axis=1)
+pd_false_neg_ngram_freq = pd.DataFrame(false_neg_ngram_freq) 
+false_neg_ngram_freq_sorted = pd_false_neg_ngram_freq.sort_values(by=1, ascending=False)
+#%%
 from matplotlib import pyplot
 
 fig, ax = pyplot.subplots()
