@@ -220,7 +220,7 @@ predictive_features = sorted(coefs_and_features,
                              key=lambda x: x[0],
                              reverse=True)# Most predictive overall
 
-n_display_values = 100
+n_display_values = len(neg_features)-1
 
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
@@ -324,15 +324,29 @@ def find_common_ngrams(pd_sorted,train_comments,most_pred):
     np_ngram_coefs = np.asarray(ngram_coefs)
     np_ngram_coefs = np_ngram_coefs.reshape(-1,1)
     
-    false_neg_ngram_freq = np.concatenate((np_false_negative_ngrams,np_ngram_freq,np_ngram_coefs),axis=1)
+    false_neg_ngram_freq = np.concatenate((np_false_negative_ngrams,np_ngram_freq,
+                                           np_ngram_coefs),axis=1)
 
     pd_false_neg_ngram_freq = pd.DataFrame(false_neg_ngram_freq) 
     pd_false_neg_ngram_freq[1] = pd_false_neg_ngram_freq[1].astype(str).astype(int)
     false_neg_ngram_freq_sorted = pd_false_neg_ngram_freq.sort_values(by=1, ascending=False)
-    return false_neg_ngram_freq_sorted
+    return [false_neg_ngram_freq_sorted, np_false_negative_ngrams]
 #%%
-false_neg_ngram_freq_sorted = find_common_ngrams(pd_sorted,agg_comments_train,most_pred)
-TP_ngram_freq_sorted = find_common_ngrams(pd_sorted_TP,agg_comments_train,most_pred)
+[false_neg_ngram_freq_sorted,np_false_negative_ngrams] = find_common_ngrams(pd_sorted,
+                                                                            agg_comments_train,
+                                                                            most_pred)
+[TP_ngram_freq_sorted,np_TP_grams] = find_common_ngrams(pd_sorted_TP,
+                                                        agg_comments_train,
+                                                        most_pred)
+#%%
+"""Find the common ngrams in TP and FN"""
+FN_and_TP,FN_ind,TP_ind  = np.intersect1d(np_false_negative_ngrams,
+                                          np_TP_grams,
+                                          return_indices=True)
+FN_list  = FN_ind.tolist()
+"""Delete the common ngrams in TP and FN in the FN_ngrams to find the ngrams 
+that are not in TP """
+diff_ngrams = np.delete(np_false_negative_ngrams,FN_list)
 #%%
 from matplotlib import pyplot
 
@@ -352,7 +366,8 @@ pyplot.show()
 print("*********************")
 #print(false_negatives)
 
-pd_sorted = pd_sorted.rename(columns={0:focus_label+"_false_negative_idx", 1:"relative frequency"})
+pd_sorted = pd_sorted.rename(columns={0:focus_label+"_false_negative_idx", 
+                                      1:"relative frequency"})
 
 print("Creating false negatives file")
 joined_df = pd.concat([pd_sorted], axis=1, sort=False)
