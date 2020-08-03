@@ -19,7 +19,7 @@ iter_val = 100
 import os
 import pandas as pd
 import numpy as np
-
+import math
 DATA_PATH = "data/eng/"
 
 
@@ -182,6 +182,7 @@ if __name__ == "__main__":
         clf_current = clf_GEN
     total_false_negatives = pd.DataFrame()
     total_true_positives = pd.DataFrame()
+    total_false_positives = pd.DataFrame()
     
     false_negative_dataset = agg_comments_train
     #false_negative_dataset = agg_comments_dev
@@ -196,6 +197,7 @@ if __name__ == "__main__":
     
     
     predicted_prob = clf_current.predict_proba(false_negative_dataset)
+    predicted_wo_prob = clf_current.predict(false_negative_dataset)
 #%%
     #predicted = predicted.reshape(false_negative_labels_encoded.shape)
     #print(predicted)
@@ -220,9 +222,21 @@ predictive_features = sorted(coefs_and_features,
                              key=lambda x: x[0],
                              reverse=True)# Most predictive overall
 
-n_display_values = len(neg_features)-1
+
+
+n_display_values =  len(neg_features)-1
 
 most_neg = neg_features[:n_display_values]
+pos_pred_features = []
+neg_pred_features = []
+for feature in predictive_features:
+    if feature[0] > 0:
+        pos_pred_features.append(feature)
+        
+for feature in neg_features:
+    if feature[0] < 0:
+        neg_pred_features.append(feature)
+        
 most_pred = predictive_features[:n_display_values]
 #%%
 """
@@ -244,6 +258,7 @@ for i in range(0,iter_val):
                                       pd.DataFrame(false_negatives_index)],
                                      ignore_index = True, 
                                      axis =1)
+    
     [true_positives, true_positives_index] = obtain_true_positives(
             predicted,
             false_negative_labels_encoded,
@@ -253,7 +268,16 @@ for i in range(0,iter_val):
                                       pd.DataFrame(true_positives_index)],
                                      ignore_index = True, 
                                      axis =1)
+    [false_positives, false_positives_index] = obtain_false_positives(
+            predicted,
+            false_negative_labels_encoded,
+            false_negative_dataset)
     
+    total_false_positives= pd.concat([total_false_positives,
+                                      pd.DataFrame(false_positives_index)],
+                                     ignore_index = True, 
+                                     axis =1)
+
 print(total_false_negatives)
 print(total_true_positives)
 
@@ -289,20 +313,25 @@ def get_comment_freq(total_comments):
     return pd_sorted
 
 #%%
-
+TP = obtain_true_positives(predicted_wo_prob,false_negative_labels_encoded,false_negative_dataset)
 pd_sorted = get_comment_freq(total_false_negatives)
 pd_sorted_TP = get_comment_freq(total_true_positives)
+pd_sorted_FP = get_comment_freq(total_false_positives)
 
 #%%
 """Find the common ngrams in comments"""
 
-def find_common_ngrams(pd_sorted,train_comments,most_pred):
+def find_common_ngrams(pd_sorted,train_comments,most_pred,part):
     unique_val_list =  pd_sorted[0].to_numpy().reshape(1,-1).tolist()
-    false_negative_comments = train_comments[unique_val_list[0]]
+    end_index = math.floor(len(unique_val_list[0])*part)
+    false_negative_comments = train_comments[unique_val_list[0][0:end_index]]
     false_negative_ngrams = []
+    
     ngram_freq = []
     ngram_coefs = []
-
+    com_inter = []
+    print("Number of comments taken = ", end_index)
+    
     for most_pred_ngram in most_pred:
         n_gram = most_pred_ngram[1]
         n_gram_coef = most_pred_ngram[0]
@@ -315,6 +344,24 @@ def find_common_ngrams(pd_sorted,train_comments,most_pred):
             ngram_freq.append(counter)
             ngram_coefs.append(n_gram_coef)
             
+    counter = 0
+    for false_neg_comment in false_negative_comments:
+        current_ngram_list = []
+        for most_pred_ngram in most_pred:
+            n_gram = most_pred_ngram[1]
+            n_gram_coef = most_pred_ngram[0]
+            if n_gram in false_neg_comment:
+                current_ngram_list.append(n_gram)
+        if counter != 0 :
+            com_inter  = np.intersect1d(current_ngram_list,
+                                        past_ngram_list)
+            past_ngram_list =  com_inter
+        else:
+            past_ngram_list = current_ngram_list
+            
+        print(com_inter)
+        counter = counter+1
+    print(com_inter)  
     np_false_negative_ngrams = np.asarray(false_negative_ngrams)
     np_false_negative_ngrams = np_false_negative_ngrams.reshape(-1,1)
     
@@ -331,22 +378,56 @@ def find_common_ngrams(pd_sorted,train_comments,most_pred):
     pd_false_neg_ngram_freq[1] = pd_false_neg_ngram_freq[1].astype(str).astype(int)
     false_neg_ngram_freq_sorted = pd_false_neg_ngram_freq.sort_values(by=1, ascending=False)
     return [false_neg_ngram_freq_sorted, np_false_negative_ngrams]
+
+
 #%%
-[false_neg_ngram_freq_sorted,np_false_negative_ngrams] = find_common_ngrams(pd_sorted,
-                                                                            agg_comments_train,
-                                                                            most_pred)
-[TP_ngram_freq_sorted,np_TP_grams] = find_common_ngrams(pd_sorted_TP,
+def find_ngrams(select_comments,train_comments,most_pred):
+    total_ngrams = []
+    ngram_freq = []
+    ngram_coefs = []
+
+    for most_pred_ngram in most_pred:
+        n_gram = most_pred_ngram[1]
+        n_gram_coef = most_pred_ngram[0]
+        counter = 0
+        for comment in select_comments[0]:
+            if n_gram in comment:
+                counter = counter +1
+        if counter > 0:
+            total_ngrams.append(n_gram)
+            ngram_freq.append(counter)
+            ngram_coefs.append(n_gram_coef)
+    return total_ngrams
+        
+#%%
+[FN_ngram_freq_sorted,np_FN_ngrams] = find_common_ngrams(pd_sorted,
+                                                         agg_comments_train,
+                                                         most_pred,
+                                                         0.025)
+
+#%%
+[TP_ngram_freq_sorted,np_TP_ngrams] = find_common_ngrams(pd_sorted_TP,
                                                         agg_comments_train,
-                                                        most_pred)
+                                                        most_pred,
+                                                        0.5)
+
+[FP_ngram_freq_sorted,np_FP_ngrams] = find_common_ngrams(pd_sorted_FP,
+                                                        agg_comments_train,
+                                                        most_pred,
+                                                        0.2)
+#%%
+TP_ngrams = find_ngrams(TP, agg_comments_train, most_pred)
+
 #%%
 """Find the common ngrams in TP and FN"""
-FN_and_TP,FN_ind,TP_ind  = np.intersect1d(np_false_negative_ngrams,
-                                          np_TP_grams,
+FP_and_TP,FN_ind,TP_ind  = np.intersect1d(np_FN_ngrams,
+                                          TP_ngrams,
                                           return_indices=True)
 FN_list  = FN_ind.tolist()
-"""Delete the common ngrams in TP and FN in the FN_ngrams to find the ngrams 
-that are not in TP """
-diff_ngrams = np.delete(np_false_negative_ngrams,FN_list)
+TP_list  = TP_ind.tolist()
+"""Delete the common ngrams to find the ngrams """
+diff_ngrams = np.delete(np_FN_ngrams,FN_list)
+
 #%%
 from matplotlib import pyplot
 
@@ -366,10 +447,10 @@ pyplot.show()
 print("*********************")
 #print(false_negatives)
 
-pd_sorted = pd_sorted.rename(columns={0:focus_label+"_false_negative_idx", 
-                                      1:"relative frequency"})
+#pd_sorted = pd_sorted.rename(columns={0:focus_label+"_false_negative_idx", 
+#                                      1:"relative frequency"})
 
-print("Creating false negatives file")
-joined_df = pd.concat([pd_sorted], axis=1, sort=False)
-joined_df.to_csv('trac2_false_negatives.csv')
+#print("Creating false negatives file")
+#joined_df = pd.concat([pd_sorted], axis=1, sort=False)
+#joined_df.to_csv('trac2_false_negatives.csv')
 
