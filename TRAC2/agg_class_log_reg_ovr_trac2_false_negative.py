@@ -337,7 +337,7 @@ def find_common_ngrams(pd_sorted,train_comments,most_pred,part):
         n_gram_coef = most_pred_ngram[0]
         counter = 0
         for false_neg_comment in false_negative_comments:
-            if n_gram in false_neg_comment:
+            if n_gram in false_neg_comment.lower():
                 counter = counter +1
         if counter > 0:
             false_negative_ngrams.append(n_gram)
