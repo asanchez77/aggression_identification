@@ -424,7 +424,7 @@ TP_ngrams = find_ngrams(TP, most_pred)
 
 #%%
 FN = obtain_false_negatives(predicted,false_negative_labels_encoded,false_negative_dataset)
-FN_ngrams = find_ngrams(FN,coefs_and_features)
+FN_ngrams = find_ngrams(FN,most_pred)
 
 #%%
 """Find the common ngrams in FN and the ngrams used in the model"""
@@ -460,7 +460,7 @@ TP_and_FN, TP_ind2, FN_ind2 = np.intersect1d(diff_ngrams_TP,
 TP_list2 = TP_ind2.tolist()
 FN_list2 = FN_ind2.tolist()
 
-diff_ngrams_TP_FN = np.delete(diff_ngrams_FN, FN_list2)
+diff_ngrams_TP_FN = np.delete(diff_ngrams_TP, TP_list2)
 
 #%%
 from matplotlib import pyplot
