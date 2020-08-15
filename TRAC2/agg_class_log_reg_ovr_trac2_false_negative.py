@@ -53,7 +53,7 @@ def redifine_labels(agg_labels, focus_label):
     return agg_labels
 
 """OVR scheme """
-focus_label = 'OAG'
+focus_label = 'NAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
@@ -313,7 +313,7 @@ def get_comment_freq(total_comments):
     return pd_sorted
 
 #%%
-TP = obtain_true_positives(predicted_wo_prob,false_negative_labels_encoded,false_negative_dataset)
+
 pd_sorted = get_comment_freq(total_false_negatives)
 pd_sorted_TP = get_comment_freq(total_true_positives)
 pd_sorted_FP = get_comment_freq(total_false_positives)
@@ -347,6 +347,7 @@ def find_common_ngrams(pd_sorted,train_comments,most_pred,part):
     counter = 0
     for false_neg_comment in false_negative_comments:
         current_ngram_list = []
+        past_ngram_list = []
         for most_pred_ngram in most_pred:
             n_gram = most_pred_ngram[1]
             n_gram_coef = most_pred_ngram[0]
@@ -381,7 +382,9 @@ def find_common_ngrams(pd_sorted,train_comments,most_pred,part):
 
 
 #%%
-def find_ngrams(select_comments,train_comments,most_pred):
+
+"""Find the ngrams in the comments """
+def find_ngrams(select_comments,most_pred):
     total_ngrams = []
     ngram_freq = []
     ngram_coefs = []
@@ -400,33 +403,64 @@ def find_ngrams(select_comments,train_comments,most_pred):
     return total_ngrams
         
 #%%
-[FN_ngram_freq_sorted,np_FN_ngrams] = find_common_ngrams(pd_sorted,
-                                                         agg_comments_train,
-                                                         most_pred,
-                                                         0.025)
+# [FN_ngram_freq_sorted,np_FN_ngrams] = find_common_ngrams(pd_sorted,
+#                                                          agg_comments_train,
+#                                                          most_pred,
+#                                                          0.02)
 
 #%%
-[TP_ngram_freq_sorted,np_TP_ngrams] = find_common_ngrams(pd_sorted_TP,
-                                                        agg_comments_train,
-                                                        most_pred,
-                                                        0.5)
+# [TP_ngram_freq_sorted,np_TP_ngrams] = find_common_ngrams(pd_sorted_TP,
+#                                                         agg_comments_train,
+#                                                         most_pred,
+#                                                         0.5)
 
-[FP_ngram_freq_sorted,np_FP_ngrams] = find_common_ngrams(pd_sorted_FP,
-                                                        agg_comments_train,
-                                                        most_pred,
-                                                        0.2)
+# [FP_ngram_freq_sorted,np_FP_ngrams] = find_common_ngrams(pd_sorted_FP,
+#                                                         agg_comments_train,
+#                                                         most_pred,
+#                                                         0.2)
 #%%
-TP_ngrams = find_ngrams(TP, agg_comments_train, most_pred)
+TP = obtain_true_positives(predicted_wo_prob,false_negative_labels_encoded,false_negative_dataset)
+TP_ngrams = find_ngrams(TP, most_pred)
 
 #%%
-"""Find the common ngrams in TP and FN"""
-FP_and_TP,FN_ind,TP_ind  = np.intersect1d(np_FN_ngrams,
-                                          TP_ngrams,
+FN = obtain_false_negatives(predicted,false_negative_labels_encoded,false_negative_dataset)
+FN_ngrams = find_ngrams(FN,coefs_and_features)
+
+#%%
+"""Find the common ngrams in FN and the ngrams used in the model"""
+FN_and_features,FN_ind,feature_ind  = np.intersect1d(FN_ngrams,
+                                          feature_names,
                                           return_indices=True)
 FN_list  = FN_ind.tolist()
-TP_list  = TP_ind.tolist()
-"""Delete the common ngrams to find the ngrams """
-diff_ngrams = np.delete(np_FN_ngrams,FN_list)
+feature_list  = feature_ind.tolist()
+"""Delete the common ngrams to find the ngrams that are not in FN"""
+diff_ngrams_FN = np.delete(feature_names,feature_list)
+#%%
+
+"""Find the common ngrams in TP and the ngrams used in the model"""
+
+TP_and_features,TP_ind,feature_ind2 = np.intersect1d(TP_ngrams,
+                                                    feature_names,
+                                                    return_indices = True)
+
+TP_list = TP_ind.tolist()
+feature_list2  = feature_ind2.tolist()
+
+"""Delete the ngrams found in TP from the set of features"""
+
+diff_ngrams_TP = np.delete(feature_names, feature_list2)
+
+#%%
+"""Now check the ngrams that are similar and the ones that are not"""
+
+
+TP_and_FN, TP_ind2, FN_ind2 = np.intersect1d(diff_ngrams_TP,
+                                             diff_ngrams_FN,
+                                             return_indices = True)
+TP_list2 = TP_ind2.tolist()
+FN_list2 = FN_ind2.tolist()
+
+diff_ngrams_TP_FN = np.delete(diff_ngrams_FN, FN_list2)
 
 #%%
 from matplotlib import pyplot
