@@ -53,7 +53,7 @@ def redifine_labels(agg_labels, focus_label):
     return agg_labels
 
 """OVR scheme """
-focus_label = 'NAG'
+focus_label = 'OAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
@@ -394,7 +394,7 @@ def find_ngrams(select_comments,most_pred):
         n_gram_coef = most_pred_ngram[0]
         counter = 0
         for comment in select_comments[0]:
-            if n_gram in comment:
+            if n_gram in comment.lower():
                 counter = counter +1
         if counter > 0:
             total_ngrams.append(n_gram)
@@ -461,6 +461,21 @@ TP_list2 = TP_ind2.tolist()
 FN_list2 = FN_ind2.tolist()
 
 diff_ngrams_TP_FN = np.delete(diff_ngrams_TP, TP_list2)
+
+#%%
+
+TP_and_FN_ngrams, TP_index, FN_index = np.intersect1d(TP_ngrams,
+                                                      FN_ngrams,
+                                                      return_indices = True)
+
+TP_ind_list = TP_index.tolist()
+FN_ind_list = FN_index.tolist()
+
+diff_ngrams_TP_FN2 = np.delete(FN_ngrams,FN_ind_list)
+
+#%%
+
+
 
 #%%
 from matplotlib import pyplot

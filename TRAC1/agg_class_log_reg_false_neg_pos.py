@@ -10,7 +10,7 @@ Created on Sat Jul 25 16:42:17 2020
 """The classes that will be included in the histogram"""
 eval_classes = ['CAG']
 """The total number of iterations"""
-iter_val = 2
+iter_val = 100
 #%%
 
 """Load the data """
@@ -219,6 +219,6 @@ print("*********************")
 false_negatives_df =  pd.DataFrame(list(false_negatives))
 false_negatives_df = false_negatives_df.rename(columns={0:focus_label+"_false_negative"})
 
-print("Creating false negatives file")
-joined_df = pd.concat([false_negatives_df], axis=1, sort=False)
-joined_df.to_csv('trac2_false_negatives.csv')
+# print("Creating false negatives file")
+# joined_df = pd.concat([false_negatives_df], axis=1, sort=False)
+# joined_df.to_csv('trac2_false_negatives.csv')

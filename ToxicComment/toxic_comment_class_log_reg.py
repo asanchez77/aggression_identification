@@ -58,7 +58,7 @@ def load_testing_data(csvfile,csvfile_labels,label):
 
 [agg_labels_dev, agg_comments_dev] = load_testing_data("test.csv","test_labels.csv",focus_label)
 
-
+agg_labels_original = agg_labels_train.copy()
 
 #%%
 from time import time
@@ -243,14 +243,41 @@ most_pred_df = most_pred_df.rename(columns={0:focus_label+"_pred_coef",1:focus_l
 it will open the existing file (it asumes it was previously created) and it
 will add the next model's n-grams and coefficients
 """
-if(focus_label == 'toxic'):
-    print("Creating coefficients file, please go through all the other focus labels")
-    joined_df = pd.concat([most_neg_df, most_pred_df], axis=1, sort=False)
-    joined_df.to_csv('toxic_coefficients.csv')
+# if(focus_label == 'toxic'):
+#     print("Creating coefficients file, please go through all the other focus labels")
+#     joined_df = pd.concat([most_neg_df, most_pred_df], axis=1, sort=False)
+#     joined_df.to_csv('toxic_coefficients.csv')
     
-else:
-    print("Adding current model's coefficients and ngram to csv file")
-    coef_csv = pd.read_csv('toxic_coefficients.csv',index_col = 0)
-    joined_df = pd.concat([coef_csv, most_neg_df, most_pred_df], axis=1, sort=False)
-    joined_df.to_csv('toxic_coefficients.csv')
+# else:
+#     print("Adding current model's coefficients and ngram to csv file")
+#     coef_csv = pd.read_csv('toxic_coefficients.csv',index_col = 0)
+#     joined_df = pd.concat([coef_csv, most_neg_df, most_pred_df], axis=1, sort=False)
+#     joined_df.to_csv('toxic_coefficients.csv')
         
+#%%
+
+"""Analysis of the negative class ngrams"""
+
+
+#for item in most_neg:
+ngram = most_pred[2][1]
+counter = 0
+for comment,label in zip(agg_comments_train, agg_labels_original):
+    if label == "CAG":
+        if ngram in comment.lower(): 
+            labeled_comment = comment
+            ngram_start_index = comment.lower().find(ngram)          
+            while ngram_start_index is not -1:
+                f_comment_part = labeled_comment[0:ngram_start_index]
+                labeled_ngram = '<ng>' + ngram + '</ng>'
+                s_comment_part = labeled_comment[ngram_start_index+len(ngram):]
+                labeled_comment = f_comment_part + labeled_ngram + s_comment_part
+                ngram_start_index = labeled_comment.lower().find(ngram, ngram_start_index+9+len(ngram))
+            counter = counter +1      
+            print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
+            print("\n")
+            if counter == 10 :
+                break
+            
+        
+print(counter)
