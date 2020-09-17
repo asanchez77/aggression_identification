@@ -17,7 +17,8 @@ import numpy as np
 
 DATA_PATH = "data/"
 
-
+mode = "train"
+focus_label = 'NAG'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -47,7 +48,6 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
-focus_label = 'CAG'
 
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
@@ -76,6 +76,10 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
+
+# to save model import joblib
+
+import joblib 
 
 #%%
 
@@ -118,16 +122,25 @@ if __name__ == "__main__":
 
     if focus_label=='NAG':
         clf_current = clf_NAG
+        filename = 'trac1_NAG_clf.sav'
     if focus_label=='CAG':
         clf_current = clf_CAG
+        filename = 'trac1_CAG_clf.sav'
     if focus_label=='OAG':
         clf_current = clf_OAG
+        filename = 'trac1_OAG_clf.sav'
 
     print("pipeline:", [name for name, _ in clf_current.steps])
     print(clf_current['clf'])
     t0 = time()
-    clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
-    print("Fit completed.")
+    if mode == "train":
+        clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
+        print("Fit completed.")
+        # save the model to disk
+        joblib.dump(clf_current, filename)
+    else:
+        print("loading modpel")
+        clf_current = joblib.load(filename)
     predicted = clf_current.predict(agg_comments_dev)
 
     predicted = predicted.reshape(agg_labels_dev_encoded.shape)
