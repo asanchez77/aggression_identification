@@ -17,7 +17,7 @@ import numpy as np
 
 DATA_PATH = "data/"
 
-mode = "train"
+mode = "test"
 focus_label = 'NAG'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -78,7 +78,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
 
 # to save model import joblib
-
 import joblib 
 
 #%%
@@ -209,7 +208,7 @@ importance = most_neg + most_pred[::-1]
 
 fig, ax = pyplot.subplots()
 pyplot.title(focus_label)
-ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
+ax.bar([                                                                                                                                                                                                                                                                                                                                                                                                                                                                        (x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
 pyplot.xticks(rotation=90, ha='right')
 pyplot.show()
 

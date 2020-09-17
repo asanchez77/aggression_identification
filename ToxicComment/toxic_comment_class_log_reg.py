@@ -67,6 +67,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
 
+# to save model import joblib
+import joblib 
+
 #%%
 
 clf_toxic = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 

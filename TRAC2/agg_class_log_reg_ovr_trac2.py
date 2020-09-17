@@ -17,6 +17,8 @@ import numpy as np
 
 DATA_PATH = "data/eng/"
 
+mode = "test"
+focus_label = 'GEN'
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -30,7 +32,7 @@ def load_aggresion_data(csvfile):
     #Rename the columns
     """For *AG use Sub-task A and for *GEN use Sub-task B to obtain the 
     labels used for training"""
-    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task A':"agg_label"})
+    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task B':"agg_label"})
     print(agg_data["comment"])
     print(agg_data["agg_label"])
     # Obtain the labels and the comments
@@ -48,7 +50,6 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
-focus_label = 'CAG'
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 agg_labels_original = agg_labels_train.copy()
@@ -77,6 +78,10 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
+
+
+# to save model import joblib
+import joblib 
 
 #%%
 
@@ -128,18 +133,30 @@ if __name__ == "__main__":
 
     if focus_label=='NAG':
         clf_current = clf_NAG
+        filename = 'trac2_NAG_clf.sav'
     if focus_label=='CAG':
         clf_current = clf_CAG
+        filename = 'trac2_CAG_clf.sav'
     if focus_label=='OAG':
         clf_current = clf_OAG
+        filename = 'trac2_OAG_clf.sav'
     if focus_label=='GEN' or focus_label=='NGEN':
         clf_current = clf_GEN
+        filename = 'trac2_GEN_clf.sav'
 
     print("pipeline:", [name for name, _ in clf_current.steps])
     print(clf_current['clf'])
     t0 = time()
-    clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
-    print("Fit completed.")
+    
+    if mode == "train":
+        clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
+        print("Fit completed.")
+        # save the model to disk
+        joblib.dump(clf_current, filename)
+    else:
+        print("loading modpel")
+        clf_current = joblib.load(filename)
+    
     predicted = clf_current.predict(agg_comments_dev)
 
     predicted = predicted.reshape(agg_labels_dev_encoded.shape)
