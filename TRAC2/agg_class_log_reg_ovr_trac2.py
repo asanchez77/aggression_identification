@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/eng/"
 
 mode = "test"
-focus_label = 'GEN'
+focus_label = 'OAG'
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -129,33 +129,38 @@ if __name__ == "__main__":
     # multiprocessing requires the fork to happen in a __main__ protected
     # block
 
-    print("Training model...")
-
+    
     if focus_label=='NAG':
         clf_current = clf_NAG
-        filename = 'trac2_NAG_clf.sav'
+        clf_filename = 'trac2_NAG_clf.sav'
+        img_filename = 'trac2_NAG_img.pdf'
     if focus_label=='CAG':
         clf_current = clf_CAG
-        filename = 'trac2_CAG_clf.sav'
+        clf_filename = 'trac2_CAG_clf.sav'
+        img_filename = 'trac2_CAG_img.pdf'
     if focus_label=='OAG':
         clf_current = clf_OAG
-        filename = 'trac2_OAG_clf.sav'
+        clf_filename = 'trac2_OAG_clf.sav'
+        img_filename = 'trac2_OAG_img.pdf'
     if focus_label=='GEN' or focus_label=='NGEN':
         clf_current = clf_GEN
-        filename = 'trac2_GEN_clf.sav'
+        clf_filename = 'trac2_GEN_clf.sav'
+        img_filename = 'trac2_GEN_img.pdf'
 
+    print("Focus label:", focus_label)
     print("pipeline:", [name for name, _ in clf_current.steps])
     print(clf_current['clf'])
     t0 = time()
     
     if mode == "train":
+        print("Training model...")
         clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
         print("Fit completed.")
         # save the model to disk
-        joblib.dump(clf_current, filename)
+        joblib.dump(clf_current, clf_filename)
     else:
-        print("loading modpel")
-        clf_current = joblib.load(filename)
+        print("Loading model")
+        clf_current = joblib.load(clf_filename)
     
     predicted = clf_current.predict(agg_comments_dev)
 
@@ -219,15 +224,19 @@ print_format_coef(most_pred)
 from matplotlib import pyplot
 
 # get importance
-importance = most_neg + most_pred[::-1]
+#importance = most_neg + most_pred[::-1]
+importance = most_pred[::-1]
 #print(importance)
 
 fig, ax = pyplot.subplots()
+ax.tick_params(axis='both', which='major', labelsize=16)
 pyplot.title(focus_label)
-
 ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
 pyplot.xticks(rotation=90, ha='right')
 pyplot.show()
+
+fig.tight_layout()
+fig.savefig(img_filename,dpi=300)
 
 #%%
 

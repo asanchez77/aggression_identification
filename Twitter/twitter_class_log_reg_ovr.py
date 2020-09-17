@@ -20,7 +20,8 @@ import numpy as np
 
 DATA_PATH = "../../twitter_data/"
 
-
+mode = "train"
+focus_label = 'abusive'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -44,6 +45,8 @@ def load_aggresion_data(csvfile):
 [agg_labels_train, agg_comments_train] = load_aggresion_data("hatespeech_text_train.csv")
 [agg_labels_dev, agg_comments_dev] = load_aggresion_data("hatespeech_text_test.csv")
 
+agg_labels_original = agg_labels_train.copy()
+
 #%%
 
 def redifine_labels(agg_labels, focus_label):
@@ -53,7 +56,7 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
-focus_label = 'abusive'
+
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
 
@@ -62,6 +65,7 @@ from sklearn.preprocessing import OrdinalEncoder
 ordinal_encoder_train = OrdinalEncoder()
 
 agg_labels_train_encoded = ordinal_encoder_train.fit_transform(agg_labels_train)
+
 
 #%%
 print(agg_labels_train_encoded[:10])
@@ -81,6 +85,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
+
+# to save model import joblib
+import joblib 
 
 #%%
 
@@ -128,24 +135,40 @@ if __name__ == "__main__":
     # multiprocessing requires the fork to happen in a __main__ protected
     # block
 
-    print("Training model...")
+    
 
     if focus_label=='abusive':
         clf_current = clf_abusive
+        clf_filename = 'twitter_abusive_clf.sav'
+        img_filename = 'twitter_abusive_img.pdf'
     if focus_label=='hateful':
         clf_current = clf_hateful
+        clf_filename = 'twitter_hateful_clf.sav'
+        img_filename = 'twitter_hateful_img.pdf'
     if focus_label=='normal':
         clf_current = clf_normal
+        clf_filename = 'twitter_normal_clf.sav'
+        img_filename = 'twitter_normal_img.pdf'
     if focus_label == 'spam':
         clf_current = clf_spam
+        clf_filename = 'twitter_spam_clf.sav'
+        img_filename = 'twitter_spam_img.pdf'
 
+    print("Focus label:", focus_label)
     print("pipeline:", [name for name, _ in clf_current.steps])
     print(clf_current['clf'])
     t0 = time()
-    clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
-    print("Fit completed.")
+    
+    if mode== "train":
+        print("Training model...")
+        clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
+        print("Fit completed.")
+    else:
+        print("Loading model")
+        clf_current = joblib.load(clf_filename)
+        
     predicted = clf_current.predict(agg_comments_dev)
-
+    
     predicted = predicted.reshape(agg_labels_dev_encoded.shape)
     print(predicted)
     
@@ -210,15 +233,19 @@ print_format_coef(most_neg,most_pred)
 from matplotlib import pyplot
 
 # get importance
-importance = most_neg + most_pred[::-1]
+#importance = most_neg + most_pred[::-1]
+importance = most_pred[::-1]
 #print(importance)
 
 fig, ax = pyplot.subplots()
+ax.tick_params(axis='both', which='major', labelsize=16)
 pyplot.title(focus_label)
 ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
 pyplot.xticks(rotation=90, ha='right')
 pyplot.show()
 
+fig.tight_layout()
+fig.savefig(img_filename,dpi=300)
 #%%
 
 n_list_values =  30
@@ -236,13 +263,41 @@ most_pred_df = most_pred_df.rename(columns={0:focus_label+"_pred_coef",1:focus_l
 it will open the existing file (it asumes it was previously created) and it
 will add the next model's n-grams and coefficients
 """
-if(focus_label == 'abusive'):
-    print("Creating coefficients file, please go through all the other focus labels")
-    joined_df = pd.concat([most_neg_df, most_pred_df], axis=1, sort=False)
-    joined_df.to_csv('abusive_coefficients.csv')
+# if(focus_label == 'abusive'):
+#     print("Creating coefficients file, please go through all the other focus labels")
+#     joined_df = pd.concat([most_neg_df, most_pred_df], axis=1, sort=False)
+#     joined_df.to_csv('abusive_coefficients.csv')
     
-else:
-    print("Adding current model's coefficients and ngram to csv file")
-    coef_csv = pd.read_csv('abusive_coefficients.csv',index_col = 0)
-    joined_df = pd.concat([coef_csv, most_neg_df, most_pred_df], axis=1, sort=False)
-    joined_df.to_csv('abusive_coefficients.csv')
+# else:
+#     print("Adding current model's coefficients and ngram to csv file")
+#     coef_csv = pd.read_csv('abusive_coefficients.csv',index_col = 0)
+#     joined_df = pd.concat([coef_csv, most_neg_df, most_pred_df], axis=1, sort=False)
+#     joined_df.to_csv('abusive_coefficients.csv')
+
+#%%
+
+"""Analysis of the negative class ngrams"""
+
+
+#for item in most_neg:
+ngram = most_pred[2][1]
+counter = 0
+for comment,label in zip(agg_comments_train, agg_labels_original):
+    if label == "abusive":
+        if ngram in comment.lower(): 
+            labeled_comment = comment
+            ngram_start_index = comment.lower().find(ngram)          
+            while ngram_start_index is not -1:
+                f_comment_part = labeled_comment[0:ngram_start_index]
+                labeled_ngram = '<ng>' + ngram + '</ng>'
+                s_comment_part = labeled_comment[ngram_start_index+len(ngram):]
+                labeled_comment = f_comment_part + labeled_ngram + s_comment_part
+                ngram_start_index = labeled_comment.lower().find(ngram, ngram_start_index+9+len(ngram))
+            counter = counter +1      
+            print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
+            print("\n")
+            if counter == 10 :
+                break
+            
+        
+print(counter)

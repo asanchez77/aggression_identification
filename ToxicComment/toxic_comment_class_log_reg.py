@@ -56,7 +56,6 @@ def load_testing_data(csvfile,csvfile_labels,label):
     return [agg_labels, agg_comments]
 
 [agg_labels_train, agg_comments_train] = load_training_data("train.csv")
-
 [agg_labels_dev, agg_comments_dev] = load_testing_data("test.csv","test_labels.csv",focus_label)
 
 agg_labels_original = agg_labels_train.copy()
@@ -137,41 +136,48 @@ if __name__ == "__main__":
     # multiprocessing requires the fork to happen in a __main__ protected
     # block
 
-    print("Training model...")
+    
 
     if focus_label=='toxic':
         clf_current = clf_toxic
-        filename = 'toxic_toxic_clf.sav'
+        clf_filename = 'toxic_toxic_clf.sav'
+        img_filename = 'toxic_toxic_img.pdf'
     if focus_label=='severe_toxic':
         clf_current = clf_severe_toxic
-        filename = 'toxic_severe_toxic_clf.sav'
+        clf_filename = 'toxic_severe_toxic_clf.sav'
+        img_filename = 'toxic_severe_img.pdf'
     if focus_label=='obscene':
         clf_current = clf_obscene
-        filename = 'toxic_obscene_clf.sav'
+        clf_filename = 'toxic_obscene_clf.sav'
+        img_filename = 'toxic_obscene_img.pdf'
     if focus_label=='threat':
         clf_current = clf_threat
-        filename = 'toxic_threat_clf.sav'
+        clf_filename = 'toxic_threat_clf.sav'
+        img_filename = 'toxic_threat_img.pdf'
     if focus_label=='insult':
         clf_current = clf_insult
-        filename = 'toxic_insult_clf.sav'
+        clf_filename = 'toxic_insult_clf.sav'
+        img_filename = 'toxic_insult_img.pdf'
     if focus_label=='identity_hate':
         clf_current = clf_identity_hate
-        filename = 'toxic_identity_hate_clf.sav'
-        
-    print(focus_label)    
+        clf_filename = 'toxic_identity_hate_clf.sav'
+        img_filename = 'toxic_identity_hate_img.pdf'
+    
 
+    print("Focus label:", focus_label)    
     print("pipeline:", [name for name, _ in clf_current.steps])
     print(clf_current['clf'])
     t0 = time()
     
     if mode == "train":
+        print("Training model...")
         clf_current = clf_current.fit(agg_comments_train,agg_labels_train.ravel())
         print("Fit completed.")
         # save the model to disk
-        joblib.dump(clf_current, filename)
+        joblib.dump(clf_current, clf_filename)
     else:
-        print("loading modpel")
-        clf_current = joblib.load(filename)
+        print("Loading model")
+        clf_current = joblib.load(clf_filename)
         
     #clf_current = clf_current.fit(agg_comments_train,agg_labels_train.ravel())
     #print("Fit completed.")
@@ -242,11 +248,14 @@ importance = most_neg + most_pred[::-1]
 #print(importance)
 
 fig, ax = pyplot.subplots()
+ax.tick_params(axis='both', which='major', labelsize=16)
 pyplot.title(focus_label)
 ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
 pyplot.xticks(rotation=90, ha='right')
 pyplot.show()
 
+fig.tight_layout()
+fig.savefig(img_filename,dpi=300)
 
 #%%
 
@@ -284,7 +293,7 @@ will add the next model's n-grams and coefficients
 ngram = most_pred[2][1]
 counter = 0
 for comment,label in zip(agg_comments_train, agg_labels_original):
-    if label == "CAG":
+    if label == "toxic":
         if ngram in comment.lower(): 
             labeled_comment = comment
             ngram_start_index = comment.lower().find(ngram)          
