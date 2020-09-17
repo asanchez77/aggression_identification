@@ -17,6 +17,7 @@ import numpy as np
 
 DATA_PATH = "data/"
 
+mode = "train"
 focus_label = "toxic"
 
 
@@ -140,24 +141,41 @@ if __name__ == "__main__":
 
     if focus_label=='toxic':
         clf_current = clf_toxic
+        filename = 'toxic_toxic_clf.sav'
     if focus_label=='severe_toxic':
         clf_current = clf_severe_toxic
+        filename = 'toxic_severe_toxic_clf.sav'
     if focus_label=='obscene':
         clf_current = clf_obscene
+        filename = 'toxic_obscene_clf.sav'
     if focus_label=='threat':
         clf_current = clf_threat
+        filename = 'toxic_threat_clf.sav'
     if focus_label=='insult':
         clf_current = clf_insult
+        filename = 'toxic_insult_clf.sav'
     if focus_label=='identity_hate':
         clf_current = clf_identity_hate
+        filename = 'toxic_identity_hate_clf.sav'
         
     print(focus_label)    
 
     print("pipeline:", [name for name, _ in clf_current.steps])
     print(clf_current['clf'])
     t0 = time()
-    clf_current = clf_current.fit(agg_comments_train,agg_labels_train.ravel())
-    print("Fit completed.")
+    
+    if mode == "train":
+        clf_current = clf_current.fit(agg_comments_train,agg_labels_train.ravel())
+        print("Fit completed.")
+        # save the model to disk
+        joblib.dump(clf_current, filename)
+    else:
+        print("loading modpel")
+        clf_current = joblib.load(filename)
+        
+    #clf_current = clf_current.fit(agg_comments_train,agg_labels_train.ravel())
+    #print("Fit completed.")
+    
     predicted = clf_current.predict(agg_comments_dev)
 
     predicted = predicted.reshape(agg_labels_dev.shape)
