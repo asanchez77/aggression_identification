@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/"
 
 mode = "train"
-focus_label = "toxic"
+focus_label = "obscene"
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -293,7 +293,11 @@ will add the next model's n-grams and coefficients
 ngram = most_pred[2][1]
 counter = 0
 for comment,label in zip(agg_comments_train, agg_labels_original):
+<<<<<<< HEAD
     if label == 1:
+=======
+    if label == "obscene":
+>>>>>>> 15f84f9d815fcb0c889f1ec4396050c26a332ab3
         if ngram in comment.lower(): 
             labeled_comment = comment
             ngram_start_index = comment.lower().find(ngram)          
