@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/eng/"
 
 mode = "test"
-focus_label = 'OAG'
+focus_label = 'GEN'
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -30,6 +30,7 @@ def load_aggresion_data(csvfile):
     """Drop the information not used: facebook identifier"""
     agg_data = agg_data.drop('ID', axis=1)    
     #Rename the columns
+    """*************************  IMPORTANT  *************************"""
     """For *AG use Sub-task A and for *GEN use Sub-task B to obtain the 
     labels used for training"""
     agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task B':"agg_label"})

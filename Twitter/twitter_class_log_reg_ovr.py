@@ -242,7 +242,7 @@ ax.tick_params(axis='both', which='major', labelsize=16)
 pyplot.title(focus_label)
 ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
 pyplot.xticks(rotation=90, ha='right')
-pyplot.show()
+#pyplot.show()
 
 fig.tight_layout()
 fig.savefig(img_filename,dpi=300)
