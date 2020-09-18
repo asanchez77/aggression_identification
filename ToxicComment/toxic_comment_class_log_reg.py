@@ -293,7 +293,7 @@ will add the next model's n-grams and coefficients
 ngram = most_pred[2][1]
 counter = 0
 for comment,label in zip(agg_comments_train, agg_labels_original):
-    if label == "toxic":
+    if label == 1:
         if ngram in comment.lower(): 
             labeled_comment = comment
             ngram_start_index = comment.lower().find(ngram)          
