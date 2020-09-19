@@ -121,20 +121,23 @@ if __name__ == "__main__":
         clf_current = clf_NAG
         clf_filename = 'trac1_NAG_clf.sav'
         img_filename = 'trac1_NAG_img.pdf'
+        csv_sample_filename = 'trac1_NAG_sample_comments.csv'
     if focus_label=='CAG':
         clf_current = clf_CAG
         clf_filename = 'trac1_CAG_clf.sav'
         img_filename = 'trac1_CAG_img.pdf'
+        csv_sample_filename = 'trac1_CAG_sample_comments.csv'
     if focus_label=='OAG':
         clf_current = clf_OAG
         clf_filename = 'trac1_OAG_clf.sav'
         img_filename = 'trac1_OAG_img.pdf'
+        csv_sample_filename = 'trac1_OAG_sample_comments.csv'
 
     print("Focus label:", focus_label)
     print("pipeline:", [name for name, _ in clf_current.steps])
     print(clf_current['clf'])
     t0 = time()
-    
+#%%   
     if mode == "train":
         print("Training model...")
         clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
@@ -254,24 +257,41 @@ will add the next model's n-grams and coefficients
 
 
 #for item in most_neg:
-ngram = most_pred[4][1]
+sample_ngrams = []
+sample_comments = []
+sample_labels = []
+ngrams_list = most_pred[0:4]
 counter = 0
-for comment,label in zip(agg_comments_train, agg_labels_original):
-    if label == "CAG":
-        if ngram in comment.lower(): 
-            labeled_comment = comment
-            ngram_start_index = comment.lower().find(ngram)          
-            while ngram_start_index is not -1:
-                f_comment_part = labeled_comment[0:ngram_start_index]
-                labeled_ngram = '<ng>' + ngram + '</ng>'
-                s_comment_part = labeled_comment[ngram_start_index+len(ngram):]
-                labeled_comment = f_comment_part + labeled_ngram + s_comment_part
-                ngram_start_index = labeled_comment.lower().find(ngram, ngram_start_index+9+len(ngram))
-            counter = counter +1      
-            print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
-            print("\n")
-            if counter == 10 :
-                break
+for ngram_item in ngrams_list:
+    ngram = ngram_item[1]
+    counter = 0;
+    for comment,label in zip(agg_comments_train, agg_labels_original):
+        if label == focus_label:
+            if ngram in comment.lower(): 
+                labeled_comment = comment
+                ngram_start_index = comment.lower().find(ngram)   
+                while ngram_start_index is not -1:
+                    f_comment_part = labeled_comment[0:ngram_start_index]
+                    labeled_ngram = '<ng>' + ngram + '</ng>'
+                    s_comment_part = labeled_comment[ngram_start_index+len(ngram):]
+                    labeled_comment = f_comment_part + labeled_ngram + s_comment_part
+                    ngram_start_index = labeled_comment.lower().find(ngram, ngram_start_index+9+len(ngram))
+                counter = counter +1      
+                sample_ngrams.append(ngram)
+                sample_comments.append(labeled_comment)
+                sample_labels.append(label)
+                print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
+                #print("\n")
+                if counter == 10 :
+                        break
             
-        
+sample_ngrams_df = pd.DataFrame(sample_ngrams)
+sample_ngrams_df = sample_ngrams_df.rename(columns={0:"ngram"})
+sample_comments_df= pd.DataFrame(sample_comments)
+sample_comments_df = sample_comments_df.rename(columns={0:"comment"})
+sample_labels_df = pd.DataFrame(sample_labels)
+sample_labels_df = sample_labels_df.rename(columns={0:"label"})
+pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
+
+pd_sample_list.to_csv(csv_sample_filename)   
 print(counter)
