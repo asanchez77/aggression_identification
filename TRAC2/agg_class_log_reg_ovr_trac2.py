@@ -17,7 +17,7 @@ import numpy as np
 
 DATA_PATH = "data/eng/"
 
-mode = "test"
+mode = "train"
 focus_label = 'GEN'
 
 
