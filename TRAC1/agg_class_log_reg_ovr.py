@@ -17,7 +17,7 @@ import numpy as np
 
 DATA_PATH = "data/"
 
-mode = "test"
+mode = "train"
 focus_label = 'OAG'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
