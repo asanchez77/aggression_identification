@@ -163,6 +163,8 @@ if __name__ == "__main__":
         print("Training model...")
         clf_current = clf_current.fit(agg_comments_train,agg_labels_train_encoded.ravel())
         print("Fit completed.")
+        # save the model to disk
+        joblib.dump(clf_current, clf_filename)
     else:
         print("Loading model")
         clf_current = joblib.load(clf_filename)
