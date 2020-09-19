@@ -17,8 +17,8 @@ import numpy as np
 
 DATA_PATH = "data/eng/"
 
-mode = "train"
-focus_label = 'GEN'
+mode = "test"
+focus_label = 'NAG'
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -33,7 +33,7 @@ def load_aggresion_data(csvfile):
     """*************************  IMPORTANT  *************************"""
     """For *AG use Sub-task A and for *GEN use Sub-task B to obtain the 
     labels used for training"""
-    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task B':"agg_label"})
+    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task A':"agg_label"})
     print(agg_data["comment"])
     print(agg_data["agg_label"])
     # Obtain the labels and the comments
