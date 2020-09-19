@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/"
 
 mode = "train"
-focus_label = "obscene"
+focus_label = "identity_hate"
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
