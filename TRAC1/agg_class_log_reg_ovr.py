@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/"
 
 mode = "test"
-focus_label = 'NAG'
+focus_label = 'OAG'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -219,7 +219,7 @@ ax.tick_params(axis='both', which='major', labelsize=16)
 pyplot.title(focus_label)
 ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
 pyplot.xticks(rotation=90, ha='right')
-pyplot.show()
+#pyplot.show()
 
 
 fig.tight_layout()
