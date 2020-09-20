@@ -4,6 +4,9 @@
 Created on Thu May  7 17:23:19 2020
 
 @author: 
+
+categories : toxic, severe_toxic, obscene, threat, insult, identity_hate 
+
 """
 
 
@@ -17,7 +20,7 @@ import numpy as np
 
 DATA_PATH = "data/"
 
-mode = "train"
+mode = "test"
 focus_label = "identity_hate"
 
 
@@ -142,26 +145,32 @@ if __name__ == "__main__":
         clf_current = clf_toxic
         clf_filename = 'toxic_toxic_clf.sav'
         img_filename = 'toxic_toxic_img.pdf'
+        csv_sample_filename = 'toxic_toxic_sample_comments.csv'
     if focus_label=='severe_toxic':
         clf_current = clf_severe_toxic
         clf_filename = 'toxic_severe_toxic_clf.sav'
         img_filename = 'toxic_severe_img.pdf'
+        csv_sample_filename = 'toxic_severe_toxic_sample_comments.csv'
     if focus_label=='obscene':
         clf_current = clf_obscene
         clf_filename = 'toxic_obscene_clf.sav'
         img_filename = 'toxic_obscene_img.pdf'
+        csv_sample_filename = 'toxic_obscene_sample_comments.csv'
     if focus_label=='threat':
         clf_current = clf_threat
         clf_filename = 'toxic_threat_clf.sav'
         img_filename = 'toxic_threat_img.pdf'
+        csv_sample_filename = 'toxic_threat_sample_comments.csv'
     if focus_label=='insult':
         clf_current = clf_insult
         clf_filename = 'toxic_insult_clf.sav'
         img_filename = 'toxic_insult_img.pdf'
+        csv_sample_filename = 'toxic_insult_sample_comments.csv'
     if focus_label=='identity_hate':
         clf_current = clf_identity_hate
         clf_filename = 'toxic_identity_hate_clf.sav'
         img_filename = 'toxic_identity_hate_img.pdf'
+        csv_sample_filename = 'toxic_identity_hate_sample_comments.csv'
     
 
     print("Focus label:", focus_label)    
@@ -176,18 +185,18 @@ if __name__ == "__main__":
         # save the model to disk
         joblib.dump(clf_current, clf_filename)
     else:
-        print("Loading model")
+        print("Loading model...")
         clf_current = joblib.load(clf_filename)
-        
-    #clf_current = clf_current.fit(agg_comments_train,agg_labels_train.ravel())
-    #print("Fit completed.")
+        print("Finished loading model.")
     
-    predicted = clf_current.predict(agg_comments_dev)
+    # print("Predicting...")
+    # predicted = clf_current.predict(agg_comments_dev)
+    # print("Finished predicting.")
+    # predicted = predicted.reshape(agg_labels_dev.shape)
+    # print(predicted)
+    
+    # print("F1 score: ", f1_score(agg_labels_dev, predicted, average='macro'))
 
-    predicted = predicted.reshape(agg_labels_dev.shape)
-    print(predicted)
-    
-    print("F1 score: ", f1_score(agg_labels_dev, predicted, average='macro'))
     #print("comparing")
     #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
         #print(real_label, predicted_label)
@@ -244,7 +253,8 @@ print_format_coef(most_pred)
 from matplotlib import pyplot
 
 # get importance
-importance = most_neg + most_pred[::-1]
+#importance = most_neg + most_pred[::-1]
+importance = most_pred[::-1]
 #print(importance)
 
 fig, ax = pyplot.subplots()
@@ -285,29 +295,46 @@ will add the next model's n-grams and coefficients
 #     joined_df.to_csv('toxic_coefficients.csv')
         
 #%%
-
 """Analysis of the negative class ngrams"""
 
 
 #for item in most_neg:
-ngram = most_pred[2][1]
+sample_ngrams = []
+sample_comments = []
+sample_labels = []
+ngrams_list = most_pred[0:4]
 counter = 0
-for comment,label in zip(agg_comments_train, agg_labels_original):
-    if label == 1:
-        if ngram in comment.lower(): 
-            labeled_comment = comment
-            ngram_start_index = comment.lower().find(ngram)          
-            while ngram_start_index is not -1:
-                f_comment_part = labeled_comment[0:ngram_start_index]
-                labeled_ngram = '<ng>' + ngram + '</ng>'
-                s_comment_part = labeled_comment[ngram_start_index+len(ngram):]
-                labeled_comment = f_comment_part + labeled_ngram + s_comment_part
-                ngram_start_index = labeled_comment.lower().find(ngram, ngram_start_index+9+len(ngram))
-            counter = counter +1      
-            print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
-            print("\n")
-            if counter == 10 :
-                break
+for ngram_item in ngrams_list:
+    ngram = ngram_item[1]
+    counter = 0;
+    for comment,label in zip(agg_comments_train, agg_labels_original):
+        if label == 1:
+            if ngram in comment.lower(): 
+                labeled_comment = comment
+                ngram_start_index = comment.lower().find(ngram)   
+                while ngram_start_index is not -1:
+                    f_comment_part = labeled_comment[0:ngram_start_index]
+                    labeled_ngram = '<ng>' + ngram + '</ng>'
+                    s_comment_part = labeled_comment[ngram_start_index+len(ngram):]
+                    labeled_comment = f_comment_part + labeled_ngram + s_comment_part
+                    ngram_start_index = labeled_comment.lower().find(ngram, ngram_start_index+9+len(ngram))
+                counter = counter +1      
+                sample_ngrams.append(ngram)
+                sample_comments.append(labeled_comment)
+                #sample_labels.append(label)
+                sample_labels.append(focus_label)
+                print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", focus_label)
+                #print("\n")
+                if counter == 10 :
+                        break
             
-        
+sample_ngrams_df = pd.DataFrame(sample_ngrams)
+sample_ngrams_df = sample_ngrams_df.rename(columns={0:"ngram"})
+sample_comments_df= pd.DataFrame(sample_comments)
+sample_comments_df = sample_comments_df.rename(columns={0:"comment"})
+sample_labels_df = pd.DataFrame(sample_labels)
+sample_labels_df = sample_labels_df.rename(columns={0:"label"})
+pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
+
+pd_sample_list.to_csv(csv_sample_filename)   
 print(counter)
