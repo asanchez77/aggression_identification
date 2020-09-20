@@ -235,7 +235,7 @@ importance = most_pred[::-1]
 
 fig, ax = pyplot.subplots()
 ax.tick_params(axis='both', which='major', labelsize=16)
-pyplot.title(focus_label)
+pyplot.title(focus_label,fontdict = {'fontsize' : 16})
 ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
 pyplot.xticks(rotation=90, ha='right')
 #pyplot.show()
