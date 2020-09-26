@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/eng/"
 
 mode = "test"
-focus_label = 'GEN'
+focus_label = 'CAG'
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -33,7 +33,7 @@ def load_aggresion_data(csvfile):
     """*************************  IMPORTANT  *************************"""
     """For *AG use Sub-task A and for *GEN use Sub-task B to obtain the 
     labels used for training"""
-    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task B':"agg_label"})
+    agg_data = agg_data.rename(columns={'Text':"comment",'Sub-task A':"agg_label"})
     print(agg_data["comment"])
     print(agg_data["agg_label"])
     # Obtain the labels and the comments
@@ -43,6 +43,7 @@ def load_aggresion_data(csvfile):
 
 [agg_labels_train, agg_comments_train] = load_aggresion_data("trac2_eng_train.csv")
 [agg_labels_dev, agg_comments_dev] = load_aggresion_data("trac2_eng_dev.csv")
+agg_labels_original = agg_labels_train.copy()
 
 def redifine_labels(agg_labels, focus_label):
     for i in range(len(agg_labels)):
@@ -51,9 +52,10 @@ def redifine_labels(agg_labels, focus_label):
     print (agg_labels)
     return agg_labels
 
+
 agg_labels_train = redifine_labels(agg_labels_train, focus_label)
 agg_labels_dev = redifine_labels(agg_labels_dev, focus_label)
-agg_labels_original = agg_labels_train.copy()
+
 
 from sklearn.preprocessing import OrdinalEncoder
 
@@ -279,11 +281,26 @@ sample_ngrams = []
 sample_comments = []
 sample_labels = []
 ngrams_list = most_pred[0:4]
+
+NAG_counter = 0
+CAG_counter = 0
+OAG_counter = 0
+
 counter = 0
 for ngram_item in ngrams_list:
     ngram = ngram_item[1]
-    counter = 0;
+    
+    NAG_counter = 0
+    CAG_counter = 0
+    OAG_counter = 0
+    counter = 0
     for comment,label in zip(agg_comments_train, agg_labels_original):
+        if label == 'NAG':
+            NAG_counter = NAG_counter +1
+        if label == 'CAG':
+            CAG_counter = CAG_counter +1
+        if label == 'OAG':
+            OAG_counter = OAG_counter +1
         if label == focus_label:
             if ngram in comment.lower(): 
                 labeled_comment = comment
@@ -298,10 +315,15 @@ for ngram_item in ngrams_list:
                 sample_ngrams.append(ngram)
                 sample_comments.append(labeled_comment)
                 sample_labels.append(label)
-                print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
+                #print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
                 #print("\n")
                 if counter == 10 :
                         break
+    print(ngram)
+    print("number of NAG comments:", NAG_counter)
+    print("number of CAG comments:", CAG_counter)
+    print("number of OAG comments:", OAG_counter)
+        
             
 sample_ngrams_df = pd.DataFrame(sample_ngrams)
 sample_ngrams_df = sample_ngrams_df.rename(columns={0:"ngram"})
@@ -310,6 +332,26 @@ sample_comments_df = sample_comments_df.rename(columns={0:"comment"})
 sample_labels_df = pd.DataFrame(sample_labels)
 sample_labels_df = sample_labels_df.rename(columns={0:"label"})
 pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
+print(pd_sample_list)
 
-pd_sample_list.to_csv(csv_sample_filename)   
+#pd_sample_list.to_csv(csv_sample_filename)   
 print(counter)
+
+print("number of NAG comments:", NAG_counter)
+print("number of CAG comments:", CAG_counter)
+print("number of OAG comments:", OAG_counter)
+
+NAG_counter = 0
+CAG_counter = 0
+OAG_counter = 0
+
+for comment,label in zip(agg_comments_train, agg_labels_original):
+    if label == 'NAG':
+        NAG_counter = NAG_counter +1
+    if label == 'CAG':
+        CAG_counter = CAG_counter +1
+    if label == 'OAG':
+        OAG_counter = OAG_counter +1
+print("number of NAG comments:", NAG_counter)
+print("number of CAG comments:", CAG_counter)
+print("number of OAG comments:", OAG_counter)

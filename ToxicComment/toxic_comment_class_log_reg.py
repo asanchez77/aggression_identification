@@ -303,9 +303,25 @@ sample_ngrams = []
 sample_comments = []
 sample_labels = []
 ngrams_list = most_pred[0:4]
+
+counter_1 = 0
+counter_2 = 0
+counter_3 = 0
+counter_4 = 0
+counter_5 = 0
+counter_6 = 0
+
 counter = 0
 for ngram_item in ngrams_list:
     ngram = ngram_item[1]
+    
+    counter_1 = 0
+    counter_2 = 0
+    counter_3 = 0
+    counter_4 = 0
+    counter_5 = 0
+    counter_6 = 0
+    
     counter = 0;
     for comment,label in zip(agg_comments_train, agg_labels_original):
         if label == 1:
@@ -327,6 +343,14 @@ for ngram_item in ngrams_list:
                 #print("\n")
                 if counter == 10 :
                         break
+
+    print(ngram)
+    print("number of NAG comments:", counter_1)
+    print("number of NAG comments:", counter_2)
+    print("number of NAG comments:", counter_3)
+    print("number of NAG comments:", counter_4)
+    print("number of NAG comments:", counter_5)
+    print("number of NAG comments:", counter_6)
             
 sample_ngrams_df = pd.DataFrame(sample_ngrams)
 sample_ngrams_df = sample_ngrams_df.rename(columns={0:"ngram"})
@@ -336,5 +360,32 @@ sample_labels_df = pd.DataFrame(sample_labels)
 sample_labels_df = sample_labels_df.rename(columns={0:"label"})
 pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
 
-pd_sample_list.to_csv(csv_sample_filename)   
+#pd_sample_list.to_csv(csv_sample_filename)   
 print(counter)
+
+print("number of NAG comments:", counter_1)
+print("number of NAG comments:", counter_2)
+print("number of NAG comments:", counter_3)
+print("number of NAG comments:", counter_4)
+print("number of NAG comments:", counter_5)
+print("number of NAG comments:", counter_6)
+
+NAG_counter = 0
+CAG_counter = 0
+OAG_counter = 0
+
+#for comment,label in zip(agg_comments_train, agg_labels_original):
+#    if label == 'NAG':
+#        NAG_counter = NAG_counter +1
+#    if label == 'CAG':
+#        CAG_counter = CAG_counter +1
+#    if label == 'OAG':
+#        OAG_counter = OAG_counter +1
+
+
+print("number of NAG comments:", counter_1)
+print("number of NAG comments:", counter_2)
+print("number of NAG comments:", counter_3)
+print("number of NAG comments:", counter_4)
+print("number of NAG comments:", counter_5)
+print("number of NAG comments:", counter_6)
