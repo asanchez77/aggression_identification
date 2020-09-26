@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu May  7 17:23:19 2020
+Created on Sun Sep 20 17:23:19 2020
 
 @author: 
+    
 """
 
 
@@ -17,8 +18,8 @@ import numpy as np
 
 DATA_PATH = "data/"
 
-mode = "test"
-focus_label = 'NAG'
+mode = "train"
+focus_label = 'OAG'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -77,6 +78,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
 
+from sklearn.tree import DecisionTreeClassifier 
+from sklearn import tree
+from matplotlib import pyplot as plt
+
+
 # to save model import joblib
 import joblib 
 
@@ -84,31 +90,19 @@ import joblib
 
 clf_NAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression(penalty = 'l2',
-                                         multi_class = 'ovr' ,
-                                         solver='liblinear',
-                                         C= 5.0,
-                                         #max_iter = 300))
+              ('clf', DecisionTreeClassifier(random_state=1234,
                                          ))
                 ])
 
 clf_CAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression(penalty = 'l2',
-                                         multi_class = 'ovr' ,
-                                         solver='liblinear',
-                                         C= 100.0,
-                                         #max_iter = 300))
+              ('clf', DecisionTreeClassifier(random_state=1234,
                                          ))
                 ])
 
 clf_OAG = Pipeline([('tfidf', TfidfVectorizer(binary=True, analyzer='char', 
                                         ngram_range=(1, 5), lowercase=True) ),
-              ('clf', LogisticRegression(penalty = 'l1',
-                                         multi_class = 'ovr' ,
-                                         solver='liblinear',
-                                         C= 10.0,
-                                         #max_iter = 300))
+              ('clf', DecisionTreeClassifier(random_state=1234,
                                          ))
                 ])
 
@@ -119,19 +113,19 @@ if __name__ == "__main__":
 
     if focus_label=='NAG':
         clf_current = clf_NAG
-        clf_filename = 'trac1_NAG_clf.sav'
-        img_filename = 'trac1_NAG_img.pdf'
-        csv_sample_filename = 'trac1_NAG_sample_comments.csv'
+        clf_filename = 'trac1_NAG_clf_DT.sav'
+        img_filename = 'trac1_NAG_img_DT.pdf'
+        csv_sample_filename = 'trac1_NAG_sample_comments_DT.csv'
     if focus_label=='CAG':
         clf_current = clf_CAG
-        clf_filename = 'trac1_CAG_clf.sav'
-        img_filename = 'trac1_CAG_img.pdf'
-        csv_sample_filename = 'trac1_CAG_sample_comments.csv'
+        clf_filename = 'trac1_CAG_clf_DT.sav'
+        img_filename = 'trac1_CAG_img_DT.pdf'
+        csv_sample_filename = 'trac1_CAG_sample_comments_DT.csv'
     if focus_label=='OAG':
         clf_current = clf_OAG
-        clf_filename = 'trac1_OAG_clf.sav'
-        img_filename = 'trac1_OAG_img.pdf'
-        csv_sample_filename = 'trac1_OAG_sample_comments.csv'
+        clf_filename = 'trac1_OAG_clf_DT.sav'
+        img_filename = 'trac1_OAG_img_DT.pdf'
+        csv_sample_filename = 'trac1_OAG_sample_comments_DT.csv'
 
     print("Focus label:", focus_label)
     print("pipeline:", [name for name, _ in clf_current.steps])
@@ -159,8 +153,28 @@ if __name__ == "__main__":
       
 #%%
 
+text_representation = tree.export_text(clf_current[1])
+print(text_representation)
+#%%
+
+features_ = clf_current[0].get_feature_names()
+
+fig = plt.figure(figsize=(80, 30))
+tree.plot_tree(clf_current[1], 
+                   feature_names=features_,  
+                   class_names=["OTHER", "OAG"],
+                   filled=True,
+                   #max_depth = 5,
+                   fontsize=14)
+fig.savefig("decistion_tree.pdf")
+
+
+#%%
+
 from scipy.sparse import csr_matrix
 coefs = clf_current.named_steps["clf"].coef_
+
+
 
 #%%
 if type(coefs) == csr_matrix:
@@ -261,28 +275,11 @@ sample_ngrams = []
 sample_comments = []
 sample_labels = []
 ngrams_list = most_pred[0:4]
-
-NAG_counter = 0
-CAG_counter = 0
-OAG_counter = 0
 counter = 0
-
 for ngram_item in ngrams_list:
     ngram = ngram_item[1]
-    
-    NAG_counter = 0
-    CAG_counter = 0
-    OAG_counter = 0
     counter = 0;
     for comment,label in zip(agg_comments_train, agg_labels_original):
-        
-        if label == 'NAG':
-            NAG_counter = NAG_counter +1
-        if label == 'CAG':
-            CAG_counter = CAG_counter +1
-        if label == 'OAG':
-            OAG_counter = OAG_counter +1
-            
         if label == focus_label:
             if ngram in comment.lower(): 
                 labeled_comment = comment
@@ -297,15 +294,10 @@ for ngram_item in ngrams_list:
                 sample_ngrams.append(ngram)
                 sample_comments.append(labeled_comment)
                 sample_labels.append(label)
-                #print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
+                print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
                 #print("\n")
                 if counter == 10 :
                         break
-                    
-    print(ngram)
-    print("number of NAG comments:", NAG_counter)
-    print("number of CAG comments:", CAG_counter)
-    print("number of OAG comments:", OAG_counter)
             
 sample_ngrams_df = pd.DataFrame(sample_ngrams)
 sample_ngrams_df = sample_ngrams_df.rename(columns={0:"ngram"})
@@ -314,26 +306,6 @@ sample_comments_df = sample_comments_df.rename(columns={0:"comment"})
 sample_labels_df = pd.DataFrame(sample_labels)
 sample_labels_df = sample_labels_df.rename(columns={0:"label"})
 pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
-print(pd_sample_list)
 
-#pd_sample_list.to_csv(csv_sample_filename)   
+pd_sample_list.to_csv(csv_sample_filename)   
 print(counter)
-
-print("number of NAG comments:", NAG_counter)
-print("number of CAG comments:", CAG_counter)
-print("number of OAG comments:", OAG_counter)
-
-NAG_counter = 0
-CAG_counter = 0
-OAG_counter = 0
-
-for comment,label in zip(agg_comments_train, agg_labels_original):
-    if label == 'NAG':
-        NAG_counter = NAG_counter +1
-    if label == 'CAG':
-        CAG_counter = CAG_counter +1
-    if label == 'OAG':
-        OAG_counter = OAG_counter +1
-print("number of NAG comments:", NAG_counter)
-print("number of CAG comments:", CAG_counter)
-print("number of OAG comments:", OAG_counter)
