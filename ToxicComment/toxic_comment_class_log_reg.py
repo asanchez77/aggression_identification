@@ -21,7 +21,7 @@ import numpy as np
 DATA_PATH = "data/"
 
 mode = "test"
-focus_label = "identity_hate"
+focus_label = "severe_toxic"
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -190,7 +190,7 @@ if __name__ == "__main__":
         print("Finished loading model.")
     
     # print("Predicting...")
-    # predicted = clf_current.predict(agg_comments_dev)
+    # 0predicted = clf_current.predict(agg_comments_dev)
     # print("Finished predicting.")
     # predicted = predicted.reshape(agg_labels_dev.shape)
     # print(predicted)
@@ -228,7 +228,7 @@ predictive_features = sorted(coefs_and_features,
 #%%
 
 
-n_display_values = 15
+n_display_values = 30
 
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
@@ -265,7 +265,7 @@ pyplot.xticks(rotation=90, ha='right')
 #pyplot.show()
 
 fig.tight_layout()
-fig.savefig(img_filename,dpi=300)
+#fig.savefig(img_filename,dpi=300)
 
 #%%
 
@@ -302,7 +302,7 @@ will add the next model's n-grams and coefficients
 sample_ngrams = []
 sample_comments = []
 sample_labels = []
-ngrams_list = most_pred[0:4]
+ngrams_list = most_pred[0:6]
 
 counter_1 = 0
 counter_2 = 0
@@ -327,7 +327,7 @@ for ngram_item in ngrams_list:
         if label == 1:
             if ngram in comment.lower(): 
                 labeled_comment = comment
-                ngram_start_index = comment.lower().find(ngram)   
+                ngram_start_index = comment.find(ngram)   
                 while ngram_start_index is not -1:
                     f_comment_part = labeled_comment[0:ngram_start_index]
                     labeled_ngram = '<ng>' + ngram + '</ng>'
@@ -363,29 +363,27 @@ pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df
 #pd_sample_list.to_csv(csv_sample_filename)   
 print(counter)
 
-print("number of NAG comments:", counter_1)
-print("number of NAG comments:", counter_2)
-print("number of NAG comments:", counter_3)
-print("number of NAG comments:", counter_4)
-print("number of NAG comments:", counter_5)
-print("number of NAG comments:", counter_6)
-
-NAG_counter = 0
-CAG_counter = 0
-OAG_counter = 0
-
-#for comment,label in zip(agg_comments_train, agg_labels_original):
-#    if label == 'NAG':
-#        NAG_counter = NAG_counter +1
-#    if label == 'CAG':
-#        CAG_counter = CAG_counter +1
-#    if label == 'OAG':
-#        OAG_counter = OAG_counter +1
 
 
-print("number of NAG comments:", counter_1)
-print("number of NAG comments:", counter_2)
-print("number of NAG comments:", counter_3)
-print("number of NAG comments:", counter_4)
-print("number of NAG comments:", counter_5)
-print("number of NAG comments:", counter_6)
+
+for comment,label in zip(agg_comments_train, agg_labels_original):
+    
+    if label[0] == 1 and focus_label == 'toxic':
+        counter_1 = counter_1 +1
+    if label[0] == 1 and focus_label == 'severe_toxic':
+        counter_2 = counter_2 +1
+    if label[0] == 1 and focus_label == 'obscene':
+        counter_3 = counter_3 +1    
+    if label[0] == 1 and focus_label == 'threat':
+        counter_4 = counter_4 +1
+    if label[0] == 1 and focus_label == 'insult':
+        counter_5 = counter_5 +1
+    if label[0] == 1 and focus_label == 'identity_hate':
+        counter_6 = counter_6 +1
+        
+print("number of toxic comments:", counter_1)
+print("number of severe_toxic comments:", counter_2)
+print("number of obscene comments:", counter_3)
+print("number of threat comments:", counter_4)
+print("number of insult comments:", counter_5)
+print("number of identity_hate comments:", counter_6)
