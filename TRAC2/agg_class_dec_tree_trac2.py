@@ -17,7 +17,7 @@ import numpy as np
 
 DATA_PATH = "data/eng/"
 
-mode = "train"
+mode = "test"
 focus_label = 'OAG'
 
 
@@ -174,21 +174,25 @@ if __name__ == "__main__":
         clf_filename = 'trac2_NAG_clf_DT.sav'
         img_filename = 'trac2_NAG_img_DT.pdf'
         csv_sample_filename = 'trac2_NAG_sample_comments_DT.csv'
+        txt_filename =  'trac2_NAG_tree.txt'
     if focus_label=='CAG':
         clf_current = clf_CAG
         clf_filename = 'trac2_CAG_clf_DT.sav'
         img_filename = 'trac2_CAG_img_DT.pdf'
         csv_sample_filename = 'trac2_CAG_sample_comments_DT.csv'
+        txt_filename =  'trac2_CAG_tree.txt'
     if focus_label=='OAG':
         clf_current = clf_OAG
         clf_filename = 'trac2_OAG_clf_DT.sav'
         img_filename = 'trac2_OAG_img_DT.pdf'
         csv_sample_filename = 'trac2_OAG_sample_comments_DT.csv'
+        txt_filename =  'trac2_OAG_tree.txt'
     if focus_label=='GEN' or focus_label=='NGEN':
         clf_current = clf_GEN
         clf_filename = 'trac2_GEN_clf_DT.sav'
         img_filename = 'trac2_GEN_img_DT.pdf'
         csv_sample_filename = 'trac2_GEN_sample_comments_DT.csv'
+        txt_filename =  'trac2_GEN_tree.txt'
 
     print("Focus label:", focus_label)
     print("pipeline:", [name for name, _ in clf_current.steps])
@@ -219,11 +223,13 @@ if __name__ == "__main__":
       
 #%%
 
-text_representation = tree.export_text(clf_current[1])
-print(text_representation)
-#%%
-
 features_ = clf_current[0].get_feature_names()
+text_representation = tree.export_text(clf_current[1],feature_names = features_)
+print(text_representation)
+with open(txt_filename, 'w') as f:
+    f.write(text_representation)
+
+#%%
 
 fig = plt.figure(figsize=(80, 30))
 tree.plot_tree(clf_current[1], 
