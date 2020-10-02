@@ -123,7 +123,7 @@ neg_features = sorted(coefs_and_features, key=lambda x: x[0])# Most negative fea
 predictive_features = sorted(coefs_and_features, 
                              key=lambda x: x[0], 
                              reverse=True)# Most predictive overall
-n_display_values = 5
+n_display_values = 10
 
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
@@ -251,7 +251,7 @@ with open(txt_filename, 'w') as f:
 
 #%%
 
-fig = plt.figure(figsize=(80, 30))
+fig = plt.figure(figsize=(100, 50))
 tree.plot_tree(clf_current[1], 
                    feature_names=features_,  
                    class_names=["OTHER", "OAG"],
