@@ -20,8 +20,8 @@ import numpy as np
 
 DATA_PATH = "data/"
 
-mode = "test"
-focus_label = "severe_toxic"
+mode = "train"
+focus_label = "toxic"
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -123,7 +123,7 @@ neg_features = sorted(coefs_and_features, key=lambda x: x[0])# Most negative fea
 predictive_features = sorted(coefs_and_features, 
                              key=lambda x: x[0], 
                              reverse=True)# Most predictive overall
-n_display_values = 30
+n_display_values = 5
 
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
