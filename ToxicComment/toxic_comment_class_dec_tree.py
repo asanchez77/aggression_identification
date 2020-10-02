@@ -258,4 +258,4 @@ tree.plot_tree(clf_current[1],
                    filled=True,
                    #max_depth = 5,
                    fontsize=14)
-fig.savefig(img_filename)
+fig.savefig(img_filename, bbox_inches = 'tight', dpi = 300)
