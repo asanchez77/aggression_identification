@@ -17,7 +17,7 @@ import numpy as np
 
 DATA_PATH = "data/eng/"
 
-mode = "test"
+mode = "train"
 focus_label = 'OAG'
 
 
@@ -130,7 +130,7 @@ neg_features = sorted(coefs_and_features, key=lambda x: x[0])# Most negative fea
 predictive_features = sorted(coefs_and_features, 
                              key=lambda x: x[0], 
                              reverse=True)# Most predictive overall
-n_display_values = 30
+n_display_values = 100
 
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
@@ -238,4 +238,4 @@ tree.plot_tree(clf_current[1],
                    filled=True,
                    #max_depth = 5,
                    fontsize=14)
-fig.savefig(img_filename)
+fig.savefig(img_filename,bbox_inches='tight',dpi=100)
