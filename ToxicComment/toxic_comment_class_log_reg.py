@@ -62,6 +62,7 @@ def load_testing_data(csvfile,csvfile_labels,label):
 [agg_labels_dev, agg_comments_dev] = load_testing_data("test.csv","test_labels.csv",focus_label)
 
 agg_labels_original = agg_labels_train.copy()
+agg_labels_dev_original = agg_labels_dev.copy()
 
 #%%
 from time import time
@@ -228,7 +229,7 @@ predictive_features = sorted(coefs_and_features,
 #%%
 
 
-n_display_values = 30
+n_display_values = 15
 
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
@@ -344,13 +345,13 @@ for ngram_item in ngrams_list:
                 if counter == 10 :
                         break
 
-    print(ngram)
-    print("number of NAG comments:", counter_1)
-    print("number of NAG comments:", counter_2)
-    print("number of NAG comments:", counter_3)
-    print("number of NAG comments:", counter_4)
-    print("number of NAG comments:", counter_5)
-    print("number of NAG comments:", counter_6)
+#    print(ngram)
+#    print("number of NAG comments:", counter_1)
+#    print("number of NAG comments:", counter_2)
+#    print("number of NAG comments:", counter_3)
+#    print("number of NAG comments:", counter_4)
+#    print("number of NAG comments:", counter_5)
+#    print("number of NAG comments:", counter_6)
             
 sample_ngrams_df = pd.DataFrame(sample_ngrams)
 sample_ngrams_df = sample_ngrams_df.rename(columns={0:"ngram"})
