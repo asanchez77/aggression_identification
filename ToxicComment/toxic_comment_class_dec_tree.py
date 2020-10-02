@@ -251,7 +251,7 @@ with open(txt_filename, 'w') as f:
 
 #%%
 
-fig = plt.figure(figsize=(100, 50))
+fig = plt.figure(figsize=(130, 90))
 tree.plot_tree(clf_current[1], 
                    feature_names=features_,  
                    class_names=["OTHER", "OAG"],
