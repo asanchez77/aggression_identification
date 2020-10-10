@@ -1,3 +1,5 @@
+class: CAG; pos/neg features taken: 100
+F1 score: 0.467; Precision score: 0.539; Recall score: 0.514
 |--- anuj <= 0.43
 |   |--- so <= 0.87
 |   |   |--- nice <= 0.93

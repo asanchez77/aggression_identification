@@ -17,10 +17,16 @@ import pandas as pd
 import numpy as np
 
 DATA_PATH = "data/"
-
-mode = "train"
-focus_label = 'NAG'
-n_display_values = 30
+"""
+use mode = 'train' to train the model and 'test' to load a previously trained model
+n_display_values is only valid when using 'train' mode
+NAG:30
+CAG:100
+OAG:100
+"""
+mode = "test"
+focus_label = 'OAG'
+n_display_values = 100
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -213,7 +219,14 @@ if __name__ == "__main__":
 #%%
 
 features_ = clf_current[0].get_feature_names()
+
+text_title = "class: " + str(focus_label) + "; pos/neg features taken: " + str(n_display_values) +"\n"
+text_title = text_title + "F1 score: " + "{:.3f}".format(f1_score_val)
+text_title = text_title + "; Precision score: " + "{:.3f}".format(precision_score_val)
+text_title = text_title + "; Recall score: " + "{:.3f}".format(recall_score_val)
+
 text_representation = tree.export_text(clf_current[1], feature_names = features_)
+text_representation = text_title + '\n' + text_representation 
 print(text_representation)
 with open(txt_filename, 'w') as f:
     f.write(text_representation)
@@ -221,10 +234,7 @@ with open(txt_filename, 'w') as f:
 #%%
 
 fig = plt.figure(figsize=(100, 50))
-text_title = "class: " + str(focus_label) + "; pos/neg features taken: " + str(n_display_values) +"\n"
-text_title = text_title + "F1 score: " + "{:.3f}".format(f1_score_val)
-text_title = text_title + "; Precision score: " + "{:.3f}".format(precision_score_val)
-text_title = text_title + "; Recall score: " + "{:.3f}".format(recall_score_val)
+
 
 fig.suptitle(text_title, fontsize=20, fontweight='bold')
 tree.plot_tree(clf_current[1], 

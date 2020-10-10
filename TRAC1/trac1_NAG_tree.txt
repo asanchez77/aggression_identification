@@ -1,3 +1,5 @@
+class: NAG; pos/neg features taken: 30
+F1 score: 0.459; Precision score: 0.652; Recall score: 0.534
 |--- anuj <= 0.35
 |   |--- sonu <= 0.36
 |   |   |--- tata <= 0.33
