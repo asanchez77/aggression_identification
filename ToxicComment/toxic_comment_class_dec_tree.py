@@ -21,7 +21,7 @@ import numpy as np
 DATA_PATH = "data/"
 
 mode = "train"
-focus_label = "toxic"
+focus_label = "identity_hate"
 n_display_values = 30
 max_depth_var = 5
 
