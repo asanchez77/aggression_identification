@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/eng/"
 
 mode = "test"
-focus_label = 'CAG'
+focus_label = 'NAG'
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):

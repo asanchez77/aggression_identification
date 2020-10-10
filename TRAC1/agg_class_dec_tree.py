@@ -18,8 +18,9 @@ import numpy as np
 
 DATA_PATH = "data/"
 
-mode = "test"
-focus_label = 'OAG'
+mode = "train"
+focus_label = 'NAG'
+n_display_values = 30
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -125,7 +126,7 @@ neg_features = sorted(coefs_and_features, key=lambda x: x[0])# Most negative fea
 predictive_features = sorted(coefs_and_features, 
                              key=lambda x: x[0], 
                              reverse=True)# Most predictive overall
-n_display_values = 30
+
 
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
@@ -141,11 +142,13 @@ vocab = {x[1]: i for i, x in enumerate(select_feats)}
 
 clf_NAG = Pipeline([('tfidf', TfidfVectorizer(vocabulary=vocab) ),
               ('clf', DecisionTreeClassifier(random_state=1234,
+                                             class_weight = 'balanced',
                                          ))
                 ])
 
 clf_CAG = Pipeline([('tfidf', TfidfVectorizer(vocabulary=vocab) ),
               ('clf', DecisionTreeClassifier(random_state=1234,
+                                             class_weight = 'balanced',
                                          ))
                 ])
 
@@ -197,9 +200,12 @@ if __name__ == "__main__":
     predicted = predicted.reshape(agg_labels_dev_encoded.shape)
     print(predicted)
     
-    print("F1 score: ", f1_score(agg_labels_dev_encoded, predicted, average='macro'))
-    print("Precision score: ", precision_score(agg_labels_dev_encoded, predicted, average='macro'))
-    print("Recall score: ", recall_score(agg_labels_dev_encoded, predicted, average='macro'))
+    f1_score_val = f1_score(agg_labels_dev_encoded, predicted, average='macro')
+    precision_score_val = precision_score(agg_labels_dev_encoded, predicted, average='macro')
+    recall_score_val =  recall_score(agg_labels_dev_encoded, predicted, average='macro')
+    print("F1 score: ", f1_score_val)
+    print("Precision score: ", precision_score_val)
+    print("Recall score: ", recall_score_val)
     #print("comparing")
     #for real_label, predicted_label in zip(agg_labels_dev_encoded, predicted):
         #print(real_label, predicted_label)
@@ -214,7 +220,13 @@ with open(txt_filename, 'w') as f:
 
 #%%
 
-fig = plt.figure(figsize=(80, 30))
+fig = plt.figure(figsize=(100, 50))
+text_title = "class: " + str(focus_label) + "; pos/neg features taken: " + str(n_display_values) +"\n"
+text_title = text_title + "F1 score: " + "{:.3f}".format(f1_score_val)
+text_title = text_title + "; Precision score: " + "{:.3f}".format(precision_score_val)
+text_title = text_title + "; Recall score: " + "{:.3f}".format(recall_score_val)
+
+fig.suptitle(text_title, fontsize=20, fontweight='bold')
 tree.plot_tree(clf_current[1], 
                    feature_names=features_,  
                    class_names=["OTHER", focus_label],
