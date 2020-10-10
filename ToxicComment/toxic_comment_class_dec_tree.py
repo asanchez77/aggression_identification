@@ -23,7 +23,7 @@ DATA_PATH = "data/"
 mode = "train"
 focus_label = "toxic"
 n_display_values = 30
-max_depth_var = 10
+max_depth_var = 5
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -257,6 +257,7 @@ if __name__ == "__main__":
 features_ = clf_current[0].get_feature_names()
 
 text_title = "class: " + str(focus_label) + "; pos/neg features taken: " + str(n_display_values) +"\n"
+text_title = text_title + "max_depth: "+ str(max_depth_var) + "\n"
 text_title = text_title + "F1 score: " + "{:.3f}".format(f1_score_val)
 text_title = text_title + "; Precision score: " + "{:.3f}".format(precision_score_val)
 text_title = text_title + "; Recall score: " + "{:.3f}".format(recall_score_val)
