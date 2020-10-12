@@ -1,0 +1,31 @@
+class: spam; pos/neg features taken: 30
+max_depth: 5
+F1 score: 0.462; Precision score: 0.430; Recall score: 0.500
+|--- hate <= 0.04
+|   |--- bitch <= 0.18
+|   |   |--- fuck <= 0.26
+|   |   |   |--- shit <= 0.23
+|   |   |   |   |--- page <= 0.50
+|   |   |   |   |   |--- class: 0.0
+|   |   |   |   |--- page >  0.50
+|   |   |   |   |   |--- class: 0.0
+|   |   |   |--- shit >  0.23
+|   |   |   |   |--- shit <= 0.82
+|   |   |   |   |   |--- class: 0.0
+|   |   |   |   |--- shit >  0.82
+|   |   |   |   |   |--- class: 0.0
+|   |   |--- fuck >  0.26
+|   |   |   |--- fuck <= 0.94
+|   |   |   |   |--- class: 0.0
+|   |   |   |--- fuck >  0.94
+|   |   |   |   |--- class: 0.0
+|   |--- bitch >  0.18
+|   |   |--- bitch <= 0.95
+|   |   |   |--- class: 0.0
+|   |   |--- bitch >  0.95
+|   |   |   |--- class: 0.0
+|--- hate >  0.04
+|   |--- hate <= 0.99
+|   |   |--- class: 0.0
+|   |--- hate >  0.99
+|   |   |--- class: 0.0

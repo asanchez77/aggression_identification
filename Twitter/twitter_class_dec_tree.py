@@ -21,9 +21,9 @@ import numpy as np
 DATA_PATH = "../../twitter_data/"
 
 mode = "train"
-focus_label = 'abusive'
+focus_label = 'spam'
 n_display_values = 30
-max_depth_var = 10
+max_depth_var = 5
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -227,8 +227,8 @@ if __name__ == "__main__":
     # predicted = predicted.reshape(agg_labels_dev_encoded.shape)
     # print(predicted)
     f1_score_val = f1_score(agg_labels_dev_encoded, predicted, average='macro')
-    precision_score_val = precision_score(agg_labels_dev, predicted, average='macro')
-    recall_score_val =  recall_score(agg_labels_dev, predicted, average='macro')
+    precision_score_val = precision_score(agg_labels_dev_encoded, predicted, average='macro')
+    recall_score_val =  recall_score(agg_labels_dev_encoded, predicted, average='macro')
     
     print("F1 score: ", f1_score_val)
     print("Precision score: ", precision_score_val)

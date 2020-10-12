@@ -1,0 +1,43 @@
+class: normal; pos/neg features taken: 30
+max_depth: 5
+F1 score: 0.477; Precision score: 0.766; Recall score: 0.561
+|--- bitch <= 0.22
+|   |--- fuck <= 0.21
+|   |   |--- shit <= 0.44
+|   |   |   |--- idiot <= 0.25
+|   |   |   |   |--- back <= 0.27
+|   |   |   |   |   |--- class: 1.0
+|   |   |   |   |--- back >  0.27
+|   |   |   |   |   |--- class: 1.0
+|   |   |   |--- idiot >  0.25
+|   |   |   |   |--- idiot <= 0.86
+|   |   |   |   |   |--- class: 0.0
+|   |   |   |   |--- idiot >  0.86
+|   |   |   |   |   |--- class: 0.0
+|   |   |--- shit >  0.44
+|   |   |   |--- hit <= 0.39
+|   |   |   |   |--- back <= 0.58
+|   |   |   |   |   |--- class: 0.0
+|   |   |   |   |--- back >  0.58
+|   |   |   |   |   |--- class: 0.0
+|   |   |   |--- hit >  0.39
+|   |   |   |   |--- class: 0.0
+|   |--- fuck >  0.21
+|   |   |--- fuck <= 0.94
+|   |   |   |--- class: 0.0
+|   |   |--- fuck >  0.94
+|   |   |   |--- class: 0.0
+|--- bitch >  0.22
+|   |--- back <= 0.37
+|   |   |--- fun <= 0.40
+|   |   |   |--- bitch <= 0.95
+|   |   |   |   |--- fuck <= 0.64
+|   |   |   |   |   |--- class: 0.0
+|   |   |   |   |--- fuck >  0.64
+|   |   |   |   |   |--- class: 0.0
+|   |   |   |--- bitch >  0.95
+|   |   |   |   |--- class: 0.0
+|   |   |--- fun >  0.40
+|   |   |   |--- class: 0.0
+|   |--- back >  0.37
+|   |   |--- class: 0.0
