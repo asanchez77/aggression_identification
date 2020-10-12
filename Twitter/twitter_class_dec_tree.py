@@ -20,10 +20,10 @@ import numpy as np
 
 DATA_PATH = "../../twitter_data/"
 
-mode = "test"
-focus_label = 'spam'
+mode = "train"
+focus_label = 'abusive'
 n_display_values = 30
-max_depth_var =10
+max_depth_var = 10
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
