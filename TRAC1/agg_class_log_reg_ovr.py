@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/"
 
 mode = "test"
-focus_label = 'NAG'
+focus_label = 'OAG'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -122,16 +122,19 @@ if __name__ == "__main__":
         clf_filename = 'trac1_NAG_clf.sav'
         img_filename = 'trac1_NAG_img.pdf'
         csv_sample_filename = 'trac1_NAG_sample_comments.csv'
+        pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
     if focus_label=='CAG':
         clf_current = clf_CAG
         clf_filename = 'trac1_CAG_clf.sav'
         img_filename = 'trac1_CAG_img.pdf'
         csv_sample_filename = 'trac1_CAG_sample_comments.csv'
+        pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
     if focus_label=='OAG':
         clf_current = clf_OAG
         clf_filename = 'trac1_OAG_clf.sav'
         img_filename = 'trac1_OAG_img.pdf'
         csv_sample_filename = 'trac1_OAG_sample_comments.csv'
+        pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
 
     print("Focus label:", focus_label)
     print("pipeline:", [name for name, _ in clf_current.steps])
@@ -337,3 +340,43 @@ for comment,label in zip(agg_comments_train, agg_labels_original):
 print("number of NAG comments:", NAG_counter)
 print("number of CAG comments:", CAG_counter)
 print("number of OAG comments:", OAG_counter)
+
+#%% 
+"""
+Ahora se obtienen los p values
+"""
+from sklearn.feature_selection import chi2
+
+X = clf_current[0].fit_transform(agg_comments_train)
+scores, pvalues = chi2(X, agg_labels_train_encoded.ravel())
+
+#%%
+
+features_and_pvalues = list(zip(coefs[0],feature_names,pvalues,))
+
+#%%
+features_and_pvalues_neg = sorted(features_and_pvalues, 
+                                  key=lambda x: x[0])# Most negative features
+
+#%%
+features_and_pvalues_pos = sorted(features_and_pvalues, 
+                                  key=lambda x: x[2],
+                                  reverse = False)# Most negative features
+
+features_and_pvalues_df = pd.DataFrame(features_and_pvalues_pos[0:15])
+
+features_and_pvalues_df.rename(columns={0:"coefficient", 1:"ngram" , 2:"p-value"})
+features_and_pvalues_df.to_csv(pvalues_csv_filename)
+
+num_columns = 1
+init_column = 2
+features_and_pvalues_df = features_and_pvalues_df.round(3)
+str_features_and_pvalues= features_and_pvalues_df.astype(str)
+print ('coefficient & n-gram & p-value \\\\')
+print ('\\hline')
+for index, row in str_features_and_pvalues.iterrows():
+    text_line = ''
+    text_line = text_line+'&'+row[0] + '&'+ '\say{'+ row[1]+'} ' +'& ' + row[2] +' ' 
+    text_line = text_line[1:] + '\\\\'
+    print('\\hline')
+    print(text_line)

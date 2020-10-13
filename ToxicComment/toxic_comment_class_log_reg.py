@@ -147,6 +147,7 @@ if __name__ == "__main__":
         clf_filename = 'toxic_toxic_clf.sav'
         img_filename = 'toxic_toxic_img.pdf'
         csv_sample_filename = 'toxic_toxic_sample_comments.csv'
+        
     if focus_label=='severe_toxic':
         clf_current = clf_severe_toxic
         clf_filename = 'toxic_severe_toxic_clf.sav'
@@ -388,3 +389,43 @@ print("number of obscene comments:", counter_3)
 print("number of threat comments:", counter_4)
 print("number of insult comments:", counter_5)
 print("number of identity_hate comments:", counter_6)
+
+#%% 
+"""
+Ahora se obtienen los p values
+"""
+from sklearn.feature_selection import chi2
+
+X = clf_current[0].fit_transform(agg_comments_train)
+scores, pvalues = chi2(X, agg_labels_train.ravel().ravel())
+
+#%%
+
+features_and_pvalues = list(zip(coefs[0],feature_names,pvalues,))
+
+#%%
+features_and_pvalues_neg = sorted(features_and_pvalues, 
+                                  key=lambda x: x[0])# Most negative features
+
+#%%
+features_and_pvalues_pos = sorted(features_and_pvalues, 
+                                  key=lambda x: x[2],
+                                  reverse = False)# Most negative features
+
+features_and_pvalues_df = pd.DataFrame(features_and_pvalues_pos[0:15])
+
+features_and_pvalues_df.rename(columns={0:"coefficient", 1:"ngram" , 2:"p-value"})
+#features_and_pvalues_df.to_csv(pvalues_csv_filename)
+
+num_columns = 1
+init_column = 2
+features_and_pvalues_df = features_and_pvalues_df.round(3)
+str_features_and_pvalues= features_and_pvalues_df.astype(str)
+print ('coefficient & n-gram & p-value \\\\')
+print ('\\hline')
+for index, row in str_features_and_pvalues.iterrows():
+    text_line = ''
+    text_line = text_line+'&'+row[0] + '&'+ '\say{'+ row[1]+'} ' +'& ' + row[2] +' ' 
+    text_line = text_line[1:] + '\\\\'
+    print('\\hline')
+    print(text_line)
