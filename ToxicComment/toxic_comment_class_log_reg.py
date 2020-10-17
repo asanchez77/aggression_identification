@@ -455,4 +455,5 @@ for index, row in features_and_pvalues_df.iterrows():
     text_line = text_line+'&'+str(row[3]) + '&'+ '\say{'+ str(row[4])+'} ' +'& ' + pvalue_neg_txt +' ' 
     text_line = text_line[1:] + '\\\\'
     print('\\hline')
-    print(text_line)
+#    print(text_line)
+print(features_and_pvalues_df[0:30])
