@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/"
 
 mode = "test"
-focus_label = 'OAG'
+focus_label = 'CAG'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -225,8 +225,8 @@ pyplot.xticks(rotation=90, ha='right')
 #pyplot.show()
 
 
-fig.tight_layout()
-fig.savefig(img_filename,dpi=300)
+#fig.tight_layout()
+#fig.savefig(img_filename,dpi=300)
 
 #%%
 
@@ -305,10 +305,10 @@ for ngram_item in ngrams_list:
                 if counter == 10 :
                         break
                     
-    print(ngram)
-    print("number of NAG comments:", NAG_counter)
-    print("number of CAG comments:", CAG_counter)
-    print("number of OAG comments:", OAG_counter)
+#    print(ngram)
+#    print("number of NAG comments:", NAG_counter)
+#    print("number of CAG comments:", CAG_counter)
+#    print("number of OAG comments:", OAG_counter)
             
 sample_ngrams_df = pd.DataFrame(sample_ngrams)
 sample_ngrams_df = sample_ngrams_df.rename(columns={0:"ngram"})
@@ -317,29 +317,29 @@ sample_comments_df = sample_comments_df.rename(columns={0:"comment"})
 sample_labels_df = pd.DataFrame(sample_labels)
 sample_labels_df = sample_labels_df.rename(columns={0:"label"})
 pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
-print(pd_sample_list)
+#print(pd_sample_list)
 
 #pd_sample_list.to_csv(csv_sample_filename)   
-print(counter)
-
-print("number of NAG comments:", NAG_counter)
-print("number of CAG comments:", CAG_counter)
-print("number of OAG comments:", OAG_counter)
-
-NAG_counter = 0
-CAG_counter = 0
-OAG_counter = 0
-
-for comment,label in zip(agg_comments_train, agg_labels_original):
-    if label == 'NAG':
-        NAG_counter = NAG_counter +1
-    if label == 'CAG':
-        CAG_counter = CAG_counter +1
-    if label == 'OAG':
-        OAG_counter = OAG_counter +1
-print("number of NAG comments:", NAG_counter)
-print("number of CAG comments:", CAG_counter)
-print("number of OAG comments:", OAG_counter)
+#print(counter)
+#
+#print("number of NAG comments:", NAG_counter)
+#print("number of CAG comments:", CAG_counter)
+#print("number of OAG comments:", OAG_counter)
+#
+#NAG_counter = 0
+#CAG_counter = 0
+#OAG_counter = 0
+#
+#for comment,label in zip(agg_comments_train, agg_labels_original):
+#    if label == 'NAG':
+#        NAG_counter = NAG_counter +1
+#    if label == 'CAG':
+#        CAG_counter = CAG_counter +1
+#    if label == 'OAG':
+#        OAG_counter = OAG_counter +1
+#print("number of NAG comments:", NAG_counter)
+#print("number of CAG comments:", CAG_counter)
+#print("number of OAG comments:", OAG_counter)
 
 #%% 
 """
@@ -355,28 +355,55 @@ scores, pvalues = chi2(X, agg_labels_train_encoded.ravel())
 features_and_pvalues = list(zip(coefs[0],feature_names,pvalues,))
 
 #%%
+#sort using coefficient and then sort using p value
 features_and_pvalues_neg = sorted(features_and_pvalues, 
                                   key=lambda x: x[0])# Most negative features
 
+features_and_pvalues_neg = sorted(features_and_pvalues_neg, 
+                                  key=lambda x: x[2])
+
+features_and_pvalues_neg_df = pd.DataFrame(features_and_pvalues_neg)
+features_and_pvalues_neg_df = features_and_pvalues_neg_df.rename(columns={0:3, 1:4 , 2:5})
 #%%
+#sort using coefficient and then sort using p value
 features_and_pvalues_pos = sorted(features_and_pvalues, 
-                                  key=lambda x: x[2],
-                                  reverse = False)# Most negative features
+                                  key=lambda x: x[0],
+                                  reverse = True)# Most positive features
 
-features_and_pvalues_df = pd.DataFrame(features_and_pvalues_pos[0:15])
+features_and_pvalues_pos = sorted(features_and_pvalues_pos, 
+                                  key=lambda x: x[2])
 
-features_and_pvalues_df.rename(columns={0:"coefficient", 1:"ngram" , 2:"p-value"})
+features_and_pvalues_pos_df = pd.DataFrame(features_and_pvalues_pos)
+#features_and_pvalues_pos_df = features_and_pvalues_pos_df.rename(columns={0:3, 1:4 , 2:5})
+
+#%%
+
+features_and_pvalues_df = pd.concat([features_and_pvalues_pos_df,
+                                  features_and_pvalues_neg_df], axis=1, sort=False)
+
 features_and_pvalues_df.to_csv(pvalues_csv_filename)
 
 num_columns = 1
 init_column = 2
-features_and_pvalues_df = features_and_pvalues_df.round(3)
-str_features_and_pvalues= features_and_pvalues_df.astype(str)
-print ('coefficient & n-gram & p-value \\\\')
+features_and_pvalues_df = features_and_pvalues_df.round(4)
+
+#%%%
+print ('coefficient & n-gram & p-value & coefficient & n-gram & p-value \\\\')
 print ('\\hline')
-for index, row in str_features_and_pvalues.iterrows():
+for index, row in features_and_pvalues_df.iterrows():
     text_line = ''
-    text_line = text_line+'&'+row[0] + '&'+ '\say{'+ row[1]+'} ' +'& ' + row[2] +' ' 
+    if row[2] < 0.001:
+        pvalue_pos_txt = "< 0.001"
+    else:
+        pvalue_pos_txt = str(row[2])
+        
+    if row[5] < 0.001:
+        pvalue_neg_txt = "< 0.001"
+    else:
+        pvalue_neg_txt = str(row[5])
+        
+    text_line = text_line+'&'+str(row[0]) + '&'+ '\say{'+ str(row[1])+'} ' +'& ' + pvalue_pos_txt +' ' 
+    text_line = text_line+'&'+str(row[3]) + '&'+ '\say{'+ str(row[4])+'} ' +'& ' + pvalue_neg_txt +' ' 
     text_line = text_line[1:] + '\\\\'
     print('\\hline')
     print(text_line)
