@@ -360,18 +360,18 @@ features_and_pvalues_neg = sorted(features_and_pvalues,
                                   key=lambda x: x[0])# Most negative features
 
 features_and_pvalues_neg = sorted(features_and_pvalues_neg, 
-                                  key=lambda x: x[2])
+                                  key=lambda x: x[2])[15:30]
 
 features_and_pvalues_neg_df = pd.DataFrame(features_and_pvalues_neg)
 features_and_pvalues_neg_df = features_and_pvalues_neg_df.rename(columns={0:3, 1:4 , 2:5})
 #%%
 #sort using coefficient and then sort using p value
 features_and_pvalues_pos = sorted(features_and_pvalues, 
-                                  key=lambda x: x[0],
-                                  reverse = True)# Most positive features
+                                  key=lambda x: x[0])
+                                  #reverse = True)# Most positive features
 
 features_and_pvalues_pos = sorted(features_and_pvalues_pos, 
-                                  key=lambda x: x[2])
+                                  key=lambda x: x[2])[0:15]
 
 features_and_pvalues_pos_df = pd.DataFrame(features_and_pvalues_pos)
 #features_and_pvalues_pos_df = features_and_pvalues_pos_df.rename(columns={0:3, 1:4 , 2:5})
@@ -388,6 +388,7 @@ init_column = 2
 features_and_pvalues_df = features_and_pvalues_df.round(4)
 
 #%%%
+print_counter = 0
 print ('coefficient & n-gram & p-value & coefficient & n-gram & p-value \\\\')
 print ('\\hline')
 for index, row in features_and_pvalues_df.iterrows():
@@ -407,3 +408,7 @@ for index, row in features_and_pvalues_df.iterrows():
     text_line = text_line[1:] + '\\\\'
     print('\\hline')
     print(text_line)
+    print_counter = print_counter + 1
+    if(print_counter == 30):
+        break
+print(features_and_pvalues_df[0:30])
