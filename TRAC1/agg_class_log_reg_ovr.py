@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/"
 
 mode = "test"
-focus_label = 'CAG'
+focus_label = 'NAG'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -398,12 +398,12 @@ with open(pvalues_txt_filename,'w') as f:
     for index, row in features_and_pvalues_df.iterrows():
         text_line = ''
         if row[2] < 0.001:
-            pvalue_pos_txt = "< 0.001"
+            pvalue_pos_txt = "$<$ 0.001"
         else:
             pvalue_pos_txt = str(row[2])
             
         if row[5] < 0.001:
-            pvalue_neg_txt = "< 0.001"
+            pvalue_neg_txt = "$<$ 0.001"
         else:
             pvalue_neg_txt = str(row[5])
             
