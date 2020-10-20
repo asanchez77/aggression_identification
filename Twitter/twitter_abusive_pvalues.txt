@@ -1,0 +1,32 @@
+coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+\hline
+70.2453&\say{fuck} & $<$ 0.001 &0.0&\say{king } & $<$ 0.001 \\
+\hline
+69.0251&\say{fuc} & $<$ 0.001 &3.2797&\say{t @} & $<$ 0.001 \\
+\hline
+1.3952&\say{ fuck} & $<$ 0.001 &1.6531&\say{king} & $<$ 0.001 \\
+\hline
+0.001&\say{ fuc} & $<$ 0.001 &0.0&\say{kin} & $<$ 0.001 \\
+\hline
+30.1973&\say{uck} & $<$ 0.001 &0.0&\say{rt } & $<$ 0.001 \\
+\hline
+0.0&\say{ fu} & $<$ 0.001 &11.0345&\say{ck} & $<$ 0.001 \\
+\hline
+0.0&\say{fucki} & $<$ 0.001 &0.0&\say{fucke} & $<$ 0.001 \\
+\hline
+0.6305&\say{uckin} & $<$ 0.001 &0.0&\say{ucked} & $<$ 0.001 \\
+\hline
+0.0&\say{ucki} & $<$ 0.001 &0.0&\say{ucke} & $<$ 0.001 \\
+\hline
+0.433&\say{ckin} & $<$ 0.001 &1.1733&\say{ki} & $<$ 0.001 \\
+\hline
+5.7717&\say{cking} & $<$ 0.001 &0.0&\say{e fuc} & $<$ 0.001 \\
+\hline
+0.0&\say{cki} & $<$ 0.001 &0.0&\say{: } & $<$ 0.001 \\
+\hline
+0.0&\say{fu} & $<$ 0.001 &0.0&\say{s fuc} & $<$ 0.001 \\
+\hline
+0.0&\say{uc} & $<$ 0.001 &0.0&\say{cked } & $<$ 0.001 \\
+\hline
+30.1416&\say{rt @} & $<$ 0.001 &0.0&\say{cked} & $<$ 0.001 \\
+\hline

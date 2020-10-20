@@ -315,7 +315,7 @@ for ngram_item in ngrams_list:
                 sample_ngrams.append(ngram)
                 sample_comments.append(labeled_comment)
                 sample_labels.append(label)
-                print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
+#                print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
                 #print("\n")
                 if counter == 10 :
                         break
@@ -328,7 +328,7 @@ sample_labels_df = pd.DataFrame(sample_labels)
 sample_labels_df = sample_labels_df.rename(columns={0:"label"})
 pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
 
-pd_sample_list.to_csv(csv_sample_filename)   
+#pd_sample_list.to_csv(csv_sample_filename)   
 print(counter)
 
 #%%

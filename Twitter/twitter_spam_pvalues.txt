@@ -1,0 +1,32 @@
+coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+\hline
+9.4084&\say{free } & $<$ 0.001 &-6.8455&\say{ckin} & $<$ 0.001 \\
+\hline
+12.3753&\say{free} & $<$ 0.001 &0.0&\say{cki} & $<$ 0.001 \\
+\hline
+-8.2583&\say{rt @} & $<$ 0.001 &-23.5912&\say{ i } & $<$ 0.001 \\
+\hline
+0.0&\say{ free} & $<$ 0.001 &0.0&\say{cking} & $<$ 0.001 \\
+\hline
+-47.4652&\say{fuck} & $<$ 0.001 &0.0&\say{ fu} & $<$ 0.001 \\
+\hline
+0.0&\say{fuc} & $<$ 0.001 &0.0&\say{ree } & $<$ 0.001 \\
+\hline
+0.0&\say{ fuck} & $<$ 0.001 &0.0&\say{king } & $<$ 0.001 \\
+\hline
+0.0&\say{ fuc} & $<$ 0.001 &1.4142&\say{gb } & $<$ 0.001 \\
+\hline
+-4.2091&\say{uck} & $<$ 0.001 &0.0&\say{downl} & $<$ 0.001 \\
+\hline
+-4.6941&\say{fucki} & $<$ 0.001 &0.0&\say{ - } & $<$ 0.001 \\
+\hline
+0.0&\say{uckin} & $<$ 0.001 &0.1344&\say{- } & $<$ 0.001 \\
+\hline
+0.0&\say{ucki} & $<$ 0.001 &0.0&\say{ -} & $<$ 0.001 \\
+\hline
+0.0&\say{t @} & $<$ 0.001 &19.895&\say{ownl} & $<$ 0.001 \\
+\hline
+11.567&\say{: ht} & $<$ 0.001 &0.0&\say{ownlo} & $<$ 0.001 \\
+\hline
+0.0&\say{: htt} & $<$ 0.001 &0.0&\say{wnlo} & $<$ 0.001 \\
+\hline

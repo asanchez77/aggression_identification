@@ -1,0 +1,32 @@
+coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+\hline
+14.7451&\say{nigga} & $<$ 0.001 &0.0&\say{ ni} & $<$ 0.001 \\
+\hline
+45.388&\say{nigg} & $<$ 0.001 &0.0&\say{gg} & $<$ 0.001 \\
+\hline
+0.0&\say{igga} & $<$ 0.001 &0.0&\say{ga } & $<$ 0.001 \\
+\hline
+0.0&\say{ nigg} & $<$ 0.001 &0.0&\say{gas w} & $<$ 0.001 \\
+\hline
+20.5997&\say{gga} & $<$ 0.001 &0.0&\say{ hate} & $<$ 0.001 \\
+\hline
+0.0&\say{igg} & $<$ 0.001 &12.317&\say{hate } & $<$ 0.001 \\
+\hline
+13.9875&\say{ggas } & $<$ 0.001 &0.0&\say{a nig} & $<$ 0.001 \\
+\hline
+-8.3949&\say{iggas} & $<$ 0.001 &19.256&\say{ hat} & $<$ 0.001 \\
+\hline
+0.0&\say{ggas} & $<$ 0.001 &16.6024&\say{hate} & $<$ 0.001 \\
+\hline
+0.0&\say{ nig} & $<$ 0.001 &1.3553&\say{m nig} & $<$ 0.001 \\
+\hline
+0.0&\say{gas } & $<$ 0.001 &0.0&\say{m ni} & $<$ 0.001 \\
+\hline
+4.0101&\say{igga } & $<$ 0.001 &0.0&\say{om ni} & $<$ 0.001 \\
+\hline
+0.0&\say{gga } & $<$ 0.001 &0.0&\say{/fzti} & $<$ 0.001 \\
+\hline
+-1.7729&\say{gas} & $<$ 0.001 &0.0&\say{fzti} & $<$ 0.001 \\
+\hline
+0.0&\say{nig} & $<$ 0.001 &0.0&\say{fztia} & $<$ 0.001 \\
+\hline
