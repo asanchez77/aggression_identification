@@ -1,0 +1,32 @@
+coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+\hline
+0.0&\say{ fuck} & $<$ 0.001 &21.94&\say{bitch} & $<$ 0.001 \\
+\hline
+0.0&\say{fucki} & $<$ 0.001 &0.0&\say{ shit} & $<$ 0.001 \\
+\hline
+0.0&\say{uck } & $<$ 0.001 &26.4917&\say{bitc} & $<$ 0.001 \\
+\hline
+0.0&\say{uck y} & $<$ 0.001 &20.7404&\say{ bitc} & $<$ 0.001 \\
+\hline
+0.0&\say{ucki} & $<$ 0.001 &0.0&\say{ suck} & $<$ 0.001 \\
+\hline
+0.0&\say{uckin} & $<$ 0.001 &0.0&\say{e fuc} & $<$ 0.001 \\
+\hline
+0.846&\say{ fuc} & $<$ 0.001 &3.9895&\say{ fu} & $<$ 0.001 \\
+\hline
+7.0934&\say{fuck } & $<$ 0.001 &0.0&\say{a fuc} & $<$ 0.001 \\
+\hline
+27.9218&\say{uck} & $<$ 0.001 &0.0&\say{suck } & $<$ 0.001 \\
+\hline
+41.3428&\say{fuck} & $<$ 0.001 &13.7084&\say{shole} & $<$ 0.001 \\
+\hline
+76.0697&\say{fuc} & $<$ 0.001 &0.0&\say{sshol} & $<$ 0.001 \\
+\hline
+0.9534&\say{ck yo} & $<$ 0.001 &0.0&\say{assho} & $<$ 0.001 \\
+\hline
+0.0&\say{ck y} & $<$ 0.001 &15.2868&\say{assh} & $<$ 0.001 \\
+\hline
+57.3165&\say{shit} & $<$ 0.001 &0.0&\say{o fuc} & $<$ 0.001 \\
+\hline
+33.4852&\say{suck} & $<$ 0.001 &0.0&\say{ssho} & $<$ 0.001 \\
+\hline

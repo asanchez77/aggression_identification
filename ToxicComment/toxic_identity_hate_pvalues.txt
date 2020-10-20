@@ -1,0 +1,32 @@
+coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+\hline
+22.6009&\say{nigg} & $<$ 0.001 &28.8573&\say{nig} & $<$ 0.001 \\
+\hline
+3.557&\say{ gay} & $<$ 0.001 &0.0&\say{fuck} & $<$ 0.001 \\
+\hline
+33.6376&\say{gay} & $<$ 0.001 &11.6243&\say{fuc} & $<$ 0.001 \\
+\hline
+5.6453&\say{gay } & $<$ 0.001 &44.3775&\say{homo} & $<$ 0.001 \\
+\hline
+0.0&\say{fagg} & $<$ 0.001 &0.0&\say{ fuc} & $<$ 0.001 \\
+\hline
+0.0&\say{aggo} & $<$ 0.001 &5.8982&\say{gga} & $<$ 0.001 \\
+\hline
+9.2299&\say{ggot} & $<$ 0.001 &15.6863&\say{gay.} & $<$ 0.001 \\
+\hline
+2.2208&\say{ggo} & $<$ 0.001 &11.7184&\say{uck} & $<$ 0.001 \\
+\hline
+0.0&\say{ fag} & $<$ 0.001 &10.4292&\say{gga } & $<$ 0.001 \\
+\hline
+17.0682&\say{fag} & $<$ 0.001 &2.4119&\say{ucki} & $<$ 0.001 \\
+\hline
+5.5124&\say{ nig} & $<$ 0.001 &4.3454&\say{omos} & $<$ 0.001 \\
+\hline
+5.2878&\say{igg} & $<$ 0.001 &2.3282&\say{got.} & $<$ 0.001 \\
+\hline
+0.0&\say{igge} & $<$ 0.001 &0.0&\say{osex} & $<$ 0.001 \\
+\hline
+0.0&\say{igga} & $<$ 0.001 &1.0906&\say{uck } & $<$ 0.001 \\
+\hline
+6.7719&\say{gger} & $<$ 0.001 &0.0&\say{mose} & $<$ 0.001 \\
+\hline

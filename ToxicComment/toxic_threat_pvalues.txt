@@ -1,0 +1,32 @@
+coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+\hline
+16.61&\say{kill } & $<$ 0.001 &0.0&\say{kil} & $<$ 0.001 \\
+\hline
+12.8768&\say{u die} & $<$ 0.001 &0.0&\say{die!} & $<$ 0.001 \\
+\hline
+2.1162&\say{ill y} & $<$ 0.001 &0.0&\say{die i} & $<$ 0.001 \\
+\hline
+12.9019&\say{ape y} & $<$ 0.001 &0.0&\say{oot y} & $<$ 0.001 \\
+\hline
+0.0&\say{ die } & $<$ 0.001 &4.2069&\say{l kic} & $<$ 0.001 \\
+\hline
+13.0501&\say{ kill} & $<$ 0.001 &0.0&\say{die y} & $<$ 0.001 \\
+\hline
+2.0368&\say{ kil} & $<$ 0.001 &32.2667&\say{ang y} & $<$ 0.001 \\
+\hline
+18.6707&\say{ll ki} & $<$ 0.001 &7.6749&\say{go ki} & $<$ 0.001 \\
+\hline
+15.2207&\say{ die} & $<$ 0.001 &0.0&\say{0ll } & $<$ 0.001 \\
+\hline
+0.0&\say{l kil} & $<$ 0.001 &0.0&\say{0ll w} & $<$ 0.001 \\
+\hline
+0.0&\say{die } & $<$ 0.001 &0.0&\say{0ll y} & $<$ 0.001 \\
+\hline
+25.4704&\say{kill} & $<$ 0.001 &0.0&\say{ertr0} & $<$ 0.001 \\
+\hline
+0.0&\say{o kil} & $<$ 0.001 &0.0&\say{r0l} & $<$ 0.001 \\
+\hline
+14.2579&\say{ die!} & $<$ 0.001 &0.0&\say{r0ll} & $<$ 0.001 \\
+\hline
+0.0&\say{l ki} & $<$ 0.001 &0.0&\say{r0ll } & $<$ 0.001 \\
+\hline
