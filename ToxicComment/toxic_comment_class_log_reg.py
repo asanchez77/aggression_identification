@@ -147,32 +147,37 @@ if __name__ == "__main__":
         clf_filename = 'toxic_toxic_clf.sav'
         img_filename = 'toxic_toxic_img.pdf'
         csv_sample_filename = 'toxic_toxic_sample_comments.csv'
-        
+        pvalues_txt_filename = 'toxic_toxic_pvalues.txt'
     if focus_label=='severe_toxic':
         clf_current = clf_severe_toxic
         clf_filename = 'toxic_severe_toxic_clf.sav'
         img_filename = 'toxic_severe_img.pdf'
         csv_sample_filename = 'toxic_severe_toxic_sample_comments.csv'
+        pvalues_txt_filename = 'toxic_severe_toxic_pvalues.txt'
     if focus_label=='obscene':
         clf_current = clf_obscene
         clf_filename = 'toxic_obscene_clf.sav'
         img_filename = 'toxic_obscene_img.pdf'
         csv_sample_filename = 'toxic_obscene_sample_comments.csv'
+        pvalues_txt_filename = 'toxic_obscene_pvalues.txt'
     if focus_label=='threat':
         clf_current = clf_threat
         clf_filename = 'toxic_threat_clf.sav'
         img_filename = 'toxic_threat_img.pdf'
         csv_sample_filename = 'toxic_threat_sample_comments.csv'
+        pvalues_txt_filename = 'toxic_threat_pvalues.txt'
     if focus_label=='insult':
         clf_current = clf_insult
         clf_filename = 'toxic_insult_clf.sav'
         img_filename = 'toxic_insult_img.pdf'
         csv_sample_filename = 'toxic_insult_sample_comments.csv'
+        pvalues_txt_filename = 'toxic_insult_pvalues.txt'
     if focus_label=='identity_hate':
         clf_current = clf_identity_hate
         clf_filename = 'toxic_identity_hate_clf.sav'
         img_filename = 'toxic_identity_hate_img.pdf'
         csv_sample_filename = 'toxic_identity_hate_sample_comments.csv'
+        pvalues_txt_filename = 'toxic_identity_hate_pvalues.txt'
     
 
     print("Focus label:", focus_label)    
@@ -432,32 +437,35 @@ features_and_pvalues_df = pd.concat([features_and_pvalues_pos_df,
 
 #features_and_pvalues_df.to_csv(pvalues_csv_filename)
 
-num_columns = 1
-init_column = 2
 features_and_pvalues_df = features_and_pvalues_df.round(4)
 
 #%%%
 print_counter = 0
-print ('coefficient & n-gram & p-value & coefficient & n-gram & p-value \\\\')
-print ('\\hline')
-for index, row in features_and_pvalues_df.iterrows():
-    text_line = ''
-    if row[2] < 0.001:
-        pvalue_pos_txt = "< 0.001"
-    else:
-        pvalue_pos_txt = str(row[2])
-        
-    if row[5] < 0.001:
-        pvalue_neg_txt = "< 0.001"
-    else:
-        pvalue_neg_txt = str(row[5])
-        
-    text_line = text_line+'&'+str(row[0]) + '&'+ '\say{'+ str(row[1])+'} ' +'& ' + pvalue_pos_txt +' ' 
-    text_line = text_line+'&'+str(row[3]) + '&'+ '\say{'+ str(row[4])+'} ' +'& ' + pvalue_neg_txt +' ' 
-    text_line = text_line[1:] + '\\\\'
-    print('\\hline')
-    print(text_line)
-    print_counter = print_counter + 1
-    if(print_counter == 30):
-        break
-print(features_and_pvalues_df[0:30])
+with open(pvalues_txt_filename,'w') as f:
+    print ('coefficient & n-gram & p-value & coefficient & n-gram & p-value \\\\')
+    f.write('coefficient & n-gram & p-value & coefficient & n-gram & p-value \\\\' + '\n')
+    print ('\\hline')
+    f.write('\\hline' + '\n')
+    for index, row in features_and_pvalues_df.iterrows():
+        text_line = ''
+        if row[2] < 0.001:
+            pvalue_pos_txt = "< 0.001"
+        else:
+            pvalue_pos_txt = str(row[2])
+            
+        if row[5] < 0.001:
+            pvalue_neg_txt = "< 0.001"
+        else:
+            pvalue_neg_txt = str(row[5])
+            
+        text_line = text_line+'&'+str(row[0]) + '&'+ '\say{'+ str(row[1])+'} ' +'& ' + pvalue_pos_txt +' ' 
+        text_line = text_line+'&'+str(row[3]) + '&'+ '\say{'+ str(row[4])+'} ' +'& ' + pvalue_neg_txt +' ' 
+        text_line = text_line[1:] + '\\\\'
+        f.write(text_line+'\n')
+        print('\\hline')
+        f.write('\\hline' + '\n')
+        print(text_line)
+        print_counter = print_counter + 1
+        if(print_counter == 30):
+            break
+    print(features_and_pvalues_df[0:30])

@@ -1,0 +1,32 @@
+coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+\hline
+-4.0489&\say{nice} & 0.0265 &-7.4277&\say{: } & 0.1152 \\
+\hline
+-2.5711&\say{nic} & 0.0493 &4.2867&\say{bjp m} & 0.1163 \\
+\hline
+-4.5365&\say{anuj} & 0.0793 &4.2867&\say{jp m} & 0.1163 \\
+\hline
+-4.5365&\say{nuj} & 0.0793 &-2.3344&\say{iew} & 0.1252 \\
+\hline
+-2.8921&\say{ifty} & 0.0911 &-3.8413&\say{tata} & 0.1266 \\
+\hline
+-2.7547&\say{nift} & 0.0928 &-2.2765&\say{view} & 0.1269 \\
+\hline
+-2.7547&\say{nifty} & 0.0928 &6.1721&\say{ anna} & 0.1279 \\
+\hline
+-2.7473&\say{fty} & 0.0958 &1.9006&\say{bjp} & 0.1369 \\
+\hline
+-2.7221&\say{ nif} & 0.1039 &3.7793&\say{p ma} & 0.1373 \\
+\hline
+-2.7221&\say{ nift} & 0.1039 &2.9479&\say{bjp } & 0.1384 \\
+\hline
+-3.4519&\say{uj } & 0.1044 &2.0853&\say{bj} & 0.1388 \\
+\hline
+-2.5024&\say{ifty } & 0.1047 &-2.481&\say{ view} & 0.1408 \\
+\hline
+-3.4414&\say{anuj } & 0.1059 &2.5663&\say{jp ma} & 0.1409 \\
+\hline
+-3.4414&\say{nuj } & 0.1059 &2.5873&\say{jp } & 0.1445 \\
+\hline
+-2.3546&\say{fty } & 0.1104 &-1.8701&\say{toc} & 0.1447 \\
+\hline
