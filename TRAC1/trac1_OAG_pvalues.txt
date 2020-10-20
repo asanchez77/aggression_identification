@@ -1,0 +1,32 @@
+coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+\hline
+32.3327&\say{diot} & $<$ 0.001 &40.5447&\say{upid} & 0.0063 \\
+\hline
+0.0&\say{idiot} & $<$ 0.001 &0.0&\say{diots} & 0.0063 \\
+\hline
+0.0&\say{idio} & $<$ 0.001 &0.0&\say{blood} & 0.0063 \\
+\hline
+25.2548&\say{sham} & $<$ 0.001 &8.3878&\say{loody} & 0.0069 \\
+\hline
+0.0&\say{shame} & $<$ 0.001 &8.4823&\say{oody} & 0.0069 \\
+\hline
+0.0&\say{dio} & $<$ 0.001 &0.0&\say{tupid} & 0.0075 \\
+\hline
+0.0&\say{hame} & $<$ 0.001 &0.0&\say{stupi} & 0.0081 \\
+\hline
+0.0&\say{iot} & $<$ 0.001 &0.0&\say{tupi} & 0.0081 \\
+\hline
+9.3317&\say{ idio} & 0.0014 &15.6058&\say{terr} & 0.0085 \\
+\hline
+0.0&\say{ idi} & 0.0017 &0.0&\say{lood} & 0.0087 \\
+\hline
+0.0&\say{idi} & 0.0017 &11.8427&\say{dog} & 0.0092 \\
+\hline
+6.1328&\say{ham} & 0.0024 &0.0&\say{oody } & 0.0093 \\
+\hline
+0.0&\say{hame } & 0.0029 &0.0&\say{terro} & 0.0095 \\
+\hline
+0.1461&\say{ sham} & 0.0055 &0.0&\say{stup} & 0.0097 \\
+\hline
+0.0&\say{bloo} & 0.0059 &0.0&\say{rori} & 0.0101 \\
+\hline

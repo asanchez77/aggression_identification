@@ -1,6 +1,6 @@
 coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
 \hline
-2.5348&\say{nice} & < 0.001 &1.4896&\say{view} & 0.0098 \\
+2.5348&\say{nice} & $<$ 0.001 &1.4896&\say{view} & 0.0098 \\
 \hline
 1.6771&\say{nic} & 0.0026 &1.8882&\say{uj } & 0.01 \\
 \hline

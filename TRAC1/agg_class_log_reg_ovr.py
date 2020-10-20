@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/"
 
 mode = "test"
-focus_label = 'NAG'
+focus_label = 'OAG'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -137,7 +137,7 @@ if __name__ == "__main__":
         img_filename = 'trac1_OAG_img.pdf'
         csv_sample_filename = 'trac1_OAG_sample_comments.csv'
         pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
-        pvalues_txt_filename = 'trac1_OsAG_pvalues.txt'
+        pvalues_txt_filename = 'trac1_OAG_pvalues.txt'
 
     print("Focus label:", focus_label)
     print("pipeline:", [name for name, _ in clf_current.steps])
