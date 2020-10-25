@@ -121,21 +121,27 @@ if __name__ == "__main__":
         clf_current = clf_NAG
         clf_filename = 'trac1_NAG_clf.sav'
         img_filename = 'trac1_NAG_img.pdf'
+        img_filename_PN = 'trac1_NAG_img_PN.pdf'
         csv_sample_filename = 'trac1_NAG_sample_comments.csv'
+        csv_sample_filename = 'trac1_NAG_sample_comments_P.csv'
         pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
         pvalues_txt_filename = 'trac1_NAG_pvalues.txt'
     if focus_label=='CAG':
         clf_current = clf_CAG
         clf_filename = 'trac1_CAG_clf.sav'
         img_filename = 'trac1_CAG_img.pdf'
+        img_filename_PN = 'trac1_CAG_img_PN.pdf'
         csv_sample_filename = 'trac1_CAG_sample_comments.csv'
+        csv_sample_filename = 'trac1_CAG_sample_comments_P.csv'
         pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
         pvalues_txt_filename = 'trac1_CAG_pvalues.txt'
     if focus_label=='OAG':
         clf_current = clf_OAG
         clf_filename = 'trac1_OAG_clf.sav'
         img_filename = 'trac1_OAG_img.pdf'
+        img_filename_PN = 'trac1_OAG_img_PN.pdf'
         csv_sample_filename = 'trac1_OAG_sample_comments.csv'
+        csv_sample_filename = 'trac1_CAG_sample_comments_P.csv'
         pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
         pvalues_txt_filename = 'trac1_OAG_pvalues.txt'
 
@@ -215,21 +221,27 @@ print_format_coef(most_pred)
 
 from matplotlib import pyplot
 
+"""Here we can select to save/print the most negative or 
+most positive only using the importance variable"""
 # get importance
-#importance = most_neg + most_pred[::-1]
-importance = most_pred[::-1]
+importance = most_neg + most_pred[::-1]
+#importance = most_pred[::-1]
 #print(importance)
 
 fig, ax = pyplot.subplots()
-ax.tick_params(axis='both', which='major', labelsize=16)
-pyplot.title(focus_label,fontdict = {'fontsize' : 16})
+ax.tick_params(axis='both', which='major', labelsize=12)
+pyplot.title(focus_label,fontdict = {'fontsize' : 12})
 ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
 pyplot.xticks(rotation=90, ha='right')
+
 #pyplot.show()
 
 
-#fig.tight_layout()
+
+"""This line is used to save image only using positive coeficients"""
 #fig.savefig(img_filename,dpi=300)
+"""This line is used to save image using positive and negative coeficients"""
+fig.savefig(img_filename_PN, dpi=300, bbox_inches='tight')
 
 #%%
 
@@ -374,15 +386,15 @@ features_and_pvalues_pos = sorted(features_and_pvalues,
                                   #reverse = True)# Most positive features
 
 features_and_pvalues_pos = sorted(features_and_pvalues_pos, 
-                                  key=lambda x: x[2])[0:15]
+                                  key=lambda x: x[2])[0:50]
 
 features_and_pvalues_pos_df = pd.DataFrame(features_and_pvalues_pos)
 #features_and_pvalues_pos_df = features_and_pvalues_pos_df.rename(columns={0:3, 1:4 , 2:5})
 
 #%%
 
-features_and_pvalues_df = pd.concat([features_and_pvalues_pos_df,
-                                  features_and_pvalues_neg_df], axis=1, sort=False)
+#features_and_pvalues_df = pd.concat([features_and_pvalues_pos_df], axis=1, sort=False)
+features_and_pvalues_df = features_and_pvalues_pos_df
 
 #features_and_pvalues_df.to_csv(pvalues_csv_filename)
 
@@ -390,31 +402,29 @@ features_and_pvalues_df = features_and_pvalues_df.round(4)
 
 #%%%
 print_counter = 0
+
 with open(pvalues_txt_filename,'w') as f:
-    print ('coefficient & n-gram & p-value & coefficient & n-gram & p-value \\\\')
-    f.write('coefficient & n-gram & p-value & coefficient & n-gram & p-value \\\\' + '\n')
+    print ('index & feature  & coefficient & p-value  \\\\')
+    f.write('index & feature & coefficient & p-value  \\\\' + '\n')
     print ('\\hline')
     f.write('\\hline' + '\n')
     for index, row in features_and_pvalues_df.iterrows():
         text_line = ''
-        if row[2] < 0.001:
-            pvalue_pos_txt = "$<$ 0.001"
+        if row[2] < 0.05:
+            if row[2] < 0.001:
+                pvalue_pos_txt = "\\bf{$<$ 0.001}"
+            else:
+                pvalue_pos_txt = str(row[2])
+                pvalue_pos_txt = "\\bf{" + pvalue_pos_txt + "}"
         else:
             pvalue_pos_txt = str(row[2])
             
-        if row[5] < 0.001:
-            pvalue_neg_txt = "$<$ 0.001"
-        else:
-            pvalue_neg_txt = str(row[5])
-            
-        text_line = text_line+'&'+str(row[0]) + '&'+ '\say{'+ str(row[1])+'} ' +'& ' + pvalue_pos_txt +' ' 
-        text_line = text_line+'&'+str(row[3]) + '&'+ '\say{'+ str(row[4])+'} ' +'& ' + pvalue_neg_txt +' ' 
+        text_line = text_line+'&' + str(index+1) + '&'+ '\say{'+ str(row[1])+'} '  +'& '+  str(row[0]) +'& ' + pvalue_pos_txt +' ' 
         text_line = text_line[1:] + '\\\\'
         f.write(text_line+'\n')
-        print('\\hline')
         f.write('\\hline' + '\n')
-        print(text_line)
+        if(print_counter < 15):
+            print('\\hline')
+            print(text_line)
         print_counter = print_counter + 1
-        if(print_counter == 30):
-            break
-    print(features_and_pvalues_df[0:30])
+    print(features_and_pvalues_df[0:15])

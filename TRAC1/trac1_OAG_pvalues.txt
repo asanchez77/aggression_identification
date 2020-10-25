@@ -1,32 +1,102 @@
-coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+index & feature & coefficient & p-value  \\
 \hline
-32.3327&\say{diot} & $<$ 0.001 &40.5447&\say{upid} & 0.0063 \\
+1&\say{diot} & 32.3327& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{idiot} & $<$ 0.001 &0.0&\say{diots} & 0.0063 \\
+2&\say{idiot} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{idio} & $<$ 0.001 &0.0&\say{blood} & 0.0063 \\
+3&\say{idio} & 0.0& \bf{$<$ 0.001} \\
 \hline
-25.2548&\say{sham} & $<$ 0.001 &8.3878&\say{loody} & 0.0069 \\
+4&\say{sham} & 25.2548& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{shame} & $<$ 0.001 &8.4823&\say{oody} & 0.0069 \\
+5&\say{shame} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{dio} & $<$ 0.001 &0.0&\say{tupid} & 0.0075 \\
+6&\say{dio} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{hame} & $<$ 0.001 &0.0&\say{stupi} & 0.0081 \\
+7&\say{hame} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{iot} & $<$ 0.001 &0.0&\say{tupi} & 0.0081 \\
+8&\say{iot} & 0.0& \bf{$<$ 0.001} \\
 \hline
-9.3317&\say{ idio} & 0.0014 &15.6058&\say{terr} & 0.0085 \\
+9&\say{ idio} & 9.3317& \bf{0.0014} \\
 \hline
-0.0&\say{ idi} & 0.0017 &0.0&\say{lood} & 0.0087 \\
+10&\say{ idi} & 0.0& \bf{0.0017} \\
 \hline
-0.0&\say{idi} & 0.0017 &11.8427&\say{dog} & 0.0092 \\
+11&\say{idi} & 0.0& \bf{0.0017} \\
 \hline
-6.1328&\say{ham} & 0.0024 &0.0&\say{oody } & 0.0093 \\
+12&\say{ham} & 6.1328& \bf{0.0024} \\
 \hline
-0.0&\say{hame } & 0.0029 &0.0&\say{terro} & 0.0095 \\
+13&\say{hame } & 0.0& \bf{0.0029} \\
 \hline
-0.1461&\say{ sham} & 0.0055 &0.0&\say{stup} & 0.0097 \\
+14&\say{ sham} & 0.1461& \bf{0.0055} \\
 \hline
-0.0&\say{bloo} & 0.0059 &0.0&\say{rori} & 0.0101 \\
+15&\say{bloo} & 0.0& \bf{0.0059} \\
+\hline
+16&\say{upid} & 40.5447& \bf{0.0063} \\
+\hline
+17&\say{diots} & 0.0& \bf{0.0063} \\
+\hline
+18&\say{blood} & 0.0& \bf{0.0063} \\
+\hline
+19&\say{loody} & 8.3878& \bf{0.0069} \\
+\hline
+20&\say{oody} & 8.4823& \bf{0.0069} \\
+\hline
+21&\say{tupid} & 0.0& \bf{0.0075} \\
+\hline
+22&\say{stupi} & 0.0& \bf{0.0081} \\
+\hline
+23&\say{tupi} & 0.0& \bf{0.0081} \\
+\hline
+24&\say{terr} & 15.6058& \bf{0.0085} \\
+\hline
+25&\say{lood} & 0.0& \bf{0.0087} \\
+\hline
+26&\say{dog} & 11.8427& \bf{0.0092} \\
+\hline
+27&\say{oody } & 0.0& \bf{0.0093} \\
+\hline
+28&\say{terro} & 0.0& \bf{0.0095} \\
+\hline
+29&\say{stup} & 0.0& \bf{0.0097} \\
+\hline
+30&\say{rori} & 0.0& \bf{0.0101} \\
+\hline
+31&\say{rrori} & 0.0& \bf{0.0103} \\
+\hline
+32&\say{erro} & 0.0& \bf{0.0105} \\
+\hline
+33&\say{roris} & 0.0& \bf{0.0106} \\
+\hline
+34&\say{orist} & 5.5494& \bf{0.0107} \\
+\hline
+35&\say{error} & 0.0& \bf{0.0108} \\
+\hline
+36&\say{pid} & 0.0& \bf{0.0111} \\
+\hline
+37&\say{oris} & 0.0& \bf{0.0118} \\
+\hline
+38&\say{iots} & 0.6817& \bf{0.0122} \\
+\hline
+39&\say{rror} & 0.0& \bf{0.0127} \\
+\hline
+40&\say{tup} & 0.0& \bf{0.0131} \\
+\hline
+41&\say{ terr} & 3.1424& \bf{0.0134} \\
+\hline
+42&\say{upi} & 0.0& \bf{0.0137} \\
+\hline
+43&\say{err} & 0.0& \bf{0.0175} \\
+\hline
+44&\say{ bloo} & 17.6857& \bf{0.0184} \\
+\hline
+45&\say{ dog} & 10.2614& \bf{0.0192} \\
+\hline
+46&\say{ stup} & 0.0& \bf{0.0212} \\
+\hline
+47&\say{ hell} & 31.8956& \bf{0.0232} \\
+\hline
+48&\say{upid } & 0.0& \bf{0.0233} \\
+\hline
+49&\say{stu} & 0.0& \bf{0.0235} \\
+\hline
+50&\say{rist} & 0.0& \bf{0.024} \\
 \hline

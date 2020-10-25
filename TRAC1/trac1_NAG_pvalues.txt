@@ -1,32 +1,102 @@
-coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+index & feature & coefficient & p-value  \\
 \hline
-2.5348&\say{nice} & $<$ 0.001 &1.4896&\say{view} & 0.0098 \\
+1&\say{nice} & 2.5348& \bf{$<$ 0.001} \\
 \hline
-1.6771&\say{nic} & 0.0026 &1.8882&\say{uj } & 0.01 \\
+2&\say{nic} & 1.6771& \bf{0.0026} \\
 \hline
-2.301&\say{anuj} & 0.0054 &1.8675&\say{anuj } & 0.0103 \\
+3&\say{anuj} & 2.301& \bf{0.0054} \\
 \hline
-2.301&\say{nuj} & 0.0054 &1.8675&\say{nuj } & 0.0103 \\
+4&\say{nuj} & 2.301& \bf{0.0054} \\
 \hline
-1.9544&\say{vie} & 0.0078 &1.3265&\say{ifty } & 0.0123 \\
+5&\say{vie} & 1.9544& \bf{0.0078} \\
 \hline
-1.5044&\say{ifty} & 0.009 &1.2827&\say{fty } & 0.0131 \\
+6&\say{ifty} & 1.5044& \bf{0.009} \\
 \hline
-1.4148&\say{nift} & 0.0094 &1.2713&\say{ nif} & 0.0134 \\
+7&\say{nift} & 1.4148& \bf{0.0094} \\
 \hline
-1.4148&\say{nifty} & 0.0094 &1.2713&\say{ nift} & 0.0134 \\
+8&\say{nifty} & 1.4148& \bf{0.0094} \\
 \hline
-1.4817&\say{stoc} & 0.0094 &1.7093&\say{good} & 0.0136 \\
+9&\say{stoc} & 1.4817& \bf{0.0094} \\
 \hline
-1.4817&\say{stock} & 0.0094 &1.2312&\say{ view} & 0.0162 \\
+10&\say{stock} & 1.4817& \bf{0.0094} \\
 \hline
-1.4817&\say{tock} & 0.0094 &3.0362&\say{: } & 0.0171 \\
+11&\say{tock} & 1.4817& \bf{0.0094} \\
 \hline
-1.5363&\say{iew} & 0.0095 &1.1549&\say{ vie} & 0.0177 \\
+12&\say{iew} & 1.5363& \bf{0.0095} \\
 \hline
-1.4614&\say{fty} & 0.0095 &-1.2195&\say{relig} & 0.0185 \\
+13&\say{fty} & 1.4614& \bf{0.0095} \\
 \hline
-1.4538&\say{ stoc} & 0.0095 &1.7171&\say{buy} & 0.0189 \\
+14&\say{ stoc} & 1.4538& \bf{0.0095} \\
 \hline
-1.5256&\say{toc} & 0.0097 &-1.2124&\say{igio} & 0.0191 \\
+15&\say{toc} & 1.5256& \bf{0.0097} \\
+\hline
+16&\say{view} & 1.4896& \bf{0.0098} \\
+\hline
+17&\say{uj } & 1.8882& \bf{0.01} \\
+\hline
+18&\say{anuj } & 1.8675& \bf{0.0103} \\
+\hline
+19&\say{nuj } & 1.8675& \bf{0.0103} \\
+\hline
+20&\say{ifty } & 1.3265& \bf{0.0123} \\
+\hline
+21&\say{fty } & 1.2827& \bf{0.0131} \\
+\hline
+22&\say{ nif} & 1.2713& \bf{0.0134} \\
+\hline
+23&\say{ nift} & 1.2713& \bf{0.0134} \\
+\hline
+24&\say{good} & 1.7093& \bf{0.0136} \\
+\hline
+25&\say{ view} & 1.2312& \bf{0.0162} \\
+\hline
+26&\say{: } & 3.0362& \bf{0.0171} \\
+\hline
+27&\say{ vie} & 1.1549& \bf{0.0177} \\
+\hline
+28&\say{relig} & -1.2195& \bf{0.0185} \\
+\hline
+29&\say{buy} & 1.7171& \bf{0.0189} \\
+\hline
+30&\say{igio} & -1.2124& \bf{0.0191} \\
+\hline
+31&\say{ligio} & -1.2124& \bf{0.0191} \\
+\hline
+32&\say{ligi} & -1.2555& \bf{0.0195} \\
+\hline
+33&\say{eligi} & -1.2349& \bf{0.0196} \\
+\hline
+34&\say{marke} & 1.2981& \bf{0.0199} \\
+\hline
+35&\say{tata} & 1.9856& \bf{0.0207} \\
+\hline
+36&\say{elig} & -1.1677& \bf{0.0209} \\
+\hline
+37&\say{arket} & 1.2379& \bf{0.0216} \\
+\hline
+38&\say{rket} & 1.2379& \bf{0.0216} \\
+\hline
+39&\say{ tata} & 1.9197& \bf{0.0223} \\
+\hline
+40&\say{sonu} & -2.4645& \bf{0.0229} \\
+\hline
+41&\say{anu} & 1.7366& \bf{0.0239} \\
+\hline
+42&\say{gio} & -1.118& \bf{0.0251} \\
+\hline
+43&\say{8} & 2.2374& \bf{0.0252} \\
+\hline
+44&\say{ mark} & 1.6137& \bf{0.0253} \\
+\hline
+45&\say{ buy} & 1.4595& \bf{0.0259} \\
+\hline
+46&\say{arke} & 1.1309& \bf{0.027} \\
+\hline
+47&\say{ anuj} & 1.2251& \bf{0.0276} \\
+\hline
+48&\say{ocks} & 1.1392& \bf{0.0284} \\
+\hline
+49&\say{goo} & 1.3872& \bf{0.0285} \\
+\hline
+50&\say{iew o} & 0.9572& \bf{0.0291} \\
 \hline
