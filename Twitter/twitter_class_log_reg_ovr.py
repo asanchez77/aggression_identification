@@ -368,6 +368,7 @@ with open(pvalues_txt_filename,'w') as f:
         print_counter = print_counter + 1
     print(features_and_pvalues_df[0:15])
 
+
 #%%
 """Analysis of the negative class ngrams"""
 
@@ -414,80 +415,3 @@ pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df
 
 pd_sample_list.to_csv(csv_sample_filename_P)   
 print(counter)
-
-#%%
-
-#%% 
-"""
-Ahora se obtienen los p values
-"""
-from sklearn.feature_selection import chi2
-
-X = clf_current[0].fit_transform(agg_comments_train)
-scores, pvalues = chi2(X, agg_labels_train.ravel())
-
-#%%
-
-features_and_pvalues = list(zip(coefs[0],feature_names,pvalues,))
-
-#%%
-#sort using coefficient and then sort using p value
-features_and_pvalues_neg = sorted(features_and_pvalues, 
-                                  key=lambda x: x[0])# Most negative features
-
-features_and_pvalues_neg = sorted(features_and_pvalues_neg, 
-                                  key=lambda x: x[2])[15:30]
-
-features_and_pvalues_neg_df = pd.DataFrame(features_and_pvalues_neg)
-features_and_pvalues_neg_df = features_and_pvalues_neg_df.rename(columns={0:3, 1:4 , 2:5})
-#%%
-#sort using coefficient and then sort using p value
-features_and_pvalues_pos = sorted(features_and_pvalues, 
-                                  key=lambda x: x[0])
-                                  #reverse = True)# Most positive features
-
-features_and_pvalues_pos = sorted(features_and_pvalues_pos, 
-                                  key=lambda x: x[2])[0:15]
-
-features_and_pvalues_pos_df = pd.DataFrame(features_and_pvalues_pos)
-#features_and_pvalues_pos_df = features_and_pvalues_pos_df.rename(columns={0:3, 1:4 , 2:5})
-
-#%%
-
-features_and_pvalues_df = pd.concat([features_and_pvalues_pos_df,
-                                  features_and_pvalues_neg_df], axis=1, sort=False)
-
-#features_and_pvalues_df.to_csv(pvalues_csv_filename)
-
-features_and_pvalues_df = features_and_pvalues_df.round(4)
-
-#%%%
-print_counter = 0
-with open(pvalues_txt_filename,'w') as f:
-    print ('coefficient & n-gram & p-value & coefficient & n-gram & p-value \\\\')
-    f.write('coefficient & n-gram & p-value & coefficient & n-gram & p-value \\\\' + '\n')
-    print ('\\hline')
-    f.write('\\hline' + '\n')
-    for index, row in features_and_pvalues_df.iterrows():
-        text_line = ''
-        if row[2] < 0.001:
-            pvalue_pos_txt = "$<$ 0.001"
-        else:
-            pvalue_pos_txt = str(row[2])
-            
-        if row[5] < 0.001:
-            pvalue_neg_txt = "$<$ 0.001"
-        else:
-            pvalue_neg_txt = str(row[5])
-            
-        text_line = text_line+'&'+str(row[0]) + '&'+ '\say{'+ str(row[1])+'} ' +'& ' + pvalue_pos_txt +' ' 
-        text_line = text_line+'&'+str(row[3]) + '&'+ '\say{'+ str(row[4])+'} ' +'& ' + pvalue_neg_txt +' ' 
-        text_line = text_line[1:] + '\\\\'
-        f.write(text_line+'\n')
-        print('\\hline')
-        f.write('\\hline' + '\n')
-        print(text_line)
-        print_counter = print_counter + 1
-        if(print_counter == 30):
-            break
-    print(features_and_pvalues_df[0:30])
