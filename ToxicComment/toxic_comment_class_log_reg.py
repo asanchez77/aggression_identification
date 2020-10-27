@@ -146,37 +146,49 @@ if __name__ == "__main__":
         clf_current = clf_toxic
         clf_filename = 'toxic_toxic_clf.sav'
         img_filename = 'toxic_toxic_img.pdf'
+        img_filename_PN = 'toxic_toxic_img_PN.pdf'
         csv_sample_filename = 'toxic_toxic_sample_comments.csv'
+        csv_sample_filename_P = 'toxic_toxic_sample_comments_P.csv'
         pvalues_txt_filename = 'toxic_toxic_pvalues.txt'
     if focus_label=='severe_toxic':
         clf_current = clf_severe_toxic
         clf_filename = 'toxic_severe_toxic_clf.sav'
         img_filename = 'toxic_severe_img.pdf'
+        img_filename_PN = 'toxic_severe_img_PN.pdf'
         csv_sample_filename = 'toxic_severe_toxic_sample_comments.csv'
+        csv_sample_filename_P = 'toxic_severe_toxic_sample_comments_P.csv'
         pvalues_txt_filename = 'toxic_severe_toxic_pvalues.txt'
     if focus_label=='obscene':
         clf_current = clf_obscene
         clf_filename = 'toxic_obscene_clf.sav'
         img_filename = 'toxic_obscene_img.pdf'
+        img_filename_PN = 'toxic_obscene_img_PN.pdf'
         csv_sample_filename = 'toxic_obscene_sample_comments.csv'
+        csv_sample_filename_P = 'toxic_obscene_sample_comments_P.csv'
         pvalues_txt_filename = 'toxic_obscene_pvalues.txt'
     if focus_label=='threat':
         clf_current = clf_threat
         clf_filename = 'toxic_threat_clf.sav'
         img_filename = 'toxic_threat_img.pdf'
+        img_filename_PN = 'toxic_threat_img_PN.pdf'
         csv_sample_filename = 'toxic_threat_sample_comments.csv'
+        csv_sample_filename_P = 'toxic_threat_sample_comments_P.csv'
         pvalues_txt_filename = 'toxic_threat_pvalues.txt'
     if focus_label=='insult':
         clf_current = clf_insult
         clf_filename = 'toxic_insult_clf.sav'
         img_filename = 'toxic_insult_img.pdf'
+        img_filename_PN = 'toxic_insult_img_PN.pdf'
         csv_sample_filename = 'toxic_insult_sample_comments.csv'
+        csv_sample_filename_P = 'toxic_insult_sample_comments_P.csv'
         pvalues_txt_filename = 'toxic_insult_pvalues.txt'
     if focus_label=='identity_hate':
         clf_current = clf_identity_hate
         clf_filename = 'toxic_identity_hate_clf.sav'
         img_filename = 'toxic_identity_hate_img.pdf'
+        img_filename_PN = 'toxic_identity_hate_img_PN.pdf'
         csv_sample_filename = 'toxic_identity_hate_sample_comments.csv'
+        csv_sample_filename_P = 'toxic_identity_hate_sample_comments_P.csv'
         pvalues_txt_filename = 'toxic_identity_hate_pvalues.txt'
     
 
@@ -260,8 +272,8 @@ print_format_coef(most_pred)
 from matplotlib import pyplot
 
 # get importance
-#importance = most_neg + most_pred[::-1]
-importance = most_pred[::-1]
+importance = most_neg + most_pred[::-1]
+#importance = most_pred[::-1]
 #print(importance)
 
 fig, ax = pyplot.subplots()
@@ -271,8 +283,10 @@ ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 
 pyplot.xticks(rotation=90, ha='right')
 #pyplot.show()
 
-fig.tight_layout()
+"""This line is used to save image only using positive coeficients"""
 #fig.savefig(img_filename,dpi=300)
+"""This line is used to save image using positive and negative coeficients"""
+fig.savefig(img_filename_PN, dpi=300, bbox_inches='tight')
 
 #%%
 
@@ -301,6 +315,80 @@ will add the next model's n-grams and coefficients
 #     joined_df = pd.concat([coef_csv, most_neg_df, most_pred_df], axis=1, sort=False)
 #     joined_df.to_csv('toxic_coefficients.csv')
         
+#%% 
+"""
+Ahora se obtienen los p values
+"""
+from sklearn.feature_selection import chi2
+
+X = clf_current[0].fit_transform(agg_comments_train)
+scores, pvalues = chi2(X, agg_labels_train.ravel())
+
+#%%
+
+features_and_pvalues = list(zip(coefs[0],feature_names,pvalues,))
+
+#%%
+#sort using coefficient and then sort using p value
+features_and_pvalues_neg = sorted(features_and_pvalues, 
+                                  key=lambda x: x[0])# Most negative features
+
+features_and_pvalues_neg = sorted(features_and_pvalues_neg, 
+                                  key=lambda x: x[2])[15:30]
+
+features_and_pvalues_neg_df = pd.DataFrame(features_and_pvalues_neg)
+features_and_pvalues_neg_df = features_and_pvalues_neg_df.rename(columns={0:3, 1:4 , 2:5})
+#%%
+#sort using coefficient and then sort using p value
+features_and_pvalues_pos = sorted(features_and_pvalues, 
+                                  key=lambda x: x[0])
+                                  #reverse = True)# Most positive features
+
+features_and_pvalues_pos = sorted(features_and_pvalues_pos, 
+                                  key=lambda x: x[2])[0:50]
+
+features_and_pvalues_pos_df = pd.DataFrame(features_and_pvalues_pos)
+#features_and_pvalues_pos_df = features_and_pvalues_pos_df.rename(columns={0:3, 1:4 , 2:5})
+
+#%%
+
+#features_and_pvalues_df = pd.concat([features_and_pvalues_pos_df,
+#                                  features_and_pvalues_neg_df], axis=1, sort=False)
+features_and_pvalues_df = features_and_pvalues_pos_df
+
+#features_and_pvalues_df.to_csv(pvalues_csv_filename)
+
+features_and_pvalues_df = features_and_pvalues_df.round(4)
+
+#%%%
+print_counter = 0
+with open(pvalues_txt_filename,'w') as f:
+    print ('index & feature  & coefficient & p-value  \\\\')
+    f.write('index & feature & coefficient & p-value  \\\\' + '\n')
+    print ('\\hline')
+    f.write('\\hline' + '\n')
+    for index, row in features_and_pvalues_df.iterrows():
+        text_line = ''
+        if row[2] < 0.05:
+            if row[2] < 0.001:
+                pvalue_pos_txt = "\\bf{$<$ 0.001}"
+            else:
+                pvalue_pos_txt = str(row[2])
+                pvalue_pos_txt = "\\bf{" + pvalue_pos_txt + "}"
+        else:
+            pvalue_pos_txt = str(row[2])
+            
+        text_line = text_line+'&' + str(index+1) + '&'+ '\say{'+ str(row[1])+'} '  +'& '+  str(row[0]) +'& ' + pvalue_pos_txt +' ' 
+        text_line = text_line[1:] + '\\\\'
+        f.write(text_line+'\n')
+        f.write('\\hline' + '\n')
+        if(print_counter < 15):
+            print('\\hline')
+            print(text_line)
+        print_counter = print_counter + 1
+    print(features_and_pvalues_df[0:15])
+
+
 #%%
 """Analysis of the negative class ngrams"""
 
@@ -309,7 +397,10 @@ will add the next model's n-grams and coefficients
 sample_ngrams = []
 sample_comments = []
 sample_labels = []
-ngrams_list = most_pred[0:6]
+"""With the following line one can change what ngrams to look for in 
+the comments: """
+#ngrams_list = most_pred[0:4]
+ngrams_list = features_and_pvalues_pos[0:10]
 
 counter_1 = 0
 counter_2 = 0
@@ -348,7 +439,7 @@ for ngram_item in ngrams_list:
                 sample_labels.append(focus_label)
                 print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", focus_label)
                 #print("\n")
-                if counter == 10 :
+                if counter > 9 :
                         break
 
 #    print(ngram)
@@ -367,7 +458,7 @@ sample_labels_df = pd.DataFrame(sample_labels)
 sample_labels_df = sample_labels_df.rename(columns={0:"label"})
 pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
 
-#pd_sample_list.to_csv(csv_sample_filename)   
+pd_sample_list.to_csv(csv_sample_filename_P)   
 print(counter)
 
 
@@ -395,77 +486,3 @@ print("number of threat comments:", counter_4)
 print("number of insult comments:", counter_5)
 print("number of identity_hate comments:", counter_6)
 
-#%% 
-"""
-Ahora se obtienen los p values
-"""
-from sklearn.feature_selection import chi2
-
-X = clf_current[0].fit_transform(agg_comments_train)
-scores, pvalues = chi2(X, agg_labels_train.ravel())
-
-#%%
-
-features_and_pvalues = list(zip(coefs[0],feature_names,pvalues,))
-
-#%%
-#sort using coefficient and then sort using p value
-features_and_pvalues_neg = sorted(features_and_pvalues, 
-                                  key=lambda x: x[0])# Most negative features
-
-features_and_pvalues_neg = sorted(features_and_pvalues_neg, 
-                                  key=lambda x: x[2])[15:30]
-
-features_and_pvalues_neg_df = pd.DataFrame(features_and_pvalues_neg)
-features_and_pvalues_neg_df = features_and_pvalues_neg_df.rename(columns={0:3, 1:4 , 2:5})
-#%%
-#sort using coefficient and then sort using p value
-features_and_pvalues_pos = sorted(features_and_pvalues, 
-                                  key=lambda x: x[0])
-                                  #reverse = True)# Most positive features
-
-features_and_pvalues_pos = sorted(features_and_pvalues_pos, 
-                                  key=lambda x: x[2])[0:15]
-
-features_and_pvalues_pos_df = pd.DataFrame(features_and_pvalues_pos)
-#features_and_pvalues_pos_df = features_and_pvalues_pos_df.rename(columns={0:3, 1:4 , 2:5})
-
-#%%
-
-features_and_pvalues_df = pd.concat([features_and_pvalues_pos_df,
-                                  features_and_pvalues_neg_df], axis=1, sort=False)
-
-#features_and_pvalues_df.to_csv(pvalues_csv_filename)
-
-features_and_pvalues_df = features_and_pvalues_df.round(4)
-
-#%%%
-print_counter = 0
-with open(pvalues_txt_filename,'w') as f:
-    print ('coefficient & n-gram & p-value & coefficient & n-gram & p-value \\\\')
-    f.write('coefficient & n-gram & p-value & coefficient & n-gram & p-value \\\\' + '\n')
-    print ('\\hline')
-    f.write('\\hline' + '\n')
-    for index, row in features_and_pvalues_df.iterrows():
-        text_line = ''
-        if row[2] < 0.001:
-            pvalue_pos_txt = "$<$ 0.001"
-        else:
-            pvalue_pos_txt = str(row[2])
-            
-        if row[5] < 0.001:
-            pvalue_neg_txt = "$<$ 0.001"
-        else:
-            pvalue_neg_txt = str(row[5])
-            
-        text_line = text_line+'&'+str(row[0]) + '&'+ '\say{'+ str(row[1])+'} ' +'& ' + pvalue_pos_txt +' ' 
-        text_line = text_line+'&'+str(row[3]) + '&'+ '\say{'+ str(row[4])+'} ' +'& ' + pvalue_neg_txt +' ' 
-        text_line = text_line[1:] + '\\\\'
-        f.write(text_line+'\n')
-        print('\\hline')
-        f.write('\\hline' + '\n')
-        print(text_line)
-        print_counter = print_counter + 1
-        if(print_counter == 30):
-            break
-    print(features_and_pvalues_df[0:30])

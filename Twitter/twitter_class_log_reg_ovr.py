@@ -141,25 +141,33 @@ if __name__ == "__main__":
         clf_current = clf_abusive
         clf_filename = 'twitter_abusive_clf.sav'
         img_filename = 'twitter_abusive_img.pdf'
+        img_filename_P = 'twitter_abusive_img_P.pdf'
         csv_sample_filename = 'twitter_abusive_sample_comments.csv'
+        csv_sample_filename_P = 'twitter_abusive_sample_comments_P.csv'
         pvalues_txt_filename = 'twitter_abusive_pvalues.txt'
     if focus_label=='hateful':
         clf_current = clf_hateful
         clf_filename = 'twitter_hateful_clf.sav'
         img_filename = 'twitter_hateful_img.pdf'
+        img_filename_P = 'twitter_hateful_img_P.pdf'
         csv_sample_filename = 'twitter_hateful_sample_comments.csv'
+        csv_sample_filename_P = 'twitter_hateful_sample_comments_P.csv'
         pvalues_txt_filename = 'twitter_hateful_pvalues.txt'
     if focus_label=='normal':
         clf_current = clf_normal
         clf_filename = 'twitter_normal_clf.sav'
         img_filename = 'twitter_normal_img.pdf'
+        img_filename_P = 'twitter_normal_img_P.pdf'
         csv_sample_filename = 'twitter_normal_sample_comments.csv'
+        csv_sample_filename_P = 'twitter_normal_sample_comments_P.csv'
         pvalues_txt_filename = 'twitter_normal_pvalues.txt'
     if focus_label == 'spam':
         clf_current = clf_spam
         clf_filename = 'twitter_spam_clf.sav'
         img_filename = 'twitter_spam_img.pdf'
+        img_filename_P = 'twitter_spam_img_P.pdf'
         csv_sample_filename = 'twitter_spam_sample_comments.csv'
+        csv_sample_filename_P = 'twitter_spam_sample_comments_P.csv'
         pvalues_txt_filename = 'twitter_spam_pvalues.txt'
 
     print("Focus label:", focus_label)
@@ -287,6 +295,79 @@ will add the next model's n-grams and coefficients
 #     joined_df = pd.concat([coef_csv, most_neg_df, most_pred_df], axis=1, sort=False)
 #     joined_df.to_csv('abusive_coefficients.csv')
 
+#%% 
+"""
+Ahora se obtienen los p values
+"""
+from sklearn.feature_selection import chi2
+
+X = clf_current[0].fit_transform(agg_comments_train)
+scores, pvalues = chi2(X, agg_labels_train.ravel())
+
+#%%
+
+features_and_pvalues = list(zip(coefs[0],feature_names,pvalues,))
+
+#%%
+#sort using coefficient and then sort using p value
+features_and_pvalues_neg = sorted(features_and_pvalues, 
+                                  key=lambda x: x[0])# Most negative features
+
+features_and_pvalues_neg = sorted(features_and_pvalues_neg, 
+                                  key=lambda x: x[2])[15:30]
+
+features_and_pvalues_neg_df = pd.DataFrame(features_and_pvalues_neg)
+features_and_pvalues_neg_df = features_and_pvalues_neg_df.rename(columns={0:3, 1:4 , 2:5})
+#%%
+#sort using coefficient and then sort using p value
+features_and_pvalues_pos = sorted(features_and_pvalues, 
+                                  key=lambda x: x[0])
+                                  #reverse = True)# Most positive features
+
+features_and_pvalues_pos = sorted(features_and_pvalues_pos, 
+                                  key=lambda x: x[2])[0:50]
+
+features_and_pvalues_pos_df = pd.DataFrame(features_and_pvalues_pos)
+#features_and_pvalues_pos_df = features_and_pvalues_pos_df.rename(columns={0:3, 1:4 , 2:5})
+
+#%%
+
+#features_and_pvalues_df = pd.concat([features_and_pvalues_pos_df,
+#                                  features_and_pvalues_neg_df], axis=1, sort=False)
+features_and_pvalues_df = features_and_pvalues_pos_df
+
+#features_and_pvalues_df.to_csv(pvalues_csv_filename)
+
+features_and_pvalues_df = features_and_pvalues_df.round(4)
+
+#%%%
+print_counter = 0
+with open(pvalues_txt_filename,'w') as f:
+    print ('index & feature  & coefficient & p-value  \\\\')
+    f.write('index & feature & coefficient & p-value  \\\\' + '\n')
+    print ('\\hline')
+    f.write('\\hline' + '\n')
+    for index, row in features_and_pvalues_df.iterrows():
+        text_line = ''
+        if row[2] < 0.05:
+            if row[2] < 0.001:
+                pvalue_pos_txt = "\\bf{$<$ 0.001}"
+            else:
+                pvalue_pos_txt = str(row[2])
+                pvalue_pos_txt = "\\bf{" + pvalue_pos_txt + "}"
+        else:
+            pvalue_pos_txt = str(row[2])
+            
+        text_line = text_line+'&' + str(index+1) + '&'+ '\say{'+ str(row[1])+'} '  +'& '+  str(row[0]) +'& ' + pvalue_pos_txt +' ' 
+        text_line = text_line[1:] + '\\\\'
+        f.write(text_line+'\n')
+        f.write('\\hline' + '\n')
+        if(print_counter < 15):
+            print('\\hline')
+            print(text_line)
+        print_counter = print_counter + 1
+    print(features_and_pvalues_df[0:15])
+
 #%%
 """Analysis of the negative class ngrams"""
 
@@ -295,7 +376,10 @@ will add the next model's n-grams and coefficients
 sample_ngrams = []
 sample_comments = []
 sample_labels = []
-ngrams_list = most_pred[0:4]
+"""With the following line one can change what ngrams to look for in 
+the comments: """
+#ngrams_list = most_pred[0:4]
+ngrams_list = features_and_pvalues_pos[0:10]
 counter = 0
 for ngram_item in ngrams_list:
     ngram = ngram_item[1]
@@ -317,7 +401,7 @@ for ngram_item in ngrams_list:
                 sample_labels.append(label)
 #                print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
                 #print("\n")
-                if counter == 10 :
+                if counter > 9 :
                         break
             
 sample_ngrams_df = pd.DataFrame(sample_ngrams)
@@ -328,7 +412,7 @@ sample_labels_df = pd.DataFrame(sample_labels)
 sample_labels_df = sample_labels_df.rename(columns={0:"label"})
 pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
 
-#pd_sample_list.to_csv(csv_sample_filename)   
+pd_sample_list.to_csv(csv_sample_filename_P)   
 print(counter)
 
 #%%

@@ -1,0 +1,102 @@
+index & feature & coefficient & p-value  \\
+\hline
+1&\say{omose} & 0.3179& \bf{$<$ 0.001} \\
+\hline
+2&\say{mose} & 2.4522& \bf{$<$ 0.001} \\
+\hline
+3&\say{homos} & 2.7992& \bf{$<$ 0.001} \\
+\hline
+4&\say{osex} & 4.0616& \bf{$<$ 0.001} \\
+\hline
+5&\say{mosex} & 5.6353& \bf{$<$ 0.001} \\
+\hline
+6&\say{omos} & 10.4906& \bf{$<$ 0.001} \\
+\hline
+7&\say{osexu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+8&\say{bitch} & 58.5983& \bf{$<$ 0.001} \\
+\hline
+9&\say{homo} & 0.0& \bf{$<$ 0.001} \\
+\hline
+10&\say{exu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+11&\say{sexu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+12&\say{sexua} & 0.0& \bf{$<$ 0.001} \\
+\hline
+13&\say{xual} & 0.0& \bf{$<$ 0.001} \\
+\hline
+14&\say{exual} & 0.0007& \bf{$<$ 0.001} \\
+\hline
+15&\say{exua} & 18.4669& \bf{$<$ 0.001} \\
+\hline
+16&\say{bitc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+17&\say{xua} & 0.0& \bf{$<$ 0.001} \\
+\hline
+18&\say{ bitc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+19&\say{xu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+20&\say{fuck} & 22.1908& \bf{$<$ 0.001} \\
+\hline
+21&\say{fuc} & 31.0809& \bf{$<$ 0.001} \\
+\hline
+22&\say{itch} & 39.8225& \bf{$<$ 0.001} \\
+\hline
+23&\say{sex} & 45.7185& \bf{$<$ 0.001} \\
+\hline
+24&\say{itc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+25&\say{army} & 19.2143& \bf{$<$ 0.001} \\
+\hline
+26&\say{rmy} & 24.0704& \bf{$<$ 0.001} \\
+\hline
+27&\say{army } & 0.0& \bf{$<$ 0.001} \\
+\hline
+28&\say{rmy } & 0.0& \bf{$<$ 0.001} \\
+\hline
+29&\say{xuali} & 0.0& \bf{$<$ 0.001} \\
+\hline
+30&\say{hom} & 14.3498& \bf{$<$ 0.001} \\
+\hline
+31&\say{omo} & 0.0& \bf{$<$ 0.001} \\
+\hline
+32&\say{uck} & 19.5085& \bf{$<$ 0.001} \\
+\hline
+33&\say{ bit} & 0.0& \bf{$<$ 0.001} \\
+\hline
+34&\say{bit} & 10.6328& \bf{$<$ 0.001} \\
+\hline
+35&\say{ kut} & 49.2936& \bf{0.0011} \\
+\hline
+36&\say{ army} & 0.0& \bf{0.0011} \\
+\hline
+37&\say{ arm} & 0.0& \bf{0.0012} \\
+\hline
+38&\say{ homo} & 0.0& \bf{0.0014} \\
+\hline
+39&\say{fuck } & 0.0& \bf{0.0015} \\
+\hline
+40&\say{randi} & 61.9312& \bf{0.0016} \\
+\hline
+41&\say{gay} & 6.5617& \bf{0.0025} \\
+\hline
+42&\say{ kuti} & 0.309& \bf{0.0025} \\
+\hline
+43&\say{kuti} & 13.399& \bf{0.0025} \\
+\hline
+44&\say{ fuc} & 0.0& \bf{0.0027} \\
+\hline
+45&\say{ fuck} & 0.0& \bf{0.0027} \\
+\hline
+46&\say{kut} & 0.0& \bf{0.003} \\
+\hline
+47&\say{ mc} & 22.2799& \bf{0.0031} \\
+\hline
+48&\say{n arm} & 0.0& \bf{0.0031} \\
+\hline
+49&\say{kutiy} & 4.4863& \bf{0.0036} \\
+\hline
+50&\say{uck } & 0.0& \bf{0.0042} \\
+\hline

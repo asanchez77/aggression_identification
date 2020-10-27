@@ -124,7 +124,6 @@ if __name__ == "__main__":
         img_filename_PN = 'trac1_NAG_img_PN.pdf'
         csv_sample_filename = 'trac1_NAG_sample_comments.csv'
         csv_sample_filename_P = 'trac1_NAG_sample_comments_P.csv'
-        pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
         pvalues_txt_filename = 'trac1_NAG_pvalues.txt'
     if focus_label=='CAG':
         clf_current = clf_CAG
@@ -133,7 +132,6 @@ if __name__ == "__main__":
         img_filename_PN = 'trac1_CAG_img_PN.pdf'
         csv_sample_filename = 'trac1_CAG_sample_comments.csv'
         csv_sample_filename_P = 'trac1_CAG_sample_comments_P.csv'
-        pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
         pvalues_txt_filename = 'trac1_CAG_pvalues.txt'
     if focus_label=='OAG':
         clf_current = clf_OAG
@@ -142,7 +140,6 @@ if __name__ == "__main__":
         img_filename_PN = 'trac1_OAG_img_PN.pdf'
         csv_sample_filename = 'trac1_OAG_sample_comments.csv'
         csv_sample_filename_P = 'trac1_OAG_sample_comments_P.csv'
-        pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
         pvalues_txt_filename = 'trac1_OAG_pvalues.txt'
 
     print("Focus label:", focus_label)
@@ -317,7 +314,6 @@ features_and_pvalues_df = features_and_pvalues_df.round(4)
 
 #%%%
 print_counter = 0
-
 with open(pvalues_txt_filename,'w') as f:
     print ('index & feature  & coefficient & p-value  \\\\')
     f.write('index & feature & coefficient & p-value  \\\\' + '\n')
