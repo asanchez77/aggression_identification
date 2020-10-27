@@ -18,7 +18,7 @@ import numpy as np
 DATA_PATH = "data/eng/"
 
 mode = "test"
-focus_label = 'NAG'
+focus_label = 'OAG'
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -137,22 +137,34 @@ if __name__ == "__main__":
         clf_current = clf_NAG
         clf_filename = 'trac2_NAG_clf.sav'
         img_filename = 'trac2_NAG_img.pdf'
+        img_filename_PN = 'trac2_NAG_img_PN.pdf'
         csv_sample_filename = 'trac2_NAG_sample_comments.csv'
+        csv_sample_filename_P = 'trac2_NAG_sample_comments_P.csv'
+        pvalues_txt_filename = 'trac2_NAG_pvalues.txt'
     if focus_label=='CAG':
         clf_current = clf_CAG
         clf_filename = 'trac2_CAG_clf.sav'
         img_filename = 'trac2_CAG_img.pdf'
+        img_filename_PN = 'trac2_CAG_img_PN.pdf'
         csv_sample_filename = 'trac2_CAG_sample_comments.csv'
+        csv_sample_filename_P = 'trac2_CAG_sample_comments_P.csv'
+        pvalues_txt_filename = 'trac2_CAG_pvalues.txt'
     if focus_label=='OAG':
         clf_current = clf_OAG
         clf_filename = 'trac2_OAG_clf.sav'
         img_filename = 'trac2_OAG_img.pdf'
+        img_filename_PN = 'trac2_OAG_img_PN.pdf'
         csv_sample_filename = 'trac2_OAG_sample_comments.csv'
+        csv_sample_filename_P = 'trac2_OAG_sample_comments_P.csv'
+        pvalues_txt_filename = 'trac2_OAG_pvalues.txt'
     if focus_label=='GEN' or focus_label=='NGEN':
         clf_current = clf_GEN
         clf_filename = 'trac2_GEN_clf.sav'
         img_filename = 'trac2_GEN_img.pdf'
+        img_filename_PN = 'trac2_GEN_img_PN.pdf'
         csv_sample_filename = 'trac2_GEN_sample_comments.csv'
+        csv_sample_filename_P = 'trac2_GEN_sample_comments_P.csv'
+        pvalues_txt_filename = 'trac2_GEN_pvalues.txt'
 
     print("Focus label:", focus_label)
     print("pipeline:", [name for name, _ in clf_current.steps])
@@ -231,19 +243,23 @@ print_format_coef(most_pred)
 from matplotlib import pyplot
 
 # get importance
-#importance = most_neg + most_pred[::-1]
-importance = most_pred[::-1]
+importance = most_neg + most_pred[::-1]
+#importance = most_pred[::-1]
 #print(importance)
 
 fig, ax = pyplot.subplots()
-ax.tick_params(axis='both', which='major', labelsize=16)
-pyplot.title(focus_label,fontdict = {'fontsize' : 16})
+ax.tick_params(axis='both', which='major', labelsize=12)
+pyplot.title(focus_label,fontdict = {'fontsize' : 12})
 ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
 pyplot.xticks(rotation=90, ha='right')
 #pyplot.show()
 
-fig.tight_layout()
-fig.savefig(img_filename,dpi=300)
+#fig.tight_layout()
+
+"""This line is used to save image only using positive coeficients"""
+#fig.savefig(img_filename,dpi=300)
+"""This line is used to save image using positive and negative coeficients"""
+fig.savefig(img_filename_PN, dpi=300, bbox_inches='tight')
 
 #%%
 
@@ -271,8 +287,82 @@ will add the next model's n-grams and coefficients
 #     coef_csv = pd.read_csv('trac2_coefficients.csv',index_col = 0)
 #     joined_df = pd.concat([coef_csv, most_neg_df, most_pred_df], axis=1, sort=False)
 #     joined_df.to_csv('trac2_coefficients.csv')
+
+#%% 
+"""
+Ahora se obtienen los p values
+"""
+from sklearn.feature_selection import chi2
+
+X = clf_current[0].fit_transform(agg_comments_train)
+scores, pvalues = chi2(X, agg_labels_train_encoded.ravel())
+
+#%%
+
+features_and_pvalues = list(zip(coefs[0],feature_names,pvalues,))
+
+#%%
+#sort using coefficient and then sort using p value
+features_and_pvalues_neg = sorted(features_and_pvalues, 
+                                  key=lambda x: x[0])# Most negative features
+
+features_and_pvalues_neg = sorted(features_and_pvalues_neg, 
+                                  key=lambda x: x[2])[15:30]
+
+features_and_pvalues_neg_df = pd.DataFrame(features_and_pvalues_neg)
+features_and_pvalues_neg_df = features_and_pvalues_neg_df.rename(columns={0:3, 1:4 , 2:5})
+#%%
+#sort using coefficient and then sort using p value
+features_and_pvalues_pos = sorted(features_and_pvalues, 
+                                  key=lambda x: x[0])
+                                  #reverse = True)# Most positive features
+
+features_and_pvalues_pos = sorted(features_and_pvalues_pos, 
+                                  key=lambda x: x[2])[0:50]
+
+features_and_pvalues_pos_df = pd.DataFrame(features_and_pvalues_pos)
+#features_and_pvalues_pos_df = features_and_pvalues_pos_df.rename(columns={0:3, 1:4 , 2:5})
+
+#%%
+
+#features_and_pvalues_df = pd.concat([features_and_pvalues_pos_df], axis=1, sort=False)
+features_and_pvalues_df = features_and_pvalues_pos_df
+
+#features_and_pvalues_df.to_csv(pvalues_csv_filename)
+
+features_and_pvalues_df = features_and_pvalues_df.round(4)
+
+#%%%
+print_counter = 0
+
+with open(pvalues_txt_filename,'w') as f:
+    print ('index & feature  & coefficient & p-value  \\\\')
+    f.write('index & feature & coefficient & p-value  \\\\' + '\n')
+    print ('\\hline')
+    f.write('\\hline' + '\n')
+    for index, row in features_and_pvalues_df.iterrows():
+        text_line = ''
+        if row[2] < 0.05:
+            if row[2] < 0.001:
+                pvalue_pos_txt = "\\bf{$<$ 0.001}"
+            else:
+                pvalue_pos_txt = str(row[2])
+                pvalue_pos_txt = "\\bf{" + pvalue_pos_txt + "}"
+        else:
+            pvalue_pos_txt = str(row[2])
+            
+        text_line = text_line+'&' + str(index+1) + '&'+ '\say{'+ str(row[1])+'} '  +'& '+  str(row[0]) +'& ' + pvalue_pos_txt +' ' 
+        text_line = text_line[1:] + '\\\\'
+        f.write(text_line+'\n')
+        f.write('\\hline' + '\n')
+        if(print_counter < 15):
+            print('\\hline')
+            print(text_line)
+        print_counter = print_counter + 1
+    print(features_and_pvalues_df[0:15])
         
 #%%
+
 """Analysis of the negative class ngrams"""
 
 
@@ -280,7 +370,10 @@ will add the next model's n-grams and coefficients
 sample_ngrams = []
 sample_comments = []
 sample_labels = []
-ngrams_list = most_pred[0:4]
+"""With the following line one can change what ngrams to look for in 
+the comments: """
+#ngrams_list = most_pred[0:4]
+ngrams_list = features_and_pvalues_pos[0:10]
 
 NAG_counter = 0
 CAG_counter = 0
@@ -317,12 +410,12 @@ for ngram_item in ngrams_list:
                 sample_labels.append(label)
                 #print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
                 #print("\n")
-                if counter == 10 :
+                if counter > 9 :
                         break
-    print(ngram)
-    print("number of NAG comments:", NAG_counter)
-    print("number of CAG comments:", CAG_counter)
-    print("number of OAG comments:", OAG_counter)
+#    print(ngram)
+#    print("number of NAG comments:", NAG_counter)
+#    print("number of CAG comments:", CAG_counter)
+#    print("number of OAG comments:", OAG_counter)
         
             
 sample_ngrams_df = pd.DataFrame(sample_ngrams)
@@ -334,24 +427,27 @@ sample_labels_df = sample_labels_df.rename(columns={0:"label"})
 pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
 print(pd_sample_list)
 
-#pd_sample_list.to_csv(csv_sample_filename)   
-print(counter)
+"""Here change csv_sample_filename_P for pvalue ngrams or csv_sample_filename 
+for coefficient ngrams"""
+pd_sample_list.to_csv(csv_sample_filename_P)   
 
-print("number of NAG comments:", NAG_counter)
-print("number of CAG comments:", CAG_counter)
-print("number of OAG comments:", OAG_counter)
-
-NAG_counter = 0
-CAG_counter = 0
-OAG_counter = 0
-
-for comment,label in zip(agg_comments_train, agg_labels_original):
-    if label == 'NAG':
-        NAG_counter = NAG_counter +1
-    if label == 'CAG':
-        CAG_counter = CAG_counter +1
-    if label == 'OAG':
-        OAG_counter = OAG_counter +1
-print("number of NAG comments:", NAG_counter)
-print("number of CAG comments:", CAG_counter)
-print("number of OAG comments:", OAG_counter)
+#print(counter)
+#
+#print("number of NAG comments:", NAG_counter)
+#print("number of CAG comments:", CAG_counter)
+#print("number of OAG comments:", OAG_counter)
+#
+#NAG_counter = 0
+#CAG_counter = 0
+#OAG_counter = 0
+#
+#for comment,label in zip(agg_comments_train, agg_labels_original):
+#    if label == 'NAG':
+#        NAG_counter = NAG_counter +1
+#    if label == 'CAG':
+#        CAG_counter = CAG_counter +1
+#    if label == 'OAG':
+#        OAG_counter = OAG_counter +1
+#print("number of NAG comments:", NAG_counter)
+#print("number of CAG comments:", CAG_counter)
+#print("number of OAG comments:", OAG_counter)

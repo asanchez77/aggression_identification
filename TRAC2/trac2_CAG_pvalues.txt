@@ -1,0 +1,103 @@
+index & feature & coefficient & p-value  \\
+\hline
+1&\say{bull} & 8.1819& \bf{0.0425} \\
+\hline
+2&\say{bull } & 22.6861& 0.059 \\
+\hline
+3&\say{ate t} & 0.4317& 0.0652 \\
+\hline
+4&\say{t oth} & 19.5695& 0.0749 \\
+\hline
+5&\say{t ot} & 37.5995& 0.0749 \\
+\hline
+6&\say{eract} & 6.4826& 0.0751 \\
+\hline
+7&\say{erac} & 14.2751& 0.0751 \\
+\hline
+8&\say{ng ?} & 22.3747& 0.0797 \\
+\hline
+9&\say{g ?} & 28.9862& 0.0797 \\
+\hline
+10&\say{de an} & 35.4933& 0.0809 \\
+\hline
+11&\say{verac} & 0.0& 0.083 \\
+\hline
+12&\say{bulls} & 0.0& 0.0865 \\
+\hline
+13&\say{ulls} & 0.0& 0.0865 \\
+\hline
+14&\say{hame.} & 0.698& 0.0925 \\
+\hline
+15&\say{-hol} & 1.1355& 0.0926 \\
+\hline
+16&\say{-hole} & 2.3513& 0.0926 \\
+\hline
+17&\say{a-hol} & 5.6927& 0.0926 \\
+\hline
+18&\say{a-ho} & 7.7944& 0.0926 \\
+\hline
+19&\say{ try} & 72.6904& 0.0972 \\
+\hline
+20&\say{bul} & 0.4632& 0.099 \\
+\hline
+21&\say{lshit} & 0.0& 0.1019 \\
+\hline
+22&\say{badly} & 59.7376& 0.1021 \\
+\hline
+23&\say{od is} & 54.4723& 0.1026 \\
+\hline
+24&\say{tal.} & 20.219& 0.1034 \\
+\hline
+25&\say{erri} & 38.9828& 0.1042 \\
+\hline
+26&\say{.
+b} & 47.8428& 0.1049 \\
+\hline
+27&\say{te th} & 0.0& 0.111 \\
+\hline
+28&\say{nk sh} & 21.7359& 0.1117 \\
+\hline
+29&\say{a-h} & 0.0& 0.1132 \\
+\hline
+30&\say{em} & 20.7009& 0.1149 \\
+\hline
+31&\say{hate } & 14.8302& 0.1164 \\
+\hline
+32&\say{nice} & 0.0& 0.1172 \\
+\hline
+33&\say{llsh} & 0.0& 0.1187 \\
+\hline
+34&\say{llshi} & 0.0& 0.1187 \\
+\hline
+35&\say{ullsh} & 0.0& 0.1187 \\
+\hline
+36&\say{t non} & 28.6544& 0.1208 \\
+\hline
+37&\say{nuc} & 26.7553& 0.1241 \\
+\hline
+38&\say{nic} & 0.0& 0.1266 \\
+\hline
+39&\say{lsh} & 0.0& 0.1282 \\
+\hline
+40&\say{lshi} & 0.0& 0.1282 \\
+\hline
+41&\say{s = } & 7.211& 0.1307 \\
+\hline
+42&\say{s =} & 12.3808& 0.1307 \\
+\hline
+43&\say{rrib} & 0.9133& 0.1312 \\
+\hline
+44&\say{ribl} & 1.7321& 0.1312 \\
+\hline
+45&\say{rribl} & 5.7688& 0.1312 \\
+\hline
+46&\say{rible} & 8.1612& 0.1312 \\
+\hline
+47&\say{ne ma} & 88.5947& 0.1321 \\
+\hline
+48&\say{pid s} & 48.3216& 0.1323 \\
+\hline
+49&\say{le😱} & 0.1078& 0.1358 \\
+\hline
+50&\say{ible😱} & 0.2284& 0.1358 \\
+\hline

@@ -1,0 +1,102 @@
+index & feature & coefficient & p-value  \\
+\hline
+1&\say{inis} & 0.0& \bf{$<$ 0.001} \\
+\hline
+2&\say{femi} & 0.0& \bf{$<$ 0.001} \\
+\hline
+3&\say{fem} & -0.8115& \bf{$<$ 0.001} \\
+\hline
+4&\say{minis} & 0.0& \bf{$<$ 0.001} \\
+\hline
+5&\say{emin} & 0.0& \bf{$<$ 0.001} \\
+\hline
+6&\say{femin} & 0.0& \bf{$<$ 0.001} \\
+\hline
+7&\say{emi} & 0.0& \bf{$<$ 0.001} \\
+\hline
+8&\say{mini} & 0.0& \bf{$<$ 0.001} \\
+\hline
+9&\say{emini} & 0.0& \bf{0.001} \\
+\hline
+10&\say{fuc} & -14.959& \bf{0.0011} \\
+\hline
+11&\say{fuck} & -11.1754& \bf{0.0011} \\
+\hline
+12&\say{nis} & 0.0& \bf{0.0029} \\
+\hline
+13&\say{inist} & 0.0& \bf{0.003} \\
+\hline
+14&\say{ini} & -13.1597& \bf{0.003} \\
+\hline
+15&\say{ fuc} & -2.6351& \bf{0.0033} \\
+\hline
+16&\say{ fuck} & -0.0162& \bf{0.0033} \\
+\hline
+17&\say{ fem} & 0.0& \bf{0.0033} \\
+\hline
+18&\say{uck} & 0.0& \bf{0.0034} \\
+\hline
+19&\say{nist} & 0.0& \bf{0.0035} \\
+\hline
+20&\say{ femi} & 0.0& \bf{0.0039} \\
+\hline
+21&\say{hate } & -5.5695& \bf{0.0041} \\
+\hline
+22&\say{min} & 0.0& \bf{0.0057} \\
+\hline
+23&\say{em} & -14.0732& \bf{0.0059} \\
+\hline
+24&\say{ hate} & -8.5531& \bf{0.0064} \\
+\hline
+25&\say{hate} & -16.7582& \bf{0.007} \\
+\hline
+26&\say{ranu } & -14.5947& \bf{0.0076} \\
+\hline
+27&\say{i hat} & 0.0& \bf{0.0077} \\
+\hline
+28&\say{lib} & -2.9087& \bf{0.0082} \\
+\hline
+29&\say{anu } & 0.0& \bf{0.0088} \\
+\hline
+30&\say{anu m} & 0.0& \bf{0.009} \\
+\hline
+31&\say{nu m} & 0.0& \bf{0.009} \\
+\hline
+32&\say{fuck } & 0.0& \bf{0.0095} \\
+\hline
+33&\say{nu } & 0.0& \bf{0.0107} \\
+\hline
+34&\say{ hat} & 0.0& \bf{0.011} \\
+\hline
+35&\say{bera} & 0.0& \bf{0.0118} \\
+\hline
+36&\say{ lib} & 0.0& \bf{0.0124} \\
+\hline
+37&\say{ fe} & 0.0& \bf{0.0141} \\
+\hline
+38&\say{fe} & 0.0& \bf{0.0142} \\
+\hline
+39&\say{beral} & 0.0& \bf{0.0143} \\
+\hline
+40&\say{ibera} & 0.0& \bf{0.0148} \\
+\hline
+41&\say{itch} & -35.6439& \bf{0.0163} \\
+\hline
+42&\say{ranu} & 0.0& \bf{0.0165} \\
+\hline
+43&\say{sts } & -20.651& \bf{0.0169} \\
+\hline
+44&\say{ist} & -0.9183& \bf{0.0169} \\
+\hline
+45&\say{hut} & -27.8249& \bf{0.0175} \\
+\hline
+46&\say{libe} & 0.0& \bf{0.0177} \\
+\hline
+47&\say{liber} & 0.0& \bf{0.0177} \\
+\hline
+48&\say{uck } & 0.0& \bf{0.0179} \\
+\hline
+49&\say{nic} & 6.684& \bf{0.0182} \\
+\hline
+50&\say{ists } & 0.0& \bf{0.0185} \\
+\hline

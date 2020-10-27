@@ -123,7 +123,7 @@ if __name__ == "__main__":
         img_filename = 'trac1_NAG_img.pdf'
         img_filename_PN = 'trac1_NAG_img_PN.pdf'
         csv_sample_filename = 'trac1_NAG_sample_comments.csv'
-        csv_sample_filename = 'trac1_NAG_sample_comments_P.csv'
+        csv_sample_filename_P = 'trac1_NAG_sample_comments_P.csv'
         pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
         pvalues_txt_filename = 'trac1_NAG_pvalues.txt'
     if focus_label=='CAG':
@@ -132,7 +132,7 @@ if __name__ == "__main__":
         img_filename = 'trac1_CAG_img.pdf'
         img_filename_PN = 'trac1_CAG_img_PN.pdf'
         csv_sample_filename = 'trac1_CAG_sample_comments.csv'
-        csv_sample_filename = 'trac1_CAG_sample_comments_P.csv'
+        csv_sample_filename_P = 'trac1_CAG_sample_comments_P.csv'
         pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
         pvalues_txt_filename = 'trac1_CAG_pvalues.txt'
     if focus_label=='OAG':
@@ -141,7 +141,7 @@ if __name__ == "__main__":
         img_filename = 'trac1_OAG_img.pdf'
         img_filename_PN = 'trac1_OAG_img_PN.pdf'
         csv_sample_filename = 'trac1_OAG_sample_comments.csv'
-        csv_sample_filename = 'trac1_CAG_sample_comments_P.csv'
+        csv_sample_filename_P = 'trac1_OAG_sample_comments_P.csv'
         pvalues_csv_filename = 'trac1_NAG_pvalues.csv'
         pvalues_txt_filename = 'trac1_OAG_pvalues.txt'
 
@@ -270,91 +270,6 @@ will add the next model's n-grams and coefficients
 #     joined_df = pd.concat([coef_csv, most_neg_df, most_pred_df], axis=1, sort=False)
 #     joined_df.to_csv('trac1_coefficients.csv')
         
-#%%
-"""Analysis of the negative class ngrams"""
-
-
-#for item in most_neg:
-sample_ngrams = []
-sample_comments = []
-sample_labels = []
-ngrams_list = most_pred[0:4]
-
-NAG_counter = 0
-CAG_counter = 0
-OAG_counter = 0
-counter = 0
-
-for ngram_item in ngrams_list:
-    ngram = ngram_item[1]
-    
-    NAG_counter = 0
-    CAG_counter = 0
-    OAG_counter = 0
-    counter = 0;
-    for comment,label in zip(agg_comments_train, agg_labels_original):
-        
-        if label == 'NAG':
-            NAG_counter = NAG_counter +1
-        if label == 'CAG':
-            CAG_counter = CAG_counter +1
-        if label == 'OAG':
-            OAG_counter = OAG_counter +1
-            
-        if label == focus_label:
-            if ngram in comment.lower(): 
-                labeled_comment = comment
-                ngram_start_index = comment.lower().find(ngram)   
-                while ngram_start_index is not -1:
-                    f_comment_part = labeled_comment[0:ngram_start_index]
-                    labeled_ngram = '<ng>' + ngram + '</ng>'
-                    s_comment_part = labeled_comment[ngram_start_index+len(ngram):]
-                    labeled_comment = f_comment_part + labeled_ngram + s_comment_part
-                    ngram_start_index = labeled_comment.lower().find(ngram, ngram_start_index+9+len(ngram))
-                counter = counter +1      
-                sample_ngrams.append(ngram)
-                sample_comments.append(labeled_comment)
-                sample_labels.append(label)
-                #print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
-                #print("\n")
-                if counter == 10 :
-                        break
-                    
-#    print(ngram)
-#    print("number of NAG comments:", NAG_counter)
-#    print("number of CAG comments:", CAG_counter)
-#    print("number of OAG comments:", OAG_counter)
-            
-sample_ngrams_df = pd.DataFrame(sample_ngrams)
-sample_ngrams_df = sample_ngrams_df.rename(columns={0:"ngram"})
-sample_comments_df= pd.DataFrame(sample_comments)
-sample_comments_df = sample_comments_df.rename(columns={0:"comment"})
-sample_labels_df = pd.DataFrame(sample_labels)
-sample_labels_df = sample_labels_df.rename(columns={0:"label"})
-pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
-#print(pd_sample_list)
-
-#pd_sample_list.to_csv(csv_sample_filename)   
-#print(counter)
-#
-#print("number of NAG comments:", NAG_counter)
-#print("number of CAG comments:", CAG_counter)
-#print("number of OAG comments:", OAG_counter)
-#
-#NAG_counter = 0
-#CAG_counter = 0
-#OAG_counter = 0
-#
-#for comment,label in zip(agg_comments_train, agg_labels_original):
-#    if label == 'NAG':
-#        NAG_counter = NAG_counter +1
-#    if label == 'CAG':
-#        CAG_counter = CAG_counter +1
-#    if label == 'OAG':
-#        OAG_counter = OAG_counter +1
-#print("number of NAG comments:", NAG_counter)
-#print("number of CAG comments:", CAG_counter)
-#print("number of OAG comments:", OAG_counter)
 
 #%% 
 """
@@ -428,3 +343,95 @@ with open(pvalues_txt_filename,'w') as f:
             print(text_line)
         print_counter = print_counter + 1
     print(features_and_pvalues_df[0:15])
+#%%
+"""Analysis of the negative class ngrams"""
+
+
+#for item in most_neg:
+sample_ngrams = []
+sample_comments = []
+sample_labels = []
+"""With the following line one can change what ngrams to look for in 
+the comments: """
+#ngrams_list = most_pred[0:4]
+ngrams_list = features_and_pvalues_pos[0:10]
+
+NAG_counter = 0
+CAG_counter = 0
+OAG_counter = 0
+counter = 0
+
+for ngram_item in ngrams_list:
+    #ngram = ngram_item[1]
+    ngram = ngram_item[1]
+    
+    NAG_counter = 0
+    CAG_counter = 0
+    OAG_counter = 0
+    counter = 0;
+    for comment,label in zip(agg_comments_train, agg_labels_original):
+        
+        if label == 'NAG':
+            NAG_counter = NAG_counter +1
+        if label == 'CAG':
+            CAG_counter = CAG_counter +1
+        if label == 'OAG':
+            OAG_counter = OAG_counter +1
+            
+        if label == focus_label:
+            if ngram in comment.lower(): 
+                labeled_comment = comment
+                ngram_start_index = comment.lower().find(ngram)   
+                while ngram_start_index is not -1:
+                    f_comment_part = labeled_comment[0:ngram_start_index]
+                    labeled_ngram = '<ng>' + ngram + '</ng>'
+                    s_comment_part = labeled_comment[ngram_start_index+len(ngram):]
+                    labeled_comment = f_comment_part + labeled_ngram + s_comment_part
+                    ngram_start_index = labeled_comment.lower().find(ngram, ngram_start_index+9+len(ngram))
+                counter = counter +1      
+                sample_ngrams.append(ngram)
+                sample_comments.append(labeled_comment)
+                sample_labels.append(label)
+                #print(counter, ' || "'+ngram+'" || ', labeled_comment, " || ", label)
+                #print("\n")
+                if counter > 9 :
+                        break
+                    
+#    print(ngram)
+#    print("number of NAG comments:", NAG_counter)
+#    print("number of CAG comments:", CAG_counter)
+#    print("number of OAG comments:", OAG_counter)
+            
+sample_ngrams_df = pd.DataFrame(sample_ngrams)
+sample_ngrams_df = sample_ngrams_df.rename(columns={0:"ngram"})
+sample_comments_df= pd.DataFrame(sample_comments)
+sample_comments_df = sample_comments_df.rename(columns={0:"comment"})
+sample_labels_df = pd.DataFrame(sample_labels)
+sample_labels_df = sample_labels_df.rename(columns={0:"label"})
+pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
+print(pd_sample_list)
+
+"""Here change csv_sample_filename_P for pvalue ngrams or csv_sample_filename 
+for coefficient ngrams"""
+pd_sample_list.to_csv(csv_sample_filename_P)   
+#print(counter)
+#
+#print("number of NAG comments:", NAG_counter)
+#print("number of CAG comments:", CAG_counter)
+#print("number of OAG comments:", OAG_counter)
+#
+#NAG_counter = 0
+#CAG_counter = 0
+#OAG_counter = 0
+#
+#for comment,label in zip(agg_comments_train, agg_labels_original):
+#    if label == 'NAG':
+#        NAG_counter = NAG_counter +1
+#    if label == 'CAG':
+#        CAG_counter = CAG_counter +1
+#    if label == 'OAG':
+#        OAG_counter = OAG_counter +1
+#print("number of NAG comments:", NAG_counter)
+#print("number of CAG comments:", CAG_counter)
+#print("number of OAG comments:", OAG_counter)
+

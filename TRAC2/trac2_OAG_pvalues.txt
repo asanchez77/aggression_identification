@@ -1,0 +1,102 @@
+index & feature & coefficient & p-value  \\
+\hline
+1&\say{fuck} & 33.5999& \bf{$<$ 0.001} \\
+\hline
+2&\say{fuc} & 36.2975& \bf{$<$ 0.001} \\
+\hline
+3&\say{uck} & 0.0& \bf{$<$ 0.001} \\
+\hline
+4&\say{ fuc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+5&\say{ fuck} & 0.0& \bf{$<$ 0.001} \\
+\hline
+6&\say{fuck } & 0.0& \bf{$<$ 0.001} \\
+\hline
+7&\say{ranu } & 11.0187& \bf{$<$ 0.001} \\
+\hline
+8&\say{anu } & 0.0& \bf{$<$ 0.001} \\
+\hline
+9&\say{uck } & 13.722& \bf{$<$ 0.001} \\
+\hline
+10&\say{nu } & 0.0& \bf{$<$ 0.001} \\
+\hline
+11&\say{ranu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+12&\say{anu m} & 0.0& \bf{$<$ 0.001} \\
+\hline
+13&\say{nu m} & 0.0& \bf{$<$ 0.001} \\
+\hline
+14&\say{inis} & 0.0& \bf{$<$ 0.001} \\
+\hline
+15&\say{femi} & 0.0& \bf{$<$ 0.001} \\
+\hline
+16&\say{emin} & 10.8184& \bf{$<$ 0.001} \\
+\hline
+17&\say{minis} & 0.0& \bf{$<$ 0.001} \\
+\hline
+18&\say{emi} & 26.2936& \bf{$<$ 0.001} \\
+\hline
+19&\say{femin} & 0.0& \bf{$<$ 0.001} \\
+\hline
+20&\say{mini} & 0.0& \bf{$<$ 0.001} \\
+\hline
+21&\say{emini} & 0.0& \bf{$<$ 0.001} \\
+\hline
+22&\say{fem} & 0.0& \bf{0.001} \\
+\hline
+23&\say{ ranu} & 14.4706& \bf{0.0011} \\
+\hline
+24&\say{anu} & 0.0& \bf{0.0012} \\
+\hline
+25&\say{itch} & 47.3954& \bf{0.0015} \\
+\hline
+26&\say{bitch} & 21.9493& \bf{0.0015} \\
+\hline
+27&\say{nu ma} & 7.5452& \bf{0.0016} \\
+\hline
+28&\say{itc} & 0.0& \bf{0.0018} \\
+\hline
+29&\say{bitc} & 0.0& \bf{0.0019} \\
+\hline
+30&\say{ bitc} & 4.7532& \bf{0.0022} \\
+\hline
+31&\say{i hat} & 3.8098& \bf{0.0026} \\
+\hline
+32&\say{nis} & 0.0& \bf{0.0029} \\
+\hline
+33&\say{ ran} & 0.0& \bf{0.0029} \\
+\hline
+34&\say{uck u} & 0.0& \bf{0.0037} \\
+\hline
+35&\say{ini} & 13.4876& \bf{0.0044} \\
+\hline
+36&\say{inist} & 0.0& \bf{0.0045} \\
+\hline
+37&\say{ mand} & 0.0& \bf{0.0048} \\
+\hline
+38&\say{ck} & 6.0637& \bf{0.005} \\
+\hline
+39&\say{ran} & 0.0& \bf{0.0053} \\
+\hline
+40&\say{ck u} & 0.0& \bf{0.0054} \\
+\hline
+41&\say{nist} & 0.0& \bf{0.0055} \\
+\hline
+42&\say{u man} & 0.0& \bf{0.0057} \\
+\hline
+43&\say{ fu} & 12.5518& \bf{0.0065} \\
+\hline
+44&\say{ femi} & 0.0& \bf{0.0069} \\
+\hline
+45&\say{ fem} & 0.0& \bf{0.0072} \\
+\hline
+46&\say{mond} & 16.2549& \bf{0.008} \\
+\hline
+47&\say{andu} & 43.3202& \bf{0.0081} \\
+\hline
+48&\say{min} & 0.0& \bf{0.0081} \\
+\hline
+49&\say{ndal} & 0.0& \bf{0.0087} \\
+\hline
+50&\say{te ra} & 0.0& \bf{0.009} \\
+\hline
