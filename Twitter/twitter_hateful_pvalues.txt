@@ -1,32 +1,102 @@
-coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+index & feature & coefficient & p-value  \\
 \hline
-14.7451&\say{nigga} & $<$ 0.001 &0.0&\say{ ni} & $<$ 0.001 \\
+1&\say{nigga} & 14.7451& \bf{$<$ 0.001} \\
 \hline
-45.388&\say{nigg} & $<$ 0.001 &0.0&\say{gg} & $<$ 0.001 \\
+2&\say{nigg} & 45.388& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{igga} & $<$ 0.001 &0.0&\say{ga } & $<$ 0.001 \\
+3&\say{igga} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ nigg} & $<$ 0.001 &0.0&\say{gas w} & $<$ 0.001 \\
+4&\say{ nigg} & 0.0& \bf{$<$ 0.001} \\
 \hline
-20.5997&\say{gga} & $<$ 0.001 &0.0&\say{ hate} & $<$ 0.001 \\
+5&\say{gga} & 20.5997& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{igg} & $<$ 0.001 &12.317&\say{hate } & $<$ 0.001 \\
+6&\say{igg} & 0.0& \bf{$<$ 0.001} \\
 \hline
-13.9875&\say{ggas } & $<$ 0.001 &0.0&\say{a nig} & $<$ 0.001 \\
+7&\say{ggas } & 13.9875& \bf{$<$ 0.001} \\
 \hline
--8.3949&\say{iggas} & $<$ 0.001 &19.256&\say{ hat} & $<$ 0.001 \\
+8&\say{iggas} & -8.3949& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ggas} & $<$ 0.001 &16.6024&\say{hate} & $<$ 0.001 \\
+9&\say{ggas} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ nig} & $<$ 0.001 &1.3553&\say{m nig} & $<$ 0.001 \\
+10&\say{ nig} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{gas } & $<$ 0.001 &0.0&\say{m ni} & $<$ 0.001 \\
+11&\say{gas } & 0.0& \bf{$<$ 0.001} \\
 \hline
-4.0101&\say{igga } & $<$ 0.001 &0.0&\say{om ni} & $<$ 0.001 \\
+12&\say{igga } & 4.0101& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{gga } & $<$ 0.001 &0.0&\say{/fzti} & $<$ 0.001 \\
+13&\say{gga } & 0.0& \bf{$<$ 0.001} \\
 \hline
--1.7729&\say{gas} & $<$ 0.001 &0.0&\say{fzti} & $<$ 0.001 \\
+14&\say{gas} & -1.7729& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{nig} & $<$ 0.001 &0.0&\say{fztia} & $<$ 0.001 \\
+15&\say{nig} & 0.0& \bf{$<$ 0.001} \\
+\hline
+16&\say{ ni} & 0.0& \bf{$<$ 0.001} \\
+\hline
+17&\say{gg} & 0.0& \bf{$<$ 0.001} \\
+\hline
+18&\say{ga } & 0.0& \bf{$<$ 0.001} \\
+\hline
+19&\say{gas w} & 0.0& \bf{$<$ 0.001} \\
+\hline
+20&\say{ hate} & 0.0& \bf{$<$ 0.001} \\
+\hline
+21&\say{hate } & 12.317& \bf{$<$ 0.001} \\
+\hline
+22&\say{a nig} & 0.0& \bf{$<$ 0.001} \\
+\hline
+23&\say{ hat} & 19.256& \bf{$<$ 0.001} \\
+\hline
+24&\say{hate} & 16.6024& \bf{$<$ 0.001} \\
+\hline
+25&\say{m nig} & 1.3553& \bf{$<$ 0.001} \\
+\hline
+26&\say{m ni} & 0.0& \bf{$<$ 0.001} \\
+\hline
+27&\say{om ni} & 0.0& \bf{$<$ 0.001} \\
+\hline
+28&\say{/fzti} & 0.0& \bf{$<$ 0.001} \\
+\hline
+29&\say{fzti} & 0.0& \bf{$<$ 0.001} \\
+\hline
+30&\say{fztia} & 0.0& \bf{$<$ 0.001} \\
+\hline
+31&\say{ld. y} & 0.0& \bf{$<$ 0.001} \\
+\hline
+32&\say{liewi} & 0.0& \bf{$<$ 0.001} \\
+\hline
+33&\say{u sep} & 0.0& \bf{$<$ 0.001} \\
+\hline
+34&\say{ztia} & 0.0& \bf{$<$ 0.001} \\
+\hline
+35&\say{ztia…} & 0.0& \bf{$<$ 0.001} \\
+\hline
+36&\say{iewil} & 0.0& \bf{$<$ 0.001} \\
+\hline
+37&\say{will:} & 0.0& \bf{$<$ 0.001} \\
+\hline
+38&\say{lliew} & 0.0& \bf{$<$ 0.001} \\
+\hline
+39&\say{rish.} & 0.0& \bf{$<$ 0.001} \\
+\hline
+40&\say{/fzt} & 0.0& \bf{$<$ 0.001} \\
+\hline
+41&\say{o/fzt} & 0.0& \bf{$<$ 0.001} \\
+\hline
+42&\say{u flo} & 0.0& \bf{$<$ 0.001} \\
+\hline
+43&\say{tia…} & 0.0& \bf{$<$ 0.001} \\
+\hline
+44&\say{urish} & 0.0& \bf{$<$ 0.001} \\
+\hline
+45&\say{liew} & 0.0& \bf{$<$ 0.001} \\
+\hline
+46&\say{yo se} & 0.0& \bf{$<$ 0.001} \\
+\hline
+47&\say{ flou} & 0.0& \bf{$<$ 0.001} \\
+\hline
+48&\say{@iamw} & 0.0& \bf{$<$ 0.001} \\
+\hline
+49&\say{iamwi} & 0.0& \bf{$<$ 0.001} \\
+\hline
+50&\say{flour} & 0.0& \bf{$<$ 0.001} \\
 \hline

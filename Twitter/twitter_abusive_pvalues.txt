@@ -1,32 +1,102 @@
-coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+index & feature & coefficient & p-value  \\
 \hline
-70.2453&\say{fuck} & $<$ 0.001 &0.0&\say{king } & $<$ 0.001 \\
+1&\say{fuck} & 70.2453& \bf{$<$ 0.001} \\
 \hline
-69.0251&\say{fuc} & $<$ 0.001 &3.2797&\say{t @} & $<$ 0.001 \\
+2&\say{fuc} & 69.0251& \bf{$<$ 0.001} \\
 \hline
-1.3952&\say{ fuck} & $<$ 0.001 &1.6531&\say{king} & $<$ 0.001 \\
+3&\say{ fuck} & 1.3952& \bf{$<$ 0.001} \\
 \hline
-0.001&\say{ fuc} & $<$ 0.001 &0.0&\say{kin} & $<$ 0.001 \\
+4&\say{ fuc} & 0.001& \bf{$<$ 0.001} \\
 \hline
-30.1973&\say{uck} & $<$ 0.001 &0.0&\say{rt } & $<$ 0.001 \\
+5&\say{uck} & 30.1973& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ fu} & $<$ 0.001 &11.0345&\say{ck} & $<$ 0.001 \\
+6&\say{ fu} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{fucki} & $<$ 0.001 &0.0&\say{fucke} & $<$ 0.001 \\
+7&\say{fucki} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.6305&\say{uckin} & $<$ 0.001 &0.0&\say{ucked} & $<$ 0.001 \\
+8&\say{uckin} & 0.6305& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ucki} & $<$ 0.001 &0.0&\say{ucke} & $<$ 0.001 \\
+9&\say{ucki} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.433&\say{ckin} & $<$ 0.001 &1.1733&\say{ki} & $<$ 0.001 \\
+10&\say{ckin} & 0.433& \bf{$<$ 0.001} \\
 \hline
-5.7717&\say{cking} & $<$ 0.001 &0.0&\say{e fuc} & $<$ 0.001 \\
+11&\say{cking} & 5.7717& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{cki} & $<$ 0.001 &0.0&\say{: } & $<$ 0.001 \\
+12&\say{cki} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{fu} & $<$ 0.001 &0.0&\say{s fuc} & $<$ 0.001 \\
+13&\say{fu} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{uc} & $<$ 0.001 &0.0&\say{cked } & $<$ 0.001 \\
+14&\say{uc} & 0.0& \bf{$<$ 0.001} \\
 \hline
-30.1416&\say{rt @} & $<$ 0.001 &0.0&\say{cked} & $<$ 0.001 \\
+15&\say{rt @} & 30.1416& \bf{$<$ 0.001} \\
+\hline
+16&\say{king } & 0.0& \bf{$<$ 0.001} \\
+\hline
+17&\say{t @} & 3.2797& \bf{$<$ 0.001} \\
+\hline
+18&\say{king} & 1.6531& \bf{$<$ 0.001} \\
+\hline
+19&\say{kin} & 0.0& \bf{$<$ 0.001} \\
+\hline
+20&\say{rt } & 0.0& \bf{$<$ 0.001} \\
+\hline
+21&\say{ck} & 11.0345& \bf{$<$ 0.001} \\
+\hline
+22&\say{fucke} & 0.0& \bf{$<$ 0.001} \\
+\hline
+23&\say{ucked} & 0.0& \bf{$<$ 0.001} \\
+\hline
+24&\say{ucke} & 0.0& \bf{$<$ 0.001} \\
+\hline
+25&\say{ki} & 1.1733& \bf{$<$ 0.001} \\
+\hline
+26&\say{e fuc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+27&\say{: } & 0.0& \bf{$<$ 0.001} \\
+\hline
+28&\say{s fuc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+29&\say{cked } & 0.0& \bf{$<$ 0.001} \\
+\hline
+30&\say{cked} & 0.0& \bf{$<$ 0.001} \\
+\hline
+31&\say{e fu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+32&\say{s fu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+33&\say{a fuc} & 3.4857& \bf{$<$ 0.001} \\
+\hline
+34&\say{a fu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+35&\say{bitch} & 49.9204& \bf{$<$ 0.001} \\
+\hline
+36&\say{y fuc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+37&\say{bitc} & 16.8325& \bf{$<$ 0.001} \\
+\hline
+38&\say{ bitc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+39&\say{cke} & 0.0& \bf{$<$ 0.001} \\
+\hline
+40&\say{ a fu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+41&\say{y fu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+42&\say{ked } & 0.0& \bf{$<$ 0.001} \\
+\hline
+43&\say{rt} & 0.0& \bf{$<$ 0.001} \\
+\hline
+44&\say{ked u} & 7.9664& \bf{$<$ 0.001} \\
+\hline
+45&\say{ked} & 0.0& \bf{$<$ 0.001} \\
+\hline
+46&\say{: i} & -0.2158& \bf{$<$ 0.001} \\
+\hline
+47&\say{o fuc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+48&\say{is fu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+49&\say{ bit} & 0.0& \bf{$<$ 0.001} \\
+\hline
+50&\say{t fuc} & 0.0& \bf{$<$ 0.001} \\
 \hline

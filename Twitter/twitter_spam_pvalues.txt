@@ -1,32 +1,102 @@
-coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+index & feature & coefficient & p-value  \\
 \hline
-9.4084&\say{free } & $<$ 0.001 &-6.8455&\say{ckin} & $<$ 0.001 \\
+1&\say{free } & 9.4084& \bf{$<$ 0.001} \\
 \hline
-12.3753&\say{free} & $<$ 0.001 &0.0&\say{cki} & $<$ 0.001 \\
+2&\say{free} & 12.3753& \bf{$<$ 0.001} \\
 \hline
--8.2583&\say{rt @} & $<$ 0.001 &-23.5912&\say{ i } & $<$ 0.001 \\
+3&\say{rt @} & -8.2583& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ free} & $<$ 0.001 &0.0&\say{cking} & $<$ 0.001 \\
+4&\say{ free} & 0.0& \bf{$<$ 0.001} \\
 \hline
--47.4652&\say{fuck} & $<$ 0.001 &0.0&\say{ fu} & $<$ 0.001 \\
+5&\say{fuck} & -47.4652& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{fuc} & $<$ 0.001 &0.0&\say{ree } & $<$ 0.001 \\
+6&\say{fuc} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ fuck} & $<$ 0.001 &0.0&\say{king } & $<$ 0.001 \\
+7&\say{ fuck} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ fuc} & $<$ 0.001 &1.4142&\say{gb } & $<$ 0.001 \\
+8&\say{ fuc} & 0.0& \bf{$<$ 0.001} \\
 \hline
--4.2091&\say{uck} & $<$ 0.001 &0.0&\say{downl} & $<$ 0.001 \\
+9&\say{uck} & -4.2091& \bf{$<$ 0.001} \\
 \hline
--4.6941&\say{fucki} & $<$ 0.001 &0.0&\say{ - } & $<$ 0.001 \\
+10&\say{fucki} & -4.6941& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{uckin} & $<$ 0.001 &0.1344&\say{- } & $<$ 0.001 \\
+11&\say{uckin} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ucki} & $<$ 0.001 &0.0&\say{ -} & $<$ 0.001 \\
+12&\say{ucki} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{t @} & $<$ 0.001 &19.895&\say{ownl} & $<$ 0.001 \\
+13&\say{t @} & 0.0& \bf{$<$ 0.001} \\
 \hline
-11.567&\say{: ht} & $<$ 0.001 &0.0&\say{ownlo} & $<$ 0.001 \\
+14&\say{: ht} & 11.567& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{: htt} & $<$ 0.001 &0.0&\say{wnlo} & $<$ 0.001 \\
+15&\say{: htt} & 0.0& \bf{$<$ 0.001} \\
+\hline
+16&\say{ckin} & -6.8455& \bf{$<$ 0.001} \\
+\hline
+17&\say{cki} & 0.0& \bf{$<$ 0.001} \\
+\hline
+18&\say{ i } & -23.5912& \bf{$<$ 0.001} \\
+\hline
+19&\say{cking} & 0.0& \bf{$<$ 0.001} \\
+\hline
+20&\say{ fu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+21&\say{ree } & 0.0& \bf{$<$ 0.001} \\
+\hline
+22&\say{king } & 0.0& \bf{$<$ 0.001} \\
+\hline
+23&\say{gb } & 1.4142& \bf{$<$ 0.001} \\
+\hline
+24&\say{downl} & 0.0& \bf{$<$ 0.001} \\
+\hline
+25&\say{ - } & 0.0& \bf{$<$ 0.001} \\
+\hline
+26&\say{- } & 0.1344& \bf{$<$ 0.001} \\
+\hline
+27&\say{ -} & 0.0& \bf{$<$ 0.001} \\
+\hline
+28&\say{ownl} & 19.895& \bf{$<$ 0.001} \\
+\hline
+29&\say{ownlo} & 0.0& \bf{$<$ 0.001} \\
+\hline
+30&\say{wnlo} & 0.0& \bf{$<$ 0.001} \\
+\hline
+31&\say{eck o} & 9.9164& \bf{$<$ 0.001} \\
+\hline
+32&\say{wnloa} & 0.0& \bf{$<$ 0.001} \\
+\hline
+33&\say{king} & 0.0& \bf{$<$ 0.001} \\
+\hline
+34&\say{nloa} & 0.0& \bf{$<$ 0.001} \\
+\hline
+35&\say{nlo} & 7.9646& \bf{$<$ 0.001} \\
+\hline
+36&\say{uc} & -4.1338& \bf{$<$ 0.001} \\
+\hline
+37&\say{nload} & 0.0& \bf{$<$ 0.001} \\
+\hline
+38&\say{ #} & -0.3105& \bf{$<$ 0.001} \\
+\hline
+39&\say{fu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+40&\say{ fre} & 0.0& \bf{$<$ 0.001} \\
+\hline
+41&\say{hat} & -2.6704& \bf{$<$ 0.001} \\
+\hline
+42&\say{wnl} & 0.0& \bf{$<$ 0.001} \\
+\hline
+43&\say{kin} & -3.6301& \bf{$<$ 0.001} \\
+\hline
+44&\say{heck } & 0.0& \bf{$<$ 0.001} \\
+\hline
+45&\say{click} & 13.4066& \bf{$<$ 0.001} \\
+\hline
+46&\say{ $} & 11.1677& \bf{$<$ 0.001} \\
+\hline
+47&\say{0 } & 8.0971& \bf{$<$ 0.001} \\
+\hline
+48&\say{rt } & 0.0& \bf{$<$ 0.001} \\
+\hline
+49&\say{chec} & 6.7665& \bf{$<$ 0.001} \\
+\hline
+50&\say{check} & 0.0& \bf{$<$ 0.001} \\
 \hline

@@ -21,7 +21,7 @@ import numpy as np
 DATA_PATH = "../../twitter_data/"
 
 mode = "test"
-focus_label = 'abusive'
+focus_label = 'spam'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -141,7 +141,7 @@ if __name__ == "__main__":
         clf_current = clf_abusive
         clf_filename = 'twitter_abusive_clf.sav'
         img_filename = 'twitter_abusive_img.pdf'
-        img_filename_P = 'twitter_abusive_img_P.pdf'
+        img_filename_PN = 'twitter_abusive_img_PN.pdf'
         csv_sample_filename = 'twitter_abusive_sample_comments.csv'
         csv_sample_filename_P = 'twitter_abusive_sample_comments_P.csv'
         pvalues_txt_filename = 'twitter_abusive_pvalues.txt'
@@ -149,7 +149,7 @@ if __name__ == "__main__":
         clf_current = clf_hateful
         clf_filename = 'twitter_hateful_clf.sav'
         img_filename = 'twitter_hateful_img.pdf'
-        img_filename_P = 'twitter_hateful_img_P.pdf'
+        img_filename_PN = 'twitter_hateful_img_PN.pdf'
         csv_sample_filename = 'twitter_hateful_sample_comments.csv'
         csv_sample_filename_P = 'twitter_hateful_sample_comments_P.csv'
         pvalues_txt_filename = 'twitter_hateful_pvalues.txt'
@@ -157,7 +157,7 @@ if __name__ == "__main__":
         clf_current = clf_normal
         clf_filename = 'twitter_normal_clf.sav'
         img_filename = 'twitter_normal_img.pdf'
-        img_filename_P = 'twitter_normal_img_P.pdf'
+        img_filename_PN = 'twitter_normal_img_PN.pdf'
         csv_sample_filename = 'twitter_normal_sample_comments.csv'
         csv_sample_filename_P = 'twitter_normal_sample_comments_P.csv'
         pvalues_txt_filename = 'twitter_normal_pvalues.txt'
@@ -165,7 +165,7 @@ if __name__ == "__main__":
         clf_current = clf_spam
         clf_filename = 'twitter_spam_clf.sav'
         img_filename = 'twitter_spam_img.pdf'
-        img_filename_P = 'twitter_spam_img_P.pdf'
+        img_filename_PN = 'twitter_spam_img_PN.pdf'
         csv_sample_filename = 'twitter_spam_sample_comments.csv'
         csv_sample_filename_P = 'twitter_spam_sample_comments_P.csv'
         pvalues_txt_filename = 'twitter_spam_pvalues.txt'
@@ -254,8 +254,8 @@ print_format_coef(most_neg,most_pred)
 from matplotlib import pyplot
 
 # get importance
-#importance = most_neg + most_pred[::-1]
-importance = most_pred[::-1]
+importance = most_neg + most_pred[::-1]
+#importance = most_pred[::-1]
 #print(importance)
 
 fig, ax = pyplot.subplots()
@@ -265,8 +265,12 @@ ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 
 pyplot.xticks(rotation=90, ha='right')
 #pyplot.show()
 
-fig.tight_layout()
-fig.savefig(img_filename,dpi=300)
+#fig.tight_layout()
+#fig.savefig(img_filename,dpi=300)
+"""This line is used to save image only using positive coeficients"""
+#fig.savefig(img_filename,dpi=300)
+"""This line is used to save image using positive and negative coeficients"""
+fig.savefig(img_filename_PN, dpi=300, bbox_inches='tight')
 #%%
 
 n_list_values =  30
