@@ -1,32 +1,105 @@
-coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+index & feature & coefficient & p-value  \\
 \hline
-16.61&\say{kill } & $<$ 0.001 &0.0&\say{kil} & $<$ 0.001 \\
+1&\say{kill } & 16.61& \bf{$<$ 0.001} \\
 \hline
-12.8768&\say{u die} & $<$ 0.001 &0.0&\say{die!} & $<$ 0.001 \\
+2&\say{u die} & 12.8768& \bf{$<$ 0.001} \\
 \hline
-2.1162&\say{ill y} & $<$ 0.001 &0.0&\say{die i} & $<$ 0.001 \\
+3&\say{ill y} & 2.1162& \bf{$<$ 0.001} \\
 \hline
-12.9019&\say{ape y} & $<$ 0.001 &0.0&\say{oot y} & $<$ 0.001 \\
+4&\say{ape y} & 12.9019& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ die } & $<$ 0.001 &4.2069&\say{l kic} & $<$ 0.001 \\
+5&\say{ die } & 0.0& \bf{$<$ 0.001} \\
 \hline
-13.0501&\say{ kill} & $<$ 0.001 &0.0&\say{die y} & $<$ 0.001 \\
+6&\say{ kill} & 13.0501& \bf{$<$ 0.001} \\
 \hline
-2.0368&\say{ kil} & $<$ 0.001 &32.2667&\say{ang y} & $<$ 0.001 \\
+7&\say{ kil} & 2.0368& \bf{$<$ 0.001} \\
 \hline
-18.6707&\say{ll ki} & $<$ 0.001 &7.6749&\say{go ki} & $<$ 0.001 \\
+8&\say{ll ki} & 18.6707& \bf{$<$ 0.001} \\
 \hline
-15.2207&\say{ die} & $<$ 0.001 &0.0&\say{0ll } & $<$ 0.001 \\
+9&\say{ die} & 15.2207& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{l kil} & $<$ 0.001 &0.0&\say{0ll w} & $<$ 0.001 \\
+10&\say{l kil} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{die } & $<$ 0.001 &0.0&\say{0ll y} & $<$ 0.001 \\
+11&\say{die } & 0.0& \bf{$<$ 0.001} \\
 \hline
-25.4704&\say{kill} & $<$ 0.001 &0.0&\say{ertr0} & $<$ 0.001 \\
+12&\say{kill} & 25.4704& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{o kil} & $<$ 0.001 &0.0&\say{r0l} & $<$ 0.001 \\
+13&\say{o kil} & 0.0& \bf{$<$ 0.001} \\
 \hline
-14.2579&\say{ die!} & $<$ 0.001 &0.0&\say{r0ll} & $<$ 0.001 \\
+14&\say{ die!} & 14.2579& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{l ki} & $<$ 0.001 &0.0&\say{r0ll } & $<$ 0.001 \\
+15&\say{l ki} & 0.0& \bf{$<$ 0.001} \\
+\hline
+16&\say{kil} & 0.0& \bf{$<$ 0.001} \\
+\hline
+17&\say{die!} & 0.0& \bf{$<$ 0.001} \\
+\hline
+18&\say{die i} & 0.0& \bf{$<$ 0.001} \\
+\hline
+19&\say{oot y} & 0.0& \bf{$<$ 0.001} \\
+\hline
+20&\say{l kic} & 4.2069& \bf{$<$ 0.001} \\
+\hline
+21&\say{die y} & 0.0& \bf{$<$ 0.001} \\
+\hline
+22&\say{ang y} & 32.2667& \bf{$<$ 0.001} \\
+\hline
+23&\say{go ki} & 7.6749& \bf{$<$ 0.001} \\
+\hline
+24&\say{0ll } & 0.0& \bf{$<$ 0.001} \\
+\hline
+25&\say{0ll w} & 0.0& \bf{$<$ 0.001} \\
+\hline
+26&\say{0ll y} & 0.0& \bf{$<$ 0.001} \\
+\hline
+27&\say{ertr0} & 0.0& \bf{$<$ 0.001} \\
+\hline
+28&\say{r0l} & 0.0& \bf{$<$ 0.001} \\
+\hline
+29&\say{r0ll} & 0.0& \bf{$<$ 0.001} \\
+\hline
+30&\say{r0ll } & 0.0& \bf{$<$ 0.001} \\
+\hline
+31&\say{rtr0} & 0.0& \bf{$<$ 0.001} \\
+\hline
+32&\say{rtr0l} & 0.0& \bf{$<$ 0.001} \\
+\hline
+33&\say{tr0l} & 0.0& \bf{$<$ 0.001} \\
+\hline
+34&\say{tr0ll} & 0.0& \bf{$<$ 0.001} \\
+\hline
+35&\say{ die.} & 7.736& \bf{$<$ 0.001} \\
+\hline
+36&\say{er!
+i} & 0.0& \bf{$<$ 0.001} \\
+\hline
+37&\say{r!
+i} & 0.0& \bf{$<$ 0.001} \\
+\hline
+38&\say{r!
+if} & 0.0& \bf{$<$ 0.001} \\
+\hline
+39&\say{ll y} & 3.1079& \bf{$<$ 0.001} \\
+\hline
+40&\say{ll yo} & 0.0& \bf{$<$ 0.001} \\
+\hline
+41&\say{die} & 27.4868& \bf{$<$ 0.001} \\
+\hline
+42&\say{0ll} & 0.0& \bf{$<$ 0.001} \\
+\hline
+43&\say{i kil} & 4.6112& \bf{$<$ 0.001} \\
+\hline
+44&\say{ rape} & 0.0& \bf{$<$ 0.001} \\
+\hline
+45&\say{rape } & 0.0& \bf{$<$ 0.001} \\
+\hline
+46&\say{l fuc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+47&\say{go k} & 0.0& \bf{$<$ 0.001} \\
+\hline
+48&\say{die.} & 0.0& \bf{$<$ 0.001} \\
+\hline
+49&\say{d kil} & 0.0& \bf{$<$ 0.001} \\
+\hline
+50&\say{die!!} & 0.0& \bf{$<$ 0.001} \\
 \hline

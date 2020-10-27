@@ -1,32 +1,102 @@
-coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+index & feature & coefficient & p-value  \\
 \hline
-0.0&\say{ fuck} & $<$ 0.001 &21.94&\say{bitch} & $<$ 0.001 \\
+1&\say{ fuck} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{fucki} & $<$ 0.001 &0.0&\say{ shit} & $<$ 0.001 \\
+2&\say{fucki} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{uck } & $<$ 0.001 &26.4917&\say{bitc} & $<$ 0.001 \\
+3&\say{uck } & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{uck y} & $<$ 0.001 &20.7404&\say{ bitc} & $<$ 0.001 \\
+4&\say{uck y} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ucki} & $<$ 0.001 &0.0&\say{ suck} & $<$ 0.001 \\
+5&\say{ucki} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{uckin} & $<$ 0.001 &0.0&\say{e fuc} & $<$ 0.001 \\
+6&\say{uckin} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.846&\say{ fuc} & $<$ 0.001 &3.9895&\say{ fu} & $<$ 0.001 \\
+7&\say{ fuc} & 0.846& \bf{$<$ 0.001} \\
 \hline
-7.0934&\say{fuck } & $<$ 0.001 &0.0&\say{a fuc} & $<$ 0.001 \\
+8&\say{fuck } & 7.0934& \bf{$<$ 0.001} \\
 \hline
-27.9218&\say{uck} & $<$ 0.001 &0.0&\say{suck } & $<$ 0.001 \\
+9&\say{uck} & 27.9218& \bf{$<$ 0.001} \\
 \hline
-41.3428&\say{fuck} & $<$ 0.001 &13.7084&\say{shole} & $<$ 0.001 \\
+10&\say{fuck} & 41.3428& \bf{$<$ 0.001} \\
 \hline
-76.0697&\say{fuc} & $<$ 0.001 &0.0&\say{sshol} & $<$ 0.001 \\
+11&\say{fuc} & 76.0697& \bf{$<$ 0.001} \\
 \hline
-0.9534&\say{ck yo} & $<$ 0.001 &0.0&\say{assho} & $<$ 0.001 \\
+12&\say{ck yo} & 0.9534& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{ck y} & $<$ 0.001 &15.2868&\say{assh} & $<$ 0.001 \\
+13&\say{ck y} & 0.0& \bf{$<$ 0.001} \\
 \hline
-57.3165&\say{shit} & $<$ 0.001 &0.0&\say{o fuc} & $<$ 0.001 \\
+14&\say{shit} & 57.3165& \bf{$<$ 0.001} \\
 \hline
-33.4852&\say{suck} & $<$ 0.001 &0.0&\say{ssho} & $<$ 0.001 \\
+15&\say{suck} & 33.4852& \bf{$<$ 0.001} \\
+\hline
+16&\say{bitch} & 21.94& \bf{$<$ 0.001} \\
+\hline
+17&\say{ shit} & 0.0& \bf{$<$ 0.001} \\
+\hline
+18&\say{bitc} & 26.4917& \bf{$<$ 0.001} \\
+\hline
+19&\say{ bitc} & 20.7404& \bf{$<$ 0.001} \\
+\hline
+20&\say{ suck} & 0.0& \bf{$<$ 0.001} \\
+\hline
+21&\say{e fuc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+22&\say{ fu} & 3.9895& \bf{$<$ 0.001} \\
+\hline
+23&\say{a fuc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+24&\say{suck } & 0.0& \bf{$<$ 0.001} \\
+\hline
+25&\say{shole} & 13.7084& \bf{$<$ 0.001} \\
+\hline
+26&\say{sshol} & 0.0& \bf{$<$ 0.001} \\
+\hline
+27&\say{assho} & 0.0& \bf{$<$ 0.001} \\
+\hline
+28&\say{assh} & 15.2868& \bf{$<$ 0.001} \\
+\hline
+29&\say{o fuc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+30&\say{ssho} & 0.0& \bf{$<$ 0.001} \\
+\hline
+31&\say{ assh} & 0.0& \bf{$<$ 0.001} \\
+\hline
+32&\say{fag} & 29.4727& \bf{$<$ 0.001} \\
+\hline
+33&\say{ssh} & 0.0& \bf{$<$ 0.001} \\
+\hline
+34&\say{shol} & 0.0& \bf{$<$ 0.001} \\
+\hline
+35&\say{ fag} & 0.0& \bf{$<$ 0.001} \\
+\hline
+36&\say{u fuc} & -2.5796& \bf{$<$ 0.001} \\
+\hline
+37&\say{ cunt} & 0.0& \bf{$<$ 0.001} \\
+\hline
+38&\say{cunt} & 45.5864& \bf{$<$ 0.001} \\
+\hline
+39&\say{shit } & 16.0813& \bf{$<$ 0.001} \\
+\hline
+40&\say{fucke} & 0.0& \bf{$<$ 0.001} \\
+\hline
+41&\say{ucke} & 0.8095& \bf{$<$ 0.001} \\
+\hline
+42&\say{ckin} & 0.0& \bf{$<$ 0.001} \\
+\hline
+43&\say{cki} & 11.5097& \bf{$<$ 0.001} \\
+\hline
+44&\say{ dick} & 7.8918& \bf{$<$ 0.001} \\
+\hline
+45&\say{fagg} & 0.6456& \bf{$<$ 0.001} \\
+\hline
+46&\say{u fu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+47&\say{ cun} & 2.3138& \bf{$<$ 0.001} \\
+\hline
+48&\say{dick} & 38.1299& \bf{$<$ 0.001} \\
+\hline
+49&\say{uck o} & 0.0312& \bf{$<$ 0.001} \\
+\hline
+50&\say{ shi} & 0.0& \bf{$<$ 0.001} \\
 \hline

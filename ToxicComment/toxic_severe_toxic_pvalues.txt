@@ -1,32 +1,102 @@
-coefficient & n-gram & p-value & coefficient & n-gram & p-value \\
+index & feature & coefficient & p-value  \\
 \hline
--3.6833&\say{ fuc} & $<$ 0.001 &0.0&\say{ckin} & $<$ 0.001 \\
+1&\say{ fuc} & -3.6833& \bf{$<$ 0.001} \\
 \hline
-4.1382&\say{uck } & $<$ 0.001 &0.1367&\say{itch} & $<$ 0.001 \\
+2&\say{uck } & 4.1382& \bf{$<$ 0.001} \\
 \hline
-6.8868&\say{fuck} & $<$ 0.001 &9.5534&\say{shit} & $<$ 0.001 \\
+3&\say{fuck} & 6.8868& \bf{$<$ 0.001} \\
 \hline
-9.1444&\say{fuc} & $<$ 0.001 &14.1037&\say{fag} & $<$ 0.001 \\
+4&\say{fuc} & 9.1444& \bf{$<$ 0.001} \\
 \hline
-31.1711&\say{uck} & $<$ 0.001 &8.2695&\say{cki} & $<$ 0.001 \\
+5&\say{uck} & 31.1711& \bf{$<$ 0.001} \\
 \hline
-10.3363&\say{ck y} & $<$ 0.001 &18.2376&\say{dick} & $<$ 0.001 \\
+6&\say{ck y} & 10.3363& \bf{$<$ 0.001} \\
 \hline
-5.1282&\say{ucki} & $<$ 0.001 &0.0&\say{itc} & $<$ 0.001 \\
+7&\say{ucki} & 5.1282& \bf{$<$ 0.001} \\
 \hline
-17.3219&\say{bitc} & $<$ 0.001 &0.0&\say{fagg} & $<$ 0.001 \\
+8&\say{bitc} & 17.3219& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{u fu} & $<$ 0.001 &0.0&\say{cunt} & $<$ 0.001 \\
+9&\say{u fu} & 0.0& \bf{$<$ 0.001} \\
 \hline
-0.0&\say{suck} & $<$ 0.001 &0.0&\say{fu} & $<$ 0.001 \\
+10&\say{suck} & 0.0& \bf{$<$ 0.001} \\
 \hline
-8.0152&\say{ucke} & $<$ 0.001 &17.1045&\say{ cun} & $<$ 0.001 \\
+11&\say{ucke} & 8.0152& \bf{$<$ 0.001} \\
 \hline
--2.536&\say{ fu} & $<$ 0.001 &0.0&\say{moth} & $<$ 0.001 \\
+12&\say{ fu} & -2.536& \bf{$<$ 0.001} \\
 \hline
--5.1618&\say{rfuc} & $<$ 0.001 &0.0&\say{ssho} & $<$ 0.001 \\
+13&\say{rfuc} & -5.1618& \bf{$<$ 0.001} \\
 \hline
-23.4194&\say{herf} & $<$ 0.001 &0.0&\say{assh} & $<$ 0.001 \\
+14&\say{herf} & 23.4194& \bf{$<$ 0.001} \\
 \hline
-5.6525&\say{ fag} & $<$ 0.001 &5.3126&\say{shol} & $<$ 0.001 \\
+15&\say{ fag} & 5.6525& \bf{$<$ 0.001} \\
+\hline
+16&\say{ckin} & 0.0& \bf{$<$ 0.001} \\
+\hline
+17&\say{itch} & 0.1367& \bf{$<$ 0.001} \\
+\hline
+18&\say{shit} & 9.5534& \bf{$<$ 0.001} \\
+\hline
+19&\say{fag} & 14.1037& \bf{$<$ 0.001} \\
+\hline
+20&\say{cki} & 8.2695& \bf{$<$ 0.001} \\
+\hline
+21&\say{dick} & 18.2376& \bf{$<$ 0.001} \\
+\hline
+22&\say{itc} & 0.0& \bf{$<$ 0.001} \\
+\hline
+23&\say{fagg} & 0.0& \bf{$<$ 0.001} \\
+\hline
+24&\say{cunt} & 0.0& \bf{$<$ 0.001} \\
+\hline
+25&\say{fu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+26&\say{ cun} & 17.1045& \bf{$<$ 0.001} \\
+\hline
+27&\say{moth} & 0.0& \bf{$<$ 0.001} \\
+\hline
+28&\say{ssho} & 0.0& \bf{$<$ 0.001} \\
+\hline
+29&\say{assh} & 0.0& \bf{$<$ 0.001} \\
+\hline
+30&\say{shol} & 5.3126& \bf{$<$ 0.001} \\
+\hline
+31&\say{cock} & 0.0& \bf{$<$ 0.001} \\
+\hline
+32&\say{ coc} & 3.3479& \bf{$<$ 0.001} \\
+\hline
+33&\say{uc} & 5.5455& \bf{$<$ 0.001} \\
+\hline
+34&\say{aggo} & 0.0& \bf{$<$ 0.001} \\
+\hline
+35&\say{ggot} & 0.0& \bf{$<$ 0.001} \\
+\hline
+36&\say{cun} & 0.0& \bf{$<$ 0.001} \\
+\hline
+37&\say{ssh} & 0.0& \bf{$<$ 0.001} \\
+\hline
+38&\say{ggo} & 0.0& \bf{$<$ 0.001} \\
+\hline
+39&\say{cker} & 0.0& \bf{$<$ 0.001} \\
+\hline
+40&\say{o fu} & -1.7922& \bf{$<$ 0.001} \\
+\hline
+41&\say{go f} & 0.0& \bf{$<$ 0.001} \\
+\hline
+42&\say{coc} & 7.9849& \bf{$<$ 0.001} \\
+\hline
+43&\say{ shi} & 0.0& \bf{$<$ 0.001} \\
+\hline
+44&\say{u bi} & 10.1124& \bf{$<$ 0.001} \\
+\hline
+45&\say{! fu} & 7.6965& \bf{$<$ 0.001} \\
+\hline
+46&\say{ck } & -2.5059& \bf{$<$ 0.001} \\
+\hline
+47&\say{nigg} & 17.3969& \bf{$<$ 0.001} \\
+\hline
+48&\say{ dic} & 1.1336& \bf{$<$ 0.001} \\
+\hline
+49&\say{a fu} & 0.0& \bf{$<$ 0.001} \\
+\hline
+50&\say{k u } & -2.985& \bf{$<$ 0.001} \\
 \hline

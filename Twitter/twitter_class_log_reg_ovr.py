@@ -21,7 +21,7 @@ import numpy as np
 DATA_PATH = "../../twitter_data/"
 
 mode = "test"
-focus_label = 'spam'
+focus_label = 'abusive'
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
     csv_path = os.path.join(housing_path, csvfile)
@@ -225,7 +225,7 @@ predictive_features = sorted(coefs_and_features,
 #%%
 
 
-n_display_values = 15
+n_display_values = 25
 
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
