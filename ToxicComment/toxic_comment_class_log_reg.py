@@ -247,7 +247,7 @@ predictive_features = sorted(coefs_and_features,
 #%%
 
 
-n_display_values = 15
+n_display_values = 25
 
 most_neg = neg_features[:n_display_values]
 most_pred = predictive_features[:n_display_values]
