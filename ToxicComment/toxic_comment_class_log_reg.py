@@ -21,7 +21,7 @@ import numpy as np
 DATA_PATH = "data/"
 
 mode = "test"
-focus_label = "identity_hate"
+focus_label = "toxic"
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -459,6 +459,7 @@ sample_labels_df = sample_labels_df.rename(columns={0:"label"})
 pd_sample_list = pd.concat([sample_ngrams_df,sample_comments_df,sample_labels_df],axis =1) 
 
 pd_sample_list.to_csv(csv_sample_filename_P)   
+print(pd_sample_list)
 print(counter)
 
 
