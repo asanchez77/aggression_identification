@@ -21,7 +21,7 @@ import numpy as np
 DATA_PATH = "data/"
 
 mode = "test"
-focus_label = "toxic"
+focus_label = "identity_hate"
 
 
 def load_aggression_data_file (csvfile, housing_path = DATA_PATH):
@@ -277,8 +277,8 @@ importance = most_neg + most_pred[::-1]
 #print(importance)
 
 fig, ax = pyplot.subplots()
-ax.tick_params(axis='both', which='major', labelsize=16)
-pyplot.title(focus_label,fontdict = {'fontsize' : 16})
+ax.tick_params(axis='both', which='major', labelsize=12)
+pyplot.title(focus_label,fontdict = {'fontsize' : 12})
 ax.bar([repr(x[1])[1:-1] for x in importance], [x[0] for x in importance], -.9, 0,  align='edge')
 pyplot.xticks(rotation=90, ha='right')
 #pyplot.show()
